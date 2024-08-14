@@ -1,0 +1,46 @@
+.nav {
+  position: relative;
+  padding: 20px 0;
+  width: 100%;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1920px;
+  margin: 0 auto;
+}
+
+.navLogo {
+  margin-left: 220px;
+}
+
+.navBtn {
+  margin-right: 220px;
+}
+
+.mobileLogo,
+.mobileBtn {
+  display: none;
+}
+
+@media (max-width: 1200px) {
+  .navLogo,
+  .navBtn {
+    margin: 0 24px;
+  }
+}
+
+@media (max-width: 720px) {
+  .navLogo,
+  .navBtn {
+    display: none;
+  }
+
+  .mobileLogo,
+  .mobileBtn {
+    display: block;
+    margin: 0 16px;
+  }
+}
