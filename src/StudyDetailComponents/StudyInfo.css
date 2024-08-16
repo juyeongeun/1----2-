@@ -1,0 +1,54 @@
+body {
+  font-family: "Pretendard", sans-serif;
+  background-color: #f6f4ef;
+  text-wrap: no;
+}
+
+.studyInfo {
+  padding: 40px 40px 24px 40px;
+}
+
+.headerInfo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.emojiBtn {
+  width: 67px;
+  height: 31px;
+  padding: 6px 8px;
+  border-radius: 50px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+  background-image: url("../img/ic_emoji.svg");
+  background-repeat: no-repeat;
+  background-position: 8px center;
+  background-size: 18px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #414141;
+  text-align: right;
+}
+
+.emojis {
+  display: flex;
+  align-items: center;
+}
+
+.emojiItem {
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 50px;
+  padding: 6px 8px;
+  color: #ffffff;
+  border: none;
+  font-size: 16px;
+  font-weight: 400;
+  margin-right: 4px;
+}
+
+.linkTo {
+  text-decoration: none;
+  color: #578246;
+  margin-left: 16px;
+}
