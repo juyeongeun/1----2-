@@ -1,7 +1,7 @@
 body {
   font-family: "Pretendard", sans-serif;
   background-color: #f6f4ef;
-  text-wrap: no;
+  white-space: nowrap;
 }
 
 .studyInfo {
@@ -29,10 +29,18 @@ body {
   font-weight: 500;
   color: #414141;
   text-align: right;
+  margin-left: 4px;
+}
+
+.emojiCount {
+  font-size: 16px;
+  font-weight: 400;
+  margin-left: 5px;
 }
 
 .emojis {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
 }
 
@@ -42,13 +50,70 @@ body {
   padding: 6px 8px;
   color: #ffffff;
   border: none;
-  font-size: 16px;
-  font-weight: 400;
   margin-right: 4px;
 }
 
-.linkTo {
+.emoji-dropdown {
+  display: inline-block;
+  width: 242px;
+}
+
+.moreEmoji {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.expandedEmojiList {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  position: relative;
+  padding: 12px 8px;
+  background-color: #ffffff;
+  border-radius: 15px;
+  border: 1px solid #dddddd;
+  left: -25px;
+  top: 8px;
+  gap: 4px;
+  margin-right: 0;
+}
+
+.emojiItemDrop {
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 50px;
+  padding: 6px 8px;
+  color: #ffffff;
+  border: none;
+}
+
+.text {
   text-decoration: none;
-  color: #578246;
   margin-left: 16px;
+}
+
+.color-B {
+  color: #818181;
+}
+
+.color-G {
+  color: #578246;
+}
+
+.shareContainer {
+  display: inline-block;
+  border: 1px solid #578246;
+}
+
+.shareOptions {
+  display: flex;
+  gap: 10px;
+}
+
+.shareIcon {
+  display: inline-flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  font-size: 25px;
+  color: #555;
+  cursor: pointer;
 }
