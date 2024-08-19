@@ -1,9 +1,9 @@
-import Container from '../components/Container.js';
+import RegistrationForm from '../components/RegistrationForm.js';
 
 function CreateStudyPage() {
   return (
     <>
-      <Container></Container>
+      <RegistrationForm />
     </>
   );
 }
