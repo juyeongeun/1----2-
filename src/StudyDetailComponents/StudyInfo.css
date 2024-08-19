@@ -6,6 +6,7 @@ body {
 
 .studyInfo {
   position: relative;
+  height: 31px;
 }
 
 .headerInfo {
@@ -84,7 +85,6 @@ body {
   border-radius: 15px;
   border: 1px solid #dddddd;
   left: -25px;
-  top: 8px;
   gap: 4px;
   margin-right: 0;
 }
@@ -167,7 +167,11 @@ body {
   }
 
   .shareContainer {
-    left: 200px;
+    left: 0px;
     top: 30px;
+  }
+
+  .studyInfo {
+    height: 70px;
   }
 }
