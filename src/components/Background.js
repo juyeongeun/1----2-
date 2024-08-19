@@ -21,12 +21,15 @@ const images = [
   backgroundPlan,
 ];
 
-function Background() {
+function Background({ handleChange }) {
   const [selectedIndex, setSelectedIndex] = useState(0);
 
   const handleClick = (index) => {
     setSelectedIndex(index);
-    console.log(index);
+
+    const value = images[index];
+    const name = 'background';
+    handleChange({ name, value });
   };
 
   return (
