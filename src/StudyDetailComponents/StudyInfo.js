@@ -1,23 +1,28 @@
 import EmojiPicker from "emoji-picker-react";
 import React, { useState } from "react";
 import useFetchEmoji from "../hooks/useFetchEmoji.js";
+import useFetchStudy from "../hooks/useFetchStudy.js";
 import StudyShare from "./StudyShare.js";
-
 import "./StudyInfo.css";
+import PasswordModal from "./PasswordModal.js";
 
 function StudyInfo() {
   const [isEmojiPickerVisible, setEmojiPickerVisible] = useState(false);
   const [chosenEmoji, setChosenEmoji] = useState(null);
   const [isExpanded, setIsExpanded] = useState(false);
-  const [showShareOptions, setShowShareOptions] = useState(false); // 공유 옵션 표시 상태
+  const [showShareOptions, setShowShareOptions] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [redirectUrl, setRedirectUrl] = useState("");
+  const [modalButtonText, setModalButtonText] = useState("");
 
   // 커스텀 훅 사용
   const { emojis, loading, error, saveEmoji } = useFetchEmoji();
+  const { studyName, name, password, deleteStudy } = useFetchStudy(); // deleteStudy 추가
 
   const onEmojiClick = (emojiObject, event) => {
     const selectedEmoji = emojiObject.emoji;
     setChosenEmoji(selectedEmoji);
-    saveEmoji(selectedEmoji); // 선택된 이모지를 DB에 저장
+    saveEmoji(selectedEmoji);
     setEmojiPickerVisible(false);
   };
 
@@ -27,6 +32,31 @@ function StudyInfo() {
 
   const handleShareClick = () => {
     setShowShareOptions(!showShareOptions);
+  };
+
+  const handleModifyClick = (url, text) => {
+    setModalButtonText(text);
+    setRedirectUrl(url);
+    setIsModalOpen(true);
+  };
+
+  const handleModalClose = () => {
+    setIsModalOpen(false);
+  };
+
+  const handleModalSubmit = async () => {
+    if (redirectUrl === "/") {
+      try {
+        await deleteStudy();
+        alert("스터디가 성공적으로 삭제되었습니다.");
+        window.location.href = redirectUrl;
+      } catch (err) {
+        console.error("스터디 삭제 중 오류가 발생했습니다:", err);
+        alert("스터디 삭제 중 오류가 발생했습니다.");
+      }
+    } else {
+      window.location.href = redirectUrl;
+    }
   };
 
   if (loading) return <p>Loading...</p>;
@@ -60,15 +90,29 @@ function StudyInfo() {
               추가
             </button>
           </div>
-          {isEmojiPickerVisible && <EmojiPicker onEmojiClick={onEmojiClick} />}
-          <div>
+          {isEmojiPickerVisible && (
+            <div className="emoji-picker-react">
+              <EmojiPicker onEmojiClick={onEmojiClick} />
+            </div>
+          )}
+          <div className="share">
             <span className="text color-G" onClick={handleShareClick}>
               공유하기
             </span>
             <span className="text color-G">| </span>
-            <span className="text color-G">수정하기</span>
+            <span
+              className="text color-G"
+              onClick={() => handleModifyClick("/study", "수정하러가기")}
+            >
+              수정하기
+            </span>
             <span className="text color-G">| </span>
-            <span className="text color-B">스터디 삭제하기</span>
+            <span
+              className="text color-B"
+              onClick={() => handleModifyClick("/", "삭제하기")}
+            >
+              스터디 삭제하기
+            </span>
           </div>
         </div>
         <div className="emoji-dropdown">
@@ -85,6 +129,15 @@ function StudyInfo() {
         </div>
         <div>{showShareOptions && <StudyShare />}</div>
       </div>
+      <PasswordModal
+        isOpen={isModalOpen}
+        onClose={handleModalClose}
+        onSubmit={handleModalSubmit}
+        correctPassword={password}
+        studyName={studyName}
+        name={name}
+        buttonText={modalButtonText}
+      />
     </>
   );
 }

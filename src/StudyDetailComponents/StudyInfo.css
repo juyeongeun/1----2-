@@ -5,13 +5,29 @@ body {
 }
 
 .studyInfo {
-  padding: 40px 40px 24px 40px;
+  position: relative;
 }
 
 .headerInfo {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: relative;
+  width: 100%;
+}
+
+.emojis {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  flex-grow: 1; /* 남은 공간을 채우도록 설정 */
+}
+
+.share {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-grow: 0; /* 오른쪽 끝에 정렬 */
 }
 
 .emojiBtn {
@@ -32,16 +48,11 @@ body {
   margin-left: 4px;
 }
 
-.emojiCount {
-  font-size: 16px;
-  font-weight: 400;
-  margin-left: 5px;
-}
-
-.emojis {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
+.emoji-picker-react {
+  position: absolute;
+  top: 40px;
+  z-index: 1000;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .emojiItem {
@@ -56,16 +67,18 @@ body {
 .emoji-dropdown {
   display: inline-block;
   width: 242px;
+  position: relative;
 }
 
 .moreEmoji {
   background-color: rgba(0, 0, 0, 0.3);
+  cursor: pointer;
 }
 
 .expandedEmojiList {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  position: relative;
+  position: absolute;
   padding: 12px 8px;
   background-color: #ffffff;
   border-radius: 15px;
@@ -87,6 +100,7 @@ body {
 .text {
   text-decoration: none;
   margin-left: 16px;
+  cursor: pointer;
 }
 
 .color-B {
@@ -98,7 +112,13 @@ body {
 }
 
 .shareContainer {
-  display: inline-block;
+  position: absolute;
+  width: 170px;
+  left: 900px;
+  background-color: white;
+  padding: 10px;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border: 1px solid #578246;
 }
 
@@ -116,4 +136,38 @@ body {
   font-size: 25px;
   color: #555;
   cursor: pointer;
+}
+
+@media (max-width: 1199px) {
+  .shareContainer {
+    left: 400px;
+    top: 40px;
+  }
+}
+
+@media (max-width: 720px) {
+  .text {
+    margin-left: 8px;
+  }
+
+  .headerInfo {
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .share {
+    align-self: flex-end;
+    text-align: right;
+    width: 100%;
+  }
+
+  .emojis {
+    align-self: flex-start;
+  }
+
+  .shareContainer {
+    left: 200px;
+    top: 30px;
+  }
 }
