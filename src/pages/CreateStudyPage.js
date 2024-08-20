@@ -1,9 +1,9 @@
-import RegistrationForm from '../components/RegistrationForm.js';
+import CreateForm from '../components/CreateForm.js';
 
 function CreateStudyPage() {
   return (
     <>
-      <RegistrationForm />
+      <CreateForm />
     </>
   );
 }

@@ -1,4 +1,4 @@
-import styles from './RegistrationForm.module.css';
+import styles from './CreateForm.module.css';
 import React, { useState } from 'react';
 import CreateInput from './CreateInput.js';
 import CreateBackground from './CreateBackground.js';
@@ -8,7 +8,7 @@ import backgroundGreen from '../img/background_1.png';
 
 import useInputValid from '../hooks/SignupValidation.js';
 
-function RegistrationForm() {
+function CreateForm() {
   const [values, setValues] = useState({
     background: backgroundGreen,
   });
@@ -64,4 +64,4 @@ function RegistrationForm() {
   );
 }
 
-export default RegistrationForm;
+export default CreateForm;
