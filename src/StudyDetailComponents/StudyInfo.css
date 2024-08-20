@@ -21,14 +21,12 @@ body {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  flex-grow: 1; /* 남은 공간을 채우도록 설정 */
 }
 
 .share {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  flex-grow: 0; /* 오른쪽 끝에 정렬 */
 }
 
 .emojiBtn {

@@ -7,7 +7,13 @@ import mobileBtn from "../img/nav_mobile_btn.png";
 
 function Nav() {
   const location = useLocation();
-  const hideLogoPaths = ["/habit", "/focus", "/study", "study/:id"]; // 로고 숨기는 경로
+  const hideLogoPaths = [
+    "/habit",
+    "/focus",
+    "/study",
+    "study/:id",
+    "/editStudy",
+  ]; // 로고 숨기는 경로
 
   const shouldHideLogo = hideLogoPaths.some((path) =>
     location.pathname.startsWith(path)

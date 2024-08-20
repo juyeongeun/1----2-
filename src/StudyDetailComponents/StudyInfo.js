@@ -102,7 +102,7 @@ function StudyInfo() {
             <span className="text color-G">| </span>
             <span
               className="text color-G"
-              onClick={() => handleModifyClick("/study", "수정하러가기")}
+              onClick={() => handleModifyClick("/editStudy", "수정하러가기")}
             >
               수정하기
             </span>
