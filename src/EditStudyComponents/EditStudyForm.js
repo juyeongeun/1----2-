@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import "./EditStudyForm.css";
 import { backgrounds } from "../img/ImgImport.js";
 import useFetchStudy from "../hooks/useFetchStudy.js";
 import ic_open_pw from "../img/ic_open_pw.svg";
 import ic_close_pw from "../img/ic_close_pw.svg";
-
 import useInputValid from "../hooks/useInputValid.js";
 
 function EditStudyForm() {
+  const { studyId } = useParams();
   const {
     studyName,
     name,
@@ -17,7 +18,7 @@ function EditStudyForm() {
     loading,
     error,
     updateStudy,
-  } = useFetchStudy();
+  } = useFetchStudy(studyId);
 
   const [showErrors, setShowErrors] = useState({
     name: false,

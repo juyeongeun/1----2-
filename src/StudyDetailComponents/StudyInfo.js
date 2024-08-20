@@ -37,7 +37,7 @@ function StudyInfo() {
     setShowShareOptions(!showShareOptions);
   };
 
-  const handleModifyClick = (url, text) => {
+  const handleModifyClick = (url, text, studyId) => {
     setModalButtonText(text);
     setRedirectUrl(url);
     setIsModalOpen(true);
@@ -105,7 +105,9 @@ function StudyInfo() {
             <span className="text color-G">| </span>
             <span
               className="text color-G"
-              onClick={() => handleModifyClick("/editStudy", "수정하러가기")}
+              onClick={() =>
+                handleModifyClick(`/editStudy/${studyId}`, "수정하러가기")
+              }
             >
               수정하기
             </span>
