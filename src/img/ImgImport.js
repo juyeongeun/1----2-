@@ -18,14 +18,14 @@ import ic_active16 from "../img/check/ic_active16.svg";
 import ic_active17 from "../img/check/ic_active17.svg";
 import ic_active18 from "../img/check/ic_active18.svg";
 
-import background1 from "../img/background1.svg";
-import background2 from "../img/background2.svg";
-import background3 from "../img/background3.svg";
-import background4 from "../img/background4.svg";
-import background5 from "../img/background5.svg";
-import background6 from "../img/background6.svg";
-import background7 from "../img/background7.png";
-import background8 from "../img/background8.svg";
+import background1 from "../img/background_1.png";
+import background2 from "../img/background_2.png";
+import background3 from "../img/background_3.png";
+import background4 from "../img/background_4.png";
+import background5 from "../img/background_5.png";
+import background6 from "../img/background_6.png";
+import background7 from "../img/background_7.png";
+import background8 from "../img/background_8.png";
 
 // 이미지들을 객체로 묶어서 named export로 내보냅니다.
 export const activeIcons = {

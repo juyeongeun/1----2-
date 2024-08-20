@@ -1,12 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import '../css/reset.css';
-import './EditStudyForm.css';
-import { backgrounds } from '../img/ImgImport.js';
-import useFetchStudy from '../hooks/useFetchStudy.js';
-import ic_open_pw from '../img/ic_open_pw.svg';
-import ic_close_pw from '../img/ic_close_pw.svg';
+import React, { useState, useEffect } from "react";
+import "./EditStudyForm.css";
+import { backgrounds } from "../img/ImgImport.js";
+import useFetchStudy from "../hooks/useFetchStudy.js";
+import ic_open_pw from "../img/ic_open_pw.svg";
+import ic_close_pw from "../img/ic_close_pw.svg";
 
-import useInputValid from '../hooks/useInputValid.js';
+import useInputValid from "../hooks/useInputValid.js";
 
 function EditStudyForm() {
   const {
@@ -29,12 +28,12 @@ function EditStudyForm() {
   });
 
   const [values, setValues] = useState({});
-  const [nickname, setNickname] = useState(name || '');
-  const [studyNameState, setStudyNameState] = useState(studyName || '');
-  const [description, setDescription] = useState(content || '');
-  const [selectedBackground, setSelectedBackground] = useState(null); // 초기값은 null로 설정
-  const [password, setPassword] = useState(initialPassword || '');
-  const [confirmPassword, setConfirmPassword] = useState('');
+  const [nickname, setNickname] = useState(name || "");
+  const [studyNameState, setStudyNameState] = useState(studyName || "");
+  const [description, setDescription] = useState(content || "");
+  const [selectedBackground, setSelectedBackground] = useState(null);
+  const [password, setPassword] = useState(initialPassword || "");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
   const [isPasswordVisible2, setIsPasswordVisible2] = useState(false);
 
@@ -103,57 +102,57 @@ function EditStudyForm() {
   if (error) return <p>Error: {error}</p>;
 
   return (
-    <div className='editStudyContainer'>
-      <p className='editTitle'>스터디 수정하기</p>
-      <form className='editForm' onSubmit={handleSubmit}>
-        <div className='formGroup'>
+    <div className="editStudyContainer">
+      <p className="editTitle">스터디 수정하기</p>
+      <form className="editForm" onSubmit={handleSubmit}>
+        <div className="formGroup">
           <label>닉네임</label>
           <input
-            name='name'
-            type='text'
+            name="name"
+            type="text"
             value={nickname}
             onChange={(e) => setNickname(e.target.value)}
             onBlur={handleBlur}
-            placeholder='닉네임을 입력해 주세요'
-            className={hasError('name') ? 'inputError' : 'input'}
+            placeholder="닉네임을 입력해 주세요"
+            className={hasError("name") ? "inputError" : "input"}
           />
-          {hasError('name') && <p className='errorMsg'>{errors.name}</p>}
+          {hasError("name") && <p className="errorMsg">{errors.name}</p>}
         </div>
-        <div className='formGroup'>
+        <div className="formGroup">
           <label>스터디 이름</label>
           <input
-            name='studyName'
-            type='text'
+            name="studyName"
+            type="text"
             value={studyNameState}
             onBlur={handleBlur}
             onChange={(e) => setStudyNameState(e.target.value)}
-            placeholder='스터디 이름을 입력해 주세요'
-            className={hasError('studyName') ? 'inputError' : 'input'}
+            placeholder="스터디 이름을 입력해 주세요"
+            className={hasError("studyName") ? "inputError" : "input"}
           />
-          {hasError('studyName') && (
-            <p className='errorMsg'>{errors.studyName}</p>
+          {hasError("studyName") && (
+            <p className="errorMsg">{errors.studyName}</p>
           )}
         </div>
-        <div className='formGroup'>
+        <div className="formGroup">
           <label>소개</label>
           <textarea
-            name='content'
+            name="content"
             value={description}
             onBlur={handleBlur}
             onChange={(e) => setDescription(e.target.value)}
-            placeholder='소개 멘트를 작성해 주세요'
-            className={hasError('content') ? 'textareaError' : 'textarea'}
+            placeholder="소개 멘트를 작성해 주세요"
+            className={hasError("content") ? "textareaError" : "textarea"}
           />
-          {hasError('content') && <p className='errorMsg'>{errors.content}</p>}
+          {hasError("content") && <p className="errorMsg">{errors.content}</p>}
         </div>
-        <div className='formGroup'>
+        <div className="formGroup">
           <label>배경을 선택해 주세요</label>
-          <div className='backgroundOptions'>
+          <div className="backgroundOptions">
             {backgrounds.map((src, index) => (
               <div
                 key={index}
                 className={`backgroundOption ${
-                  selectedBackground === index ? 'selected' : ''
+                  selectedBackground === index ? "selected" : ""
                 }`}
                 onClick={() => handleBackgroundClick(index)}
                 style={{ backgroundImage: `url(${src})` }}
@@ -161,53 +160,53 @@ function EditStudyForm() {
             ))}
           </div>
         </div>
-        <div className='formGroup'>
+        <div className="formGroup">
           <label>비밀번호</label>
-          <div className='passwordContainer'>
+          <div className="passwordContainer">
             <input
-              name='password'
-              type={isPasswordVisible ? 'text' : 'password'}
+              name="password"
+              type={isPasswordVisible ? "text" : "password"}
               value={password}
               onBlur={handleBlur}
               onChange={(e) => setPassword(e.target.value)}
-              placeholder='비밀번호를 입력해 주세요'
-              className={hasError('studyName') ? 'inputError' : 'input'}
+              placeholder="비밀번호를 입력해 주세요"
+              className={hasError("studyName") ? "inputError" : "input"}
             />
             <img
               src={isPasswordVisible ? ic_open_pw : ic_close_pw}
-              alt='toggle visibility'
-              className='passwordToggleIcon'
+              alt="toggle visibility"
+              className="passwordToggleIcon"
               onClick={togglePasswordVisibility}
             />
           </div>
-          {hasError('password') && (
-            <p className='errorMsg'>{errors.password}</p>
+          {hasError("password") && (
+            <p className="errorMsg">{errors.password}</p>
           )}
         </div>
-        <div className='formGroup'>
+        <div className="formGroup">
           <label>비밀번호 확인</label>
-          <div className='passwordContainer'>
+          <div className="passwordContainer">
             <input
-              name='passwordConfirm'
-              type={isPasswordVisible2 ? 'text' : 'password'}
+              name="passwordConfirm"
+              type={isPasswordVisible2 ? "text" : "password"}
               value={confirmPassword}
               onBlur={handleBlur}
               onChange={(e) => setConfirmPassword(e.target.value)}
-              placeholder='비밀번호를 다시 입력해 주세요'
-              className={hasError('studyName') ? 'inputError' : 'input'}
+              placeholder="비밀번호를 다시 입력해 주세요"
+              className={hasError("studyName") ? "inputError" : "input"}
             />
             <img
               src={isPasswordVisible2 ? ic_open_pw : ic_close_pw}
-              alt='toggle visibility'
-              className='passwordToggleIcon'
+              alt="toggle visibility"
+              className="passwordToggleIcon"
               onClick={togglePasswordVisibility2}
             />
           </div>
-          {hasError('passwordConfirm') && (
-            <p className='errorMsg'>{errors.passwordConfirm}</p>
+          {hasError("passwordConfirm") && (
+            <p className="errorMsg">{errors.passwordConfirm}</p>
           )}
         </div>
-        <button type='submit' className='editButton'>
+        <button type="submit" className="editButton">
           수정
         </button>
       </form>
