@@ -1,9 +1,9 @@
-import Container from '../components/Container.js';
+import CreateForm from '../components/CreateForm.js';
 
 function CreateStudyPage() {
   return (
     <>
-      <Container></Container>
+      <CreateForm />
     </>
   );
 }

@@ -1,0 +1,28 @@
+@import '../css/reset.css';
+
+.text {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  margin-top: 24px;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.container {
+  position: relative;
+}
+
+.iconImage {
+  position: absolute;
+  top: 60px;
+  left: 62px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  object-fit: contain;
+}
