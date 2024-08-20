@@ -1,4 +1,4 @@
-import styles from './Password.module.css';
+import styles from './CreatePassword.module.css';
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEyeSlash } from '@fortawesome/free-regular-svg-icons';

@@ -1,4 +1,4 @@
-import styles from './Background.module.css';
+import styles from './CreateBackground.module.css';
 import React, { useState } from 'react';
 import backgroundGreen from '../img/background_1.png';
 import backgroundYe from '../img/background_2.png';

@@ -1,15 +1,16 @@
 import styles from './RegistrationForm.module.css';
 import React, { useState } from 'react';
-import Input from './Input.js';
-import Background from './Background.js';
-import Password from './Password.js';
+import CreateInput from './CreateInput.js';
+import CreateBackground from './CreateBackground.js';
+import CreatePassword from './CreatePassword.js';
 import CreateFooter from './CreateFooter.js';
+import backgroundGreen from '../img/background_1.png';
 
 import useInputValid from '../hooks/SignupValidation.js';
 
 function RegistrationForm() {
   const [values, setValues] = useState({
-    background: 'backgroundGreen',
+    background: backgroundGreen,
   });
   const [showErrors, setShowErrors] = useState({
     name: false,
@@ -38,15 +39,15 @@ function RegistrationForm() {
     <>
       <div className={styles.background}>
         <p className={styles.header}>스터디 만들기</p>
-        <Input
+        <CreateInput
           handleChange={handleChange}
           handleBlur={handleBlur}
           showErrors={showErrors}
           errors={errors}
           hasError={hasError}
         />
-        <Background handleChange={handleChange} />
-        <Password
+        <CreateBackground handleChange={handleChange} />
+        <CreatePassword
           handleChange={handleChange}
           handleBlur={handleBlur}
           showErrors={showErrors}

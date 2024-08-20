@@ -1,4 +1,4 @@
-import styles from './Input.module.css';
+import styles from './CreateInput.module.css';
 
 function Input({ handleChange, showErrors, handleBlur, errors, hasError }) {
   const handleInputValue = (e) => {
@@ -33,7 +33,9 @@ function Input({ handleChange, showErrors, handleBlur, errors, hasError }) {
           name='content'
           onBlur={handleBlur}
           onChange={handleInputValue}
-          className={hasError('content') ? styles.textareaError : styles.textarea}
+          className={
+            hasError('content') ? styles.textareaError : styles.textarea
+          }
           placeholder='소개 멘트를 작성해 주세요'
         />
         {showErrors.content && (
