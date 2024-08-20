@@ -1,11 +1,11 @@
-import Container from '../components/Container.js';
+// import RecentStudies from '../components/RecentStudies.js';
+import ExploreStudies from '../components/ExploreStudies.js';
 
 function StudyRoomPage() {
   return (
     <>
-      <Container>
-        <div>dd</div>
-      </Container>
+      {/* <RecentStudies /> */}
+      <ExploreStudies />
     </>
   );
 }
