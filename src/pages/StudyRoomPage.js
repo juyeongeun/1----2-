@@ -1,5 +1,5 @@
-// import RecentStudies from '../components/RecentStudies.js';
-import ExploreStudies from '../components/ExploreStudies.js';
+// import RecentStudies from '../ListStudy/RecentStudies.js';
+import ExploreStudies from '../ListStudy/ExploreStudies.js';
 
 function StudyRoomPage() {
   return (

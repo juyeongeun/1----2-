@@ -1,16 +1,16 @@
 import axios from 'axios';
 
 const instance = axios.create({
-  baseURL: 'https://teamproject-test-db.onrender.com', 
+  baseURL: 'https://teamproject-test-db.onrender.com',
 });
 
 export async function getStudiesList(params = {}) {
   try {
-    const { data } = await instance.get('/studies', {
+    const response = await instance.get('/studies', {
       params,
     });
-    console.log(data);
-    return data;
+    console.log(response.data);
+    return response;
   } catch (e) {
     if (e.response) {
       console.log('Response status:', e.response.status);
