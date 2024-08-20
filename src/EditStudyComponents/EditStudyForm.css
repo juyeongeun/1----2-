@@ -1,7 +1,7 @@
 @font-face {
-  font-family: "EF_jejudoldam";
-  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2210-EF@1.0/EF_jejudoldam.woff2")
-    format("woff2");
+  font-family: 'EF_jejudoldam';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2210-EF@1.0/EF_jejudoldam.woff2')
+    format('woff2');
   font-weight: normal;
   font-style: normal;
 }
@@ -37,8 +37,8 @@
   color: #414141;
 }
 
-.formGroup input,
-.formGroup textarea {
+.input,
+.textarea {
   width: 91%;
   padding: 15px 20px;
   border: 1px solid #ddd;
@@ -46,11 +46,34 @@
   font-size: 16px;
   font-weight: 400;
   color: #333236;
+  margin-bottom: 0;
 }
 
 .formGroup input,
 .formGroup textarea::placeholder {
   color: #818181;
+}
+
+.textarea {
+  resize: none;
+  height: 88px;
+}
+
+.textareaError {
+  resize: none;
+  height: 88px;
+}
+
+.textareaError,
+.inputError {
+  width: 91%;
+  padding: 15px 20px;
+  border: 1px solid #c41013;
+  border-radius: 15px;
+  font-size: 16px;
+  font-weight: 400;
+  color: #333236;
+  margin-bottom: 0;
 }
 
 .backgroundOptions {
@@ -70,14 +93,14 @@
 }
 
 .backgroundOption.selected::after {
-  content: "";
+  content: '';
   position: absolute;
   top: 50%;
   left: 50%;
   width: 32px;
   height: 32px;
   transform: translate(-50%, -50%);
-  background-image: url("../img/ic_bg_selected.svg");
+  background-image: url('../img/ic_bg_selected.svg');
   background-repeat: no-repeat;
   background-size: contain;
   pointer-events: none;
@@ -108,6 +131,14 @@
   cursor: pointer;
   margin-top: 16px;
   font-family: EF_jejudoldam, sans-serif;
+}
+
+.errorMsg {
+  font-size: 14px;
+  font-weight: 400;
+  padding-left: 10px;
+  margin-top: 8px;
+  color: #c41013;
 }
 
 @media (max-width: 720px) {

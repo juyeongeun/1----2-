@@ -7,6 +7,7 @@ function useInputValid(values) {
     password: false,
     passwordConfirm: false,
   });
+
   const [isValid, setIsValid] = useState(true);
 
   useEffect(() => {
@@ -62,7 +63,6 @@ function useInputValid(values) {
     setErrors(errors);
     setIsValid(isFormValid);
   };
-
 
   return { errors, isValid };
 }

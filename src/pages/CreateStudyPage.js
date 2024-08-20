@@ -1,4 +1,4 @@
-import CreateForm from '../components/CreateForm.js';
+import CreateForm from '../CreateStudyComponents/CreateForm.js';
 
 function CreateStudyPage() {
   return (
