@@ -3,7 +3,8 @@ import React, { useState } from 'react';
 import Input from './Input.js';
 import Background from './Background.js';
 import Password from './Password.js';
-import makeBtn from '../img/make_btn.png';
+import CreateFooter from './CreateFooter.js';
+
 import useInputValid from '../hooks/SignupValidation.js';
 
 function RegistrationForm() {
@@ -18,7 +19,7 @@ function RegistrationForm() {
     passwordConfirm: false,
   });
 
-  const { errors, isValid, validate } = useInputValid(values);
+  const { errors, isValid } = useInputValid(values);
 
   const handleChange = ({ name, value }) => {
     setValues({ ...values, [name]: value });
@@ -52,10 +53,11 @@ function RegistrationForm() {
           errors={errors}
           hasError={hasError}
         />
-        <div className={styles.footer}>
-          <img className={styles.buttonImg} src={makeBtn} alt='만들기 버튼' />
-          <button className={styles.button} />
-        </div>
+        <CreateFooter
+          values={values}
+          isValid={isValid}
+          setShowErrors={setShowErrors}
+        />
       </div>
     </>
   );

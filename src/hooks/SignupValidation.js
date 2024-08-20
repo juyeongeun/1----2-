@@ -7,6 +7,7 @@ function useInputValid(values) {
     password: false,
     passwordConfirm: false,
   });
+  const [isValid, setIsValid] = useState(true);
 
   useEffect(() => {
     validateForm();
@@ -14,6 +15,7 @@ function useInputValid(values) {
 
   const validateForm = () => {
     let errors = {};
+    let isFormValid = true;
 
     const name = values.name || '';
     const studyName = values.studyName || '';
@@ -21,30 +23,36 @@ function useInputValid(values) {
     const password = values.password || '';
     const passwordConfirm = values.passwordConfirm || '';
 
-    console.log(values.name);
-
     if (name.length < 1) {
       errors.name = '1글자 이상 입력해야 합니다';
+      isFormValid = false;
     } else if (name.length > 10) {
-      errors.name = '10글지 이내로 입력해야 합니다';
+      errors.name = '10글자 이내로 입력해야 합니다';
+      isFormValid = false;
     }
 
     if (studyName.length < 1) {
       errors.studyName = '1글자 이상 입력해야 합니다';
+      isFormValid = false;
     } else if (studyName.length > 10) {
-      errors.studyName = '10글지 이내로 입력해야 합니다';
+      errors.studyName = '10글자 이내로 입력해야 합니다';
+      isFormValid = false;
     }
 
     if (content.length < 1) {
       errors.content = '1글자 이상 입력해야 합니다';
+      isFormValid = false;
     } else if (content.length > 100) {
       errors.content = ' 100글자 이내로 입력해야 합니다';
+      isFormValid = false;
     }
 
     if (password.length < 5) {
       errors.password = '5글자 이상 입력해야 합니다';
+      isFormValid = false;
     } else if (password.length > 10) {
       errors.password = '10글자 이내로 입력해야 합니다';
+      isFormValid = false;
     }
 
     if (password !== passwordConfirm) {
@@ -52,13 +60,11 @@ function useInputValid(values) {
     }
 
     setErrors(errors);
+    setIsValid(isFormValid);
   };
 
-  const validate = () => {
-    validateForm();
-  };
 
-  return { errors, validate };
+  return { errors, isValid };
 }
 
 export default useInputValid;
