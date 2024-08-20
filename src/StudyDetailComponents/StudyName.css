@@ -1,0 +1,47 @@
+.studyName {
+  color: #414141;
+  font-size: 32px;
+  font-weight: 800;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 24px;
+}
+
+.todayBtnContainer {
+  display: flex;
+  justify-content: space-between;
+  width: 304px;
+}
+
+.todayBtn {
+  width: 144px;
+  height: 48px;
+  border-radius: 14px;
+  border: 1px solid #dddddd;
+  background-color: #ffffff;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  color: #818181;
+}
+
+.intro {
+  font-size: 18px;
+  font-weight: 400;
+  color: #818181;
+  margin-top: 16px;
+}
+
+.studyContent {
+  font-size: 18px;
+  font-weight: 500;
+  color: #414141;
+  margin-top: 8px;
+}
+
+@media (max-width: 720px) {
+  .studyName {
+    flex-direction: column;
+    gap: 16px;
+  }
+}

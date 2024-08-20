@@ -1,0 +1,24 @@
+.pointContainer {
+  margin-top: 24px;
+}
+
+.pointText {
+  font-size: 18px;
+  font-weight: 400;
+  color: #818181;
+}
+
+.point {
+  font-size: 18px;
+  font-weight: 500;
+  color: #414141;
+  margin-top: 8px;
+  border-radius: 50px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: rgba(255, 255, 255, 0.3);
+  padding: 8px 12px;
+  padding-left: 35px;
+  background-image: url("../img/ic_point.svg");
+  background-repeat: no-repeat;
+  background-position: 12px center;
+}
