@@ -1,11 +1,13 @@
 import "./StudyName.css";
+import { useParams } from "react-router-dom";
 import React, { useState } from "react";
 import useFetchStudy from "../hooks/useFetchStudy.js";
-import PasswordModal from "./PasswordModal.js"; // 모달 컴포넌트 import
+import PasswordModal from "./PasswordModal.js";
 
 function StudyName() {
+  const { studyId } = useParams();
   const { studyName, name, content, password, loading, error } =
-    useFetchStudy();
+    useFetchStudy(studyId);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [redirectUrl, setRedirectUrl] = useState("");
   const [modalButtonText, setModalButtonText] = useState("");

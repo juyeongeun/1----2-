@@ -15,6 +15,7 @@ function useFetchHabit(studyId) {
           habitId: item.id,
           habitName: item.habitName,
           isActive: item.isActive,
+          endDate: item.endDate,
         }));
         setHabits(data);
       } catch (err) {
@@ -27,7 +28,15 @@ function useFetchHabit(studyId) {
     fetchHabits();
   }, [studyId]);
 
-  return { habits, loading, error };
+  const updateHabit = async (habitId, data) => {
+    try {
+      await axios.put(`${baseUrl}/${studyId}/${habitId}`, data);
+    } catch (err) {
+      setError(err.message);
+    }
+  };
+
+  return { habits, loading, error, updateHabit };
 }
 
 export default useFetchHabit;

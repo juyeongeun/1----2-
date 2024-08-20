@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-function useFetchStudy() {
+function useFetchStudy(studyId) {
   const [studyName, setStudyName] = useState("");
   const [name, setName] = useState("");
   const [content, setContent] = useState("");
@@ -11,12 +11,11 @@ function useFetchStudy() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const baseUrl = "https://study-api-m36o.onrender.com/api/studies";
-  const id = 5; // 이 ID는 예시입니다. 실제로 필요에 따라 설정하세요.
 
   useEffect(() => {
     const fetchStudyData = async () => {
       try {
-        const response = await axios.get(`${baseUrl}/${id}`);
+        const response = await axios.get(`${baseUrl}/${studyId}`);
         const data = response.data;
         if (data) {
           setStudyName(data.studyName);
@@ -34,12 +33,12 @@ function useFetchStudy() {
     };
 
     fetchStudyData();
-  }, []);
+  }, [studyId]);
 
   const deleteStudy = async () => {
     setLoading(true);
     try {
-      await axios.delete(`${baseUrl}/${id}`);
+      await axios.delete(`${baseUrl}/${studyId}`);
       setLoading(false);
     } catch (err) {
       setError(err.message);
@@ -50,8 +49,8 @@ function useFetchStudy() {
   const updateStudy = async (updatedStudy) => {
     setLoading(true);
     try {
-      await axios.put(`${baseUrl}/${id}`, updatedStudy);
-      window.location.href = `/study/${id}`;
+      await axios.put(`${baseUrl}/${studyId}`, updatedStudy);
+      window.location.href = `/study/${studyId}`;
     } catch (err) {
       setError(err.message);
       alert("as");
@@ -60,7 +59,21 @@ function useFetchStudy() {
     }
   };
 
+  const createStudy = async (newStudy) => {
+    setLoading(true);
+    try {
+      const response = await axios.post(baseUrl, newStudy);
+      setLoading(false);
+      return response.data; // 생성된 스터디 데이터를 반환
+    } catch (err) {
+      setError(err.message);
+      setLoading(false);
+      throw err; // 오류가 발생하면 예외를 던져서 호출자가 처리할 수 있게 함
+    }
+  };
+
   return {
+    createStudy,
     studyName,
     name,
     point,

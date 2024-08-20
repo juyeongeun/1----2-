@@ -1,4 +1,5 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useCallback } from "react";
+import { useParams } from "react-router-dom";
 import useFetchHabit from "../hooks/useFetchHabit.js";
 import useFetchCompleteHabit from "../hooks/useFetchCompleteHabit.js";
 import "./StudyHabits.css";
@@ -6,15 +7,22 @@ import ic_inactive from "../img/check/ic_inactive.svg";
 import { activeIcons } from "../img/ImgImport.js";
 
 function StudyHabits() {
-  const { habits, loading: habitLoading, error: habitError } = useFetchHabit(5);
+  const { studyId } = useParams();
+  const {
+    habits,
+    loading: habitLoading,
+    error: habitError,
+    refetch: refetchHabits,
+    updateHabit,
+  } = useFetchHabit(studyId);
   const {
     completeHabits,
     loading: completeLoading,
     error: completeError,
-  } = useFetchCompleteHabit(5);
+  } = useFetchCompleteHabit(studyId);
 
   // 로컬 스토리지에 데이터를 저장
-  const saveToLocalStorage = (habitId, dayIndex) => {
+  const saveToLocalStorage = useCallback((habitId, dayIndex) => {
     const currentData =
       JSON.parse(localStorage.getItem("completedHabits")) || {};
     if (!currentData[habitId]) {
@@ -24,10 +32,9 @@ function StudyHabits() {
       currentData[habitId].push(dayIndex);
     }
     localStorage.setItem("completedHabits", JSON.stringify(currentData));
-  };
+  }, []);
 
-  // 일요일 자정 이후 로컬 스토리지를 초기화
-  const clearStorageOnSunday = () => {
+  const clearStorageAndUpdateHabits = useCallback(async () => {
     const now = new Date();
     const lastClear = localStorage.getItem("lastClear") || 0;
 
@@ -40,36 +47,46 @@ function StudyHabits() {
     ) {
       localStorage.removeItem("completedHabits");
       localStorage.setItem("lastClear", now.getTime());
+
+      // endDate가 있고 isActive가 true인 습관을 isActive: false로 업데이트
+      const updatePromises = habits
+        .filter((h) => h.endDate && h.isActive)
+        .map((h) => updateHabit(h.habitId, { isActive: false }));
+      await Promise.all(updatePromises);
+      refetchHabits();
     }
-  };
+  }, [habits, updateHabit, refetchHabits]);
 
-  const isHabitCompleteOnDay = (habitId, dayIndex) => {
-    const storedData =
-      JSON.parse(localStorage.getItem("completedHabits")) || {};
-    if (storedData[habitId] && storedData[habitId].includes(dayIndex)) {
-      return true;
-    }
+  const isHabitCompleteOnDay = useCallback(
+    (habitId, dayIndex) => {
+      const storedData =
+        JSON.parse(localStorage.getItem("completedHabits")) || {};
+      if (storedData[habitId] && storedData[habitId].includes(dayIndex)) {
+        return true;
+      }
 
-    const habitCompletion = completeHabits.find((ch) => {
-      const habitCompletionDate = new Date(ch.createdAt);
-      const habitDay = habitCompletionDate.getDay();
-      return (
-        ch.habitId === habitId &&
-        (habitDay === 0 ? 6 : habitDay - 1) === dayIndex
-      );
-    });
+      const habitCompletion = completeHabits.find((ch) => {
+        const habitCompletionDate = new Date(ch.createdAt);
+        const habitDay = habitCompletionDate.getDay();
+        return (
+          ch.habitId === habitId &&
+          (habitDay === 0 ? 6 : habitDay - 1) === dayIndex
+        );
+      });
 
-    if (habitCompletion) {
-      saveToLocalStorage(habitId, dayIndex);
-      return true;
-    }
+      if (habitCompletion) {
+        saveToLocalStorage(habitId, dayIndex);
+        return true;
+      }
 
-    return false;
-  };
+      return false;
+    },
+    [completeHabits, saveToLocalStorage]
+  );
 
   useEffect(() => {
-    clearStorageOnSunday();
-  }, []);
+    clearStorageAndUpdateHabits();
+  }, [clearStorageAndUpdateHabits]);
 
   if (habitLoading || completeLoading) {
     return <div>Loading...</div>;

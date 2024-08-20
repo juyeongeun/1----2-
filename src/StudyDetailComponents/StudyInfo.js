@@ -1,5 +1,6 @@
 import EmojiPicker from "emoji-picker-react";
 import React, { useState } from "react";
+import { useParams } from "react-router-dom";
 import useFetchEmoji from "../hooks/useFetchEmoji.js";
 import useFetchStudy from "../hooks/useFetchStudy.js";
 import StudyShare from "./StudyShare.js";
@@ -7,6 +8,8 @@ import "./StudyInfo.css";
 import PasswordModal from "./PasswordModal.js";
 
 function StudyInfo() {
+  const { studyId } = useParams();
+  console.log(studyId);
   const [isEmojiPickerVisible, setEmojiPickerVisible] = useState(false);
   const [chosenEmoji, setChosenEmoji] = useState(null);
   const [isExpanded, setIsExpanded] = useState(false);
@@ -16,8 +19,8 @@ function StudyInfo() {
   const [modalButtonText, setModalButtonText] = useState("");
 
   // 커스텀 훅 사용
-  const { emojis, loading, error, saveEmoji } = useFetchEmoji();
-  const { studyName, name, password, deleteStudy } = useFetchStudy(); // deleteStudy 추가
+  const { emojis, loading, error, saveEmoji } = useFetchEmoji(studyId);
+  const { studyName, name, password, deleteStudy } = useFetchStudy(studyId); // deleteStudy 추가
 
   const onEmojiClick = (emojiObject, event) => {
     const selectedEmoji = emojiObject.emoji;
