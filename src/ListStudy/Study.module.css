@@ -1,0 +1,21 @@
+@import '../css/reset.css';
+
+.ListItems {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(3, 1fr);
+  height: 267px;
+  gap: 23px;
+}
+
+.ListItem {
+  width: 358px;
+  height: 243px;
+  margin-bottom: 24px;
+}
+
+.ItemImg {
+  width: 358px;
+  height: 243px;
+  border-radius: 10%;
+}

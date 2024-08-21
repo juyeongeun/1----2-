@@ -1,0 +1,35 @@
+@import '../css/reset.css';
+@import '../css/reset.css';
+
+.text {
+  padding-bottom: 30px;
+  font-weight: 800;
+  font-size: 24px;
+  margin-bottom: 24px;
+}
+
+.head {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.search {
+  position: relative;
+}
+
+.icon {
+  position: absolute;
+  top: 50%;
+  left: 20px;
+  transform: translateY(-50%);
+  color: #dddddd;
+}
+
+.input {
+  padding-left: 48px;
+  width: 335px;
+  height: 42px;
+  border: 1px #dddddd solid;
+  border-radius: 15px;
+}

@@ -1,0 +1,58 @@
+@import '../css/reset.css';
+
+.background {
+  width: 100%;
+  max-width: 1200px;
+  border-radius: 20px;
+  background-color: #ffffff;
+  padding: 40px;
+  margin: 40px auto;
+  box-sizing: border-box;
+}
+
+.text {
+  padding-bottom: 30px;
+  font-weight: 800;
+  font-size: 24px;
+  margin-bottom: 24px;
+}
+
+.head {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.input {
+  padding-left: 48px;
+  width: 335px;
+  height: 42px;
+  border: 1px #dddddd solid;
+  border-radius: 15px;
+}
+
+.button {
+  display: block;
+  margin: 20px auto;
+  border: 1px #dddddd solid;
+  border-radius: 20px;
+  width: 280px;
+  height: 53px;
+  padding: 17px 119px 17px 119px;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  color: #578246;
+}
+
+.studyList {
+  max-height: calc(
+    100vh - 150px
+  ); /* 예를 들어, 전체 화면 높이에서 여백을 빼서 설정 */
+  overflow-y: auto; /* 수직 스크롤만 추가 */
+}
+
+.loading {
+  margin: 0 auto;
+}
