@@ -4,6 +4,9 @@ import { useParams } from "react-router-dom";
 import useFetchEmoji from "../hooks/useFetchEmoji.js";
 import useFetchStudy from "../hooks/useFetchStudy.js";
 import StudyShare from "./StudyShare.js";
+import { ToastContainer } from "react-toastify";
+import { useNavigate } from "react-router-dom";
+import "react-toastify/dist/ReactToastify.css";
 import "./StudyInfo.css";
 import PasswordModal from "./PasswordModal.js";
 
@@ -16,6 +19,7 @@ function StudyInfo() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [redirectUrl, setRedirectUrl] = useState("");
   const [modalButtonText, setModalButtonText] = useState("");
+  const navigate = useNavigate();
 
   // 커스텀 훅 사용
   const { emojis, loading, error, saveEmoji } = useFetchEmoji(studyId);
@@ -50,14 +54,12 @@ function StudyInfo() {
     if (redirectUrl === "/") {
       try {
         await deleteStudy();
-        alert("스터디가 성공적으로 삭제되었습니다.");
-        window.location.href = redirectUrl;
+        navigate("/", { state: { toast: "deleted" } }); // 상태를 전달하며 리다이렉트
       } catch (err) {
-        console.error("스터디 삭제 중 오류가 발생했습니다:", err);
         alert("스터디 삭제 중 오류가 발생했습니다.");
       }
     } else {
-      window.location.href = redirectUrl;
+      navigate(redirectUrl);
     }
   };
 
@@ -131,7 +133,12 @@ function StudyInfo() {
             </div>
           )}
         </div>
-        <div>{showShareOptions && <StudyShare />}</div>
+        <div>
+          {showShareOptions && (
+            <StudyShare onShareClick={() => setShowShareOptions(false)} />
+          )}
+        </div>
+        <ToastContainer />
       </div>
       <PasswordModal
         isOpen={isModalOpen}
