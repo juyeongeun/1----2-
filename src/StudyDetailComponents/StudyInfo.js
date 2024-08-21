@@ -1,12 +1,17 @@
 import EmojiPicker from "emoji-picker-react";
 import React, { useState } from "react";
+import { useParams } from "react-router-dom";
 import useFetchEmoji from "../hooks/useFetchEmoji.js";
 import useFetchStudy from "../hooks/useFetchStudy.js";
 import StudyShare from "./StudyShare.js";
+import { ToastContainer } from "react-toastify";
+import { useNavigate } from "react-router-dom";
+import "react-toastify/dist/ReactToastify.css";
 import "./StudyInfo.css";
 import PasswordModal from "./PasswordModal.js";
 
 function StudyInfo() {
+  const { studyId } = useParams();
   const [isEmojiPickerVisible, setEmojiPickerVisible] = useState(false);
   const [chosenEmoji, setChosenEmoji] = useState(null);
   const [isExpanded, setIsExpanded] = useState(false);
@@ -14,10 +19,11 @@ function StudyInfo() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [redirectUrl, setRedirectUrl] = useState("");
   const [modalButtonText, setModalButtonText] = useState("");
+  const navigate = useNavigate();
 
   // 커스텀 훅 사용
-  const { emojis, loading, error, saveEmoji } = useFetchEmoji();
-  const { studyName, name, password, deleteStudy } = useFetchStudy(); // deleteStudy 추가
+  const { emojis, loading, error, saveEmoji } = useFetchEmoji(studyId);
+  const { studyName, name, password, deleteStudy } = useFetchStudy(studyId); // deleteStudy 추가
 
   const onEmojiClick = (emojiObject, event) => {
     const selectedEmoji = emojiObject.emoji;
@@ -34,7 +40,7 @@ function StudyInfo() {
     setShowShareOptions(!showShareOptions);
   };
 
-  const handleModifyClick = (url, text) => {
+  const handleModifyClick = (url, text, studyId) => {
     setModalButtonText(text);
     setRedirectUrl(url);
     setIsModalOpen(true);
@@ -48,14 +54,12 @@ function StudyInfo() {
     if (redirectUrl === "/") {
       try {
         await deleteStudy();
-        alert("스터디가 성공적으로 삭제되었습니다.");
-        window.location.href = redirectUrl;
+        navigate("/", { state: { toast: "deleted" } }); // 상태를 전달하며 리다이렉트
       } catch (err) {
-        console.error("스터디 삭제 중 오류가 발생했습니다:", err);
         alert("스터디 삭제 중 오류가 발생했습니다.");
       }
     } else {
-      window.location.href = redirectUrl;
+      navigate(redirectUrl);
     }
   };
 
@@ -102,7 +106,9 @@ function StudyInfo() {
             <span className="text color-G">| </span>
             <span
               className="text color-G"
-              onClick={() => handleModifyClick("/editStudy", "수정하러가기")}
+              onClick={() =>
+                handleModifyClick(`/editStudy/${studyId}`, "수정하러가기")
+              }
             >
               수정하기
             </span>
@@ -127,7 +133,12 @@ function StudyInfo() {
             </div>
           )}
         </div>
-        <div>{showShareOptions && <StudyShare />}</div>
+        <div>
+          {showShareOptions && (
+            <StudyShare onShareClick={() => setShowShareOptions(false)} />
+          )}
+        </div>
+        <ToastContainer />
       </div>
       <PasswordModal
         isOpen={isModalOpen}
