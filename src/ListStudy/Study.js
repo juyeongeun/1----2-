@@ -1,18 +1,96 @@
 import styles from './Study.module.css';
 import { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import pointICon from '../img/point_icon.png';
 
-function ProductListItem({ item }) {
+import backgroundGreen from '../img/background_1.png';
+import backgroundYe from '../img/background_2.png';
+import backgroundBlu from '../img/background_3.png';
+import backgroundPink from '../img/background_4.png';
+// import backgroundTable from '../img/background_5.png';
+// import backgroundSun from '../img/background_6.png';
+// import backgroundRain from '../img/background_7.png';
+// import backgroundPlan from '../img/background_8.png';
+
+function ProductListItem({ item, setClick }) {
+  const [clikedId, setClickedId] = useState();
+  const today = new Date();
+  const tatgetDate = new Date(item.createdAt);
+
+  const diffTime = today - tatgetDate;
+  const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+
+  let studyNameColor;
+  let pointColor;
+  let createdColor;
+  let conntentColor;
+  let nameColor;
+
+  if (item.background === backgroundGreen) {
+    nameColor = styles.nameGrreen;
+    studyNameColor = styles.studyNameBlack;
+    pointColor = styles.pointBlack;
+    conntentColor = styles.contentBlack;
+    createdColor = styles.dataBlack;
+  } else if (item.background === backgroundYe) {
+    nameColor = styles.nameYellow;
+    studyNameColor = styles.studyNameBlack;
+    pointColor = styles.pointBlack;
+    conntentColor = styles.contentBlack;
+    createdColor = styles.dataBlack;
+  } else if (item.background === backgroundBlu) {
+    nameColor = styles.nameBlue;
+    studyNameColor = styles.studyNameBlack;
+    pointColor = styles.pointBlack;
+    conntentColor = styles.contentBlack;
+    createdColor = styles.dataBlack;
+  } else if (item.background === backgroundPink) {
+    nameColor = styles.namePink;
+    studyNameColor = styles.studyNameBlack;
+    pointColor = styles.pointBlack;
+    conntentColor = styles.contentBlack;
+    createdColor = styles.dataBlack;
+  } else {
+    nameColor = styles.nameWhite;
+    studyNameColor = styles.studyNametext;
+    pointColor = styles.pointWhite;
+    createdColor = styles.dataWhite;
+    conntentColor = styles.contentWhite;
+  }
+
+  const handleClick = (id) => {
+    // console.log(e);
+    setClick(id);
+    setClickedId(id);
+  };
+
+  console.log(clikedId);
+
   return (
-    <div className={styles.ListItem}>
-      <img className={styles.ItemImg} src={item.background} alt={item.name} />
-      <div>
-        <div>
-          <p className={styles.productListName}>{item.studyName}</p>
-          <p className={styles.productListFavoriteCount}>{item.point}</p>
+    <div className={styles.ListItem} o>
+      {/* <Link to={`/studies/${clikedId}`}> */}
+      <img
+        className={styles.ItemImg}
+        src={item.background}
+        alt={item.background}
+        onClick={() => handleClick(item.id)}
+      />
+      {/* </Link> */}
+
+      <div className={styles.realTest}>
+        <p className={nameColor}>{item.name} </p>
+        <p className={studyNameColor}> 의 {item.studyName}</p>
+        <div className={styles.pointCon}>
+          <img src={pointICon} alt='포인트 아이콘' className={styles.icon} />
+          <p className={pointColor}>{item.point}P 획득 </p>
         </div>
-        <p>{item.createdAt}</p>
-        <h1 className={styles.productListPrice}>{item.content}</h1>
-        <p className={styles.productListFavoriteCount}>{item.reaction}</p>
+
+        <p className={createdColor}>{diffDays}일째 진행 중</p>
+        <div className={styles.test}>
+          <p className={conntentColor}>{item.content}</p>
+        </div>
+        <p className={styles.reaction}>{item.reaction}</p>
+
         {/* <div className={styles.productListFavorite}></div> */}
       </div>
     </div>
@@ -27,12 +105,12 @@ function ProductListItem({ item }) {
 //   password: 'securepassword',
 // };
 
-function Study({ data }) {
+function Study({ data, setClick }) {
   return (
     <>
       <div className={styles.ListItems}>
         {data.map((item) => (
-          <ProductListItem key={item.id} item={item} />
+          <ProductListItem key={item.id} item={item} setClick={setClick} />
         ))}
       </div>
     </>
