@@ -1,9 +1,10 @@
-import Container from '../components/Container.js';
+import Container from "../components/Container.js";
+import HabitStudyComponents from "../components/HabitStudyComponents.js";
 
 function HabitTrackerPage() {
   return (
     <>
-      <Container></Container>
+      <HabitStudyComponents /> {/* HabitStudyComponents 컴포넌트를 추가 */}
     </>
   );
 }
