@@ -9,7 +9,6 @@ import PasswordModal from "./PasswordModal.js";
 
 function StudyInfo() {
   const { studyId } = useParams();
-  console.log(studyId);
   const [isEmojiPickerVisible, setEmojiPickerVisible] = useState(false);
   const [chosenEmoji, setChosenEmoji] = useState(null);
   const [isExpanded, setIsExpanded] = useState(false);

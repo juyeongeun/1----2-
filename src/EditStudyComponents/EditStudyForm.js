@@ -163,7 +163,7 @@ function EditStudyForm() {
         </div>
         <div className="formGroup">
           <label>비밀번호</label>
-          <div className="passwordContainer">
+          <div className="passwordGroup">
             <input
               name="password"
               type={isPasswordVisible ? "text" : "password"}
@@ -186,7 +186,7 @@ function EditStudyForm() {
         </div>
         <div className="formGroup">
           <label>비밀번호 확인</label>
-          <div className="passwordContainer">
+          <div className="passwordGroup">
             <input
               name="passwordConfirm"
               type={isPasswordVisible2 ? "text" : "password"}

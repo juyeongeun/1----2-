@@ -8,31 +8,35 @@ function useFetchStudy(studyId) {
   const [background, setBackground] = useState(null); // 배경 상태 추가
   const [password, setPassword] = useState("");
   const [point, setPoint] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false); // 로딩 상태 초기값을 false로 설정
   const [error, setError] = useState(null);
   const baseUrl = "https://study-api-m36o.onrender.com/api/studies";
 
   useEffect(() => {
-    const fetchStudyData = async () => {
-      try {
-        const response = await axios.get(`${baseUrl}/${studyId}`);
-        const data = response.data;
-        if (data) {
-          setStudyName(data.studyName);
-          setName(data.name);
-          setContent(data.content);
-          setBackground(data.background); // 배경 설정
-          setPassword(data.password);
-          setPoint(data.point);
+    if (studyId) {
+      // studyId가 존재하는 경우에만 데이터 로드
+      const fetchStudyData = async () => {
+        setLoading(true); // 로딩 시작
+        try {
+          const response = await axios.get(`${baseUrl}/${studyId}`);
+          const data = response.data;
+          if (data) {
+            setStudyName(data.studyName);
+            setName(data.name);
+            setContent(data.content);
+            setBackground(data.background); // 배경 설정
+            setPassword(data.password);
+            setPoint(data.point);
+          }
+        } catch (err) {
+          setError(err.message);
+        } finally {
+          setLoading(false); // 로딩 종료
         }
-      } catch (err) {
-        setError(err.message);
-      } finally {
-        setLoading(false);
-      }
-    };
+      };
 
-    fetchStudyData();
+      fetchStudyData();
+    }
   }, [studyId]);
 
   const deleteStudy = async () => {
@@ -64,11 +68,11 @@ function useFetchStudy(studyId) {
     try {
       const response = await axios.post(baseUrl, newStudy);
       setLoading(false);
-      return response.data; // 생성된 스터디 데이터를 반환
+      return response.data;
     } catch (err) {
       setError(err.message);
       setLoading(false);
-      throw err; // 오류가 발생하면 예외를 던져서 호출자가 처리할 수 있게 함
+      throw err;
     }
   };
 
