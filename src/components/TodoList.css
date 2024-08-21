@@ -1,0 +1,51 @@
+.todo-list {
+  text-align: center; /* 텍스트 가운데 정렬 */
+  margin-top: 20px;
+  font-size: 30px;
+  border: 20px;
+  position: relative;
+}
+
+.todo-list h2 {
+  text-align: center; /* 텍스트 가운데 정렬 */
+  margin-top: 20px;
+  font-size: 30px;
+  border: 20px;
+}
+
+.todo-list div {
+  position: absolute;
+  top: 5px;
+  right: 180px;
+  position: absolute;
+  font-size: 15px;
+  color: #d3d3d3;
+}
+
+.habit-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: center; /* 텍스트 가운데 정렬 */
+}
+
+.habit-list li {
+  background-color: #e0e0e0;
+  padding: 20px;
+  margin: 20px auto; /* auto로 양쪽에 균등한 여백을 추가 */
+  border-radius: 20px;
+  font-size: 20px;
+  color: #ffffff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 30%; /* 가로 길이를 30%로 설정 */
+  text-align: center; /* 텍스트 가운데 정렬 */
+}
+
+.habit-list li.completed {
+  background-color: #a5d6a7;
+}
+
+.habit-list li:hover {
+  background-color: #81c784;
+}
