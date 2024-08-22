@@ -1,11 +1,11 @@
-import styles from './CreateFooter.module.css';
-import { createStudy } from '../api/Studyhome.js';
-import makeBtn from '../img/make_btn.png';
-
-import { useNavigate } from 'react-router-dom';
+import styles from "./CreateFooter.module.css";
+import useFetchStudy from "../hooks/useFetchStudy.js";
+import makeBtn from "../img/make_btn.png";
+import { useNavigate } from "react-router-dom";
 
 function CreateFooter({ values, isValid, setShowErrors }) {
   const navigate = useNavigate();
+  const { createStudy, loading, error } = useFetchStudy(); // 변경된 훅 사용
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -22,9 +22,9 @@ function CreateFooter({ values, isValid, setShowErrors }) {
       try {
         const response = await createStudy(newStudy);
         const { id } = response;
-        navigate(`/studies/${id}`);
+        navigate(`/study/${id}`);
       } catch (error) {
-        console.error('Failed to create study:', error);
+        console.error("Failed to create study:", error);
       }
     } else {
       setShowErrors({
@@ -38,12 +38,15 @@ function CreateFooter({ values, isValid, setShowErrors }) {
   };
 
   return (
-    <>
-      <div className={styles.footer}>
-        <img className={styles.buttonImg} src={makeBtn} alt='만들기 버튼' />
-        <button onClick={handleSubmit} className={styles.button} />
-      </div>
-    </>
+    <div className={styles.footer}>
+      <img className={styles.buttonImg} src={makeBtn} alt="만들기 버튼" />
+      <button
+        onClick={handleSubmit}
+        className={styles.button}
+        disabled={loading}
+      ></button>
+      {error && <p className={styles.error}>Error: {error}</p>}
+    </div>
   );
 }
 

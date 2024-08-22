@@ -1,4 +1,5 @@
-import React, { useEffect } from "react";
+import React from "react";
+import { useParams } from "react-router-dom";
 import useFetchHabit from "../hooks/useFetchHabit.js";
 import useFetchCompleteHabit from "../hooks/useFetchCompleteHabit.js";
 import "./StudyHabits.css";
@@ -6,51 +7,21 @@ import ic_inactive from "../img/check/ic_inactive.svg";
 import { activeIcons } from "../img/ImgImport.js";
 
 function StudyHabits() {
-  const { habits, loading: habitLoading, error: habitError } = useFetchHabit(5);
+  const { studyId } = useParams();
+  const {
+    habits,
+    loading: habitLoading,
+    error: habitError,
+  } = useFetchHabit(studyId);
   const {
     completeHabits,
     loading: completeLoading,
     error: completeError,
-  } = useFetchCompleteHabit(5);
+  } = useFetchCompleteHabit(studyId);
 
-  // 로컬 스토리지에 데이터를 저장
-  const saveToLocalStorage = (habitId, dayIndex) => {
-    const currentData =
-      JSON.parse(localStorage.getItem("completedHabits")) || {};
-    if (!currentData[habitId]) {
-      currentData[habitId] = [];
-    }
-    if (!currentData[habitId].includes(dayIndex)) {
-      currentData[habitId].push(dayIndex);
-    }
-    localStorage.setItem("completedHabits", JSON.stringify(currentData));
-  };
-
-  // 일요일 자정 이후 로컬 스토리지를 초기화
-  const clearStorageOnSunday = () => {
-    const now = new Date();
-    const lastClear = localStorage.getItem("lastClear") || 0;
-
-    if (
-      now.getDay() === 1 &&
-      now.getHours() === 0 &&
-      now.getMinutes() === 0 &&
-      now.getSeconds() === 0 &&
-      now > new Date(parseInt(lastClear, 10))
-    ) {
-      localStorage.removeItem("completedHabits");
-      localStorage.setItem("lastClear", now.getTime());
-    }
-  };
-
+  // 특정 요일에 습관이 완료되었는지 확인
   const isHabitCompleteOnDay = (habitId, dayIndex) => {
-    const storedData =
-      JSON.parse(localStorage.getItem("completedHabits")) || {};
-    if (storedData[habitId] && storedData[habitId].includes(dayIndex)) {
-      return true;
-    }
-
-    const habitCompletion = completeHabits.find((ch) => {
+    return completeHabits.some((ch) => {
       const habitCompletionDate = new Date(ch.createdAt);
       const habitDay = habitCompletionDate.getDay();
       return (
@@ -58,18 +29,7 @@ function StudyHabits() {
         (habitDay === 0 ? 6 : habitDay - 1) === dayIndex
       );
     });
-
-    if (habitCompletion) {
-      saveToLocalStorage(habitId, dayIndex);
-      return true;
-    }
-
-    return false;
   };
-
-  useEffect(() => {
-    clearStorageOnSunday();
-  }, []);
 
   if (habitLoading || completeLoading) {
     return <div>Loading...</div>;

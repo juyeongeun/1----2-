@@ -1,9 +1,10 @@
-import { FaFacebook, FaTwitter, FaInstagram, FaLink } from "react-icons/fa"; // 아이콘 불러오기
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-function StudyShare() {
+import { FaFacebook, FaTwitter, FaInstagram, FaLink } from "react-icons/fa";
+import { toast } from "react-toastify";
+
+function StudyShare({ onShareClick }) {
   const shareUrl = encodeURIComponent(window.location.href);
   const shareText = encodeURIComponent("Check out this study group!");
+
   const handleCopyLink = () => {
     navigator.clipboard.writeText(window.location.href);
     toast("링크가 클립보드에 복사되었습니다.", {
@@ -15,39 +16,48 @@ function StudyShare() {
       draggable: true,
       progress: undefined,
     });
+    onShareClick();
+  };
+
+  const handleShareClick = (url) => {
+    window.open(url, "_blank", "noopener,noreferrer");
+    onShareClick();
   };
 
   return (
     <div className="shareContainer">
       <div className="shareOptions">
-        <a
-          href={`https://www.facebook.com/sharer/sharer.php?u=${shareUrl}`}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="shareIcon"
-        >
-          <FaFacebook />
-        </a>
-        <a
-          href={`https://twitter.com/intent/tweet?url=${shareUrl}&text=${shareText}`}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="shareIcon"
-        >
-          <FaTwitter />
-        </a>
-        <a
-          href={`https://www.instagram.com/?url=${shareUrl}`}
-          target="_blank"
-          rel="noopener noreferrer"
+        <span
+          onClick={() =>
+            handleShareClick(`https://www.instagram.com/?url=${shareUrl}`)
+          }
           className="shareIcon"
         >
           <FaInstagram />
-        </a>
+        </span>
+        <span
+          onClick={() =>
+            handleShareClick(
+              `https://www.facebook.com/sharer/sharer.php?u=${shareUrl}`
+            )
+          }
+          className="shareIcon"
+        >
+          <FaFacebook />
+        </span>
+        <span
+          onClick={() =>
+            handleShareClick(
+              `https://twitter.com/intent/tweet?url=${shareUrl}&text=${shareText}`
+            )
+          }
+          className="shareIcon"
+        >
+          <FaTwitter />
+        </span>
         <span onClick={handleCopyLink} className="shareIcon">
           <FaLink />
         </span>
-        <ToastContainer />
       </div>
     </div>
   );

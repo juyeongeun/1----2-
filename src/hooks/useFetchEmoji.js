@@ -1,9 +1,8 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-function useFetchEmoji() {
+function useFetchEmoji(studyId) {
   const baseUrl = "https://study-api-m36o.onrender.com/api/reactions";
-  const studyId = 5;
   const [emojis, setEmojis] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -25,7 +24,7 @@ function useFetchEmoji() {
       }
     };
     fetchEmoji();
-  }, [baseUrl]);
+  }, [baseUrl, studyId]);
 
   const saveEmoji = async (emoji) => {
     try {

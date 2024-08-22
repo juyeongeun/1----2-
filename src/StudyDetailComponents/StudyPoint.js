@@ -1,9 +1,11 @@
 import React from "react";
+import { useParams } from "react-router-dom";
 import useFetchStudy from "../hooks/useFetchStudy.js";
 import "./StudyPoint.css";
 
 function StudyPoint() {
-  const { point, loading, error } = useFetchStudy();
+  const { studyId } = useParams();
+  const { point, loading, error } = useFetchStudy(studyId);
 
   if (error) {
     return <div className="error">{error}</div>;
