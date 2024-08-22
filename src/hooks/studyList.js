@@ -15,8 +15,12 @@ function useInputValid({ orderBy, offset, limit, keyword }) {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await instance.get('/studies', {
-          params,
+        setLoading(true);
+        const response = await getStudiesList({
+          orderBy,
+          limit,
+          offset,
+          keyword,
         });
         setLoading(true);
         console.log('API Response:', response);

@@ -5,12 +5,12 @@ import Dropdown from './Dropdown.js';
 import useInputValid from '../hooks/studyList.js';
 
 import ExplotrStudiesHeader from './ExplotrStudiesHeader.js';
-
+// import testData from './mock.js';
 const LIMIT = 6;
 
-function ExploreStudies() {
+function ExploreStudies({ setClick }) {
   const [orderBy, setOrderBy] = useState('recent');
-  const [offset, setOffset] = useState(1);
+  const [offset, setOffset] = useState(0);
   const [items, setItems] = useState([]);
   const [keyword, setKeyword] = useState('');
 
@@ -22,6 +22,11 @@ function ExploreStudies() {
   // });
 
   // 커스텀 훅을 사용하여 데이터 가져오기
+
+  // useEffect(() => {
+  //   setItems(testData);
+  // }, []);
+
   const { data, loading, error } = useInputValid({
     orderBy,
     offset,
@@ -29,11 +34,9 @@ function ExploreStudies() {
     keyword,
   });
 
-
-
   const handleOrderbyChange = (name) => {
     setOrderBy(name);
-    setOffset(0); // 정렬 기준 변경 시 오프셋 초기화
+    setOffset(0);
   };
 
   const handleLoad = () => {
@@ -42,7 +45,7 @@ function ExploreStudies() {
     } else {
       setItems([...items, ...data]);
     }
-    setOffset(offset + LIMIT);
+    // setOffset(offset + LIMIT);
   };
 
   const handleLoadMore = () => {
@@ -64,11 +67,18 @@ function ExploreStudies() {
       />
 
       <div className={styles.studyList}>
-        <Study data={items} />
+        <Study data={items} setClick={setClick} />
       </div>
       <button onClick={handleLoadMore} className={styles.button}>
         더보기
       </button>
+      {/* <button className={styles.button}>더보기</button> */}
+      {/* 
+      <p className='noneHabit'>
+        아직 습관이 없어요
+        <br />
+        오늘의 습관에서 습관을 생성해보세요
+      </p> */}
     </div>
   );
 }

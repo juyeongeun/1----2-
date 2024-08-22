@@ -5,6 +5,7 @@ import "react-toastify/dist/ReactToastify.css";
 // import RecentStudies from '../components/RecentStudies.js';
 //import ExploreStudies from '../components/ExploreStudies.js';
 
+import ListStudyForm from '../ListStudy/ListStudyForm.js';
 
 function StudyRoomPage() {
   const location = useLocation();
@@ -29,6 +30,7 @@ function StudyRoomPage() {
 
       {/* <ExploreStudies /> */}
       <ToastContainer />
+      <ListStudyForm />
     </>
   );
 }
