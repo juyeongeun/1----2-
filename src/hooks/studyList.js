@@ -6,18 +6,19 @@ function useInputValid({ orderBy, offset, limit, keyword }) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  const instance = axios.create({
+    baseURL: 'https://teamproject-test-db.onrender.com',
+  });
+
   console.log({ orderBy, offset, limit, keyword });
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        setLoading(true);
-        const response = await getStudiesList({
-          orderBy,
-          offset,
-          offset,
-          keyword,
+        const response = await instance.get('/studies', {
+          params,
         });
+        setLoading(true);
         console.log('API Response:', response);
         console.log(response.data);
         setData(response.data || []);
