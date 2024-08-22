@@ -57,7 +57,6 @@ function useFetchStudy(studyId) {
       window.location.href = `/study/${studyId}`;
     } catch (err) {
       setError(err.message);
-      alert("as");
     } finally {
       setLoading(false);
     }
