@@ -150,7 +150,7 @@
 
 ## 구현 홈페이지
 
-https://www.codeit.kr/
+[공부의 숲](https://main--gatherstudy.netlify.app/)
 
 ## 프로젝트 회고록
 
