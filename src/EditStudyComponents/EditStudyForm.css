@@ -137,6 +137,11 @@
   font-family: EF_jejudoldam, sans-serif;
 }
 
+.editButton:disabled {
+  background-color: #cccccc; /* 비활성화된 상태의 버튼 배경색 */
+  cursor: not-allowed;
+}
+
 .errorMsg {
   font-size: 14px;
   font-weight: 400;
