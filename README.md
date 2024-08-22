@@ -1,6 +1,6 @@
 # 2팀
 
-[팀 협업 문서](https://arrow-season-125.notion.site/ec0da2984aee44b29e332e18b85d12db?v=c951e5190e594c56aae608fd15b9420b&pvs=4)
+📄 [팀 협업 문서](https://arrow-season-125.notion.site/ec0da2984aee44b29e332e18b85d12db?v=c951e5190e594c56aae608fd15b9420b&pvs=4)
 
 ## 팀원 구성
 
@@ -23,7 +23,7 @@
         <sub><a href="https://github.com/mozzi34">GitHub 프로필</a></sub>
       </td>
       <td align="center">
-        <img src="https://github.com/user-attachments/assets/96466cdd-f9ee-420a-a3c6-f0e1714cb546" width="150px;" alt="주영은"/><br />
+        <img src="https://github.com/user-attachments/assets/5b77ac24-3a0a-4c4c-88a5-872c29e1998f" width="150px;" alt="주영은"/><br />
         <b>FS 팀원: 주영은</b></sub><br />
         <sub><a href="https://github.com/juyeongeun">GitHub 프로필</a></sub>
       </td>
@@ -53,7 +53,7 @@
 
 ### 기타 Tool
 
-<img src="https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white"> <img src="https://img.shields.io/badge/discord-5865F2?style=for-the-badge&logo=discord&logoColor=white"> <img src="https://img.shields.io/badge/Zoom-0B5CFF?style=for-the-badge&logo=zoom&logoColor=white"> <img src="https://img.shields.io/badge/render-000000?style=for-the-badge&logo=render&logoColor=white"> <img src="https://img.shields.io/badge/netlify-00C7B7?style=for-the-badge&logo=netlify&logoColor=white">
+<img src="https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white"> <img src="https://img.shields.io/badge/discord-5865F2?style=for-the-badge&logo=discord&logoColor=white"> <img src="https://img.shields.io/badge/Zoom-0B5CFF?style=for-the-badge&logo=zoom&logoColor=white"> <img src="https://img.shields.io/badge/notion-000000?style=for-the-badge&logo=notion&logoColor=white"> <img src="https://img.shields.io/badge/netlify-00C7B7?style=for-the-badge&logo=netlify&logoColor=white"> <img src="https://img.shields.io/badge/render-000000?style=for-the-badge&logo=render&logoColor=white">
 
 ## 팀원별 구현 기능 상세
 
