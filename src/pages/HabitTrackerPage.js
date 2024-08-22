@@ -1,4 +1,4 @@
-import Container from "../components/Container.js";
+// import Container from "../components/Container.js";
 import HabitStudyComponents from "../components/HabitStudyComponents.js";
 
 function HabitTrackerPage() {
