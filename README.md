@@ -4,13 +4,29 @@
 
 ## 팀원 구성
 
-<table height="200px">
+<table height="250px">
   <tbody>
     <tr>
-      <td align="center"><a href="https://github.com/kangbeomjoon"><img src="https://github.com/user-attachments/assets/677f13bf-29a4-4cc8-8b39-ac3469ddd9a8" width="150px;" alt="강범준"/><br /><sub><b>FS 팀장: 강범준</b></sub></a><br /></td>
-      <td align="center"><a href="https://github.com/TradeOffEgoist"><img src="https://github.com/user-attachments/assets/9946a636-9764-43db-bf8b-02397f897d54" width="150px;" alt=""/><br /><sub><b>FS 팀원: 김대건</b></sub></a><br /></td>
-      <td align="center"><a href="https://github.com/mozzi34"><img src="https://github.com/user-attachments/assets/d26451c4-0632-476c-aa24-e8533ec2ee06" width="150px;" alt=""/><br /><sub><b>FS 팀원: 김효인</b></sub></a><br /></td>
-      <td align="center"><a href="https://github.com/juyeongeun"><img src="https://github.com/user-attachments/assets/96466cdd-f9ee-420a-a3c6-f0e1714cb546" width="150px;" alt="주영은"/><br /><sub><b>FS 팀원: 주영은</b></sub></a><br /></td>
+      <td align="center">
+        <img src="https://github.com/user-attachments/assets/677f13bf-29a4-4cc8-8b39-ac3469ddd9a8" width="150px;" alt="강범준"/><br />
+        <b>FS 팀장: 강범준</b><br />
+        <sub><a href="https://github.com/kangbeomjoon">GitHub 프로필</a></sub>
+      </td>
+      <td align="center">
+        <img src="https://github.com/user-attachments/assets/9946a636-9764-43db-bf8b-02397f897d54" width="150px;" alt=""/><br />
+        <b>FS 팀원: 김대건</b><br />
+        <sub><a href="https://github.com/TradeOffEgoist">GitHub 프로필</a></sub>
+      </td>
+      <td align="center">
+        <img src="https://github.com/user-attachments/assets/d26451c4-0632-476c-aa24-e8533ec2ee06" width="150px;" alt=""/><br />
+        <b>FS 팀원: 김효인</b></sub><br />
+        <sub><a href="https://github.com/mozzi34">GitHub 프로필</a></sub>
+      </td>
+      <td align="center">
+        <img src="https://github.com/user-attachments/assets/96466cdd-f9ee-420a-a3c6-f0e1714cb546" width="150px;" alt="주영은"/><br />
+        <b>FS 팀원: 주영은</b></sub><br />
+        <sub><a href="https://github.com/juyeongeun">GitHub 프로필</a></sub>
+      </td>
      <tr/>
   <tbody/>
 <table/>
