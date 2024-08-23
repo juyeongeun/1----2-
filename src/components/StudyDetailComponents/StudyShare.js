@@ -41,8 +41,7 @@ function StudyShare({ id, name, onShareClick }) {
       content: {
         title: shareText,
         description: `${name}의 스터디를 구경해보세요!`, // name을 사용
-        imageUrl:
-          "https://https://main--gatherstudy.netlify.app/ic_share_logo.png",
+        imageUrl: "https://main--gatherstudy.netlify.app/ic_share_logo.png",
         link: {
           webUrl: shareUrl,
           mobileWebUrl: shareUrl,
