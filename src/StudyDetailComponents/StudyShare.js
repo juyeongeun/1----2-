@@ -11,7 +11,7 @@ function StudyShare({ onShareClick }) {
     const kakaoKey = "aec25d1cabf3760334251f03504abbd9";
     console.log(kakaoKey);
     // 카카오 SDK 초기화
-    if (kakaoKey && !Kakao.isInitialized()) {
+    if (kakaoKey) {
       Kakao.init(kakaoKey);
       console.log("Kakao SDK Initialized:", kakaoKey);
     }
