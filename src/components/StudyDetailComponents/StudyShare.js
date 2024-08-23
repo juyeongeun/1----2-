@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { FaFacebook, FaTwitter, FaInstagram, FaLink } from "react-icons/fa";
 import { toast } from "react-toastify";
-import KakaoIcon from "../img/kakaotalk_sharing.png";
+import KakaoIcon from "../../img/kakaotalk_sharing.png";
 
 function StudyShare({ id, name, onShareClick }) {
   const shareUrl = `https://feature-share-kakao--zingy-faloodeh-281168.netlify.app/study/${id}`;

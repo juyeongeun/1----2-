@@ -1,13 +1,13 @@
 import React, { useReducer, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import "./EditStudyForm.css";
-import useFetchStudy from "../hooks/useFetchStudy.js";
-import useInputValid from "../hooks/useInputValid.js";
+import useFetchStudy from "../../hooks/useFetchStudy.js";
+import useInputValid from "../../hooks/useInputValid.js";
 import LabeledInput from "./LabeledInput.js";
 import BackgroundSelector from "./BackgroundSelector.js";
 import PasswordInput from "./PasswordInput.js";
 import SubmitButton from "./SubmitButton.js";
-import { backgrounds } from "../img/ImgImport.js";
+import { backgrounds } from "../../img/ImgImport.js";
 
 const initialState = {
   nickname: "",

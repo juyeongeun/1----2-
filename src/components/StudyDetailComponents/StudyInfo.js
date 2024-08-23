@@ -1,8 +1,8 @@
 import EmojiPicker from "emoji-picker-react";
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
-import useFetchEmoji from "../hooks/useFetchEmoji.js";
-import useFetchStudy from "../hooks/useFetchStudy.js";
+import useFetchEmoji from "../../hooks/useFetchEmoji.js";
+import useFetchStudy from "../../hooks/useFetchStudy.js";
 import StudyShare from "./StudyShare.js";
 import { ToastContainer } from "react-toastify";
 import { useNavigate } from "react-router-dom";

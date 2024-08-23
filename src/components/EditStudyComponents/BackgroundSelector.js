@@ -1,5 +1,5 @@
 import React from "react";
-import { backgrounds } from "../img/ImgImport.js";
+import { backgrounds } from "../../img/ImgImport.js";
 
 function BackgroundSelector({ selectedBackground, handleBackgroundClick }) {
   return (

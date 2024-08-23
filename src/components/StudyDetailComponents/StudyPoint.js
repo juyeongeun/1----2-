@@ -1,6 +1,6 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import useFetchStudy from "../hooks/useFetchStudy.js";
+import useFetchStudy from "../../hooks/useFetchStudy.js";
 import "./StudyPoint.css";
 
 function StudyPoint() {

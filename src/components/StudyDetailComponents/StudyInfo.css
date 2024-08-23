@@ -1,4 +1,4 @@
-@import url("../css/reset.css");
+@import url("../../css/reset.css");
 
 body {
   font-family: "Pretendard", sans-serif;
@@ -39,7 +39,7 @@ body {
   border-radius: 50px;
   border: 1px solid rgba(0, 0, 0, 0.1);
   background-color: #ffffff;
-  background-image: url("../img/ic_emoji.svg");
+  background-image: url("../../img/ic_emoji.svg");
   background-repeat: no-repeat;
   background-position: 8px center;
   background-size: 18px;

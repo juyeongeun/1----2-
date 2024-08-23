@@ -1,6 +1,6 @@
 import React from "react";
-import ic_open_pw from "../img/ic_open_pw.svg";
-import ic_close_pw from "../img/ic_close_pw.svg";
+import ic_open_pw from "../../img/ic_open_pw.svg";
+import ic_close_pw from "../../img/ic_close_pw.svg";
 
 function PasswordInput({
   label,
