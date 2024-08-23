@@ -12,11 +12,7 @@ function StudyShare({ id, onShareClick }) {
   const { Kakao } = window;
 
   useEffect(() => {
-    // SDK 초기화 전에 clean up
-    if (Kakao && Kakao.isInitialized()) {
-      Kakao.cleanup();
-    }
-    // SDK 초기화
+    Kakao.cleanup();
     Kakao.init("aec25d1cabf3760334251f03504abbd9");
   }, [Kakao]);
 
