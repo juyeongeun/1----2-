@@ -1,9 +1,23 @@
-import { FaFacebook, FaTwitter, FaInstagram, FaLink } from "react-icons/fa";
+import React, { useEffect } from "react";
+import { FaFacebook, FaTwitter, FaInstagram, FaLink } from "react-icons/fa"; // 카카오톡 아이콘 추가
 import { toast } from "react-toastify";
+import KakaoIcon from "../img/kakaotalk_sharing.png";
 
 function StudyShare({ onShareClick }) {
   const shareUrl = encodeURIComponent(window.location.href);
-  const shareText = encodeURIComponent("Check out this study group!");
+  const shareText = "Check out this study group!";
+
+  useEffect(() => {
+    // .env 파일에서 환경 변수 가져오기
+    const kakaoKey = process.env.REACT_APP_KAKAO_JAVASCRIPT_KEY;
+
+    // 카카오 SDK 초기화
+    if (kakaoKey && !window.Kakao.isInitialized()) {
+      window.Kakao.init(kakaoKey);
+    }
+
+    console.log("Kakao SDK Initialized:", window.Kakao.isInitialized());
+  }, []);
 
   const handleCopyLink = () => {
     navigator.clipboard.writeText(window.location.href);
@@ -21,6 +35,31 @@ function StudyShare({ onShareClick }) {
 
   const handleShareClick = (url) => {
     window.open(url, "_blank", "noopener,noreferrer");
+    onShareClick();
+  };
+
+  const handleKakaoShare = () => {
+    window.Kakao.Link.sendDefault({
+      objectType: "feed",
+      content: {
+        title: shareText,
+        description: "스터디 그룹에 참여해 보세요!",
+        imageUrl: "https://example.com/image.jpg", // 공유할 이미지 URL
+        link: {
+          mobileWebUrl: window.location.href,
+          webUrl: window.location.href,
+        },
+      },
+      buttons: [
+        {
+          title: "스터디 참여하기",
+          link: {
+            mobileWebUrl: window.location.href,
+            webUrl: window.location.href,
+          },
+        },
+      ],
+    });
     onShareClick();
   };
 
@@ -57,6 +96,13 @@ function StudyShare({ onShareClick }) {
         </span>
         <span onClick={handleCopyLink} className="shareIcon">
           <FaLink />
+        </span>
+        <span onClick={handleKakaoShare} className="shareIcon">
+          <img
+            src={KakaoIcon}
+            alt="KakaoTalk"
+            style={{ width: "32px", height: "32px" }}
+          />
         </span>
       </div>
     </div>
