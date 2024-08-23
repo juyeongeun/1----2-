@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import { FaFacebook, FaTwitter, FaInstagram, FaLink } from "react-icons/fa";
 import { toast } from "react-toastify";
 import KakaoIcon from "../img/kakaotalk_sharing.png";
-import MetaTags from "./StudyShareMeta.js";
 
 function StudyShare({ id, onShareClick }) {
   const shareUrl = `https://feature-share-kakao--zingy-faloodeh-281168.netlify.app/study/${id}`;
@@ -64,14 +63,6 @@ function StudyShare({ id, onShareClick }) {
 
   return (
     <div className="shareContainer">
-      {/* MetaTags 컴포넌트를 사용하여 메타 태그 설정 */}
-      <MetaTags
-        title={shareText}
-        description="스터디 그룹에 참여해 보세요!"
-        url={shareUrl}
-        image="https://feature-share-kakao--zingy-faloodeh-281168.netlify.app/ic_share_logo.png"
-      />
-
       <div className="shareOptions">
         <span
           onClick={() =>

@@ -9,6 +9,7 @@ import { useNavigate } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 import "./StudyInfo.css";
 import PasswordModal from "./PasswordModal.js";
+import MetaTags from "./StudyShareMeta.js"; // MetaTags 컴포넌트 가져오기
 
 function StudyInfo() {
   const { studyId } = useParams();
@@ -68,6 +69,12 @@ function StudyInfo() {
 
   return (
     <>
+      <MetaTags
+        title="공부의숲"
+        description="스터디 그룹에 참여해 보세요!"
+        url={`https://feature-share-kakao--zingy-faloodeh-281168.netlify.app/study/${studyId}`}
+        image="https://feature-share-kakao--zingy-faloodeh-281168.netlify.app/ic_share_logo.png"
+      />
       <div className="studyInfo">
         <div className="headerInfo">
           <div className="emojis">
