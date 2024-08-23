@@ -4,7 +4,7 @@ import { toast } from "react-toastify";
 import KakaoIcon from "../../img/kakaotalk_sharing.png";
 
 function StudyShare({ id, name, onShareClick }) {
-  const shareUrl = `https://feature-share-kakao--zingy-faloodeh-281168.netlify.app/study/${id}`;
+  const shareUrl = `https://main--gatherstudy.netlify.app/study/${id}`;
   const shareText = "모여봐요 공부의 숲";
   const { Kakao } = window;
   const kakaokey = process.env.REACT_APP_KAKAO_KEY;
@@ -42,7 +42,7 @@ function StudyShare({ id, name, onShareClick }) {
         title: shareText,
         description: `${name}의 스터디를 구경해보세요!`, // name을 사용
         imageUrl:
-          "https://feature-share-kakao--zingy-faloodeh-281168.netlify.app/ic_share_logo.png",
+          "https://https://main--gatherstudy.netlify.app/ic_share_logo.png",
         link: {
           webUrl: shareUrl,
           mobileWebUrl: shareUrl,
