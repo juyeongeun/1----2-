@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import { FaFacebook, FaTwitter, FaInstagram, FaLink } from "react-icons/fa";
 import { toast } from "react-toastify";
 import KakaoIcon from "../img/kakaotalk_sharing.png";
-import shareIcon from "../img/ic_share_logo.png";
 
 function StudyShare({ id, onShareClick }) {
   const shareUrl = encodeURIComponent(
@@ -44,7 +43,8 @@ function StudyShare({ id, onShareClick }) {
       content: {
         title: shareText,
         description: "스터디 그룹에 참여해 보세요!",
-        imageUrl: shareIcon,
+        imageUrl:
+          "https://feature-share-kakao--zingy-faloodeh-281168.netlify.app/ic_share_logo.png",
         link: {
           webUrl: url,
           mobileWebUrl: url,
