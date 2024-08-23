@@ -7,16 +7,22 @@ function StudyShare({ onShareClick }) {
   const shareUrl = encodeURIComponent(window.location.href);
   const shareText = "Check out this study group!";
   const { Kakao } = window;
+
   useEffect(() => {
     const kakaoKey = "aec25d1cabf3760334251f03504abbd9";
-    console.log(kakaoKey);
-    // 카카오 SDK 초기화
-    if (kakaoKey) {
-      Kakao.init(kakaoKey);
-      console.log("Kakao SDK Initialized:", kakaoKey);
+
+    // Kakao SDK 초기화 이전에 cleanup 호출
+    if (Kakao && Kakao.isInitialized()) {
+      Kakao.cleanup();
     }
 
-    console.log("Kakao SDK Initialized:", Kakao.isInitialized());
+    // 카카오 SDK 초기화
+    if (kakaoKey && Kakao) {
+      Kakao.init(kakaoKey);
+      console.log("Kakao SDK Initialized:", Kakao.isInitialized());
+    } else {
+      console.error("Kakao 객체가 정의되지 않았거나 키가 유효하지 않습니다.");
+    }
   }, [Kakao]);
 
   const handleCopyLink = () => {
