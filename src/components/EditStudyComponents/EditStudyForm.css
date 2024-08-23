@@ -1,4 +1,4 @@
-@import "../css/reset.css";
+@import "../../css/reset.css";
 
 @font-face {
   font-family: "EF_jejudoldam";
@@ -104,7 +104,7 @@
   width: 32px;
   height: 32px;
   transform: translate(-50%, -50%);
-  background-image: url("../img/background_icon.png");
+  background-image: url("../../img/background_icon.png");
   background-repeat: no-repeat;
   background-size: contain;
   pointer-events: none;

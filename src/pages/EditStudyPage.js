@@ -1,5 +1,5 @@
 import "../css/reset.css";
-import EditStudyForm from "../EditStudyComponents/EditStudyForm.js";
+import EditStudyForm from "../components/EditStudyComponents/EditStudyForm.js";
 function EditStudyPage() {
   return (
     <>
