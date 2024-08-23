@@ -4,7 +4,6 @@ import { Helmet } from "react-helmet";
 function MetaTags({ title, description, url, image }) {
   return (
     <Helmet>
-      <title>{title}</title>
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
       <meta property="og:url" content={url} />

@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { FaFacebook, FaTwitter, FaInstagram, FaLink } from "react-icons/fa";
 import { toast } from "react-toastify";
 import KakaoIcon from "../img/kakaotalk_sharing.png";
-import MetaTags from "./StudyShareMeta.js"; // MetaTags 컴포넌트 가져오기
+import MetaTags from "./StudyShareMeta.js";
 
 function StudyShare({ id, onShareClick }) {
   const shareUrl = `https://feature-share-kakao--zingy-faloodeh-281168.netlify.app/study/${id}`;

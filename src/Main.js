@@ -6,20 +6,25 @@ import HabitTrackerPage from "./pages/HabitTrackerPage.js";
 import FocusTimerPage from "./pages/FocusTimerPage.js";
 import StudyDetailPage from "./pages/StudyDetailPage.js";
 import EditStudyPage from "./pages/EditStudyPage.js";
+import StudyShareMeta from "./StudyDetailComponents/StudyShareMeta.js";
+import { HelmetProvider } from "react-helmet-async";
 
 function Main() {
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<StudyRoomPage />} />
-          <Route path="/study" element={<CreateStudyPage />} />
-          <Route path="/study/:studyId" element={<StudyDetailPage />} />
-          <Route path="/editStudy/:studyId" element={<EditStudyPage />} />
-          <Route path="/habit" element={<HabitTrackerPage />} />
-          <Route path="/focus" element={<FocusTimerPage />} />
-        </Route>
-      </Routes>
+      <HelmetProvider>
+        <StudyShareMeta />
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<StudyRoomPage />} />
+            <Route path="/study" element={<CreateStudyPage />} />
+            <Route path="/study/:studyId" element={<StudyDetailPage />} />
+            <Route path="/editStudy/:studyId" element={<EditStudyPage />} />
+            <Route path="/habit" element={<HabitTrackerPage />} />
+            <Route path="/focus" element={<FocusTimerPage />} />
+          </Route>
+        </Routes>
+      </HelmetProvider>
     </BrowserRouter>
   );
 }
