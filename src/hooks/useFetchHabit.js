@@ -45,7 +45,18 @@ function useFetchHabit(studyId) {
     }
   };
 
-  return { habits, loading, error, updateHabit, createHabit };
+  const deleteHabit = async (habitId) => {
+    try {
+      await axios.delete(`${baseUrl}/${studyId}/${habitId}`);
+      setHabits((prevHabits) =>
+        prevHabits.filter((habit) => habit.habitId !== habitId)
+      );
+    } catch (err) {
+      setError(err.message);
+    }
+  };
+
+  return { habits, loading, error, updateHabit, createHabit, deleteHabit };
 }
 
 export default useFetchHabit;
