@@ -2,23 +2,23 @@ import React, { useEffect } from "react";
 import { FaFacebook, FaTwitter, FaInstagram, FaLink } from "react-icons/fa";
 import { toast } from "react-toastify";
 import KakaoIcon from "../img/kakaotalk_sharing.png";
+import MetaTags from "./StudyShareMeta.js"; // MetaTags 컴포넌트 가져오기
 
 function StudyShare({ id, onShareClick }) {
-  const shareUrl = encodeURIComponent(
-    `https://feature-share-kakao--zingy-faloodeh-281168.netlify.app/study/${id}`
-  );
+  const shareUrl = `https://feature-share-kakao--zingy-faloodeh-281168.netlify.app/study/${id}`;
   const shareText = "모여봐요 공부의 숲";
   const { Kakao } = window;
   const kakaokey = process.env.REACT_APP_KAKAO_KEY;
+
   useEffect(() => {
-    Kakao.cleanup();
-    Kakao.init(kakaokey);
+    if (Kakao) {
+      Kakao.cleanup();
+      Kakao.init(kakaokey);
+    }
   }, [Kakao, kakaokey]);
 
   const handleCopyLink = () => {
-    navigator.clipboard.writeText(
-      `https://feature-share-kakao--zingy-faloodeh-281168.netlify.app/study/${id}`
-    );
+    navigator.clipboard.writeText(shareUrl);
     toast("링크가 클립보드에 복사되었습니다.", {
       position: "bottom-center",
       autoClose: 2000,
@@ -37,7 +37,6 @@ function StudyShare({ id, onShareClick }) {
   };
 
   const handleKakaoShare = () => {
-    const url = `https://feature-share-kakao--zingy-faloodeh-281168.netlify.app/${id}`;
     Kakao.Share.sendDefault({
       objectType: "feed",
       content: {
@@ -46,16 +45,16 @@ function StudyShare({ id, onShareClick }) {
         imageUrl:
           "https://feature-share-kakao--zingy-faloodeh-281168.netlify.app/ic_share_logo.png",
         link: {
-          webUrl: url,
-          mobileWebUrl: url,
+          webUrl: shareUrl,
+          mobileWebUrl: shareUrl,
         },
       },
       buttons: [
         {
           title: "스터디 구경하기",
           link: {
-            webUrl: url,
-            mobileWebUrl: url,
+            webUrl: shareUrl,
+            mobileWebUrl: shareUrl,
           },
         },
       ],
@@ -65,10 +64,20 @@ function StudyShare({ id, onShareClick }) {
 
   return (
     <div className="shareContainer">
+      {/* MetaTags 컴포넌트를 사용하여 메타 태그 설정 */}
+      <MetaTags
+        title={shareText}
+        description="스터디 그룹에 참여해 보세요!"
+        url={shareUrl}
+        image="https://feature-share-kakao--zingy-faloodeh-281168.netlify.app/ic_share_logo.png"
+      />
+
       <div className="shareOptions">
         <span
           onClick={() =>
-            handleShareClick(`https://www.instagram.com/?url=${shareUrl}`)
+            handleShareClick(
+              `https://www.instagram.com/?url=${encodeURIComponent(shareUrl)}`
+            )
           }
           className="shareIcon"
         >
@@ -77,7 +86,9 @@ function StudyShare({ id, onShareClick }) {
         <span
           onClick={() =>
             handleShareClick(
-              `https://www.facebook.com/sharer/sharer.php?u=${shareUrl}`
+              `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
+                shareUrl
+              )}`
             )
           }
           className="shareIcon"
@@ -87,7 +98,9 @@ function StudyShare({ id, onShareClick }) {
         <span
           onClick={() =>
             handleShareClick(
-              `https://twitter.com/intent/tweet?url=${shareUrl}&text=${shareText}`
+              `https://twitter.com/intent/tweet?url=${encodeURIComponent(
+                shareUrl
+              )}&text=${encodeURIComponent(shareText)}`
             )
           }
           className="shareIcon"
