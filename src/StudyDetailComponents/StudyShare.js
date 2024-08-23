@@ -9,11 +9,11 @@ function StudyShare({ id, onShareClick }) {
   );
   const shareText = "모여봐요 공부의 숲";
   const { Kakao } = window;
-
+  const kakaokey = process.env.KAKAO_KEY;
   useEffect(() => {
     Kakao.cleanup();
-    Kakao.init("aec25d1cabf3760334251f03504abbd9");
-  }, [Kakao]);
+    Kakao.init(kakaokey);
+  }, [Kakao, kakaokey]);
 
   const handleCopyLink = () => {
     navigator.clipboard.writeText(
