@@ -5,12 +5,11 @@ import KakaoIcon from "../img/kakaotalk_sharing.png";
 
 function StudyShare({ id, onShareClick }) {
   const shareUrl = encodeURIComponent(
-    `https://feature-share-kakao--zingy-faloodeh-281168.netlify.app/${id}`
+    `https://feature-share-kakao--zingy-faloodeh-281168.netlify.app/study/${id}`
   );
   const shareText = "모여봐요 공부의 숲";
   const { Kakao } = window;
   const kakaokey = process.env.REACT_APP_KAKAO_KEY;
-  console.log(kakaokey);
   useEffect(() => {
     Kakao.cleanup();
     Kakao.init(kakaokey);
