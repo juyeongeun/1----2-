@@ -8,7 +8,6 @@ function StudyShare({ onShareClick }) {
   const shareText = "Check out this study group!";
   const { Kakao } = window;
   useEffect(() => {
-    // .env 파일에서 환경 변수 가져오기
     const kakaoKey = "aec25d1cabf3760334251f03504abbd9";
     console.log(kakaoKey);
     // 카카오 SDK 초기화
@@ -18,7 +17,7 @@ function StudyShare({ onShareClick }) {
     }
 
     console.log("Kakao SDK Initialized:", Kakao.isInitialized());
-  }, []);
+  }, [Kakao]);
 
   const handleCopyLink = () => {
     navigator.clipboard.writeText(window.location.href);
