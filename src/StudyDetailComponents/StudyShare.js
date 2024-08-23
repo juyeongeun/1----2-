@@ -6,17 +6,18 @@ import KakaoIcon from "../img/kakaotalk_sharing.png";
 function StudyShare({ onShareClick }) {
   const shareUrl = encodeURIComponent(window.location.href);
   const shareText = "Check out this study group!";
-
+  const { Kakao } = window;
   useEffect(() => {
     // .env 파일에서 환경 변수 가져오기
     const kakaoKey = process.env.REACT_APP_KAKAO_JAVASCRIPT_KEY;
 
     // 카카오 SDK 초기화
-    if (kakaoKey && !window.Kakao.isInitialized()) {
-      window.Kakao.init(kakaoKey);
+    if (kakaoKey && !Kakao.isInitialized()) {
+      Kakao.init(kakaoKey);
+      console.log("Kakao SDK Initialized:", kakaoKey);
     }
 
-    console.log("Kakao SDK Initialized:", window.Kakao.isInitialized());
+    console.log("Kakao SDK Initialized:", Kakao.isInitialized());
   }, []);
 
   const handleCopyLink = () => {
