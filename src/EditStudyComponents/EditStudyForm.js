@@ -9,16 +9,8 @@ import useInputValid from "../hooks/useInputValid.js";
 
 function EditStudyForm() {
   const { studyId } = useParams();
-  const {
-    studyName,
-    name,
-    content,
-    background,
-    password: initialPassword,
-    loading,
-    error,
-    updateStudy,
-  } = useFetchStudy(studyId);
+  const { studyName, name, content, background, loading, error, updateStudy } =
+    useFetchStudy(studyId);
 
   const [showErrors, setShowErrors] = useState({
     name: false,
@@ -33,7 +25,7 @@ function EditStudyForm() {
   const [studyNameState, setStudyNameState] = useState(studyName || "");
   const [description, setDescription] = useState(content || "");
   const [selectedBackground, setSelectedBackground] = useState(null);
-  const [password, setPassword] = useState(initialPassword || "");
+  const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
   const [isPasswordVisible2, setIsPasswordVisible2] = useState(false);
@@ -71,10 +63,10 @@ function EditStudyForm() {
       setNickname(name);
       setStudyNameState(studyName);
       setDescription(content);
-      setPassword(initialPassword);
+      setPassword("");
       setSelectedBackground(backgrounds.indexOf(background)); // 초기 선택된 배경 설정
     }
-  }, [loading, error, name, studyName, content, background, initialPassword]);
+  }, [loading, error, name, studyName, content, background]);
 
   const handleBackgroundClick = (index) => {
     setSelectedBackground(index);
@@ -97,6 +89,17 @@ function EditStudyForm() {
 
   const togglePasswordVisibility2 = () => {
     setIsPasswordVisible2(!isPasswordVisible2);
+  };
+
+  const isFormValid = () => {
+    return (
+      nickname.trim() !== "" &&
+      studyNameState.trim() !== "" &&
+      description.trim() !== "" &&
+      password.trim() !== "" &&
+      confirmPassword.trim() !== "" &&
+      Object.keys(errors).length === 0
+    );
   };
 
   if (loading) return <p>Loading...</p>;
@@ -207,8 +210,8 @@ function EditStudyForm() {
             <p className="errorMsg">{errors.passwordConfirm}</p>
           )}
         </div>
-        <button type="submit" className="editButton">
-          수정
+        <button type="submit" className="editButton" disabled={!isFormValid()}>
+          수정하기
         </button>
       </form>
     </div>

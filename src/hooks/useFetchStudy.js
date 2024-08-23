@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 function useFetchStudy(studyId) {
@@ -10,6 +11,7 @@ function useFetchStudy(studyId) {
   const [point, setPoint] = useState(null);
   const [loading, setLoading] = useState(false); // 로딩 상태 초기값을 false로 설정
   const [error, setError] = useState(null);
+  const navigate = useNavigate();
   const baseUrl = "https://study-api-m36o.onrender.com/api/studies";
 
   useEffect(() => {
@@ -54,10 +56,9 @@ function useFetchStudy(studyId) {
     setLoading(true);
     try {
       await axios.put(`${baseUrl}/${studyId}`, updatedStudy);
-      window.location.href = `/study/${studyId}`;
+      navigate(`/study/${studyId}`);
     } catch (err) {
       setError(err.message);
-      alert("as");
     } finally {
       setLoading(false);
     }

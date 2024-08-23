@@ -13,7 +13,6 @@ import PasswordModal from "./PasswordModal.js";
 function StudyInfo() {
   const { studyId } = useParams();
   const [isEmojiPickerVisible, setEmojiPickerVisible] = useState(false);
-  const [chosenEmoji, setChosenEmoji] = useState(null);
   const [isExpanded, setIsExpanded] = useState(false);
   const [showShareOptions, setShowShareOptions] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -27,7 +26,6 @@ function StudyInfo() {
 
   const onEmojiClick = (emojiObject, event) => {
     const selectedEmoji = emojiObject.emoji;
-    setChosenEmoji(selectedEmoji);
     saveEmoji(selectedEmoji);
     setEmojiPickerVisible(false);
   };
