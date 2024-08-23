@@ -9,7 +9,8 @@ function StudyShare({ id, onShareClick }) {
   );
   const shareText = "모여봐요 공부의 숲";
   const { Kakao } = window;
-  const kakaokey = process.env.KAKAO_KEY;
+  const kakaokey = process.env.REACT_APP_KAKAO_KEY;
+  console.log(kakaokey);
   useEffect(() => {
     Kakao.cleanup();
     Kakao.init(kakaokey);
