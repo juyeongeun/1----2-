@@ -7,7 +7,7 @@ function StudyShare({ id, onShareClick }) {
   const shareUrl = encodeURIComponent(
     `https://feature-share-kakao--zingy-faloodeh-281168.netlify.app/${id}`
   );
-  const shareText = "Check out this study group!";
+  const shareText = "모여봐요 공부의 숲";
   const { Kakao } = window;
 
   useEffect(() => {
@@ -52,7 +52,7 @@ function StudyShare({ id, onShareClick }) {
       },
       buttons: [
         {
-          title: "스터디 참여하기",
+          title: "스터디 구경하기",
           link: {
             webUrl: url,
             mobileWebUrl: url,
