@@ -47,6 +47,8 @@ function StudyShare({ id, onShareClick }) {
           webUrl: shareUrl,
           mobileWebUrl: shareUrl,
         },
+        imageWidth: 800,
+        imageHeight: 400,
       },
       buttons: [
         {
