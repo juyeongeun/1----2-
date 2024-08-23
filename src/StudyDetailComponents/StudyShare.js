@@ -9,20 +9,9 @@ function StudyShare({ onShareClick }) {
   const { Kakao } = window;
 
   useEffect(() => {
-    const kakaoKey = "aec25d1cabf3760334251f03504abbd9";
-
-    // Kakao SDK 초기화 이전에 cleanup 호출
-    if (Kakao && Kakao.isInitialized()) {
-      Kakao.cleanup();
-    }
-
-    // 카카오 SDK 초기화
-    if (kakaoKey && Kakao) {
-      Kakao.init(kakaoKey);
-      console.log("Kakao SDK Initialized:", Kakao.isInitialized());
-    } else {
-      console.error("Kakao 객체가 정의되지 않았거나 키가 유효하지 않습니다.");
-    }
+    Kakao.cleanup();
+    Kakao.init("aec25d1cabf3760334251f03504abbd9");
+    console.log("Kakao SDK Initialized:", Kakao.isInitialized());
   }, [Kakao]);
 
   const handleCopyLink = () => {
