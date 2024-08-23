@@ -1,21 +1,29 @@
 import React, { useEffect } from "react";
-import { FaFacebook, FaTwitter, FaInstagram, FaLink } from "react-icons/fa"; // 카카오톡 아이콘 추가
+import { FaFacebook, FaTwitter, FaInstagram, FaLink } from "react-icons/fa";
 import { toast } from "react-toastify";
 import KakaoIcon from "../img/kakaotalk_sharing.png";
 
-function StudyShare({ onShareClick }) {
-  const shareUrl = encodeURIComponent(window.location.href);
+function StudyShare({ id, onShareClick }) {
+  const shareUrl = encodeURIComponent(
+    `https://feature-share-kakao--zingy-faloodeh-281168.netlify.app/${id}`
+  );
   const shareText = "Check out this study group!";
   const { Kakao } = window;
 
   useEffect(() => {
-    Kakao.cleanup();
+    // SDK 초기화 전에 clean up
+    if (Kakao && Kakao.isInitialized()) {
+      Kakao.cleanup();
+    }
+    // SDK 초기화
     Kakao.init("aec25d1cabf3760334251f03504abbd9");
     console.log("Kakao SDK Initialized:", Kakao.isInitialized());
   }, [Kakao]);
 
   const handleCopyLink = () => {
-    navigator.clipboard.writeText(window.location.href);
+    navigator.clipboard.writeText(
+      `https://feature-share-kakao--zingy-faloodeh-281168.netlify.app/${id}`
+    );
     toast("링크가 클립보드에 복사되었습니다.", {
       position: "bottom-center",
       autoClose: 2000,
@@ -34,8 +42,7 @@ function StudyShare({ onShareClick }) {
   };
 
   const handleKakaoShare = () => {
-    const url =
-      "https://feature-share-kakao--zingy-faloodeh-281168.netlify.app/";
+    const url = `https://feature-share-kakao--zingy-faloodeh-281168.netlify.app/${id}`;
     Kakao.Share.sendDefault({
       objectType: "feed",
       content: {
@@ -44,6 +51,7 @@ function StudyShare({ onShareClick }) {
         imageUrl:
           "https://feature-share-kakao--zingy-faloodeh-281168.netlify.app/nav_logo.png",
         link: {
+          webUrl: url,
           mobileWebUrl: url,
         },
       },
@@ -51,6 +59,7 @@ function StudyShare({ onShareClick }) {
         {
           title: "스터디 참여하기",
           link: {
+            webUrl: url,
             mobileWebUrl: url,
           },
         },

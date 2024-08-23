@@ -133,7 +133,10 @@ function StudyInfo() {
         </div>
         <div>
           {showShareOptions && (
-            <StudyShare onShareClick={() => setShowShareOptions(false)} />
+            <StudyShare
+              id={studyId}
+              onShareClick={() => setShowShareOptions(false)}
+            />
           )}
         </div>
         <ToastContainer />
