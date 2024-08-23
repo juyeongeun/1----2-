@@ -39,23 +39,26 @@ function StudyShare({ onShareClick }) {
   };
 
   const handleKakaoShare = () => {
+    const url =
+      "https://feature-share-kakao--zingy-faloodeh-281168.netlify.app/";
     window.Kakao.Link.sendDefault({
       objectType: "feed",
       content: {
         title: shareText,
         description: "스터디 그룹에 참여해 보세요!",
-        imageUrl: "https://example.com/image.jpg", // 공유할 이미지 URL
+        imageUrl:
+          "https://feature-share-kakao--zingy-faloodeh-281168.netlify.app/nav_logo.png",
         link: {
-          mobileWebUrl: window.location.href,
-          webUrl: window.location.href,
+          mobileWebUrl: url,
+          webUrl: url,
         },
       },
       buttons: [
         {
           title: "스터디 참여하기",
           link: {
-            mobileWebUrl: window.location.href,
-            webUrl: window.location.href,
+            mobileWebUrl: url,
+            webUrl: url,
           },
         },
       ],
