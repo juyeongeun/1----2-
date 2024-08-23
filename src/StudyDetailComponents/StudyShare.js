@@ -47,7 +47,7 @@ function StudyShare({ onShareClick }) {
   const handleKakaoShare = () => {
     const url =
       "https://feature-share-kakao--zingy-faloodeh-281168.netlify.app/";
-    window.Kakao.Link.sendDefault({
+    Kakao.Share.sendDefault({
       objectType: "feed",
       content: {
         title: shareText,
@@ -56,7 +56,6 @@ function StudyShare({ onShareClick }) {
           "https://feature-share-kakao--zingy-faloodeh-281168.netlify.app/nav_logo.png",
         link: {
           mobileWebUrl: url,
-          webUrl: url,
         },
       },
       buttons: [
@@ -64,7 +63,6 @@ function StudyShare({ onShareClick }) {
           title: "스터디 참여하기",
           link: {
             mobileWebUrl: url,
-            webUrl: url,
           },
         },
       ],
