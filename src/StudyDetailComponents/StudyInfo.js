@@ -135,6 +135,7 @@ function StudyInfo() {
           {showShareOptions && (
             <StudyShare
               id={studyId}
+              name={name}
               onShareClick={() => setShowShareOptions(false)}
             />
           )}

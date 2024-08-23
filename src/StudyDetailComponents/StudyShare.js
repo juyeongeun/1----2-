@@ -3,7 +3,7 @@ import { FaFacebook, FaTwitter, FaInstagram, FaLink } from "react-icons/fa";
 import { toast } from "react-toastify";
 import KakaoIcon from "../img/kakaotalk_sharing.png";
 
-function StudyShare({ id, onShareClick }) {
+function StudyShare({ id, name, onShareClick }) {
   const shareUrl = `https://feature-share-kakao--zingy-faloodeh-281168.netlify.app/study/${id}`;
   const shareText = "모여봐요 공부의 숲";
   const { Kakao } = window;
@@ -40,7 +40,7 @@ function StudyShare({ id, onShareClick }) {
       objectType: "feed",
       content: {
         title: shareText,
-        description: "스터디 그룹에 참여해 보세요!",
+        description: `${name}의 스터디를 구경해보세요!`, // name을 사용
         imageUrl:
           "https://feature-share-kakao--zingy-faloodeh-281168.netlify.app/ic_share_logo.png",
         link: {
