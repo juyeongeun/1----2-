@@ -59,6 +59,11 @@ function StudyShare({ id, onShareClick }) {
           },
         },
       ],
+      profile: {
+        nickname: "studyForest",
+        thumbnailImageUrl:
+          "https://feature-share-kakao--zingy-faloodeh-281168.netlify.app/favicon.png", // 여기에 아이콘 URL을 넣으세요.
+      },
     });
     onShareClick();
   };
