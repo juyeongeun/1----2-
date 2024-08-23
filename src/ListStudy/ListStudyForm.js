@@ -9,7 +9,7 @@ function ListStudyForm() {
   console.log(click);
   return (
     <>
-      {/* <RecentStudies click={click} /> */}
+      <RecentStudies click={click} />
       <ExploreStudies setClick={setClick} />
     </>
   );
