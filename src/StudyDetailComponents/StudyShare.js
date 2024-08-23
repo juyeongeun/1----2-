@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { FaFacebook, FaTwitter, FaInstagram, FaLink } from "react-icons/fa";
 import { toast } from "react-toastify";
 import KakaoIcon from "../img/kakaotalk_sharing.png";
+import shareIcon from "../img/ic_share_logo.png";
 
 function StudyShare({ id, onShareClick }) {
   const shareUrl = encodeURIComponent(
@@ -17,12 +18,11 @@ function StudyShare({ id, onShareClick }) {
     }
     // SDK 초기화
     Kakao.init("aec25d1cabf3760334251f03504abbd9");
-    console.log("Kakao SDK Initialized:", Kakao.isInitialized());
   }, [Kakao]);
 
   const handleCopyLink = () => {
     navigator.clipboard.writeText(
-      `https://feature-share-kakao--zingy-faloodeh-281168.netlify.app/${id}`
+      `https://feature-share-kakao--zingy-faloodeh-281168.netlify.app/study/${id}`
     );
     toast("링크가 클립보드에 복사되었습니다.", {
       position: "bottom-center",
@@ -48,8 +48,7 @@ function StudyShare({ id, onShareClick }) {
       content: {
         title: shareText,
         description: "스터디 그룹에 참여해 보세요!",
-        imageUrl:
-          "https://feature-share-kakao--zingy-faloodeh-281168.netlify.app/nav_logo.png",
+        imageUrl: shareIcon,
         link: {
           webUrl: url,
           mobileWebUrl: url,
