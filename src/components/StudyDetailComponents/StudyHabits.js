@@ -1,10 +1,10 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import useFetchHabit from "../hooks/useFetchHabit.js";
-import useFetchCompleteHabit from "../hooks/useFetchCompleteHabit.js";
+import useFetchHabit from "../../hooks/useFetchHabit.js";
+import useFetchCompleteHabit from "../../hooks/useFetchCompleteHabit.js";
 import "./StudyHabits.css";
-import ic_inactive from "../img/check/ic_inactive.svg";
-import { activeIcons } from "../img/ImgImport.js";
+import ic_inactive from "../../img/check/ic_inactive.svg";
+import { activeIcons } from "../../img/ImgImport.js";
 
 function StudyHabits() {
   const { studyId } = useParams();

@@ -1,7 +1,7 @@
 import "./StudyName.css";
 import { useParams } from "react-router-dom";
 import React, { useState } from "react";
-import useFetchStudy from "../hooks/useFetchStudy.js";
+import useFetchStudy from "../../hooks/useFetchStudy.js";
 import PasswordModal from "./PasswordModal.js";
 
 function StudyName() {

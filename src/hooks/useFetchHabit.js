@@ -36,7 +36,16 @@ function useFetchHabit(studyId) {
     }
   };
 
-  return { habits, loading, error, updateHabit };
+  const createHabit = async (habitName) => {
+    try {
+      const response = await axios.post(`${baseUrl}/${studyId}`, { habitName });
+      setHabits((prevHabits) => [...prevHabits, response.data]);
+    } catch (err) {
+      setError(err.message);
+    }
+  };
+
+  return { habits, loading, error, updateHabit, createHabit };
 }
 
 export default useFetchHabit;
