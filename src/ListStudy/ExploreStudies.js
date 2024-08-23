@@ -6,37 +6,26 @@ import useInputValid from '../hooks/studyList.js';
 
 import ExplotrStudiesHeader from './ExplotrStudiesHeader.js';
 // import testData from './mock.js';
-const LIMIT = 6;
 
 function ExploreStudies({ setClick }) {
   const [orderBy, setOrderBy] = useState('recent');
   const [offset, setOffset] = useState(0);
   const [items, setItems] = useState([]);
   const [keyword, setKeyword] = useState('');
+  const [limit, setLimit] = useState(6);
+  const [totalCount, setTotalCOunt] = useState();
 
-  // const [params, setParams] = useState({
-  //   orderBy: 'recent',
-  //   offset: 0,
-  //   keyword: '',
-  //   limit: LIMIT
-  // });
-
-  // 커스텀 훅을 사용하여 데이터 가져오기
-
-  // useEffect(() => {
-  //   setItems(testData);
-  // }, []);
-
-  const { data, loading, error } = useInputValid({
+  const { data, total, loading, error } = useInputValid({
     orderBy,
     offset,
-    limit: LIMIT,
+    limit: limit,
     keyword,
   });
 
   const handleOrderbyChange = (name) => {
     setOrderBy(name);
     setOffset(0);
+    setKeyword('');
   };
 
   const handleLoad = () => {
@@ -45,20 +34,38 @@ function ExploreStudies({ setClick }) {
     } else {
       setItems([...items, ...data]);
     }
-    // setOffset(offset + LIMIT);
   };
 
   const handleLoadMore = () => {
-    setOffset((prevOffset) => prevOffset + LIMIT);
+    setOffset((prevOffset) => prevOffset + limit);
+    setTotalCOunt(total - limit - offset);
   };
 
+  // 초기화 수정 예정
+  // const handleHomeClick = () => {
+  //   setOrderBy('recent');
+  //   setOffset(0);
+  //   setItems([]);
+  //   setKeyword('');
+  //   setLimit(6);
+  //   setTotalCOunt(0);
+  // };
+
   useEffect(() => {
-    handleLoad({ orderBy, offset: 0, limit: LIMIT });
-  }, [orderBy]);
+    handleLoad({ orderBy, offset: 0, limit: limit, keyword });
+    setTotalCOunt(total - limit - offset);
+  }, [orderBy, offset, data, keyword]);
+
+  useEffect(() => {
+    if (keyword) {
+      setOffset(0); // Reset offset when keyword changes
+    }
+  }, [keyword]);
 
   if (loading) return <p className={styles.loading}>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;
 
+  console.log(totalCount);
   return (
     <div className={styles.background}>
       <ExplotrStudiesHeader
@@ -68,17 +75,17 @@ function ExploreStudies({ setClick }) {
 
       <div className={styles.studyList}>
         <Study data={items} setClick={setClick} />
+        {/* {!totalCount && (
+          <p className={styles.nonStudy}>둘러 볼 스터디가 없습니다</p>
+        )} */}
       </div>
+      {/* {totalCount > 0 ? ( */}
       <button onClick={handleLoadMore} className={styles.button}>
         더보기
       </button>
-      {/* <button className={styles.button}>더보기</button> */}
-      {/* 
-      <p className='noneHabit'>
-        아직 습관이 없어요
-        <br />
-        오늘의 습관에서 습관을 생성해보세요
-      </p> */}
+      {/* ) : (
+        <div className={styles.nonButton} />
+      )} */}
     </div>
   );
 }

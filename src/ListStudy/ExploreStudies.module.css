@@ -46,13 +46,28 @@
   color: #578246;
 }
 
+.nonButton {
+  margin: 60px auto;
+}
 .studyList {
   max-height: calc(
     100vh - 150px
   ); /* 예를 들어, 전체 화면 높이에서 여백을 빼서 설정 */
   overflow-y: auto; /* 수직 스크롤만 추가 */
+  min-height: 510px;
 }
 
 .loading {
   margin: 0 auto;
+}
+
+.nonStudy {
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin-top: 190px;
+  color: #818181;
+  font-size: 20px;
+  font-weight: 500;
 }

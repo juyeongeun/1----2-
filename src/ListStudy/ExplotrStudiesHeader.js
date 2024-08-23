@@ -27,7 +27,7 @@ function ExplotrStudiesHeader({ onOrderChange, setKeyword }) {
         <div className={styles.search}>
           <FontAwesomeIcon className={styles.icon} icon={faMagnifyingGlass} />
           <input
-            nmae='search'
+            name='search'
             ref={inputRef}
             onKeyDown={onKeyPress}
             placeholder='검색'
