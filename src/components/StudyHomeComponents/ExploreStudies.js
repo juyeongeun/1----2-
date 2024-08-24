@@ -1,11 +1,8 @@
 import styles from './ExploreStudies.module.css';
 import { useState, useEffect } from 'react';
 import Study from './StudyDataFetch.js';
-import Dropdown from './Dropdown.js';
 import useInputValid from '../../hooks/studyList.js';
-
 import ExploreStudiesHeader from './ExploreStudiesHeader.js';
-// import testData from './mock.js';
 
 const LIMIT = 6;
 
@@ -33,7 +30,7 @@ function ExploreStudies({ setClick }) {
     if (offset === 0) {
       setItems(data);
     } else {
-      setItems([...items, ...data]);
+      setItems([...items, data]);
     }
   };
 
@@ -53,17 +50,17 @@ function ExploreStudies({ setClick }) {
   // };
 
   useEffect(() => {
-    handleLoad({ orderBy, offset: 0, limit: LIMIT, keyword });
+    handleLoad();
     setTotalCOunt(total - LIMIT - offset);
   }, [orderBy, offset, data, keyword]);
 
   useEffect(() => {
     if (keyword) {
-      setOffset(0); // Reset offset when keyword changes
+      console.log(keyword);
+      setOffset(0);
     }
   }, [keyword]);
 
-  console.log(totalCount);
   return (
     <div className={styles.background}>
       <ExploreStudiesHeader

@@ -2,10 +2,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 
 import styles from './ExploreStudiesHeader.module.css';
-import { useState, useEffect, useRef } from 'react';
-import Study from './StudyDataFetch.js';
+import { useRef } from 'react';
 import Dropdown from './Dropdown.js';
-import useInputValid from '../../hooks/studyList.js';
 
 function ExploreStudiesHeader({ onOrderChange, setKeyword }) {
   const inputRef = useRef(null);

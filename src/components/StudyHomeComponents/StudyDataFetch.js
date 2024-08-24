@@ -1,6 +1,5 @@
 import styles from './StudyDataFetch.module.css';
-import { useState, useEffect } from 'react';
-import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import pointICon from '../../img/point_icon.png';
 
 import backgroundGreen from '../../img/background_1.png';
@@ -13,7 +12,6 @@ import backgroundPink from '../../img/background_4.png';
 // import backgroundPlan from '../../img/background_8.png';
 
 function ProductListItem({ item, setClick }) {
-  const [clickedId, setClickedId] = useState();
   const navigate = useNavigate();
   const today = new Date();
   const targetId = new Date(item.createdAt);
@@ -24,43 +22,43 @@ function ProductListItem({ item, setClick }) {
   let studyNameColor;
   let pointColor;
   let createdColor;
-  let conntentColor;
+  let contentColor;
   let nameColor;
 
+  // 수정 예정
   if (item.background === backgroundGreen) {
     nameColor = styles.nameGrreen;
     studyNameColor = styles.studyNameBlack;
     pointColor = styles.pointBlack;
-    conntentColor = styles.contentBlack;
+    contentColor = styles.contentBlack;
     createdColor = styles.dataBlack;
   } else if (item.background === backgroundYe) {
     nameColor = styles.nameYellow;
     studyNameColor = styles.studyNameBlack;
     pointColor = styles.pointBlack;
-    conntentColor = styles.contentBlack;
+    contentColor = styles.contentBlack;
     createdColor = styles.dataBlack;
   } else if (item.background === backgroundBlu) {
     nameColor = styles.nameBlue;
     studyNameColor = styles.studyNameBlack;
     pointColor = styles.pointBlack;
-    conntentColor = styles.contentBlack;
+    contentColor = styles.contentBlack;
     createdColor = styles.dataBlack;
   } else if (item.background === backgroundPink) {
     nameColor = styles.namePink;
     studyNameColor = styles.studyNameBlack;
     pointColor = styles.pointBlack;
-    conntentColor = styles.contentBlack;
+    contentColor = styles.contentBlack;
     createdColor = styles.dataBlack;
   } else {
     nameColor = styles.nameWhite;
     studyNameColor = styles.studyNametext;
     pointColor = styles.pointWhite;
     createdColor = styles.dataWhite;
-    conntentColor = styles.contentWhite;
+    contentColor = styles.contentWhite;
   }
 
   const handleClick = (id) => {
-    setClickedId(id);
     setClick(id);
 
     setTimeout(() => {
@@ -87,23 +85,13 @@ function ProductListItem({ item, setClick }) {
 
         <p className={createdColor}>{diffDays}일째 진행 중</p>
         <div className={styles.test}>
-          <p className={conntentColor}>{item.content}</p>
+          <p className={contentColor}>{item.content}</p>
         </div>
         <p className={styles.reaction}>{item.reaction}</p>
-
-        {/* <div className={styles.productListFavorite}></div> */}
       </div>
     </div>
   );
 }
-
-// const newStudy = {
-//   name: 'New Study Name',
-//   studyName: 'Unique Study Name',
-//   content: 'Study content here',
-//   background: 'GREEN',
-//   password: 'securepassword',
-// };
 
 function Study({ data, setClick }) {
   return (

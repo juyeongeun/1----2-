@@ -7,13 +7,11 @@ function useInputValid({ orderBy, offset, limit, keyword }) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const instance = axios.create({
-    baseURL: 'https://study-api-m36o.onrender.com/api/',
-  });
-
-  console.log({ orderBy, offset, limit, keyword });
-
   useEffect(() => {
+    const instance = axios.create({
+      baseURL: 'https://study-api-m36o.onrender.com/api/',
+    });
+
     const fetchData = async () => {
       try {
         setLoading(true);
@@ -26,7 +24,6 @@ function useInputValid({ orderBy, offset, limit, keyword }) {
           },
         });
         setLoading(true);
-        console.log(response.data);
         setData(response.data.study || []);
         setTotal(response.data.totalCount);
       } catch (err) {

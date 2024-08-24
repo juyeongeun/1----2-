@@ -6,7 +6,6 @@ function useStudiesListId(ids) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  console.log(ids);
   useEffect(() => {
     async function fetchData() {
       try {
@@ -17,8 +16,6 @@ function useStudiesListId(ids) {
         );
         setRecent(responses.map((response) => response.data));
         setLoading(false);
-        // console.log(responses.data);
-        // console.log(ids);
       } catch (err) {
         setError(err);
         setLoading(false);

@@ -1,12 +1,10 @@
 import RecentStudies from './RecentStudies.js';
 import ExploreStudies from './ExploreStudies.js';
 
-import { useState, useEffect } from 'react';
-import { cssTransition } from 'react-toastify';
+import { useState } from 'react';
 
-function ListStudyForm() {
+function StudyHomeForm() {
   const [click, setClick] = useState('');
-  console.log(click);
   return (
     <>
       <RecentStudies click={click} />
@@ -15,4 +13,4 @@ function ListStudyForm() {
   );
 }
 
-export default ListStudyForm;
+export default StudyHomeForm;
