@@ -1,13 +1,13 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 
-import styles from './ExplotrStudiesHeader.module.css';
+import styles from './ExploreStudiesHeader.module.css';
 import { useState, useEffect, useRef } from 'react';
 import Study from './StudyDataFetch.js';
 import Dropdown from './Dropdown.js';
 import useInputValid from '../../hooks/studyList.js';
 
-function ExplotrStudiesHeader({ onOrderChange, setKeyword }) {
+function ExploreStudiesHeader({ onOrderChange, setKeyword }) {
   const inputRef = useRef(null);
 
   const handleSearch = () => {
@@ -45,4 +45,4 @@ function ExplotrStudiesHeader({ onOrderChange, setKeyword }) {
   );
 }
 
-export default ExplotrStudiesHeader;
+export default ExploreStudiesHeader;

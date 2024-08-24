@@ -4,7 +4,7 @@ import Study from './StudyDataFetch.js';
 import Dropdown from './Dropdown.js';
 import useInputValid from '../../hooks/studyList.js';
 
-import ExplotrStudiesHeader from './ExplotrStudiesHeader.js';
+import ExploreStudiesHeader from './ExploreStudiesHeader.js';
 // import testData from './mock.js';
 
 const LIMIT = 6;
@@ -66,7 +66,7 @@ function ExploreStudies({ setClick }) {
   console.log(totalCount);
   return (
     <div className={styles.background}>
-      <ExplotrStudiesHeader
+      <ExploreStudiesHeader
         onOrderChange={handleOrderbyChange}
         setKeyword={setKeyword}
       />
