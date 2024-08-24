@@ -1,7 +1,7 @@
-import styles from "./CreateFooter.module.css";
-import useFetchStudy from "../hooks/useFetchStudy.js";
-import makeBtn from "../img/make_btn.png";
-import { useNavigate } from "react-router-dom";
+import styles from './CreateFooter.module.css';
+import useFetchStudy from '../../hooks/useFetchStudy.js';
+import makeBtn from '../../img/make_btn.png';
+import { useNavigate } from 'react-router-dom';
 
 function CreateFooter({ values, isValid, setShowErrors }) {
   const navigate = useNavigate();
@@ -24,7 +24,7 @@ function CreateFooter({ values, isValid, setShowErrors }) {
         const { id } = response;
         navigate(`/study/${id}`);
       } catch (error) {
-        console.error("Failed to create study:", error);
+        console.error('Failed to create study:', error);
       }
     } else {
       setShowErrors({
@@ -39,7 +39,7 @@ function CreateFooter({ values, isValid, setShowErrors }) {
 
   return (
     <div className={styles.footer}>
-      <img className={styles.buttonImg} src={makeBtn} alt="만들기 버튼" />
+      <img className={styles.buttonImg} src={makeBtn} alt='만들기 버튼' />
       <button
         onClick={handleSubmit}
         className={styles.button}
