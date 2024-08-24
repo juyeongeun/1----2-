@@ -2,10 +2,8 @@ import React, { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-// import RecentStudies from '../components/RecentStudies.js';
-//import ExploreStudies from '../components/ExploreStudies.js';
 
-import ListStudyForm from '../components/ListStudy/ListStudyForm.js';
+import ListStudyForm from '../components/StudyHomeComponents/ListStudyForm.js';
 
 function StudyRoomPage() {
   const location = useLocation();
@@ -26,9 +24,6 @@ function StudyRoomPage() {
 
   return (
     <>
-      {/* <RecentStudies /> */}
-
-      {/* <ExploreStudies /> */}
       <ToastContainer />
       <ListStudyForm />
     </>
