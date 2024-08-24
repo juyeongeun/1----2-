@@ -1,7 +1,7 @@
 import styles from './RecentStudies.module.css';
 import { useState, useEffect } from 'react';
-import useStudiesListId from '../hooks/useStudiesListId.js';
-import Study from './Study.js';
+import useStudiesListId from '../../hooks/useStudiesListId.js';
+import Study from './StudyDataFetch.js';
 
 function RecentStudies({ click }) {
   const [watched, setWatched] = useState([]);

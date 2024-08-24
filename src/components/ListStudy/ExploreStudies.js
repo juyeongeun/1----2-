@@ -1,24 +1,25 @@
 import styles from './ExploreStudies.module.css';
 import { useState, useEffect } from 'react';
-import Study from './Study.js';
+import Study from './StudyDataFetch.js';
 import Dropdown from './Dropdown.js';
-import useInputValid from '../hooks/studyList.js';
+import useInputValid from '../../hooks/studyList.js';
 
 import ExplotrStudiesHeader from './ExplotrStudiesHeader.js';
 // import testData from './mock.js';
+
+const LIMIT = 6;
 
 function ExploreStudies({ setClick }) {
   const [orderBy, setOrderBy] = useState('recent');
   const [offset, setOffset] = useState(0);
   const [items, setItems] = useState([]);
   const [keyword, setKeyword] = useState('');
-  const [limit, setLimit] = useState(6);
   const [totalCount, setTotalCOunt] = useState();
 
-  const { data, total, loading, error } = useInputValid({
+  const { data, total } = useInputValid({
     orderBy,
     offset,
-    limit: limit,
+    limit: LIMIT,
     keyword,
   });
 
@@ -37,8 +38,8 @@ function ExploreStudies({ setClick }) {
   };
 
   const handleLoadMore = () => {
-    setOffset((prevOffset) => prevOffset + limit);
-    setTotalCOunt(total - limit - offset);
+    setOffset((prevOffset) => prevOffset + LIMIT);
+    setTotalCOunt(total - LIMIT - offset);
   };
 
   // 초기화 수정 예정
@@ -52,8 +53,8 @@ function ExploreStudies({ setClick }) {
   // };
 
   useEffect(() => {
-    handleLoad({ orderBy, offset: 0, limit: limit, keyword });
-    setTotalCOunt(total - limit - offset);
+    handleLoad({ orderBy, offset: 0, limit: LIMIT, keyword });
+    setTotalCOunt(total - LIMIT - offset);
   }, [orderBy, offset, data, keyword]);
 
   useEffect(() => {
@@ -62,9 +63,6 @@ function ExploreStudies({ setClick }) {
     }
   }, [keyword]);
 
-  if (loading) return <p className={styles.loading}>Loading...</p>;
-  if (error) return <p>Error: {error.message}</p>;
-
   console.log(totalCount);
   return (
     <div className={styles.background}>
@@ -72,20 +70,20 @@ function ExploreStudies({ setClick }) {
         onOrderChange={handleOrderbyChange}
         setKeyword={setKeyword}
       />
-
       <div className={styles.studyList}>
         <Study data={items} setClick={setClick} />
-        {/* {!totalCount && (
-          <p className={styles.nonStudy}>둘러 볼 스터디가 없습니다</p>
-        )} */}
+        {!totalCount ||
+          (totalCount === -6 && (
+            <p className={styles.nonStudy}>둘러 볼 스터디가 없습니다</p>
+          ))}
       </div>
-      {/* {totalCount > 0 ? ( */}
-      <button onClick={handleLoadMore} className={styles.button}>
-        더보기
-      </button>
-      {/* ) : (
+      {totalCount > 0 ? (
+        <button onClick={handleLoadMore} className={styles.button}>
+          더보기
+        </button>
+      ) : (
         <div className={styles.nonButton} />
-      )} */}
+      )}
     </div>
   );
 }

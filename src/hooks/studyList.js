@@ -27,8 +27,8 @@ function useInputValid({ orderBy, offset, limit, keyword }) {
         });
         setLoading(true);
         console.log(response.data);
-        setData(response.data || []);
-        // setTotal(response.data.totalCount);
+        setData(response.data.study || []);
+        setTotal(response.data.totalCount);
       } catch (err) {
         setError(err);
       } finally {

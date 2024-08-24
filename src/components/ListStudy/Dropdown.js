@@ -1,13 +1,14 @@
 import axios from 'axios';
 import styles from './Dropdown.module.css';
 import { useState, useEffect } from 'react';
-import Study from './Study.js';
+import Study from './StudyDataFetch.js';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
 
 function Dropdown({ onOrderChange }) {
   const [click, SetClick] = useState(false);
+  const [text, setText] = useState('최신 순');
 
   const Click = () => {
     SetClick((prev) => !prev);
@@ -15,13 +16,21 @@ function Dropdown({ onOrderChange }) {
 
   const handleSortChange = (orderBy) => {
     onOrderChange(orderBy);
-    console.log(orderBy);
+    if (orderBy === 'recent') {
+      setText('최신 순');
+    } else if (orderBy === 'old') {
+      setText('오래된 순');
+    } else if (orderBy === 'highestPoints') {
+      setText('많은 포인트 순');
+    } else if (orderBy === 'lowestPoints') {
+      setText('적은 포인트 순');
+    }
   };
 
   return (
     <>
       <div className={styles.background} onClick={Click}>
-        <p className={styles.dropDown}>최근 순</p>
+        <p className={styles.dropDown}>{text}</p>
         <FontAwesomeIcon className={styles.icon} icon={faCaretDown} />
       </div>
       {click && (

@@ -1,4 +1,4 @@
-@import '../css/reset.css';
+@import '../../css/reset.css';
 
 .background {
   width: 100%;
@@ -54,7 +54,7 @@
     100vh - 150px
   ); /* 예를 들어, 전체 화면 높이에서 여백을 빼서 설정 */
   overflow-y: auto; /* 수직 스크롤만 추가 */
-  min-height: 510px;
+  min-height: 550px;
 }
 
 .loading {

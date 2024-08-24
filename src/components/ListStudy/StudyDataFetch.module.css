@@ -1,4 +1,4 @@
-@import '../css/reset.css';
+@import '../../css/reset.css';
 
 .ListItems {
   display: grid;
@@ -18,10 +18,21 @@
   border-radius: 10%;
 }
 
-.nameWhite {
+.nameGrreen {
   position: absolute;
   top: 0;
-  color: #8d8d8d;
+  color: #15c32f;
+  font-size: 18px;
+  font-weight: 700;
+  margin-top: 30px;
+  margin-left: 40px;
+  z-index: 100;
+}
+
+.nameYellow {
+  position: absolute;
+  top: 0;
+  color: #f4ad08;
   font-size: 18px;
   font-weight: 700;
   margin-top: 30px;
@@ -40,10 +51,32 @@
   z-index: 100;
 }
 
+.namePink {
+  position: absolute;
+  top: 0;
+  color: #db05e6f5;
+  font-size: 18px;
+  font-weight: 700;
+  margin-top: 30px;
+  margin-left: 40px;
+  z-index: 100;
+}
+
+.nameWhite {
+  position: absolute;
+  top: 0;
+  color: #843232;
+  font-size: 18px;
+  font-weight: 700;
+  margin-top: 30px;
+  margin-left: 40px;
+  z-index: 100;
+}
+
 .studyNametext {
   position: absolute;
   top: 0;
-  color: #8d8d8d;
+  color: #ffffff;
   font-size: 18px;
   font-weight: 700;
   margin-top: 30px;

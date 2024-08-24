@@ -1,23 +1,24 @@
-import styles from './Study.module.css';
+import styles from './StudyDataFetch.module.css';
 import { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import pointICon from '../img/point_icon.png';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
+import pointICon from '../../img/point_icon.png';
 
-import backgroundGreen from '../img/background_1.png';
-import backgroundYe from '../img/background_2.png';
-import backgroundBlu from '../img/background_3.png';
-import backgroundPink from '../img/background_4.png';
-// import backgroundTable from '../img/background_5.png';
-// import backgroundSun from '../img/background_6.png';
-// import backgroundRain from '../img/background_7.png';
-// import backgroundPlan from '../img/background_8.png';
+import backgroundGreen from '../../img/background_1.png';
+import backgroundYe from '../../img/background_2.png';
+import backgroundBlu from '../../img/background_3.png';
+import backgroundPink from '../../img/background_4.png';
+// import backgroundTable from '../../img/background_5.png';
+// import backgroundSun from '../../img/background_6.png';
+// import backgroundRain from '../../img/background_7.png';
+// import backgroundPlan from '../../img/background_8.png';
 
 function ProductListItem({ item, setClick }) {
-  const [clikedId, setClickedId] = useState();
+  const [clickedId, setClickedId] = useState();
+  const navigate = useNavigate();
   const today = new Date();
-  const tatgetDate = new Date(item.createdAt);
+  const targetId = new Date(item.createdAt);
 
-  const diffTime = today - tatgetDate;
+  const diffTime = today - targetId;
   const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
 
   let studyNameColor;
@@ -59,23 +60,22 @@ function ProductListItem({ item, setClick }) {
   }
 
   const handleClick = (id) => {
-    // console.log(e);
-    setClick(id);
     setClickedId(id);
+    setClick(id);
+
+    setTimeout(() => {
+      navigate(`/study/${id}`);
+    }, 0);
   };
 
-  console.log(clikedId);
-
   return (
-    <div className={styles.ListItem} o>
-      {/* <Link to={`/studies/${clikedId}`}> */}
+    <div className={styles.ListItem}>
       <img
         className={styles.ItemImg}
         src={item.background}
         alt={item.background}
         onClick={() => handleClick(item.id)}
       />
-      {/* </Link> */}
 
       <div className={styles.realTest}>
         <p className={nameColor}>{item.name} </p>

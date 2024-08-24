@@ -3,9 +3,9 @@ import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 
 import styles from './ExplotrStudiesHeader.module.css';
 import { useState, useEffect, useRef } from 'react';
-import Study from './Study.js';
+import Study from './StudyDataFetch.js';
 import Dropdown from './Dropdown.js';
-import useInputValid from '../hooks/studyList.js';
+import useInputValid from '../../hooks/studyList.js';
 
 function ExplotrStudiesHeader({ onOrderChange, setKeyword }) {
   const inputRef = useRef(null);
@@ -13,7 +13,10 @@ function ExplotrStudiesHeader({ onOrderChange, setKeyword }) {
   const handleSearch = () => {
     const value = inputRef.current.value;
     setKeyword(value);
+    inputRef.current.value = '';
+    console.log(value);
   };
+
   const onKeyPress = (e) => {
     if (e.key === 'Enter') {
       handleSearch();
