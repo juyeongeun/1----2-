@@ -1,7 +1,5 @@
-import axios from 'axios';
 import styles from './Dropdown.module.css';
-import { useState, useEffect } from 'react';
-import Study from './StudyDataFetch.js';
+import { useState } from 'react';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCaretDown } from '@fortawesome/free-solid-svg-icons';

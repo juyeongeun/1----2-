@@ -1,5 +1,5 @@
 import styles from './ExploreStudies.module.css';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import Study from './StudyDataFetch.js';
 import useInputValid from '../../hooks/studyList.js';
 import ExploreStudiesHeader from './ExploreStudiesHeader.js';
@@ -26,17 +26,26 @@ function ExploreStudies({ setClick }) {
     setKeyword('');
   };
 
-  const handleLoad = () => {
-    if (offset === 0) {
-      setItems(data);
-    } else {
-      setItems([...items, data]);
-    }
-  };
+  const handleLoad = useCallback(() => {
+    setItems((prevItems) => {
+      if (offset === 0) {
+        return data;
+      } else {
+        const mergedItems = [...prevItems, ...data];
+
+        const uniqueItems = Array.from(
+          new Map(mergedItems.map((item) => [item.id, item])).values()
+        );
+
+        console.log(mergedItems);
+        return uniqueItems;
+      }
+    });
+  }, [data, offset]);
 
   const handleLoadMore = () => {
     setOffset((prevOffset) => prevOffset + LIMIT);
-    setTotalCOunt(total - LIMIT - offset);
+    setTotalCOunt(total - offset - LIMIT);
   };
 
   // 초기화 수정 예정
@@ -51,8 +60,8 @@ function ExploreStudies({ setClick }) {
 
   useEffect(() => {
     handleLoad();
-    setTotalCOunt(total - LIMIT - offset);
-  }, [orderBy, offset, data, keyword]);
+    setTotalCOunt(total - offset - LIMIT);
+  }, [handleLoad, total, offset]);
 
   useEffect(() => {
     if (keyword) {

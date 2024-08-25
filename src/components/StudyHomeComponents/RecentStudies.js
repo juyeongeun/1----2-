@@ -6,7 +6,7 @@ import StudyDataFetch from './StudyDataFetch.js';
 function RecentStudies({ click }) {
   const [watched, setWatched] = useState([]);
 
-  const { recent, loading, error } = useStudiesListId(watched);
+  const { recent } = useStudiesListId(watched);
 
   useEffect(() => {
     const watchedList = JSON.parse(localStorage.getItem('watched')) || [];
@@ -14,18 +14,20 @@ function RecentStudies({ click }) {
   }, []);
 
   useEffect(() => {
-    let watchedList = JSON.parse(localStorage.getItem('watched')) || [];
+    if (typeof click === 'number') {
+      let watchedList = JSON.parse(localStorage.getItem('watched')) || [];
 
-    if (!watchedList.includes(click)) {
-      watchedList.unshift(click);
-      watchedList = Array.from(new Set(watchedList));
+      if (!watchedList.includes(click)) {
+        watchedList.unshift(click);
+        watchedList = Array.from(new Set(watchedList));
 
-      if (watchedList.length > 3) {
-        watchedList = watchedList.slice(0, 3);
+        if (watchedList.length > 3) {
+          watchedList = watchedList.slice(0, 3);
+        }
+
+        localStorage.setItem('watched', JSON.stringify(watchedList));
+        setWatched(watchedList);
       }
-
-      localStorage.setItem('watched', JSON.stringify(watchedList));
-      setWatched(watchedList);
     }
   }, [click]);
 
