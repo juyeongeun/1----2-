@@ -12,7 +12,6 @@ function ExploreStudiesHeader({ onOrderChange, setKeyword }) {
     const value = inputRef.current.value;
     setKeyword(value);
     inputRef.current.value = '';
-    console.log(value);
   };
 
   const onKeyPress = (e) => {
