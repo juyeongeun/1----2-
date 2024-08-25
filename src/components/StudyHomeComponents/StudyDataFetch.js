@@ -59,8 +59,9 @@ function ProductListItem({ item, setClick }) {
   }
 
   const handleClick = (id) => {
-    setClick(id);
-
+    if (typeof setClick === 'function') {
+      setClick(id);
+    }
     setTimeout(() => {
       navigate(`/study/${id}`);
     }, 0);
