@@ -37,7 +37,6 @@ function ExploreStudies({ setClick }) {
           new Map(mergedItems.map((item) => [item.id, item])).values()
         );
 
-        console.log(mergedItems);
         return uniqueItems;
       }
     });
