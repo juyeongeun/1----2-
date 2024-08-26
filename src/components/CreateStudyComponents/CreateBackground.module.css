@@ -5,6 +5,7 @@
   font-weight: 600;
   margin-bottom: 16px;
   margin-top: 24px;
+  color: #414141;
 }
 
 .gallery {
@@ -25,4 +26,16 @@
   justify-content: center;
   text-align: center;
   object-fit: contain;
+}
+
+@media (max-width: 720px) {
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .dropdownBackground {
+    margin-left: 120px;
+  }
 }

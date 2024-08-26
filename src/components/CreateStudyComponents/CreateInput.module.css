@@ -5,6 +5,7 @@
   font-weight: 600;
   margin-bottom: 16px;
   margin-top: 24px;
+  color: #414141;
 }
 
 .input {
@@ -49,4 +50,46 @@
   border: 1px solid #c41013;
   padding-left: 20px;
   padding-top: 20px;
+}
+
+@media (max-width: 720px) {
+  .text {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 16px;
+    margin-top: 16px;
+  }
+
+  .input {
+    width: 312px;
+    height: 48px;
+    box-sizing: border-box;
+    font-size: 12px;
+  }
+
+  .textarea {
+    width: 312px;
+    height: 98px;
+    resize: none;
+    box-sizing: border-box;
+  }
+
+  .errorMsg {
+    font-size: 12px;
+  }
+
+  .inputError {
+    width: 312px;
+    height: 48px;
+    border-radius: 15px;
+    border: 1px solid #c41013;
+    padding-left: 20px;
+    box-sizing: border-box;
+  }
+
+  .textareaError {
+    width: 312px;
+    height: 98px;
+    box-sizing: border-box;
+  }
 }
