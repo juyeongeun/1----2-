@@ -18,14 +18,14 @@ import ic_active16 from "../img/check/ic_active16.svg";
 import ic_active17 from "../img/check/ic_active17.svg";
 import ic_active18 from "../img/check/ic_active18.svg";
 
-import background1 from "../img/background_1.png";
-import background2 from "../img/background_2.png";
-import background3 from "../img/background_3.png";
-import background4 from "../img/background_4.png";
-import background5 from "../img/background_5.png";
-import background6 from "../img/background_6.png";
-import background7 from "../img/background_7.png";
-import background8 from "../img/background_8.png";
+import backgroundGreen from "../img/background/background_1.png";
+import backgroundYe from "../img/background/background_2.png";
+import backgroundBlu from "../img/background/background_3.png";
+import backgroundPink from "../img/background/background_4.png";
+import backgroundTable from "../img/background/background_5.png";
+import backgroundSun from "../img/background/background_6.png";
+import backgroundRain from "../img/background/background_7.png";
+import backgroundPlan from "../img/background/background_8.png";
 
 // 이미지들을 객체로 묶어서 named export로 내보냅니다.
 export const activeIcons = {
@@ -50,12 +50,12 @@ export const activeIcons = {
 };
 
 export const backgrounds = [
-  background1,
-  background2,
-  background3,
-  background4,
-  background5,
-  background6,
-  background7,
-  background8,
+  backgroundGreen,
+  backgroundYe,
+  backgroundBlu,
+  backgroundPink,
+  backgroundTable,
+  backgroundSun,
+  backgroundRain,
+  backgroundPlan,
 ];

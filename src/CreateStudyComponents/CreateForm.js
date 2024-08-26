@@ -1,12 +1,12 @@
-import styles from './CreateForm.module.css';
-import React, { useState } from 'react';
-import CreateInput from './CreateInput.js';
-import CreateBackground from './CreateBackground.js';
-import CreatePassword from './CreatePassword.js';
-import CreateFooter from './CreateFooter.js';
-import backgroundGreen from '../img/background_1.png';
+import styles from "./CreateForm.module.css";
+import React, { useState } from "react";
+import CreateInput from "./CreateInput.js";
+import CreateBackground from "./CreateBackground.js";
+import CreatePassword from "./CreatePassword.js";
+import CreateFooter from "./CreateFooter.js";
+import backgroundGreen from "../img/background/background_1.png";
 
-import useInputValid from '../hooks/useInputValid.js';
+import useInputValid from "../hooks/useInputValid.js";
 
 function CreateForm() {
   const [values, setValues] = useState({
