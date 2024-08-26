@@ -1,0 +1,57 @@
+@import '../../css/reset.css';
+
+.background {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+}
+.dropDown {
+  padding-right: 20px;
+  border: 1px #dddddd solid;
+  border-radius: 15px;
+  padding: 14px 80px 12px 20px;
+  color: #818181;
+  width: 80px;
+  font-weight: 400;
+  z-index: 100;
+  cursor: pointer;
+}
+
+.icon {
+  position: absolute;
+  margin-left: 150px;
+  margin-top: 13px;
+  color: #818181;
+}
+
+.dropdownBackground {
+  margin-top: 8px;
+  position: absolute;
+  background-color: #ffff;
+  width: 180px;
+  height: 168px;
+  border-radius: 10px;
+  color: #818181;
+  border: 1px #dddddd solid;
+  z-index: 100;
+  cursor: pointer;
+}
+
+.text {
+  display: flex;
+  border-bottom: 1px #dddddd solid;
+  justify-content: center;
+  padding-top: 15px;
+  padding-bottom: 10px;
+  z-index: 100;
+}
+
+@media (max-width: 720px) {
+  .background {
+    margin-left: 120px;
+  }
+
+  .dropdownBackground {
+    margin-left: 120px;
+  }
+}

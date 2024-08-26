@@ -1,14 +1,14 @@
-import EmojiPicker from "emoji-picker-react";
-import React, { useState } from "react";
-import { useParams } from "react-router-dom";
-import useFetchEmoji from "../../hooks/useFetchEmoji.js";
-import useFetchStudy from "../../hooks/useFetchStudy.js";
-import StudyShare from "./StudyShare.js";
-import { ToastContainer } from "react-toastify";
-import { useNavigate } from "react-router-dom";
-import "react-toastify/dist/ReactToastify.css";
-import "./StudyInfo.css";
-import PasswordModal from "./PasswordModal.js";
+import EmojiPicker from 'emoji-picker-react';
+import React, { useState } from 'react';
+import { useParams } from 'react-router-dom';
+import useFetchEmoji from '../../hooks/useFetchEmoji.js';
+import useFetchStudy from '../../hooks/useFetchStudy.js';
+import StudyShare from './StudyShare.js';
+import { ToastContainer } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
+import 'react-toastify/dist/ReactToastify.css';
+import './StudyInfo.css';
+import PasswordModal from './PasswordModal.js';
 
 function StudyInfo() {
   const { studyId } = useParams();
@@ -16,8 +16,8 @@ function StudyInfo() {
   const [isExpanded, setIsExpanded] = useState(false);
   const [showShareOptions, setShowShareOptions] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [redirectUrl, setRedirectUrl] = useState("");
-  const [modalButtonText, setModalButtonText] = useState("");
+  const [redirectUrl, setRedirectUrl] = useState('');
+  const [modalButtonText, setModalButtonText] = useState('');
   const navigate = useNavigate();
 
   // 커스텀 훅 사용
@@ -49,12 +49,12 @@ function StudyInfo() {
   };
 
   const handleModalSubmit = async () => {
-    if (redirectUrl === "/") {
+    if (redirectUrl === '/') {
       try {
         await deleteStudy();
-        navigate("/", { state: { toast: "deleted" } }); // 상태를 전달하며 리다이렉트
+        navigate('/', { state: { toast: 'deleted' } }); // 상태를 전달하며 리다이렉트
       } catch (err) {
-        alert("스터디 삭제 중 오류가 발생했습니다.");
+        alert('스터디 삭제 중 오류가 발생했습니다.');
       }
     } else {
       navigate(redirectUrl);
@@ -68,64 +68,64 @@ function StudyInfo() {
 
   return (
     <>
-      <div className="studyInfo">
-        <div className="headerInfo">
-          <div className="emojis">
+      <div className='studyInfo'>
+        <div className='headerInfo'>
+          <div className='emojis'>
             {emojis.slice(0, 3).map((item, id) => (
-              <div key={id} className="emojiItem">
+              <div key={id} className='emojiItem'>
                 {item.emoji}
-                <span className="emojiCount">{item.count}</span>
+                <span className='emojiCount'>{item.count}</span>
               </div>
             ))}
             {hiddenEmojiCount > 0 && (
               <div
-                className="emojiItem moreEmoji"
+                className='emojiItem moreEmoji'
                 onClick={onCountClick(isExpanded)}
               >
                 + {hiddenEmojiCount}..
               </div>
             )}
             <button
-              className="emojiBtn"
+              className='emojiBtn'
               onClick={() => setEmojiPickerVisible(!isEmojiPickerVisible)}
             >
               추가
             </button>
           </div>
           {isEmojiPickerVisible && (
-            <div className="emoji-picker-react">
+            <div className='emoji-picker-react'>
               <EmojiPicker onEmojiClick={onEmojiClick} />
             </div>
           )}
-          <div className="share">
-            <span className="text color-G" onClick={handleShareClick}>
+          <div className='share'>
+            <span className='text color-G' onClick={handleShareClick}>
               공유하기
             </span>
-            <span className="text color-G">| </span>
+            <span className='text color-G'>| </span>
             <span
-              className="text color-G"
+              className='text color-G'
               onClick={() =>
-                handleModifyClick(`/editStudy/${studyId}`, "수정하러가기")
+                handleModifyClick(`/editStudy/${studyId}`, '수정하러가기')
               }
             >
               수정하기
             </span>
-            <span className="text color-G">| </span>
+            <span className='text color-G'>| </span>
             <span
-              className="text color-B"
-              onClick={() => handleModifyClick("/", "삭제하기")}
+              className='text color-B'
+              onClick={() => handleModifyClick('/', '삭제하기')}
             >
               스터디 삭제하기
             </span>
           </div>
         </div>
-        <div className="emoji-dropdown">
+        <div className='emoji-dropdown'>
           {isExpanded && (
-            <div className="expandedEmojiList">
+            <div className='expandedEmojiList'>
               {emojis.slice(3, emojis.length).map((item, id) => (
-                <div key={id} className="emojiItemDrop">
+                <div key={id} className='emojiItemDrop'>
                   {item.emoji}
-                  <span className="emojiCount">{item.count}</span>
+                  <span className='emojiCount'>{item.count}</span>
                 </div>
               ))}
             </div>

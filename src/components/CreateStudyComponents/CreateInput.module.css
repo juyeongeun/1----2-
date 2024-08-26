@@ -1,0 +1,95 @@
+@import '../../css/reset.css';
+
+.text {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  margin-top: 24px;
+  color: #414141;
+}
+
+.input {
+  width: 625px;
+  height: 48px;
+  border-radius: 15px;
+  border: 1px solid #dddddd;
+  padding-left: 20px;
+}
+
+.textarea {
+  width: 649px;
+  height: 88px;
+  resize: none;
+  border-radius: 15px;
+  border: 1px solid #dddddd;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.errorMsg {
+  font-size: 14px;
+  font-weight: 400;
+  padding-left: 10px;
+  margin-top: 8px;
+  color: #c41013;
+}
+
+.inputError {
+  width: 625px;
+  height: 48px;
+  border-radius: 15px;
+  border: 1px solid #c41013;
+  padding-left: 20px;
+}
+
+.textareaError {
+  width: 625px;
+  height: 88px;
+  resize: none;
+  border-radius: 15px;
+  border: 1px solid #c41013;
+  padding-left: 20px;
+  padding-top: 20px;
+}
+
+@media (max-width: 720px) {
+  .text {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 16px;
+    margin-top: 16px;
+  }
+
+  .input {
+    width: 312px;
+    height: 48px;
+    box-sizing: border-box;
+    font-size: 12px;
+  }
+
+  .textarea {
+    width: 312px;
+    height: 98px;
+    resize: none;
+    box-sizing: border-box;
+  }
+
+  .errorMsg {
+    font-size: 12px;
+  }
+
+  .inputError {
+    width: 312px;
+    height: 48px;
+    border-radius: 15px;
+    border: 1px solid #c41013;
+    padding-left: 20px;
+    box-sizing: border-box;
+  }
+
+  .textareaError {
+    width: 312px;
+    height: 98px;
+    box-sizing: border-box;
+  }
+}

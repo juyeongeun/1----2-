@@ -1,0 +1,31 @@
+@import '../../css/reset.css';
+
+.background {
+  margin: 40px auto;
+  width: 696px;
+  background-color: #ffffff;
+  border-radius: 20px;
+  padding: 24px 24px 40px;
+  box-sizing: border-box;
+}
+
+.header {
+  font-size: 24px;
+  font-weight: 800;
+}
+
+@media (max-width: 720px) {
+  .background {
+    margin: 0 auto;
+    width: 344px;
+    min-height: 1423px;
+    padding: 16px;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+
+  .header {
+    font-size: 16px;
+    font-weight: 800;
+  }
+}
