@@ -1,6 +1,6 @@
 import styles from './ExploreStudies.module.css';
 import { useState, useEffect, useCallback } from 'react';
-import Study from './StudyDataFetch.js';
+import StudyDataFetch from './StudyDataFetch.js';
 import useInputValid from '../../hooks/studyList.js';
 import ExploreStudiesHeader from './ExploreStudiesHeader.js';
 
@@ -75,7 +75,7 @@ function ExploreStudies({ setClick }) {
         setKeyword={setKeyword}
       />
       <div className={styles.studyList}>
-        <Study data={items} setClick={setClick} />
+        <StudyDataFetch data={items} setClick={setClick} />
         {!totalCount ||
           (totalCount === -6 && (
             <p className={styles.nonStudy}>둘러 볼 스터디가 없습니다</p>

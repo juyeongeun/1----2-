@@ -197,39 +197,20 @@
 
 @media (max-width: 1199px) {
   .ListItems {
-    display: grid;
-    width: 100%;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 23px;
-    cursor: pointer;
-  }
-
-  .ItemImg {
-    width: 312px;
-    height: 243px;
-    border-radius: 10%;
-  }
-
-  .icon {
-    transform: translate(210px, 33px);
-  }
-
-  .pointWhite {
-    transform: translate(200px, 0px);
-  }
-
-  .pointBlack {
-    transform: translate(200px, 0px);
+    overflow: scroll;
   }
 }
 
 @media (max-width: 720px) {
-  .ListItems {
-    grid-template-columns: repeat(1, 1fr);
-  }
+  /* .ListItems {
+    display: grid;
+    width: 100%;
+    gap: 23px;
+    cursor: pointer;
+  } */
 
   .ItemImg {
-    width: 312px;
+    width: 240px;
     height: 180px;
     border-radius: 10%;
   }

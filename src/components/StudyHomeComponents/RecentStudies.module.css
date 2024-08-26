@@ -27,3 +27,23 @@
   font-size: 20px;
   font-weight: 500;
 }
+
+@media (max-width: 1199px) {
+  .background {
+    min-width: 338px;
+  }
+}
+
+@media (max-width: 720px) {
+  .text {
+    font-size: 16px;
+    margin-bottom: 24px;
+    padding-bottom: 0;
+  }
+
+  .background {
+    height: 247px;
+    width: 344px;
+    padding: 16px 0px 16px 16px;
+  }
+}

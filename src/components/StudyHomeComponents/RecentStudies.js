@@ -1,7 +1,7 @@
 import styles from './RecentStudies.module.css';
 import { useState, useEffect } from 'react';
 import useStudiesListId from '../../hooks/useStudiesListId.js';
-import StudyDataFetch from './StudyDataFetch.js';
+import StudyDataFetchId from './StudyDataFetchId.js';
 
 function RecentStudies({ click }) {
   const [watched, setWatched] = useState([]);
@@ -37,7 +37,7 @@ function RecentStudies({ click }) {
         <p className={styles.text}>최근 조회한 스터디</p>
         <div className={styles.head}>
           {watched.length > 1 ? (
-            <StudyDataFetch data={recent} />
+            <StudyDataFetchId data={recent} />
           ) : (
             <p className={styles.nonStudy}>아직 조회한 스터디가 없어요</p>
           )}

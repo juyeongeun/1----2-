@@ -1,4 +1,4 @@
-import styles from './StudyDataFetch.module.css';
+import styles from './StudyDataFetchId.module.css';
 import { useNavigate } from 'react-router-dom';
 import pointICon from '../../img/point_icon.png';
 
@@ -94,7 +94,7 @@ function ProductListItem({ item, setClick }) {
   );
 }
 
-function StudyDataFetch({ data, setClick }) {
+function StudyDataFetchId({ data, setClick }) {
   return (
     <>
       <div className={styles.ListItems}>
@@ -106,4 +106,4 @@ function StudyDataFetch({ data, setClick }) {
   );
 }
 
-export default StudyDataFetch;
+export default StudyDataFetchId;
