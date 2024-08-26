@@ -85,7 +85,7 @@ function ProductListItem({ item, setClick }) {
         </div>
 
         <p className={createdColor}>{diffDays}일째 진행 중</p>
-        <div className={styles.test}>
+        <div>
           <p className={contentColor}>{item.content}</p>
         </div>
         <p className={styles.reaction}>{item.reaction}</p>

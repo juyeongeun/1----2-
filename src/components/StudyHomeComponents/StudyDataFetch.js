@@ -76,7 +76,7 @@ function ProductListItem({ item, setClick }) {
         onClick={() => handleClick(item.id)}
       />
 
-      <div className={styles.realTest}>
+      <div>
         <p className={nameColor}>{item.name} </p>
         <p className={studyNameColor}> 의 {item.studyName}</p>
         <div className={styles.pointCon}>
