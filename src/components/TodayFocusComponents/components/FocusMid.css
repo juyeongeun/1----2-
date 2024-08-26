@@ -30,15 +30,18 @@
   border-radius: 50px;
   border: 1px solid #dddddd;
   box-sizing: border-box;
-  padding-left: 12px;
+  padding-left: 24px;
   padding-right: 12px;
   padding-top: 8px;
   padding-bottom: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("../../../img/ic_point.svg");
+  background-repeat: no-repeat;
+  background-position: 12px center;
 }
-.todaysFocus_Mid_point_imogi {
-  width: 16px;
-  height: 19px;
-}
+
 .todaysFocus_Mid_point_point {
   font-size: 1rem; /* 16px : 18px  = 1rem : 1.125rem*/
   color: #414141;
