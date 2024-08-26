@@ -17,13 +17,13 @@
 }
 
 .textarea {
-  width: 625px;
+  width: 649px;
   height: 88px;
   resize: none;
   border-radius: 15px;
   border: 1px solid #dddddd;
-  padding-left: 20px;
-  padding-top: 20px;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
 .errorMsg {
