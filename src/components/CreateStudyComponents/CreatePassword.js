@@ -1,31 +1,31 @@
-import styles from './CreatePassword.module.css';
-import React, { useState } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEyeSlash } from '@fortawesome/free-regular-svg-icons';
-import { faEye } from '@fortawesome/free-regular-svg-icons';
+import styles from "./CreatePassword.module.css";
+import React, { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEyeSlash } from "@fortawesome/free-regular-svg-icons";
+import { faEye } from "@fortawesome/free-regular-svg-icons";
 
 function Password({ handleChange, showErrors, handleBlur, errors, hasError }) {
-  const [type, setType] = useState('password');
-  const [typeConfirm, setTypeConfirm] = useState('password');
+  const [type, setType] = useState("password");
+  const [typeConfirm, setTypeConfirm] = useState("password");
   const [showPassword, setShowPassword] = useState(faEyeSlash);
   const [showPasswordConfirm, setShowPasswordConfirm] = useState(faEyeSlash);
 
   const handleTypeChange = () => {
-    if (type === 'password') {
-      setType('text');
+    if (type === "password") {
+      setType("text");
       setShowPassword(faEye);
     } else {
-      setType('password');
+      setType("password");
       setShowPassword(faEyeSlash);
     }
   };
 
   const handleTypeConfirmChange = () => {
-    if (typeConfirm === 'password') {
-      setTypeConfirm('text');
+    if (typeConfirm === "password") {
+      setTypeConfirm("text");
       setShowPasswordConfirm(faEye);
     } else {
-      setTypeConfirm('password');
+      setTypeConfirm("password");
       setShowPasswordConfirm(faEyeSlash);
     }
   };
@@ -40,12 +40,12 @@ function Password({ handleChange, showErrors, handleBlur, errors, hasError }) {
       <p className={styles.text}>비밀번호</p>
       <div className={styles.container}>
         <input
-          name='password'
+          name="password"
           type={type}
           onChange={handleInputValue}
           onBlur={handleBlur}
-          className={hasError('password') ? styles.inputError : styles.input}
-          placeholder='비밀번호를 입력해 주세요'
+          className={hasError("password") ? styles.inputError : styles.input}
+          placeholder="비밀번호를 입력해 주세요"
         />
         <FontAwesomeIcon
           onClick={handleTypeChange}
@@ -59,14 +59,14 @@ function Password({ handleChange, showErrors, handleBlur, errors, hasError }) {
       <p className={styles.text}>비밀번호 확인</p>
       <div className={styles.container}>
         <input
-          name='passwordConfirm'
+          name="passwordConfirm"
           type={typeConfirm}
           onBlur={handleBlur}
           className={
-            hasError('passwordConfirm') ? styles.inputError : styles.input
+            hasError("passwordConfirm") ? styles.inputError : styles.input
           }
           onChange={handleInputValue}
-          placeholder='비밀번호를 확인해 주새요'
+          placeholder="비밀번호를 확인해 주새요"
         />
         <FontAwesomeIcon
           onClick={handleTypeConfirmChange}

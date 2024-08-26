@@ -1,9 +1,9 @@
-@import '../../css/reset.css';
+@import "../../css/reset.css";
 
 @font-face {
-  font-family: 'EF_jejudoldam';
-  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2210-EF@1.0/EF_jejudoldam.woff2')
-    format('woff2');
+  font-family: "EF_jejudoldam";
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2210-EF@1.0/EF_jejudoldam.woff2")
+    format("woff2");
   font-weight: normal;
   font-style: normal;
 }
@@ -97,14 +97,14 @@
 }
 
 .backgroundOption.selected::after {
-  content: '';
+  content: "";
   position: absolute;
   top: 50%;
   left: 50%;
   width: 32px;
   height: 32px;
   transform: translate(-50%, -50%);
-  background-image: url('../../img/background_icon.png');
+  background-image: url("../../img/background/background_icon.png");
   background-repeat: no-repeat;
   background-size: contain;
   pointer-events: none;

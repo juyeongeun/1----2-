@@ -1,15 +1,15 @@
-import styles from './StudyDataFetchId.module.css';
-import { useNavigate } from 'react-router-dom';
-import pointICon from '../../img/point_icon.png';
+import styles from "./StudyDataFetchId.module.css";
+import { useNavigate } from "react-router-dom";
+import pointICon from "../../img/point_icon.png";
 
-import backgroundGreen from '../../img/background_1.png';
-import backgroundYe from '../../img/background_2.png';
-import backgroundBlu from '../../img/background_3.png';
-import backgroundPink from '../../img/background_4.png';
-// import backgroundTable from '../../img/background_5.png';
-// import backgroundSun from '../../img/background_6.png';
-// import backgroundRain from '../../img/background_7.png';
-// import backgroundPlan from '../../img/background_8.png';
+import backgroundGreen from "../../img/background/background_1.png";
+import backgroundYe from "../../img/background/background_2.png";
+import backgroundBlu from "../../img/background/background_3.png";
+import backgroundPink from "../../img/background/background_4.png";
+// import backgroundTable from '../../img/background/background_5.png';
+// import backgroundSun from '../../img/background/background_6.png';
+// import backgroundRain from '../../img/background/background_7.png';
+// import backgroundPlan from '../../img/background/background_8.png';
 
 function ProductListItem({ item, setClick }) {
   const navigate = useNavigate();
@@ -59,7 +59,7 @@ function ProductListItem({ item, setClick }) {
   }
 
   const handleClick = (id) => {
-    if (typeof setClick === 'function') {
+    if (typeof setClick === "function") {
       setClick(id);
     }
     setTimeout(() => {
@@ -80,7 +80,7 @@ function ProductListItem({ item, setClick }) {
         <p className={nameColor}>{item.name} </p>
         <p className={studyNameColor}> 의 {item.studyName}</p>
         <div className={styles.pointCon}>
-          <img src={pointICon} alt='포인트 아이콘' className={styles.icon} />
+          <img src={pointICon} alt="포인트 아이콘" className={styles.icon} />
           <p className={pointColor}>{item.point}P 획득 </p>
         </div>
 

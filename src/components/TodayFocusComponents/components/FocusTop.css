@@ -16,7 +16,6 @@
   font-size: 2rem; /* ( 16 * 2 ) px */
   font-weight: 800;
   line-height: 38px;
-  font-family: "KCC-Hanbit";
 }
 .todaysFocus-Top-btn {
   display: flex;
@@ -38,7 +37,6 @@
   font-weight: 500;
   line-height: 19px;
   color: #818181;
-  font-family: "KCC-Hanbit";
 }
 .todaysFocus-Top-btn-arrow {
   width: 5px;
