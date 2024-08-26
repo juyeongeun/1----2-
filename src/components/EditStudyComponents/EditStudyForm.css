@@ -135,6 +135,7 @@
   cursor: pointer;
   margin-top: 16px;
   font-family: EF_jejudoldam, sans-serif;
+  text-shadow: 2px -1.5px gray;
 }
 
 .editButton:disabled {
