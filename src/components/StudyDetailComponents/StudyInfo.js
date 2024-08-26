@@ -24,8 +24,6 @@ function StudyInfo() {
   const { emojis, loading, error, saveEmoji } = useFetchEmoji(studyId);
   const { studyName, name, password, deleteStudy } = useFetchStudy(studyId); // deleteStudy 추가
 
-  console.log(emojis);
-
   const onEmojiClick = (emojiObject, event) => {
     const selectedEmoji = emojiObject.emoji;
     saveEmoji(selectedEmoji);
