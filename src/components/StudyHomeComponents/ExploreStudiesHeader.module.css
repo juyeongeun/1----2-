@@ -33,6 +33,13 @@
   border-radius: 15px;
 }
 
+@media (max-width: 1199px) {
+  .input {
+    width: 335px;
+    box-sizing: border-box;
+  }
+}
+
 @media (max-width: 720px) {
   .text {
     padding-bottom: 0;

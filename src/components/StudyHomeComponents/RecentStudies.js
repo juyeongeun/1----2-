@@ -36,7 +36,7 @@ function RecentStudies({ click }) {
       <div className={styles.background}>
         <p className={styles.text}>최근 조회한 스터디</p>
         <div className={styles.head}>
-          {watched.length > 1 ? (
+          {recent.length > 0 ? (
             <StudyDataFetchId data={recent} />
           ) : (
             <p className={styles.nonStudy}>아직 조회한 스터디가 없어요</p>
