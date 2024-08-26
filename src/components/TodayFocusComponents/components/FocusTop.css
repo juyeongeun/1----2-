@@ -1,0 +1,46 @@
+.todaysFocus-Top {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 48px;
+  background-color: #ffffff;
+}
+
+.todaysFocus-Top-btnContainer {
+  width: 242px;
+  height: 48px;
+  display: flex;
+  gap: 16px;
+}
+.todaysFocus-Top-text {
+  font-size: 2rem; /* ( 16 * 2 ) px */
+  font-weight: 800;
+  line-height: 38px;
+  font-family: "KCC-Hanbit";
+}
+.todaysFocus-Top-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  box-sizing: border-box;
+  padding-left: 24px;
+  padding-right: 16px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+
+  border-radius: 15px;
+  border: 1px solid #dddddd;
+  background-color: #ffffff;
+}
+.todaysFocus-Top-btn-text {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 19px;
+  color: #818181;
+  font-family: "KCC-Hanbit";
+}
+.todaysFocus-Top-btn-arrow {
+  width: 5px;
+  height: 11px;
+}

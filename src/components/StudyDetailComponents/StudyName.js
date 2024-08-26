@@ -1,11 +1,13 @@
 import "./StudyName.css";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import React, { useState } from "react";
 import useFetchStudy from "../../hooks/useFetchStudy.js";
 import PasswordModal from "./PasswordModal.js";
 
 function StudyName() {
   const { studyId } = useParams();
+  const nav = useNavigate();
+  // 첫 번째 인수로 이동 할 도메인 주소를 받고, 두 번째 인수로 리다이렉션 시 전송할 데이터를 첩부합니다.
   const { studyName, name, content, password, loading, error } =
     useFetchStudy(studyId);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -30,7 +32,7 @@ function StudyName() {
   };
 
   const handleModalSubmit = () => {
-    window.location.href = redirectUrl;
+    nav(`${redirectUrl}/${studyId}`);
   };
 
   return (

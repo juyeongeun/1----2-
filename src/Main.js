@@ -17,7 +17,7 @@ function Main() {
           <Route path="/study/:studyId" element={<StudyDetailPage />} />
           <Route path="/editStudy/:studyId" element={<EditStudyPage />} />
           <Route path="/habit" element={<HabitTrackerPage />} />
-          <Route path="/focus" element={<FocusTimerPage />} />
+          <Route path="/focus/:studyId" element={<FocusTimerPage />} />
         </Route>
       </Routes>
     </BrowserRouter>
