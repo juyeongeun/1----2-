@@ -1,6 +1,6 @@
-import styles from './CreateFooter.module.css';
-import useFetchStudy from '../../hooks/useFetchStudy.js';
-import { useNavigate } from 'react-router-dom';
+import styles from "./CreateFooter.module.css";
+import useFetchStudy from "../../hooks/useFetchStudy.js";
+import { useNavigate } from "react-router-dom";
 
 function CreateFooter({ values, isValid, submit }) {
   const navigate = useNavigate();
@@ -23,7 +23,7 @@ function CreateFooter({ values, isValid, submit }) {
         const { id } = response;
         navigate(`/study/${id}`);
       } catch (error) {
-        console.error('Failed to create study:', error);
+        console.error("Failed to create study:", error);
       }
     }
   };

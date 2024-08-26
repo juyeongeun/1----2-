@@ -4,9 +4,9 @@ import CreateInput from "./CreateInput.js";
 import CreateBackground from "./CreateBackground.js";
 import CreatePassword from "./CreatePassword.js";
 import CreateFooter from "./CreateFooter.js";
-import backgroundGreen from "../img/background/background_1.png";
+import backgroundGreen from "../../img/background/background_1.png";
 
-import useInputValid from "../hooks/useInputValid.js";
+import useInputValid from "../../hooks/useInputValid.js";
 
 function CreateForm() {
   const [values, setValues] = useState({
