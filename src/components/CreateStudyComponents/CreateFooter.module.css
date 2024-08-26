@@ -1,22 +1,39 @@
-@import "../../css/reset.css";
+@import '../../css/reset.css';
 
-.footer {
-  position: relative;
+@font-face {
+  font-family: 'EF_jejudoldam';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2210-EF@1.0/EF_jejudoldam.woff2')
+    format('woff2');
+  font-weight: normal;
+  font-style: normal;
 }
 
 .button {
-  position: absolute;
-  width: 648px;
+  width: 100%;
   height: 58px;
-  margin-top: 32px;
-  margin-right: 100px;
-  border-radius: 16px;
-  background-color: rgba(0, 0, 0, 0);
+  padding: 15px;
+  background-color: #99c08e;
+  color: white;
   border: none;
-  right: -100px;
+  border-radius: 16px;
+  font-size: 18px;
   cursor: pointer;
+  margin-top: 32px;
+  font-family: EF_jejudoldam, sans-serif;
+  text-shadow: 2px -1.5px gray;
 }
 
-.buttonImg {
+.errorButton {
+  width: 100%;
+  height: 58px;
+  padding: 15px;
+  color: white;
+  border: none;
+  border-radius: 16px;
+  font-size: 18px;
+  cursor: pointer;
   margin-top: 32px;
+  font-family: EF_jejudoldam, sans-serif;
+  text-shadow: 2px -1.5px gray;
+  background-color: #9d9d9d;
 }

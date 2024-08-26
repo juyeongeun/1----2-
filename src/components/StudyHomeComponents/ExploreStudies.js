@@ -64,7 +64,6 @@ function ExploreStudies({ setClick }) {
 
   useEffect(() => {
     if (keyword) {
-      console.log(keyword);
       setOffset(0);
     }
   }, [keyword]);
