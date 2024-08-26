@@ -157,30 +157,34 @@
 
 .contentWhite {
   width: 275px;
+  height: 60px;
   position: absolute;
   top: 0;
-  transform: translate(45px, 100px);
+  transform: translate(45px, 80px);
   color: #ffffff;
   font-size: 16px;
   font-weight: 400;
   margin-top: 30px;
-  white-space: nowrap;
   overflow: hidden;
-  text-overflow: ellipsis;
+  word-wrap: break-word;
+  white-space: normal;
+  line-height: 20px;
 }
 
 .contentBlack {
   width: 275px;
+  height: 60px;
   position: absolute;
   top: 0;
-  transform: translate(45px, 100px);
+  transform: translate(45px, 80px);
   color: #414141;
   font-size: 16px;
   font-weight: 400;
   margin-top: 30px;
-  white-space: nowrap;
   overflow: hidden;
-  text-overflow: ellipsis;
+  word-wrap: break-word;
+  white-space: normal;
+  line-height: 20px;
 }
 
 .reaction {
@@ -198,6 +202,13 @@
 @media (max-width: 1199px) {
   .ListItems {
     overflow: scroll;
+  }
+
+  .contentBlack,
+  .contentWhite {
+    width: 290px;
+    height: 80px;
+    transform: translate(37px, 70px);
   }
 }
 
@@ -255,9 +266,11 @@
   .contentBlack,
   .contentWhite {
     width: 180px;
+    height: 40px;
     transform: translate(23px, 70px);
     font-size: 14px;
     font-weight: 400;
+    margin-top: 18px;
   }
 
   .reaction {
