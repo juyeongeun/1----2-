@@ -44,3 +44,16 @@
   width: 5px;
   height: 11px;
 }
+
+@media (max-width: 720px) {
+  .todaysFocus-Top {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    width: 100%;
+    height: 86px;
+    background-color: #ffffff;
+    gap: 8px;
+  }
+}

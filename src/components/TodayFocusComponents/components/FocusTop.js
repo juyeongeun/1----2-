@@ -21,18 +21,18 @@ const FocusTop = ({ name, studyName, studyId, error, loading }) => {
   }
 
   return (
-    <div class="todaysFocus-Top">
-      <span class="todaysFocus-Top-text">
+    <div className="todaysFocus-Top">
+      <span className="todaysFocus-Top-text">
         {name}의 {studyName}
       </span>
-      <div class="todaysFocus-Top-btnContainer">
-        <div onClick={today_habit} class="todaysFocus-Top-btn">
-          <span class="todaysFocus-Top-btn-text">오늘의 습관</span>
-          <img class="todaysFocus-Top-btn-arrow" src={arrow} alt="" />
+      <div className="todaysFocus-Top-btnContainer">
+        <div onClick={today_habit} className="todaysFocus-Top-btn">
+          <span className="todaysFocus-Top-btn-text">오늘의 습관</span>
+          <img className="todaysFocus-Top-btn-arrow" src={arrow} alt="" />
         </div>
-        <div onClick={home} class="todaysFocus-Top-btn">
-          <span class="todaysFocus-Top-btn-text">홈</span>
-          <img class="todaysFocus-Top-btn-arrow" src={arrow} alt="" />
+        <div onClick={home} className="todaysFocus-Top-btn">
+          <span className="todaysFocus-Top-btn-text">홈</span>
+          <img className="todaysFocus-Top-btn-arrow" src={arrow} alt="" />
         </div>
       </div>
     </div>
