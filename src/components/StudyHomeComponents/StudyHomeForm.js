@@ -3,12 +3,12 @@ import ExploreStudies from './ExploreStudies.js';
 
 import { useState } from 'react';
 
-function StudyHomeForm() {
+function StudyHomeForm({ paramsReset }) {
   const [click, setClick] = useState('');
   return (
     <>
       <RecentStudies click={click} />
-      <ExploreStudies setClick={setClick} />
+      <ExploreStudies setClick={setClick} paramsReset={paramsReset} />
     </>
   );
 }

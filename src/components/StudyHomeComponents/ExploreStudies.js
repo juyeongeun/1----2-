@@ -6,7 +6,7 @@ import ExploreStudiesHeader from './ExploreStudiesHeader.js';
 
 const LIMIT = 6;
 
-function ExploreStudies({ setClick }) {
+function ExploreStudies({ setClick, paramsReset }) {
   const [orderBy, setOrderBy] = useState('recent');
   const [offset, setOffset] = useState(0);
   const [items, setItems] = useState([]);
@@ -47,15 +47,12 @@ function ExploreStudies({ setClick }) {
     setTotalCOunt(total - offset - LIMIT);
   };
 
-  // 초기화 수정 예정
-  // const handleHomeClick = () => {
-  //   setOrderBy('recent');
-  //   setOffset(0);
-  //   setItems([]);
-  //   setKeyword('');
-  //   setLimit(6);
-  //   setTotalCOunt(0);
-  // };
+  //초기화
+  useEffect(() => {
+    setOrderBy('recent');
+    setOffset(0);
+    setKeyword('');
+  }, [paramsReset]);
 
   useEffect(() => {
     handleLoad();
@@ -71,15 +68,15 @@ function ExploreStudies({ setClick }) {
   return (
     <div className={styles.background}>
       <ExploreStudiesHeader
+        orderBy={orderBy}
         onOrderChange={handleOrderbyChange}
         setKeyword={setKeyword}
       />
       <div className={styles.studyList}>
         <StudyDataFetch data={items} setClick={setClick} />
-        {!totalCount ||
-          (totalCount === -6 && (
-            <p className={styles.nonStudy}>둘러 볼 스터디가 없습니다</p>
-          ))}
+        {data.length === 0 && (
+          <p className={styles.nonStudy}>둘러 볼 스터디가 없습니다</p>
+        )}
       </div>
       {totalCount > 0 ? (
         <button onClick={handleLoadMore} className={styles.button}>
