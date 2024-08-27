@@ -60,7 +60,7 @@ function ProductListItem({ item, setClick }) {
     contentColor = styles.contentWhite;
   }
 
-  const { emojis, loading, error, saveEmoji } = useFetchEmoji(item.id);
+  const { emojis } = useFetchEmoji(item.id);
 
   const hiddenEmojiCount = emojis.length - 3;
 
@@ -100,12 +100,12 @@ function ProductListItem({ item, setClick }) {
           <div className={styles.emojis}>
             {emojis.slice(0, 3).map((item, id) => (
               <div key={id} className={styles.emojiItem}>
-                {item.emoji}
+                <div className={styles.emoji}>{item.emoji}</div>
                 <span className={styles.emojiCount}>{item.count}</span>
               </div>
             ))}
             {emojis.length > 3 && (
-              <div className={styles.emojiItem}>+ 1...</div>
+              <div className={styles.emojiItemAdd}>+ 1...</div>
             )}
           </div>
         )}
