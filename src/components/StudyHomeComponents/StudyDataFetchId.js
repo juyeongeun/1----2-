@@ -2,6 +2,8 @@ import styles from './StudyDataFetchId.module.css';
 import { useNavigate } from 'react-router-dom';
 import pointICon from '../../img/point_icon.png';
 
+import useFetchEmoji from '../../hooks/useFetchEmoji.js';
+
 import backgroundGreen from '../../img/background/background_1.png';
 import backgroundYe from '../../img/background/background_2.png';
 import backgroundBlu from '../../img/background/background_3.png';
@@ -58,6 +60,8 @@ function ProductListItem({ item, setClick }) {
     contentColor = styles.contentWhite;
   }
 
+  const { emojis } = useFetchEmoji(item.id);
+
   const handleClick = (id) => {
     if (typeof setClick === 'function') {
       setClick(id);
@@ -90,7 +94,19 @@ function ProductListItem({ item, setClick }) {
         <div>
           <p className={contentColor}>{item.content}</p>
         </div>
-        <p className={styles.reaction}>{item.reaction}</p>
+        {emojis.length > 0 && (
+          <div className={styles.emojis}>
+            {emojis.slice(0, 3).map((item, id) => (
+              <div key={id} className={styles.emojiItem}>
+                {item.emoji}
+                <span className={styles.emojiCount}>{item.count}</span>
+              </div>
+            ))}
+            {emojis.length > 3 && (
+              <div className={styles.emojiItem}>+ 1...</div>
+            )}
+          </div>
+        )}
       </div>
     </div>
   );
