@@ -62,6 +62,8 @@ function ProductListItem({ item, setClick }) {
 
   const { emojis } = useFetchEmoji(item.id);
 
+  const hiddenEmojiCount = emojis.length - 3;
+
   const handleClick = (id) => {
     if (typeof setClick === 'function') {
       setClick(id);
@@ -103,7 +105,7 @@ function ProductListItem({ item, setClick }) {
               </div>
             ))}
             {emojis.length > 3 && (
-              <div className={styles.emojiItemAdd}>+ 1...</div>
+              <div className={styles.emojiItemAdd}>+ {hiddenEmojiCount}</div>
             )}
           </div>
         )}
