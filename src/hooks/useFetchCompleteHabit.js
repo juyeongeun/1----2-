@@ -25,7 +25,7 @@ function useFetchCompleteHabit(studyId) {
   // 완료된 습관을 서버로 전송하는 함수
   const completeHabit = async (habitId) => {
     try {
-      const response = await axios.post(`${baseUrl}/${studyId}`, { habitId });
+      const response = await axios.post(`${baseUrl}/${studyId}/${habitId}`);
       setCompleteHabits((prevHabits) => [...prevHabits, response.data]); // 완료된 습관을 상태에 추가
     } catch (err) {
       setError(err.message);
