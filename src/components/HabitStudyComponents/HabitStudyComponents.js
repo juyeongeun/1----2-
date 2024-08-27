@@ -1,6 +1,6 @@
 import React from "react";
 import "./HabitStudyComponents.css"; // CSS 파일을 import합니다.
-import TodoList from "./TodoList.js"; // TodoList 컴포넌트를 import합니다.
+import TodoList from "../TodoList.js"; // TodoList 컴포넌트를 import합니다.
 
 function HabitStudyComponents() {
   // 습관 리스트를 관리하는 배열 (현재는 빈 배열로 설정)

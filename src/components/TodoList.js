@@ -27,9 +27,7 @@ function TodoList() {
   return (
     <div className="todo-list">
       <h2>오늘의 습관</h2> {/* 섹션 제목 */}
-      <div>
-        <div>목록 수정</div>
-      </div>
+      <div>목록 수정</div>
       <ul className="habit-list">
         {/* 할 일 목록을 화면에 보여줌 */}
         {todos.map((todo, index) => (
