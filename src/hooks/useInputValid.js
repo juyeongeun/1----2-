@@ -24,8 +24,8 @@ function useInputValid(values) {
       if (name.length < 1) {
         errors.name = '1글자 이상 입력해야 합니다';
         isFormValid = false;
-      } else if (name.length > 3) {
-        errors.name = '3글자 이내로 입력해야 합니다';
+      } else if (name.length > 4) {
+        errors.name = '4글자 이내로 입력해야 합니다';
         isFormValid = false;
       }
 
