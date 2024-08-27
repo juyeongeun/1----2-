@@ -45,10 +45,10 @@ const FocusTimer = ({
       clearInterval(intervalRef.current);
       if (clear && time < 0) {
         setClear(false);
+        setCurrentPoint((prev) => prev + 3);
+        await setPoint(currentPoint, studyId);
       }
       setTime(1500);
-      setCurrentPoint((prev) => prev + 3);
-      await setPoint(currentPoint, studyId);
       setSoon("");
       setPause(false);
       setIsRunning(true);
