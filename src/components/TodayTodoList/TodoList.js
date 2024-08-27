@@ -70,6 +70,13 @@ function TodoList() {
         <div>
           <button onClick={() => setIsModalOpen(true)}>목록 수정</button>
         </div>
+      </div>
+      {activeHabits.length === 0 ? (
+        <div className="no-habits">
+          <p>아직 습관이 없어요</p>
+          <p>목록 수정을 눌러 습관을 생성해보세요</p>
+        </div>
+      ) : (
         <ul className="habit-list">
           {activeHabits.map((habit) => (
             <li
@@ -83,7 +90,8 @@ function TodoList() {
             </li>
           ))}
         </ul>
-      </div>
+      )}
+
       <HabitEditModal
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
