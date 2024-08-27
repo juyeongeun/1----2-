@@ -1,4 +1,4 @@
-@import '../../css/reset.css';
+@import "../../css/reset.css";
 
 .ListItems {
   display: grid;
@@ -201,7 +201,7 @@
 
 @media (max-width: 1199px) {
   .ListItems {
-    overflow: scroll;
+    overflow-x: scroll;
   }
 
   .contentBlack,

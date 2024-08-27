@@ -1,4 +1,4 @@
-@import '../../css/reset.css';
+@import "../../css/reset.css";
 .text {
   padding-bottom: 30px;
   font-weight: 800;
@@ -44,6 +44,6 @@
   .background {
     height: 247px;
     width: 344px;
-    padding: 16px 0px 16px 16px;
+    padding: 16px;
   }
 }
