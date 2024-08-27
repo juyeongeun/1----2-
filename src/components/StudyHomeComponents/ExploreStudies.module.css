@@ -51,16 +51,18 @@
 @media (max-width: 1199px) {
   .background {
     width: 697px;
-    min-height: 1073px;
     margin: 36px auto;
     padding: 24px;
+  }
+
+  .nonStudy {
+    margin-top: 280px;
   }
 }
 
 @media (max-width: 720px) {
   .background {
     width: 344px;
-    min-height: 1422px;
     margin: 16px auto;
     padding: 16px;
   }
