@@ -13,6 +13,7 @@ const FocusPage = () => {
       <FocusTop
         name={name}
         studyName={studyName}
+        studyId={studyId}
         loading={loading}
         error={error}
       />
