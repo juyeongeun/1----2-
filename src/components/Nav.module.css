@@ -2,25 +2,22 @@
 
 .nav {
   position: relative;
+  margin: 0 auto;
   padding: 20px 0;
   width: 100%;
+  max-width: 1920px;
 }
 
 .container {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  max-width: 1920px;
-  margin: 0 auto;
+  margin-left: 220px;
+  margin-right: 220px;
 }
 
 .navLogo {
-  margin-left: 220px;
   padding: 32px 0;
-}
-
-.navBtn {
-  margin-right: 220px;
 }
 
 .mobileLogo,
@@ -29,8 +26,7 @@
 }
 
 @media (max-width: 1200px) {
-  .navLogo,
-  .navBtn {
+  .container {
     margin: 0 24px;
   }
 }
@@ -41,9 +37,12 @@
     display: none;
   }
 
+  .container {
+    margin: 12px 16px 0 16px;
+  }
+
   .mobileLogo,
   .mobileBtn {
     display: block;
-    margin: 12px 16px 0 16px;
   }
 }

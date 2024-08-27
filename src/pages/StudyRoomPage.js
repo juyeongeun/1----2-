@@ -5,7 +5,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 import StudyHomeForm from '../components/StudyHomeComponents/StudyHomeForm.js';
 
-function StudyRoomPage() {
+function StudyRoomPage({ paramsReset }) {
   const location = useLocation();
 
   useEffect(() => {
@@ -25,7 +25,7 @@ function StudyRoomPage() {
   return (
     <>
       <ToastContainer />
-      <StudyHomeForm />
+      <StudyHomeForm paramsReset={paramsReset} />
     </>
   );
 }

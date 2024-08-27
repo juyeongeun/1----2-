@@ -1,14 +1,15 @@
 import { Outlet } from 'react-router-dom';
 import Nav from './Nav.js';
+import Footer from './Footer.js';
 
-function Layout() {
+function Layout({ handleResetClick }) {
   return (
     <>
-      <Nav />
+      <Nav handleResetClick={handleResetClick} />
       <div>
         <Outlet />
       </div>
-      {/* <Footer /> */}
+      <Footer />
     </>
   );
 }

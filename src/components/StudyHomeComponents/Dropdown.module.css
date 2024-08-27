@@ -42,8 +42,12 @@
   border-bottom: 1px #dddddd solid;
   justify-content: center;
   padding-top: 15px;
-  padding-bottom: 10px;
+  padding-bottom: 10.5px;
   z-index: 100;
+}
+
+.text :last-child {
+  border-bottom: none;
 }
 
 @media (max-width: 720px) {

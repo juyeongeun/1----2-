@@ -1,11 +1,13 @@
-import styles from "./StudyDataFetch.module.css";
-import { useNavigate } from "react-router-dom";
-import pointICon from "../../img/point_icon.png";
+import styles from './StudyDataFetch.module.css';
+import { useNavigate } from 'react-router-dom';
+import pointICon from '../../img/point_icon.png';
 
-import backgroundGreen from "../../img/background/background_1.png";
-import backgroundYe from "../../img/background/background_2.png";
-import backgroundBlu from "../../img/background/background_3.png";
-import backgroundPink from "../../img/background/background_4.png";
+import useFetchEmoji from '../../hooks/useFetchEmoji.js';
+
+import backgroundGreen from '../../img/background/background_1.png';
+import backgroundYe from '../../img/background/background_2.png';
+import backgroundBlu from '../../img/background/background_3.png';
+import backgroundPink from '../../img/background/background_4.png';
 // import backgroundTable from '../../img/background/background_5.png';
 // import backgroundSun from '../../img/background/background_6.png';
 // import backgroundRain from '../../img/background/background_7.png';
@@ -58,8 +60,12 @@ function ProductListItem({ item, setClick }) {
     contentColor = styles.contentWhite;
   }
 
+  const { emojis } = useFetchEmoji(item.id);
+
+  const hiddenEmojiCount = emojis.length - 3;
+
   const handleClick = (id) => {
-    if (typeof setClick === "function") {
+    if (typeof setClick === 'function') {
       setClick(id);
     }
     setTimeout(() => {
@@ -77,18 +83,32 @@ function ProductListItem({ item, setClick }) {
       />
 
       <div>
-        <p className={nameColor}>{item.name} </p>
-        <p className={studyNameColor}> 의 {item.studyName}</p>
+        <span className={nameColor}>
+          {item.name}
+          <span className={studyNameColor}> 의 {item.studyName}</span>
+        </span>
+
         <div className={styles.pointCon}>
-          <img src={pointICon} alt="포인트 아이콘" className={styles.icon} />
+          <img src={pointICon} alt='포인트 아이콘' className={styles.icon} />
           <p className={pointColor}>{item.point}P 획득 </p>
         </div>
 
         <p className={createdColor}>{diffDays}일째 진행 중</p>
-        <div className={styles.test}>
-          <p className={contentColor}>{item.content}</p>
-        </div>
-        <p className={styles.reaction}>{item.reaction}</p>
+
+        <p className={contentColor}>{item.content}</p>
+        {emojis.length > 0 && (
+          <div className={styles.emojis}>
+            {emojis.slice(0, 3).map((item, id) => (
+              <div key={id} className={styles.emojiItem}>
+                <div className={styles.emoji}>{item.emoji}</div>
+                <span className={styles.emojiCount}>{item.count}</span>
+              </div>
+            ))}
+            {emojis.length > 3 && (
+              <div className={styles.emojiItemAdd}>+ {hiddenEmojiCount}</div>
+            )}
+          </div>
+        )}
       </div>
     </div>
   );
