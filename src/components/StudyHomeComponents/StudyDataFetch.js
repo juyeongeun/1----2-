@@ -73,8 +73,6 @@ function ProductListItem({ item, setClick }) {
     }, 0);
   };
 
-  console.log(item.id, emojis);
-
   return (
     <div className={styles.ListItem}>
       <img
