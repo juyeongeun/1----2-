@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "./HabitEditModal.css";
+import HabitList from "./HabitModalList.js";
+import NewHabitList from "./NewHabitList.js";
+import ModalButtons from "./ModalButtons.js";
 
 export default function HabitEditModal({
   isOpen,
@@ -67,6 +70,11 @@ export default function HabitEditModal({
         })),
       ]);
 
+      // 빈값 입력 필드 제거
+      setNewHabitList((prevNewHabitList) =>
+        prevNewHabitList.filter((name) => name.trim() !== "")
+      );
+
       await onUpdate(); // 상태 업데이트 콜백 호출
 
       onClose(); // 모달 닫기
@@ -91,48 +99,18 @@ export default function HabitEditModal({
   return (
     <div className="modal-overlay">
       <div className="modal-content">
-        <button className="modal-close" onClick={onClose}>
-          X
-        </button>
         <h2>목록 수정</h2>
-        <div className="habit-list">
-          {localHabits.length > 0 ? (
-            localHabits.map((habit) => (
-              <div key={habit.habitId} className="habit-item">
-                <input
-                  type="text"
-                  value={habit.habitName}
-                  onChange={(e) => handleChange(habit.habitId, e.target.value)}
-                />
-                <button
-                  className="delete-button"
-                  onClick={() => handleDelete(habit.habitId)}
-                >
-                  삭제
-                </button>
-              </div>
-            ))
-          ) : (
-            <p>습관이 없습니다.</p>
-          )}
-          {newHabitList.map((habit, index) => (
-            <div key={`new-${index}`} className="habit-item">
-              <input
-                type="text"
-                value={habit}
-                onChange={(e) => handleNewHabitChange(index, e.target.value)}
-                placeholder="새 습관 추가"
-              />
-            </div>
-          ))}
-          <div className="habit-item">
-            <button onClick={handleAddInput}>+</button>
-          </div>
-        </div>
-        <div>
-          <button onClick={onClose}>취소</button>
-          <button onClick={handleSave}>수정 완료</button>
-        </div>
+        <HabitList
+          localHabits={localHabits}
+          handleChange={handleChange}
+          handleDelete={handleDelete}
+        />
+        <NewHabitList
+          newHabitList={newHabitList}
+          handleNewHabitChange={handleNewHabitChange}
+          handleAddInput={handleAddInput}
+        />
+        <ModalButtons onClose={onClose} handleSave={handleSave} />
       </div>
     </div>
   );
