@@ -75,24 +75,28 @@
 
 .studyNametext {
   position: absolute;
+  width: 130px;
   top: 0;
   color: #ffffff;
   font-size: 18px;
   font-weight: 700;
-  margin-top: 30px;
-  margin-left: 76px;
+  margin-left: 5px;
   z-index: 100;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .studyNameBlack {
   position: absolute;
+  width: 130px;
   top: 0;
   color: #414141;
   font-size: 18px;
   font-weight: 700;
-  margin-top: 30px;
-  margin-left: 76px;
+  margin-left: 5px;
   z-index: 100;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .icon {
@@ -187,16 +191,46 @@
   line-height: 20px;
 }
 
-.reaction {
-  background-color: rgba(0, 0, 0, 0.5);
-  width: 50px;
+.emojis {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
   position: absolute;
-  transform: translate(45px, -50px);
-  border-radius: 10px;
-  padding: 5px 0px 5px 5px;
+  top: 185px;
+  left: 40px;
+}
+
+.emojiItem {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 50px;
+  padding: 7.5px 8px 5.5px 8px;
+  color: #ffffff;
+  border: none;
+  margin-right: 5px;
+}
+
+.emoji {
+  width: 15px;
+  height: 15px;
+}
+.emojiCount {
+  margin-left: 6px;
+  margin-top: 1px;
   font-size: 12px;
   font-weight: 400;
+}
+
+.emojiItemAdd {
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 50px;
+  padding: 8px 8px 7px 8px;
   color: #ffffff;
+  border: none;
+  font-size: 12px;
+  font-weight: 400;
 }
 
 @media (max-width: 1199px) {
@@ -213,13 +247,6 @@
 }
 
 @media (max-width: 720px) {
-  /* .ListItems {
-    display: grid;
-    width: 100%;
-    gap: 23px;
-    cursor: pointer;
-  } */
-
   .ItemImg {
     width: 240px;
     height: 180px;
@@ -249,8 +276,6 @@
 
   .studyNametext,
   .studyNameBlack {
-    margin-top: 48px;
-    margin-left: 65px;
     font-size: 16px;
     font-weight: 700;
   }
@@ -273,7 +298,8 @@
     margin-top: 18px;
   }
 
-  .reaction {
-    transform: translate(23px, -35px);
+  .emojis {
+    top: 140px;
+    left: 25px;
   }
 }

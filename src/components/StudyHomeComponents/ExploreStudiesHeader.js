@@ -5,7 +5,7 @@ import styles from './ExploreStudiesHeader.module.css';
 import { useRef } from 'react';
 import Dropdown from './Dropdown.js';
 
-function ExploreStudiesHeader({ onOrderChange, setKeyword }) {
+function ExploreStudiesHeader({ onOrderChange, setKeyword, orderBy }) {
   const inputRef = useRef(null);
 
   const handleSearch = () => {
@@ -35,7 +35,11 @@ function ExploreStudiesHeader({ onOrderChange, setKeyword }) {
           />
         </div>
         <div>
-          <Dropdown onOrderChange={onOrderChange} className={styles.dropDown} />
+          <Dropdown
+            onOrderChange={onOrderChange}
+            className={styles.dropDown}
+            orderBy={orderBy}
+          />
         </div>
       </div>
     </>

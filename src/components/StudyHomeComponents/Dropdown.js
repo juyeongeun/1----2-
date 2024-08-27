@@ -1,10 +1,10 @@
 import styles from './Dropdown.module.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
 
-function Dropdown({ onOrderChange }) {
+function Dropdown({ onOrderChange, orderBy }) {
   const [click, SetClick] = useState(false);
   const [text, setText] = useState('최신 순');
 
@@ -14,16 +14,28 @@ function Dropdown({ onOrderChange }) {
 
   const handleSortChange = (orderBy) => {
     onOrderChange(orderBy);
-    if (orderBy === 'recent') {
-      setText('최신 순');
-    } else if (orderBy === 'old') {
-      setText('오래된 순');
-    } else if (orderBy === 'highestPoints') {
-      setText('많은 포인트 순');
-    } else if (orderBy === 'lowestPoints') {
-      setText('적은 포인트 순');
-    }
+    SetClick(false);
   };
+
+  useEffect(() => {
+    switch (orderBy) {
+      case 'recent':
+        setText('최신 순');
+        break;
+      case 'old':
+        setText('오래된 순');
+        break;
+      case 'highestPoints':
+        setText('많은 포인트 순');
+        break;
+      case 'lowestPoints':
+        setText('적은 포인트 순');
+        break;
+      default:
+        setText('최신 순');
+    }
+    SetClick(false);
+  }, [orderBy]);
 
   return (
     <>
