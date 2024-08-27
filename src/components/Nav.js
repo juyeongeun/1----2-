@@ -1,4 +1,4 @@
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import styles from './Nav.module.css';
 import navLogo from '../img/nav_logo.png';
 import navBtn from '../img/nav_btn.png';
@@ -7,7 +7,6 @@ import mobileBtn from '../img/nav_mobile_btn.png';
 
 function Nav({ handleResetClick }) {
   const location = useLocation();
-  const navigate = useNavigate();
   const hideLogoPaths = [
     '/habit',
     '/focus',
