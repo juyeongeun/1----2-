@@ -38,8 +38,6 @@ const FocusTimer = ({
         });
 
         set_10minutePoint((prev) => {
-          console.log(prev);
-          console.log(_10minutePoint);
           if (prev === 0) {
             setCurrentPoint((prev) => prev + 1);
             set_10minutePoint(600 - 1);
@@ -48,7 +46,6 @@ const FocusTimer = ({
               setTempClear(false);
             }, 3000);
             const res = setPoint(currentPoint, studyId);
-            console.log(res);
           }
           return prev - 1;
         });
@@ -97,8 +94,6 @@ const FocusTimer = ({
         });
 
         set_10minutePoint((prev) => {
-          console.log(prev);
-          console.log(_10minutePoint);
           if (prev === 0) {
             setCurrentPoint((prev) => prev + 1);
             set_10minutePoint(600 - 1);
@@ -107,7 +102,6 @@ const FocusTimer = ({
               setTempClear(false);
             }, 3000);
             const res = setPoint(currentPoint, studyId);
-            console.log(res);
           }
           return prev - 1;
         });
