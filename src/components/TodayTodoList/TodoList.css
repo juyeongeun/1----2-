@@ -15,13 +15,16 @@
   border: 20px;
 }
 
-.todo-list div {
+.edit-button {
+  color: gray;
+  background-color: white;
+  border: none;
   position: absolute;
   top: 5px;
   right: 180px;
   position: absolute;
   font-size: 15px;
-  color: #d3d3d3;
+  margin-right: 130px;
 }
 
 .habit-list {

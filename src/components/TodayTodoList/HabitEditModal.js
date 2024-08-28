@@ -99,18 +99,21 @@ export default function HabitEditModal({
   return (
     <div className="modal-overlay">
       <div className="modal-content">
-        <h2>목록 수정</h2>
-        <HabitList
-          localHabits={localHabits}
-          handleChange={handleChange}
-          handleDelete={handleDelete}
-        />
-        <NewHabitList
-          newHabitList={newHabitList}
-          handleNewHabitChange={handleNewHabitChange}
-          handleAddInput={handleAddInput}
-        />
-        <ModalButtons onClose={onClose} handleSave={handleSave} />
+        <div className="modal-background">
+          <h2>습관 목록</h2>
+
+          <HabitList
+            localHabits={localHabits}
+            handleChange={handleChange}
+            handleDelete={handleDelete}
+          />
+          <NewHabitList
+            newHabitList={newHabitList}
+            handleNewHabitChange={handleNewHabitChange}
+            handleAddInput={handleAddInput}
+          />
+          <ModalButtons onClose={onClose} handleSave={handleSave} />
+        </div>
       </div>
     </div>
   );

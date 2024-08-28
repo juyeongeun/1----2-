@@ -3,6 +3,8 @@ import "./HabitStudyComponents.css"; // CSS 파일을 import합니다.
 import TodoList from "./TodoList.js"; // TodoList 컴포넌트를 import합니다.
 import useFetchStudy from "../../hooks/useFetchStudy.js";
 import { useNavigate, useParams } from "react-router-dom";
+import TodayFocusButtonImage from "../../img/today-focus-btn.png";
+import HomeButtonImage from "../../img/home-btn.png";
 
 function HabitStudyComponents() {
   const { studyId } = useParams();
@@ -49,19 +51,27 @@ function HabitStudyComponents() {
           </div>
         </div>
         <div className="right-side">
-          <button
+          <button /*오늘의 집중 버튼*/
             className="menu"
             onClick={() => navigate(`/focus/${studyId}`)}
             aria-label="오늘의 집중"
           >
-            오늘의 집중
+            <img
+              src={TodayFocusButtonImage}
+              alt="오늘의 집중"
+              style={{ width: "100%", height: "100%" }}
+            />
           </button>
-          <button
+          <button /*홈 버튼*/
             className="menu"
             onClick={() => navigate(`/study/${studyId}`)}
             aria-label="홈"
           >
-            홈
+            <img
+              src={HomeButtonImage}
+              alt="홈"
+              style={{ width: "100%", height: "100%" }}
+            />
           </button>
         </div>
       </div>
