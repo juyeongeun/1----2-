@@ -1,15 +1,15 @@
-@import "../../css/reset.css";
+@import '../../css/reset.css';
 
 .ListItems {
   display: grid;
   width: 100%;
   grid-template-columns: repeat(3, 1fr);
   gap: 23px;
-  cursor: pointer;
 }
 
 .ListItem {
   position: relative;
+  cursor: pointer;
 }
 
 .ItemImg {
@@ -65,7 +65,9 @@
 .nameWhite {
   position: absolute;
   top: 0;
-  color: #843232;
+  color: #ffffff;
+  text-shadow: -0.5px 0 #414141, 0 0.5px #414141, 0.5px 0 #414141,
+    0 -0.5px #414141;
   font-size: 18px;
   font-weight: 700;
   margin-top: 30px;
@@ -78,6 +80,8 @@
   width: 130px;
   top: 0;
   color: #ffffff;
+  text-shadow: -0.5px 0 #414141, 0 0.5px #414141, 0.5px 0 #414141,
+    0 -0.5px #414141;
   font-size: 18px;
   font-weight: 700;
   margin-left: 5px;
@@ -144,6 +148,8 @@
   top: 0;
   transform: translate(42px, 30px);
   color: #ffffff;
+  text-shadow: -0.5px 0 #414141, 0 0.5px #414141, 0.5px 0 #414141,
+    0 -0.5px #414141;
   font-size: 14px;
   font-weight: 400;
   margin-top: 30px;
@@ -166,6 +172,7 @@
   top: 0;
   transform: translate(45px, 80px);
   color: #ffffff;
+  text-shadow: -1px 0 #414141, 0 0.8px #414141, 0.8px 0 #414141, 0 -1px #414141;
   font-size: 16px;
   font-weight: 400;
   margin-top: 30px;

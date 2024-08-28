@@ -5,11 +5,11 @@
   width: 100%;
   grid-template-columns: repeat(3, 1fr);
   gap: 23px;
-  cursor: pointer;
 }
 
 .ListItem {
   position: relative;
+  cursor: pointer;
 }
 
 .ItemImg {
@@ -61,7 +61,9 @@
 .nameWhite {
   position: absolute;
   top: 0;
-  color: #843232;
+  color: #ffffff;
+  text-shadow: -0.5px 0 #414141, 0 0.5px #414141, 0.5px 0 #414141,
+    0 -0.5px #414141;
   font-size: 18px;
   font-weight: 700;
   margin-top: 30px;
@@ -126,6 +128,7 @@
   margin-top: 30px;
   background-color: rgba(255, 255, 255, 0.7);
   border: 1px solid rgba(0, 0, 0, 0.1);
+
   padding-left: 27px;
   padding-right: 8px;
   padding-top: 4px;
@@ -138,6 +141,8 @@
   top: 0;
   transform: translate(42px, 30px);
   color: #ffffff;
+  text-shadow: -0.5px 0 #414141, 0 0.5px #414141, 0.5px 0 #414141,
+    0 -0.5px #414141;
   font-size: 14px;
   font-weight: 400;
   margin-top: 30px;
@@ -160,6 +165,7 @@
   top: 0;
   transform: translate(45px, 100px);
   color: #ffffff;
+  text-shadow: -1px 0 #414141, 0 0.8px #414141, 0.8px 0 #414141, 0 -1px #414141;
   font-size: 16px;
   font-weight: 400;
   margin-top: 10px;
