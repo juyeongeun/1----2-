@@ -8,8 +8,12 @@
   font-style: normal;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 .editStudyContainer {
-  width: 648px;
+  width: 696px;
   margin: 40px auto 0 auto;
   height: auto;
   background-color: #ffffff;
@@ -41,14 +45,13 @@
 
 .input,
 .textarea {
-  width: 93%;
+  width: 100%;
   padding: 15px 20px;
   border: 1px solid #ddd;
   border-radius: 15px;
   font-size: 16px;
   font-weight: 400;
   color: #414141;
-  margin-bottom: 0;
 }
 
 .formGroup input::placeholder,
@@ -104,7 +107,7 @@
   width: 32px;
   height: 32px;
   transform: translate(-50%, -50%);
-  background-image: url("../../img/background_icon.png");
+  background-image: url("../../img/background/background_icon.png");
   background-repeat: no-repeat;
   background-size: contain;
   pointer-events: none;
@@ -135,6 +138,7 @@
   cursor: pointer;
   margin-top: 16px;
   font-family: EF_jejudoldam, sans-serif;
+  text-shadow: 2px -1.5px gray;
 }
 
 .editButton:disabled {

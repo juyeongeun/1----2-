@@ -1,5 +1,5 @@
 // import Container from "../components/Container.js";
-import HabitStudyComponents from "../components/HabitStudyComponents.js";
+import HabitStudyComponents from "../components/TodayTodoList/HabitStudyComponents.js";
 
 function HabitTrackerPage() {
   return (

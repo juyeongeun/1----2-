@@ -1,0 +1,305 @@
+@import "../../css/reset.css";
+
+.ListItems {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 23px;
+  cursor: pointer;
+}
+
+.ListItem {
+  position: relative;
+}
+
+.ItemImg {
+  width: 358px;
+  height: 243px;
+  border-radius: 10%;
+}
+
+.nameGrreen {
+  position: absolute;
+  top: 0;
+  color: #15c32f;
+  font-size: 18px;
+  font-weight: 700;
+  margin-top: 30px;
+  margin-left: 40px;
+  z-index: 100;
+}
+
+.nameYellow {
+  position: absolute;
+  top: 0;
+  color: #f4ad08;
+  font-size: 18px;
+  font-weight: 700;
+  margin-top: 30px;
+  margin-left: 40px;
+  z-index: 100;
+}
+
+.nameBlue {
+  position: absolute;
+  top: 0;
+  color: #3da8cf;
+  font-size: 18px;
+  font-weight: 700;
+  margin-top: 30px;
+  margin-left: 40px;
+  z-index: 100;
+}
+
+.namePink {
+  position: absolute;
+  top: 0;
+  color: #db05e6f5;
+  font-size: 18px;
+  font-weight: 700;
+  margin-top: 30px;
+  margin-left: 40px;
+  z-index: 100;
+}
+
+.nameWhite {
+  position: absolute;
+  top: 0;
+  color: #843232;
+  font-size: 18px;
+  font-weight: 700;
+  margin-top: 30px;
+  margin-left: 40px;
+  z-index: 100;
+}
+
+.studyNametext {
+  position: absolute;
+  width: 130px;
+  top: 0;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 700;
+  margin-left: 5px;
+  z-index: 100;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.studyNameBlack {
+  position: absolute;
+  width: 130px;
+  top: 0;
+  color: #414141;
+  font-size: 18px;
+  font-weight: 700;
+  margin-left: 5px;
+  z-index: 100;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.icon {
+  top: 0;
+  position: absolute;
+  transform: translate(250px, 33px);
+  z-index: 1;
+}
+
+.pointWhite {
+  position: absolute;
+  top: 0;
+  transform: translate(240px, 0px);
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 500;
+  margin-top: 30px;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding-left: 27px;
+  padding-right: 8px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  border-radius: 30px;
+}
+
+.pointBlack {
+  position: absolute;
+  top: 0;
+  transform: translate(240px, 0px);
+  color: #414141;
+  font-size: 12px;
+  font-weight: 500;
+  margin-top: 30px;
+  background-color: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding-left: 27px;
+  padding-right: 8px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  border-radius: 30px;
+}
+
+.dataWhite {
+  position: absolute;
+  top: 0;
+  transform: translate(42px, 30px);
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 400;
+  margin-top: 30px;
+}
+
+.dataBlack {
+  position: absolute;
+  top: 0;
+  transform: translate(42px, 30px);
+  color: #414141;
+  font-size: 14px;
+  font-weight: 400;
+  margin-top: 30px;
+}
+
+.contentWhite {
+  width: 275px;
+  height: 60px;
+  position: absolute;
+  top: 0;
+  transform: translate(45px, 80px);
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 400;
+  margin-top: 30px;
+  overflow: hidden;
+  word-wrap: break-word;
+  white-space: normal;
+  line-height: 20px;
+}
+
+.contentBlack {
+  width: 275px;
+  height: 60px;
+  position: absolute;
+  top: 0;
+  transform: translate(45px, 80px);
+  color: #414141;
+  font-size: 16px;
+  font-weight: 400;
+  margin-top: 30px;
+  overflow: hidden;
+  word-wrap: break-word;
+  white-space: normal;
+  line-height: 20px;
+}
+
+.emojis {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 185px;
+  left: 40px;
+}
+
+.emojiItem {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 50px;
+  padding: 7.5px 8px 5.5px 8px;
+  color: #ffffff;
+  border: none;
+  margin-right: 5px;
+}
+
+.emoji {
+  width: 15px;
+  height: 15px;
+}
+.emojiCount {
+  margin-left: 6px;
+  margin-top: 1px;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.emojiItemAdd {
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 50px;
+  padding: 8px 8px 7px 8px;
+  color: #ffffff;
+  border: none;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+@media (max-width: 1199px) {
+  .ListItems {
+    overflow-x: scroll;
+  }
+
+  .contentBlack,
+  .contentWhite {
+    width: 290px;
+    height: 80px;
+    transform: translate(37px, 70px);
+  }
+}
+
+@media (max-width: 720px) {
+  .ItemImg {
+    width: 240px;
+    height: 180px;
+    border-radius: 10%;
+  }
+
+  .icon {
+    transform: translate(28px, 23px);
+  }
+
+  .pointWhite,
+  .pointBlack {
+    transform: translate(20px, -12px);
+    font-size: 12px;
+  }
+
+  .nameGrreen,
+  .nameYellow,
+  .nameBlue,
+  .namePink,
+  .nameWhite {
+    margin-top: 47px;
+    margin-left: 23px;
+    font-size: 16px;
+    font-weight: 700;
+  }
+
+  .studyNametext,
+  .studyNameBlack {
+    font-size: 16px;
+    font-weight: 700;
+  }
+
+  .dataWhite,
+  .dataBlack {
+    transform: translate(22px, 30px);
+    font-size: 10px;
+    font-weight: 400;
+    margin-top: 40px;
+  }
+
+  .contentBlack,
+  .contentWhite {
+    width: 180px;
+    height: 40px;
+    transform: translate(23px, 70px);
+    font-size: 14px;
+    font-weight: 400;
+    margin-top: 18px;
+  }
+
+  .emojis {
+    top: 140px;
+    left: 25px;
+  }
+}

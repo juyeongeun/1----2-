@@ -80,14 +80,12 @@
   color: #414141;
   font-weight: 800;
   line-height: 29px;
-  font-family: "KCC-Hanbit";
 }
 .todaysFocus-bottom-time {
   font-size: 9.375rem; /* 16px : 150px  =  1rem : 9.375rem*/
   color: #414141;
   font-weight: 800;
   line-height: 179px;
-  font-family: "KCC-Hanbit";
 }
 .todaysFocus-bottom-time.soon {
   color: red;
@@ -142,8 +140,9 @@
   font-size: 1.75rem; /* 16px : 28px  =  1rem : 1.75rem*/
   color: #ffffff;
   font-weight: 800;
-  font-family: "KCC-Hanbit";
   height: 100%;
+  line-height: 33px;
+  font-family: "Pretendard", sans-serif;
 }
 
 .todaysFocus-bottom-start-pause.stop {

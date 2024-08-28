@@ -3,7 +3,7 @@
   border: 1px solid #dddddd;
   border-radius: 20px;
   padding: 24px;
-  width: 1152px;
+  width: 1120px;
   min-height: 511px;
 }
 
@@ -75,7 +75,6 @@
 @media (max-width: 720px) {
   .habitContainer {
     margin-top: 24px;
-    min-width: 312px;
     width: auto;
     overflow-x: auto;
     padding: 16px;
