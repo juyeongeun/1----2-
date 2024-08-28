@@ -10,7 +10,7 @@ const FocusTop = ({ name, studyName, studyId, error, loading }) => {
   };
 
   const home = () => {
-    nav("/");
+    nav(`/study/${studyId}`);
   };
 
   if (error) {
