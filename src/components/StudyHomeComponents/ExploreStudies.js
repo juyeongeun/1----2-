@@ -1,7 +1,7 @@
 import styles from './ExploreStudies.module.css';
 import { useState, useEffect, useCallback } from 'react';
 import StudyDataFetch from './StudyDataFetch.js';
-import useInputValid from '../../hooks/studyList.js';
+import useStudiesList from '../../hooks/useStudiesList.js';
 import ExploreStudiesHeader from './ExploreStudiesHeader.js';
 
 const LIMIT = 6;
@@ -13,7 +13,7 @@ function ExploreStudies({ setClick, paramsReset }) {
   const [keyword, setKeyword] = useState('');
   const [totalCount, setTotalCOunt] = useState();
 
-  const { data, total } = useInputValid({
+  const { data, total } = useStudiesList({
     orderBy,
     offset,
     limit: LIMIT,
