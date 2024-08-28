@@ -1,9 +1,8 @@
-import styles from './StudyDataFetch.module.css';
+import styles from './RecentDataFetch.module.css';
 import { useNavigate } from 'react-router-dom';
 import pointICon from '../../img/point_icon.png';
-
 import useFetchEmoji from '../../hooks/useFetchEmoji.js';
-import styleMapping from './utils/BackgroundStyles.js';
+import RecentBackground from './backgrounds/RecentBackground.js';
 
 function ProductListItem({ item, setClick }) {
   const navigate = useNavigate();
@@ -14,9 +13,8 @@ function ProductListItem({ item, setClick }) {
   const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
 
   const { nameColor, studyNameColor, pointColor, contentColor, createdColor } =
-    styleMapping[item.background] || styleMapping.default;
+    RecentBackground[item.background] || RecentBackground.default;
 
-  console.log(item.background);
   const { emojis } = useFetchEmoji(item.id);
 
   const hiddenEmojiCount = emojis.length - 3;
@@ -39,20 +37,20 @@ function ProductListItem({ item, setClick }) {
         onClick={() => handleClick(item.id)}
       />
 
-      <div>
+      <div className={styles.realTest}>
         <span className={nameColor}>
           {item.name}
           <span className={studyNameColor}> 의 {item.studyName}</span>
         </span>
-
         <div className={styles.pointCon}>
           <img src={pointICon} alt='포인트 아이콘' className={styles.icon} />
           <p className={pointColor}>{item.point}P 획득 </p>
         </div>
 
         <p className={createdColor}>{diffDays}일째 진행 중</p>
-
-        <p className={contentColor}>{item.content}</p>
+        <div>
+          <p className={contentColor}>{item.content}</p>
+        </div>
         {emojis.length > 0 && (
           <div className={styles.emojis}>
             {emojis.slice(0, 3).map((item, id) => (
@@ -71,7 +69,7 @@ function ProductListItem({ item, setClick }) {
   );
 }
 
-function StudyDataFetch({ data, setClick }) {
+function StudyDataFetchId({ data, setClick }) {
   return (
     <>
       <div className={styles.ListItems}>
@@ -83,4 +81,4 @@ function StudyDataFetch({ data, setClick }) {
   );
 }
 
-export default StudyDataFetch;
+export default StudyDataFetchId;

@@ -18,7 +18,7 @@
   border-radius: 10%;
 }
 
-.nameGrreen {
+.nameGreen {
   position: absolute;
   top: 0;
   color: #15c32f;
@@ -75,7 +75,7 @@
   z-index: 100;
 }
 
-.studyNametext {
+.studyNameText {
   position: absolute;
   width: 130px;
   top: 0;
