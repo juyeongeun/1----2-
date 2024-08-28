@@ -68,7 +68,9 @@ function TodoList() {
       <div className="todo-list">
         <h2>오늘의 습관</h2>
         <div>
-          <button onClick={() => setIsModalOpen(true)}>목록 수정</button>
+          <button className="edit-button" onClick={() => setIsModalOpen(true)}>
+            목록 수정
+          </button>
         </div>
       </div>
       {activeHabits.length === 0 ? (

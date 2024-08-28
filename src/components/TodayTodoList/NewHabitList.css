@@ -1,0 +1,32 @@
+.habit-list {
+  justify-content: center; /* 수평 가운데 정렬 */
+  align-items: center; /* 수직 가운데 정렬 */
+  height: 100%; /* 부모 요소의 높이 설정 */
+}
+
+.habit-item-test {
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
+
+.habit-input {
+  height: 54px;
+  width: 400px;
+  left: 100px;
+  gap: 10px;
+}
+
+.delete-button {
+  height: 48px;
+  width: 48px;
+}
+
+.plus-button {
+  background-color: white;
+  border: none;
+  width: 100px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}

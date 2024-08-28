@@ -1,21 +1,28 @@
 .habit-item {
+  justify-content: center; /* 수직 가운데 정렬 */
+  align-items: center; /* 수평 가운데 정렬 */
   display: flex;
-  justify-content: space-between;
   align-items: center;
   padding: 10px;
-  border-bottom: 1px solid #ccc;
 }
 
 .habit-item:last-child {
   border-bottom: none;
 }
 
+.habit-input {
+  justify-content: center; /* 수직 가운데 정렬 */
+  align-items: center; /* 수평 가운데 정렬 */
+  display: flex;
+  align-items: center;
+}
+
 .delete-button {
-  background-color: red;
   color: white;
   border: none;
-  padding: 5px 10px;
-  border-radius: 5px;
+  padding: 0;
+  border-radius: 60% / 60%;
+  height: 48px; /*개발자 도구에서 이미지 크기를 확인하고 height로 크기를 맞춰주면 돼! 계속 버튼의 세로 크기가 이미지보다 컸던 상태*/
   cursor: pointer;
 }
 

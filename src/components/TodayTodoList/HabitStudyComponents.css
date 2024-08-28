@@ -72,11 +72,11 @@ header .menu {
 
 /* 메뉴 스타일 */
 .menu {
-  font-size: 18px;
+  border: none;
+  background-color: #ffffff;
   margin-bottom: 20px;
   cursor: pointer;
   margin: 0 20px;
-  border-radius: 200;
 }
 
 /* 세 번째 컨테이너: "오늘의 습관" 리스트 */
