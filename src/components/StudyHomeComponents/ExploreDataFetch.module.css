@@ -1,15 +1,15 @@
-@import "../../css/reset.css";
+@import '../../css/reset.css';
 
 .ListItems {
   display: grid;
   width: 100%;
   grid-template-columns: repeat(3, 1fr);
   gap: 23px;
-  cursor: pointer;
 }
 
 .ListItem {
   position: relative;
+  cursor: pointer;
 }
 
 .ItemImg {
@@ -18,7 +18,7 @@
   border-radius: 10%;
 }
 
-.nameGrreen {
+.nameGreen {
   position: absolute;
   top: 0;
   color: #15c32f;
@@ -26,7 +26,6 @@
   font-weight: 700;
   margin-top: 30px;
   margin-left: 40px;
-  z-index: 100;
 }
 
 .nameYellow {
@@ -37,7 +36,6 @@
   font-weight: 700;
   margin-top: 30px;
   margin-left: 40px;
-  z-index: 100;
 }
 
 .nameBlue {
@@ -48,7 +46,6 @@
   font-weight: 700;
   margin-top: 30px;
   margin-left: 40px;
-  z-index: 100;
 }
 
 .namePink {
@@ -59,29 +56,29 @@
   font-weight: 700;
   margin-top: 30px;
   margin-left: 40px;
-  z-index: 100;
 }
 
 .nameWhite {
   position: absolute;
   top: 0;
-  color: #843232;
+  color: #ffffff;
+  text-shadow: -0.5px 0 #414141, 0 0.5px #414141, 0.5px 0 #414141,
+    0 -0.5px #414141;
   font-size: 18px;
   font-weight: 700;
   margin-top: 30px;
   margin-left: 40px;
-  z-index: 100;
 }
 
-.studyNametext {
+.studyNameText {
   position: absolute;
   width: 130px;
   top: 0;
   color: #ffffff;
   font-size: 18px;
   font-weight: 700;
+  margin-top: 1px;
   margin-left: 5px;
-  z-index: 100;
   overflow: hidden;
   text-overflow: ellipsis;
 }
@@ -94,7 +91,6 @@
   font-size: 18px;
   font-weight: 700;
   margin-left: 5px;
-  z-index: 100;
   overflow: hidden;
   text-overflow: ellipsis;
 }
@@ -132,6 +128,7 @@
   margin-top: 30px;
   background-color: rgba(255, 255, 255, 0.7);
   border: 1px solid rgba(0, 0, 0, 0.1);
+
   padding-left: 27px;
   padding-right: 8px;
   padding-top: 4px;
@@ -144,6 +141,8 @@
   top: 0;
   transform: translate(42px, 30px);
   color: #ffffff;
+  text-shadow: -0.5px 0 #414141, 0 0.5px #414141, 0.5px 0 #414141,
+    0 -0.5px #414141;
   font-size: 14px;
   font-weight: 400;
   margin-top: 30px;
@@ -164,11 +163,12 @@
   height: 60px;
   position: absolute;
   top: 0;
-  transform: translate(45px, 80px);
+  transform: translate(45px, 100px);
   color: #ffffff;
+  text-shadow: -1px 0 #414141, 0 0.8px #414141, 0.8px 0 #414141, 0 -1px #414141;
   font-size: 16px;
   font-weight: 400;
-  margin-top: 30px;
+  margin-top: 10px;
   overflow: hidden;
   word-wrap: break-word;
   white-space: normal;
@@ -180,11 +180,11 @@
   height: 60px;
   position: absolute;
   top: 0;
-  transform: translate(45px, 80px);
+  transform: translate(45px, 100px);
   color: #414141;
   font-size: 16px;
   font-weight: 400;
-  margin-top: 30px;
+  margin-top: 10px;
   overflow: hidden;
   word-wrap: break-word;
   white-space: normal;
@@ -235,20 +235,56 @@
 
 @media (max-width: 1199px) {
   .ListItems {
-    overflow-x: scroll;
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 23px;
+    cursor: pointer;
+  }
+
+  .ItemImg {
+    width: 312px;
+    height: 243px;
+    border-radius: 10%;
+  }
+
+  .icon {
+    transform: translate(210px, 33px);
+  }
+
+  .studyNametext,
+  .studyNameBlack {
+    font-size: 16px;
+    font-weight: 700;
+    width: 100px;
+  }
+
+  .pointWhite,
+  .pointBlack {
+    transform: translate(200px, 0px);
   }
 
   .contentBlack,
   .contentWhite {
-    width: 290px;
-    height: 80px;
-    transform: translate(37px, 70px);
+    width: 240px;
+    height: 60px;
+    transform: translate(45px, 100px);
+    font-size: 14px;
+    font-weight: 400;
+  }
+
+  .emojis {
+    top: 190px;
   }
 }
 
 @media (max-width: 720px) {
+  .ListItems {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
   .ItemImg {
-    width: 240px;
+    width: 312px;
     height: 180px;
     border-radius: 10%;
   }
@@ -278,6 +314,7 @@
   .studyNameBlack {
     font-size: 16px;
     font-weight: 700;
+    width: 200px;
   }
 
   .dataWhite,
@@ -290,16 +327,16 @@
 
   .contentBlack,
   .contentWhite {
-    width: 180px;
-    height: 40px;
-    transform: translate(23px, 70px);
+    width: 270px;
+    height: 35px;
+    transform: translate(23px, 82px);
     font-size: 14px;
     font-weight: 400;
-    margin-top: 18px;
+    line-height: 17px;
   }
 
   .emojis {
-    top: 140px;
-    left: 25px;
+    top: 138px;
+    left: 20px;
   }
 }

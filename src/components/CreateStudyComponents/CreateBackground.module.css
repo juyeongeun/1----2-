@@ -16,6 +16,7 @@
 
 .container {
   position: relative;
+  cursor: pointer;
 }
 
 .iconImage {

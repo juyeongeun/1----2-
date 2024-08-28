@@ -1,12 +1,12 @@
 import styles from './RecentStudies.module.css';
 import { useState, useEffect } from 'react';
-import useStudiesListId from '../../hooks/useStudiesListId.js';
-import StudyDataFetchId from './StudyDataFetchId.js';
+import useRecentList from '../../hooks/useRecentList.js';
+import RecentDataFetch from './RecentDataFetch.js';
 
 function RecentStudies({ click }) {
   const [watched, setWatched] = useState([]);
 
-  const { recent } = useStudiesListId(watched);
+  const { recent } = useRecentList(watched);
 
   useEffect(() => {
     const watchedList = JSON.parse(localStorage.getItem('watched')) || [];
@@ -37,7 +37,7 @@ function RecentStudies({ click }) {
         <p className={styles.text}>최근 조회한 스터디</p>
         <div className={styles.head}>
           {recent.length > 0 ? (
-            <StudyDataFetchId data={recent} />
+            <RecentDataFetch data={recent} />
           ) : (
             <p className={styles.nonStudy}>아직 조회한 스터디가 없어요</p>
           )}

@@ -1,7 +1,7 @@
 import styles from './ExploreStudies.module.css';
 import { useState, useEffect, useCallback } from 'react';
-import StudyDataFetch from './StudyDataFetch.js';
-import useInputValid from '../../hooks/studyList.js';
+import ExploreDataFetch from './ExploreDataFetch.js';
+import useExploreList from '../../hooks/useExploreList.js';
 import ExploreStudiesHeader from './ExploreStudiesHeader.js';
 
 const LIMIT = 6;
@@ -13,7 +13,7 @@ function ExploreStudies({ setClick, paramsReset }) {
   const [keyword, setKeyword] = useState('');
   const [totalCount, setTotalCOunt] = useState();
 
-  const { data, total } = useInputValid({
+  const { data, total } = useExploreList({
     orderBy,
     offset,
     limit: LIMIT,
@@ -73,7 +73,7 @@ function ExploreStudies({ setClick, paramsReset }) {
         setKeyword={setKeyword}
       />
       <div className={styles.studyList}>
-        <StudyDataFetch data={items} setClick={setClick} />
+        <ExploreDataFetch data={items} setClick={setClick} />
         {data.length === 0 && (
           <p className={styles.nonStudy}>둘러 볼 스터디가 없습니다</p>
         )}
