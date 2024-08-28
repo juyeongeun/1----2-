@@ -3,15 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import pointICon from '../../img/point_icon.png';
 
 import useFetchEmoji from '../../hooks/useFetchEmoji.js';
-
-import backgroundGreen from '../../img/background/background_1.png';
-import backgroundYe from '../../img/background/background_2.png';
-import backgroundBlu from '../../img/background/background_3.png';
-import backgroundPink from '../../img/background/background_4.png';
-// import backgroundTable from '../../img/background/background_5.png';
-// import backgroundSun from '../../img/background/background_6.png';
-// import backgroundRain from '../../img/background/background_7.png';
-// import backgroundPlan from '../../img/background/background_8.png';
+import styleMapping from './utils/BackgroundStyles.js';
 
 function ProductListItem({ item, setClick }) {
   const navigate = useNavigate();
@@ -21,45 +13,10 @@ function ProductListItem({ item, setClick }) {
   const diffTime = today - targetId;
   const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
 
-  let studyNameColor;
-  let pointColor;
-  let createdColor;
-  let contentColor;
-  let nameColor;
+  const { nameColor, studyNameColor, pointColor, contentColor, createdColor } =
+    styleMapping[item.background] || styleMapping.default;
 
-  // 수정 예정
-  if (item.background === backgroundGreen) {
-    nameColor = styles.nameGrreen;
-    studyNameColor = styles.studyNameBlack;
-    pointColor = styles.pointBlack;
-    contentColor = styles.contentBlack;
-    createdColor = styles.dataBlack;
-  } else if (item.background === backgroundYe) {
-    nameColor = styles.nameYellow;
-    studyNameColor = styles.studyNameBlack;
-    pointColor = styles.pointBlack;
-    contentColor = styles.contentBlack;
-    createdColor = styles.dataBlack;
-  } else if (item.background === backgroundBlu) {
-    nameColor = styles.nameBlue;
-    studyNameColor = styles.studyNameBlack;
-    pointColor = styles.pointBlack;
-    contentColor = styles.contentBlack;
-    createdColor = styles.dataBlack;
-  } else if (item.background === backgroundPink) {
-    nameColor = styles.namePink;
-    studyNameColor = styles.studyNameBlack;
-    pointColor = styles.pointBlack;
-    contentColor = styles.contentBlack;
-    createdColor = styles.dataBlack;
-  } else {
-    nameColor = styles.nameWhite;
-    studyNameColor = styles.studyNametext;
-    pointColor = styles.pointWhite;
-    createdColor = styles.dataWhite;
-    contentColor = styles.contentWhite;
-  }
-
+  console.log(item.background);
   const { emojis } = useFetchEmoji(item.id);
 
   const hiddenEmojiCount = emojis.length - 3;
