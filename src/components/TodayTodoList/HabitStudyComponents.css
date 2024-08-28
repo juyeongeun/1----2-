@@ -81,9 +81,9 @@ header .menu {
 
 /* 세 번째 컨테이너: "오늘의 습관" 리스트 */
 .inner-container {
-  width: 90%;
+  width: 100%;
   max-width: 1200px;
-  margin: 40px auto 0 auto;
+  margin-top: 40px;
   height: auto;
   background-color: #ffffff;
   border-radius: 20px;
