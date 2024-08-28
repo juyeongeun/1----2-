@@ -1,3 +1,16 @@
+.popup_container {
+  display: flex;
+  width: 100%;
+  height: auto;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 100%;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
 .pause_warning_popUp {
   display: none;
 }
@@ -5,11 +18,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  position: absolute;
-  right: 0;
-  left: 460px;
-  top: 125px;
-  bottom: 0;
 
   box-sizing: border-box;
   padding-left: 24px;
@@ -31,11 +39,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  position: absolute;
-  right: 0;
-  left: 440px;
-  top: 175px;
-  bottom: 0;
   box-sizing: border-box;
   padding-left: 14px;
   padding-right: 14px;
@@ -70,6 +73,7 @@
   padding-bottom: 41px;
   border: 1px solid #dddddd;
   border-radius: 20px;
+  position: relative;
 }
 .todaysFocus-bottom-mainText {
   font-size: 1.5rem; /* 16px : 24px  = 1rem : 1.5rem*/
@@ -93,7 +97,6 @@
   gap: 24px;
   width: 100%;
   height: 60px;
-  position: relative;
 }
 .todaysFocus-bottom-start-btnContainer {
   display: flex;
@@ -109,6 +112,7 @@
   border-radius: 50px;
   width: 333px;
   height: 100%;
+  cursor: pointer;
 }
 .todaysFocus-bottom-start-btnContainer.start {
   background-color: #818181;
@@ -120,16 +124,23 @@
 .todaysFocus-bottom-stop {
   width: 333px;
   height: 60px;
+  cursor: pointer;
 }
 
 .todaysFocus-bottom-start-play {
   width: 31px;
   height: auto;
+  box-sizing: border-box;
+  margin-bottom: 4px;
 }
 .todaysFocus-bottom-start-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-size: 1.75rem; /* 16px : 28px  =  1rem : 1.75rem*/
   color: #ffffff;
   font-weight: 800;
+  height: 100%;
   line-height: 33px;
   font-family: "Pretendard", sans-serif;
 }
@@ -138,20 +149,140 @@
   width: 64px;
   height: 64px;
   display: none;
+  cursor: pointer;
 }
 
 .todaysFocus-bottom-start-restart.stop {
   width: 64px;
   height: 64px;
   display: none;
+  cursor: pointer;
 }
 
 .todaysFocus-bottom-start-pause.start {
   width: 64px;
   height: 64px;
+  cursor: pointer;
 }
 
 .todaysFocus-bottom-start-restart.start {
   width: 64px;
   height: 64px;
+  cursor: pointer;
+}
+@media (max-width: 720px) {
+  .popup_container {
+    display: flex;
+    width: 100%;
+    height: auto;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 90%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+  .pause_warning_popUp {
+    display: none;
+  }
+  .pause_warning_popUp.pause {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    padding-left: 24px;
+    padding-right: 24px;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    background-color: #fde0e9;
+    color: #f50e0e;
+    font-size: 1rem; /* 16px = 1rem */
+    width: 223px;
+    height: 47px;
+    border-radius: 12px;
+  }
+  .pause_clear_popUp {
+    display: none;
+  }
+  .pause_clear_popUp.clear {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    padding-left: 14px;
+    padding-right: 14px;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    background-color: #e1edde;
+    color: #578246;
+    font-size: 1rem; /* 16px = 1rem */
+
+    width: 223px;
+    height: 47px;
+    border-radius: 12px;
+  }
+  .todaysFocus-bottom-Container {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    padding-left: 24px;
+    padding-right: 24px;
+    padding-top: 40px;
+    padding-bottom: 41px;
+    border: 1px solid #dddddd;
+    border-radius: 20px;
+    position: relative;
+  }
+  .todaysFocus-bottom-time {
+    font-size: 5rem; /* 16px : 150px  =  1rem : 9.375rem*/
+    color: #414141;
+    font-weight: 800;
+    line-height: 179px;
+    font-family: "KCC-Hanbit";
+  }
+
+  .todaysFocus-bottom-start-btnContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    padding-left: 78px;
+    padding-right: 105px;
+    padding-top: 12px;
+    padding-bottom: 8px;
+    gap: 16px;
+    border: 0;
+    border-radius: 50px;
+    width: 140px;
+    height: 48px;
+  }
+  .todaysFocus-bottom-start-pause.stop {
+    width: 48px;
+    height: 48px;
+    display: none;
+    cursor: pointer;
+  }
+
+  .todaysFocus-bottom-start-restart.stop {
+    width: 48px;
+    height: 48px;
+    display: none;
+    cursor: pointer;
+  }
+
+  .todaysFocus-bottom-start-pause.start {
+    width: 48px;
+    height: 48px;
+    cursor: pointer;
+  }
+
+  .todaysFocus-bottom-start-restart.start {
+    width: 48px;
+    height: 48px;
+    cursor: pointer;
+  }
 }
