@@ -48,6 +48,7 @@ body {
   color: #414141;
   text-align: right;
   margin-left: 4px;
+  cursor: pointer;
 }
 
 .emoji-picker-react {

@@ -1,4 +1,4 @@
-@import '../../css/reset.css';
+@import "../../css/reset.css";
 
 .background {
   position: relative;
@@ -11,7 +11,7 @@
   border-radius: 15px;
   padding: 14px 80px 12px 20px;
   color: #818181;
-  width: 80px;
+  width: 180px;
   font-weight: 400;
   z-index: 100;
   cursor: pointer;
