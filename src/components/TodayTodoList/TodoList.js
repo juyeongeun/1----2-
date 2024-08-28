@@ -14,7 +14,7 @@ function TodoList() {
     habits,
     loading: habitsLoading,
     error: habitsError,
-    updateHabit,
+    updateHabits,
     createHabit,
     deleteHabit,
   } = useFetchHabit(studyId);
@@ -26,13 +26,41 @@ function TodoList() {
     completeHabit,
   } = useFetchCompleteHabit(studyId);
 
-  // Update localHabits whenever habits change
   useEffect(() => {
-    setLocalHabits([...habits]);
+    const updatedHabits = habits.map((habit) => {
+      if (habit.habitId) {
+        return habit;
+      }
+
+      return {
+        habitId: habit.id,
+        habitName: habit.habitName,
+        endDate: habit.endDate,
+      };
+    });
+
+    const uniqueHabits = Array.from(
+      new Map(updatedHabits.map((habit) => [habit.habitId, habit])).values()
+    );
+    setLocalHabits(uniqueHabits);
   }, [habits]);
 
   const refreshHabits = useCallback(() => {
-    setLocalHabits([...habits]);
+    const updatedHabits = habits.map((habit) => {
+      if (habit.habitId) {
+        return habit;
+      }
+      return {
+        habitId: habit.id,
+        habitName: habit.habitName,
+        endDate: habit.endDate,
+      };
+    });
+
+    const uniqueHabits = Array.from(
+      new Map(updatedHabits.map((habit) => [habit.habitId, habit])).values()
+    );
+    setLocalHabits(uniqueHabits);
   }, [habits]);
 
   if (habitsLoading || completeLoading) {
@@ -43,19 +71,19 @@ function TodoList() {
     return <div className="error">{habitsError || completeError}</div>;
   }
 
-  const today = new Date().toISOString().split("T")[0];
-
   const isHabitCompletedToday = (habitId) => {
-    return completeHabits.some((completeHabit) => {
-      const completeDate = completeHabit.createdAt.split("T")[0];
-      return completeDate === today && completeHabit.habitId === habitId;
-    });
+    const today = new Date().toLocaleDateString("en-CA");
+    return completeHabits.some(
+      (completeHabit) =>
+        new Date(completeHabit.createdAt).toLocaleDateString("en-CA") ===
+          today && completeHabit.habitId === habitId
+    );
   };
 
   const toggleTodo = async (habitId) => {
     try {
       await completeHabit(habitId);
-      refreshHabits(); // 토글 후 습관 상태 새로고침
+      refreshHabits();
     } catch (err) {
       console.error("Failed to complete habit:", err);
     }
@@ -98,10 +126,10 @@ function TodoList() {
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
         habits={activeHabits}
-        updateHabit={updateHabit}
+        updateHabits={updateHabits}
         createHabit={createHabit}
         deleteHabit={deleteHabit}
-        onUpdate={refreshHabits} // 상태 업데이트 콜백 전달
+        onUpdate={refreshHabits}
       />
     </>
   );
