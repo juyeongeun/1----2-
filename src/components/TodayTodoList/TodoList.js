@@ -14,7 +14,7 @@ function TodoList() {
     habits,
     loading: habitsLoading,
     error: habitsError,
-    updateHabit,
+    updateHabits,
     createHabit,
     deleteHabit,
   } = useFetchHabit(studyId);
@@ -27,11 +27,48 @@ function TodoList() {
   } = useFetchCompleteHabit(studyId);
 
   useEffect(() => {
-    setLocalHabits([...habits]);
+    console.log("Raw Habits:", habits); // API 응답의 raw 데이터 확인
+
+    const updatedHabits = habits.map((habit) => {
+      // 습관 객체의 habitId가 존재하는지 확인
+      if (habit.habitId) {
+        return habit; // 이미 habitId가 존재하면 그대로 반환
+      }
+      // habitId가 없고, id가 존재하면 habitId로 변환
+      return {
+        habitId: habit.id, // id를 habitId로 변환
+        habitName: habit.habitName,
+        endDate: habit.endDate,
+        // 필요한 다른 필드도 추가
+      };
+    });
+
+    console.log("Updated Habits:", updatedHabits); // 변환된 데이터 확인
+    const uniqueHabits = Array.from(
+      new Map(updatedHabits.map((habit) => [habit.habitId, habit])).values()
+    );
+    setLocalHabits(uniqueHabits);
   }, [habits]);
 
   const refreshHabits = useCallback(() => {
-    setLocalHabits([...habits]);
+    const updatedHabits = habits.map((habit) => {
+      // 습관 객체의 habitId가 존재하는지 확인
+      if (habit.habitId) {
+        return habit; // 이미 habitId가 존재하면 그대로 반환
+      }
+      // habitId가 없고, id가 존재하면 habitId로 변환
+      return {
+        habitId: habit.id, // id를 habitId로 변환
+        habitName: habit.habitName,
+        endDate: habit.endDate,
+        // 필요한 다른 필드도 추가
+      };
+    });
+
+    const uniqueHabits = Array.from(
+      new Map(updatedHabits.map((habit) => [habit.habitId, habit])).values()
+    );
+    setLocalHabits(uniqueHabits);
   }, [habits]);
 
   if (habitsLoading || completeLoading) {
@@ -43,7 +80,6 @@ function TodoList() {
   }
 
   const isHabitCompletedToday = (habitId) => {
-    // 로컬 시간 기준으로 오늘 날짜 가져오기
     const today = new Date().toLocaleDateString("en-CA");
     return completeHabits.some(
       (completeHabit) =>
@@ -55,7 +91,7 @@ function TodoList() {
   const toggleTodo = async (habitId) => {
     try {
       await completeHabit(habitId);
-      refreshHabits(); // 토글 후 습관 상태 새로고침
+      refreshHabits();
     } catch (err) {
       console.error("Failed to complete habit:", err);
     }
@@ -98,10 +134,10 @@ function TodoList() {
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
         habits={activeHabits}
-        updateHabit={updateHabit}
+        updateHabits={updateHabits}
         createHabit={createHabit}
         deleteHabit={deleteHabit}
-        onUpdate={refreshHabits} // 상태 업데이트 콜백 전달
+        onUpdate={refreshHabits}
       />
     </>
   );

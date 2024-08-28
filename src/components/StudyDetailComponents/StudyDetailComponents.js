@@ -3,10 +3,14 @@ import StudyName from "./StudyName.js";
 import StudyPoint from "./StudyPoint.js";
 import StudyHabits from "./StudyHabits.js";
 import useFetchStudy from "../../hooks/useFetchStudy.js";
+import useFetchHabit from "../../hooks/useFetchHabit.js";
+import useFetchCompleteHabit from "../../hooks/useFetchCompleteHabit.js";
 import { useParams } from "react-router-dom";
 
 function StudyDetailPage() {
   const { studyId } = useParams();
+
+  // Study 데이터 가져오기
   const {
     studyName,
     name,
@@ -14,16 +18,33 @@ function StudyDetailPage() {
     point,
     password,
     deleteStudy,
-    loading,
-    error,
+    loading: studyLoading,
+    error: studyError,
   } = useFetchStudy(studyId);
 
-  if (loading) {
+  // Habit 데이터 가져오기
+  const {
+    habits,
+    loading: habitLoading,
+    error: habitError,
+  } = useFetchHabit(studyId);
+
+  // CompleteHabit 데이터 가져오기
+  const {
+    completeHabits,
+    loading: completeLoading,
+    error: completeError,
+  } = useFetchCompleteHabit(studyId);
+
+  // 로딩 및 에러 상태 처리
+  if (studyLoading || habitLoading || completeLoading) {
     return <div>Loading...</div>;
   }
 
-  if (error) {
-    return <div className="error">{error}</div>;
+  if (studyError || habitError || completeError) {
+    return (
+      <div className="error">{studyError || habitError || completeError}</div>
+    );
   }
 
   return (
@@ -43,7 +64,11 @@ function StudyDetailPage() {
         studyId={studyId}
       />
       <StudyPoint point={point} studyId={studyId} />
-      <StudyHabits />
+      <StudyHabits
+        habits={habits}
+        completeHabits={completeHabits}
+        studyId={studyId}
+      />
     </>
   );
 }
