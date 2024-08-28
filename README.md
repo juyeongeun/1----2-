@@ -129,6 +129,7 @@
       - cron을 활용해 매주 월요일 자정에 endDate 속성값이 null이 아니고, isActive가 true인 습관 삭제
   - **completeHabit**
     - 완료된 습관 생성 기능 구현
+    - 완료된 습관 조회 기능 구현
     - 완료된 습관 삭제 기능 구현
       - cron을 활용해 매주 월요일 자정에 completeHabit 데이터 초기화
   - **서버 배포**
