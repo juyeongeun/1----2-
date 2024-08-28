@@ -1,5 +1,5 @@
-import Container from "../components/Container.js";
-import FocusPage from "../components/TodayFocusComponents/FocusPage.js";
+import Container from '../components/Layout/Container.js';
+import FocusPage from '../components/TodayFocusComponents/FocusPage.js';
 
 function FocusTimerPage() {
   return (
