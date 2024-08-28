@@ -167,18 +167,21 @@ const FocusTimer = ({
               ></img>
             )}
           </div>
-
-          <div className={`pause_clear_popUp ${focusClear ? "clear" : ""}`}>
-            🎉 3포인트를 획득했습니다!
-          </div>
-          <div className={`pause_clear_popUp ${tempClear ? "clear" : ""}`}>
-            🎉 1포인트를 획득했습니다!
-          </div>
         </div>
       </div>
       <div className="popup_container">
         <div className={`pause_warning_popUp ${pause ? "pause" : ""}`}>
           🚨 집중이 중단되었습니다.
+        </div>
+      </div>
+      <div className="popup_container">
+        <div className={`pause_clear_popUp ${focusClear ? "clear" : ""}`}>
+          🎉 3포인트를 획득했습니다!
+        </div>
+      </div>
+      <div className="popup_container">
+        <div className={`pause_clear_popUp ${tempClear ? "clear" : ""}`}>
+          🎉 1포인트를 획득했습니다!
         </div>
       </div>
     </>
