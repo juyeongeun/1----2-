@@ -1,25 +1,15 @@
 import "./StudyName.css";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import React, { useState } from "react";
-import useFetchStudy from "../../hooks/useFetchStudy.js";
 import PasswordModal from "./PasswordModal.js";
 
-function StudyName() {
-  const { studyId } = useParams();
+function StudyName(studyName, name, content, password, studyId) {
   const nav = useNavigate();
   // 첫 번째 인수로 이동 할 도메인 주소를 받고, 두 번째 인수로 리다이렉션 시 전송할 데이터를 첩부합니다.
-  const { studyName, name, content, password, loading, error } =
-    useFetchStudy(studyId);
+
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [redirectUrl, setRedirectUrl] = useState("");
   const [modalButtonText, setModalButtonText] = useState("");
-
-  if (error) {
-    return <div className="error">{error}</div>;
-  }
-  if (loading) {
-    return <div>Loading...</div>;
-  }
 
   const handleButtonClick = (url, buttonText) => {
     setRedirectUrl(url);
