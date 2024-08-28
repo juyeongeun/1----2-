@@ -18,12 +18,12 @@
         <sub><a href="https://github.com/TradeOffEgoist">GitHub 프로필</a></sub>
       </td>
       <td align="center">
-        <img src="https://github.com/user-attachments/assets/d26451c4-0632-476c-aa24-e8533ec2ee06" width="150px;" alt=""/><br />
+        <img src="https://github.com/user-attachments/assets/ed5b95c4-4e15-43d7-bf6f-6a5813c7ac88" width="150px;" alt=""/><br />
         <b>FS 팀원: 김효인</b></sub><br />
         <sub><a href="https://github.com/mozzi34">GitHub 프로필</a></sub>
       </td>
       <td align="center">
-        <img src="https://github.com/user-attachments/assets/5b77ac24-3a0a-4c4c-88a5-872c29e1998f" width="150px;" alt="주영은"/><br />
+        <img src="https://github.com/user-attachments/assets/f8555d80-ed28-469c-b6c2-8b253ec0e908" width="150px;" alt="주영은"/><br />
         <b>FS 팀원: 주영은</b></sub><br />
         <sub><a href="https://github.com/juyeongeun">GitHub 프로필</a></sub>
       </td>
@@ -129,6 +129,7 @@
       - cron을 활용해 매주 월요일 자정에 endDate 속성값이 null이 아니고, isActive가 true인 습관 삭제
   - **completeHabit**
     - 완료된 습관 생성 기능 구현
+    - 완료된 습관 조회 기능 구현
     - 완료된 습관 삭제 기능 구현
       - cron을 활용해 매주 월요일 자정에 completeHabit 데이터 초기화
   - **서버 배포**
@@ -156,6 +157,11 @@
   - 유효성 검사와 input 값에 따라 수정하기 버튼 활성/비활성 구현
   - 수정하기 버튼 클릭시 스터디 상세 페이지로 이동
   - 반응형 레이아웃 구현
+- **오늘의 습관 페이지**
+  - GET을 사용하여 해당 스터디의 습관 표시
+  - GET을 사용하여 해당 스터디의 습관 완료 여부 표시
+  - PUT을 사용하여 해당 스터디의 습관 수정 및 삭제값 수정
+  - POST를 사용하여 해당 스터디의 습관 생성
 - **프론트 배포**
   - netlify 사용하여 배포
 

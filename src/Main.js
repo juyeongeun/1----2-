@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Layout from './components/Layout.js';
+import Layout from './components/Layout/Layout.js';
 import StudyRoomPage from './pages/StudyRoomPage.js';
 import CreateStudyPage from './pages/CreateStudyPage.js';
 import HabitTrackerPage from './pages/HabitTrackerPage.js';
@@ -19,7 +19,10 @@ function Main() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path='/' element={<Layout handleResetClick={handleResetClick} />}>
+        <Route
+          path='/'
+          element={<Layout handleResetClick={handleResetClick} />}
+        >
           <Route
             index
             element={<StudyRoomPage paramsReset={logoClickReset} />}

@@ -8,8 +8,12 @@
   font-style: normal;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 .editStudyContainer {
-  width: 648px;
+  width: 696px;
   margin: 40px auto 0 auto;
   height: auto;
   background-color: #ffffff;
@@ -41,14 +45,13 @@
 
 .input,
 .textarea {
-  width: 93%;
+  width: 100%;
   padding: 15px 20px;
   border: 1px solid #ddd;
   border-radius: 15px;
   font-size: 16px;
   font-weight: 400;
   color: #414141;
-  margin-bottom: 0;
 }
 
 .formGroup input::placeholder,
@@ -68,7 +71,7 @@
 
 .textareaError,
 .inputError {
-  width: 91%;
+  width: 100%;
   padding: 15px 20px;
   border: 1px solid #c41013;
   border-radius: 15px;

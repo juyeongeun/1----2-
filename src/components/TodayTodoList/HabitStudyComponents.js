@@ -64,7 +64,7 @@ function HabitStudyComponents() {
           </button>
           <button /*홈 버튼*/
             className="menu"
-            onClick={() => navigate("/")}
+            onClick={() => navigate(`/study/${studyId}`)}
             aria-label="홈"
           >
             <img

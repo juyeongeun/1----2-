@@ -5,4 +5,17 @@
 
   display: flex;
   flex-direction: column;
+  gap: 16px;
+}
+
+@media (max-width: 720px) {
+  .main_Container {
+    width: 100%;
+    height: 556px;
+    min-height: 566px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
 }
