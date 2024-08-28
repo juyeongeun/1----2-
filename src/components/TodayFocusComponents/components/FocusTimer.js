@@ -23,7 +23,7 @@ const FocusTimer = ({
   const [pause, setPause] = useState(false);
   const [_10minutePoint, set_10minutePoint] = useState(600);
   const intervalRef = useRef();
-
+  console.log(_10minutePoint);
   const startAndReset = async () => {
     if (isRunning) {
       intervalRef.current = setInterval(() => {
