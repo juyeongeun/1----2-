@@ -23,7 +23,7 @@
         <sub><a href="https://github.com/mozzi34">GitHub 프로필</a></sub>
       </td>
       <td align="center">
-        <img src="https://github.com/user-attachments/assets/5b77ac24-3a0a-4c4c-88a5-872c29e1998f" width="150px;" alt="주영은"/><br />
+        <img src="https://github.com/user-attachments/assets/f8555d80-ed28-469c-b6c2-8b253ec0e908" width="150px;" alt="주영은"/><br />
         <b>FS 팀원: 주영은</b></sub><br />
         <sub><a href="https://github.com/juyeongeun">GitHub 프로필</a></sub>
       </td>
