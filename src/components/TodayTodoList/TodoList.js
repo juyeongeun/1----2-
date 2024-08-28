@@ -26,7 +26,6 @@ function TodoList() {
     completeHabit,
   } = useFetchCompleteHabit(studyId);
 
-  // Update localHabits whenever habits change
   useEffect(() => {
     setLocalHabits([...habits]);
   }, [habits]);
@@ -43,13 +42,14 @@ function TodoList() {
     return <div className="error">{habitsError || completeError}</div>;
   }
 
-  const today = new Date().toISOString().split("T")[0];
-
   const isHabitCompletedToday = (habitId) => {
-    return completeHabits.some((completeHabit) => {
-      const completeDate = completeHabit.createdAt.split("T")[0];
-      return completeDate === today && completeHabit.habitId === habitId;
-    });
+    // 로컬 시간 기준으로 오늘 날짜 가져오기
+    const today = new Date().toLocaleDateString("en-CA");
+    return completeHabits.some(
+      (completeHabit) =>
+        new Date(completeHabit.createdAt).toLocaleDateString("en-CA") ===
+          today && completeHabit.habitId === habitId
+    );
   };
 
   const toggleTodo = async (habitId) => {
