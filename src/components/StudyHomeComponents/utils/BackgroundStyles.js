@@ -39,7 +39,7 @@ const styleMapping = {
   },
   default: {
     nameColor: styles.nameWhite,
-    studyNameColor: styles.studyNametext,
+    studyNameColor: styles.studyNameText,
     pointColor: styles.pointWhite,
     contentColor: styles.contentWhite,
     createdColor: styles.dataWhite,
