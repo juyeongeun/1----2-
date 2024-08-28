@@ -18,7 +18,7 @@
         <sub><a href="https://github.com/TradeOffEgoist">GitHub 프로필</a></sub>
       </td>
       <td align="center">
-        <img src="https://github.com/user-attachments/assets/d26451c4-0632-476c-aa24-e8533ec2ee06" width="150px;" alt=""/><br />
+        <img src="https://github.com/user-attachments/assets/ed5b95c4-4e15-43d7-bf6f-6a5813c7ac88" width="150px;" alt=""/><br />
         <b>FS 팀원: 김효인</b></sub><br />
         <sub><a href="https://github.com/mozzi34">GitHub 프로필</a></sub>
       </td>
