@@ -7,6 +7,7 @@ function useFetchHabit(studyId) {
   const [error, setError] = useState(null);
   const baseUrl = "https://study-api-m36o.onrender.com/api/habits";
 
+  // 데이터 fetch 함수는 useCallback으로 메모이제이션
   const fetchHabits = useCallback(async () => {
     try {
       const response = await axios.get(`${baseUrl}/${studyId}`);
@@ -25,13 +26,15 @@ function useFetchHabit(studyId) {
   }, [studyId]);
 
   useEffect(() => {
-    fetchHabits();
-  }, [fetchHabits]);
+    if (studyId) {
+      fetchHabits();
+    }
+  }, [studyId, fetchHabits]);
 
   const updateHabit = async (habitId, data) => {
     try {
       await axios.put(`${baseUrl}/${studyId}/${habitId}`, data);
-      fetchHabits(); // 업데이트 후 최신 데이터로 갱신
+      await fetchHabits(); // 업데이트 후 데이터 재로드
     } catch (err) {
       setError(err.message);
     }
@@ -40,7 +43,7 @@ function useFetchHabit(studyId) {
   const createHabit = async (habitName) => {
     try {
       const response = await axios.post(`${baseUrl}/${studyId}`, { habitName });
-      fetchHabits(); // 새로 생성 후 최신 데이터로 갱신
+      setHabits((prevHabits) => [...prevHabits, response.data]); // 새로 생성된 데이터 추가
       return response.data;
     } catch (err) {
       setError(err.message);
@@ -50,7 +53,9 @@ function useFetchHabit(studyId) {
   const deleteHabit = async (habitId) => {
     try {
       await axios.delete(`${baseUrl}/${studyId}/${habitId}`);
-      fetchHabits(); // 삭제 후 최신 데이터로 갱신
+      setHabits((prevHabits) =>
+        prevHabits.filter((habit) => habit.habitId !== habitId)
+      ); // 삭제된 데이터 필터링
     } catch (err) {
       setError(err.message);
     }

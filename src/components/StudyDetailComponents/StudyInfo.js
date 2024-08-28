@@ -8,7 +8,7 @@ import "react-toastify/dist/ReactToastify.css";
 import "./StudyInfo.css";
 import PasswordModal from "./PasswordModal.js";
 
-function StudyInfo(studyName, name, password, deleteStudy, studyId) {
+function StudyInfo({ studyName, name, password, deleteStudy, studyId }) {
   const [isEmojiPickerVisible, setEmojiPickerVisible] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
   const [showShareOptions, setShowShareOptions] = useState(false);
@@ -19,7 +19,6 @@ function StudyInfo(studyName, name, password, deleteStudy, studyId) {
 
   // 커스텀 훅 사용
   const { emojis, loading, error, saveEmoji } = useFetchEmoji(studyId);
-  console.log("emojis", emojis);
 
   const onEmojiClick = (emojiObject, event) => {
     const selectedEmoji = emojiObject.emoji;

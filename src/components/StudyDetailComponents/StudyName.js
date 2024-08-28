@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import React, { useState } from "react";
 import PasswordModal from "./PasswordModal.js";
 
-function StudyName(studyName, name, content, password, studyId) {
+function StudyName({ studyName, name, content, password, studyId }) {
   const nav = useNavigate();
   // 첫 번째 인수로 이동 할 도메인 주소를 받고, 두 번째 인수로 리다이렉션 시 전송할 데이터를 첩부합니다.
 
