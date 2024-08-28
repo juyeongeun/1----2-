@@ -7,6 +7,7 @@ import "./FocusTimer.css";
 import { timeParser } from "../utility/timeParser.js";
 import { setPoint } from "../api/setPoint.js";
 const FocusTimer = ({
+  initTime,
   time,
   setTime,
   studyId,
@@ -15,13 +16,16 @@ const FocusTimer = ({
 }) => {
   const [isRunning, setIsRunning] = useState(true);
   const [clear, setClear] = useState(false);
+  const [tempClear, setTempClear] = useState(false);
+  const [focusClear, setFocusClear] = useState(false);
   const [soon, setSoon] = useState("");
   const [pause, setPause] = useState(false);
   const [_10minutePoint, set_10minutePoint] = useState(600);
   const intervalRef = useRef();
+
   const startAndReset = async () => {
     if (isRunning) {
-      intervalRef.current = setInterval(async () => {
+      intervalRef.current = setInterval(() => {
         setTime((prev) => {
           if (prev <= 10) {
             setSoon("soon");
@@ -32,23 +36,37 @@ const FocusTimer = ({
           }
           return prev - 1;
         });
-        if (_10minutePoint === 0) {
-          setCurrentPoint((prev) => prev + 1);
-          await setPoint(currentPoint, studyId);
-          set_10minutePoint(600);
-        } else {
-          set_10minutePoint((prev) => prev - 1);
-        }
+
+        set_10minutePoint((prev) => {
+          console.log(prev);
+          console.log(_10minutePoint);
+          if (prev === 0) {
+            setCurrentPoint((prev) => prev + 1);
+            set_10minutePoint(600 - 1);
+            setTempClear(true);
+            setTimeout(() => {
+              setTempClear(false);
+            }, 3000);
+            const res = setPoint(currentPoint, studyId);
+            console.log(res);
+          }
+          return prev - 1;
+        });
       }, 1000);
       setIsRunning(false);
     } else {
       clearInterval(intervalRef.current);
       if (clear && time < 0) {
         setClear(false);
+        setFocusClear(true);
+        setTimeout(() => {
+          setFocusClear(false);
+        }, 3000);
         setCurrentPoint((prev) => prev + 3);
         await setPoint(currentPoint, studyId);
       }
-      setTime(1500);
+      setTime(initTime);
+      set_10minutePoint(600 - 1);
       setSoon("");
       setPause(false);
       setIsRunning(true);
@@ -57,7 +75,7 @@ const FocusTimer = ({
 
   const onlyReset = () => {
     if (!isRunning) {
-      setTime(1500);
+      setTime(initTime);
     }
   };
 
@@ -77,6 +95,22 @@ const FocusTimer = ({
           }
           return prev - 1;
         });
+
+        set_10minutePoint((prev) => {
+          console.log(prev);
+          console.log(_10minutePoint);
+          if (prev === 0) {
+            setCurrentPoint((prev) => prev + 1);
+            set_10minutePoint(600 - 1);
+            setTempClear(true);
+            setTimeout(() => {
+              setTempClear(false);
+            }, 3000);
+            const res = setPoint(currentPoint, studyId);
+            console.log(res);
+          }
+          return prev - 1;
+        });
       }, 1000);
       setPause(false);
     }
@@ -90,14 +124,8 @@ const FocusTimer = ({
           <span className={`todaysFocus-bottom-time ${soon}`}>
             {timeParser(time)}
           </span>
-          <div className="todaysFocus-bottom-start-btnWrapper">
-            <div className={`pause_warning_popUp ${pause ? "pause" : ""}`}>
-              🚨 집중이 중단되었습니다.
-            </div>
-            <div className={`pause_clear_popUp ${clear ? "clear" : ""}`}>
-              🎉 50포인트를 획득했습니다!
-            </div>
 
+          <div className="todaysFocus-bottom-start-btnWrapper">
             {!clear ? (
               <>
                 <img
@@ -139,6 +167,18 @@ const FocusTimer = ({
               ></img>
             )}
           </div>
+
+          <div className={`pause_clear_popUp ${focusClear ? "clear" : ""}`}>
+            🎉 3포인트를 획득했습니다!
+          </div>
+          <div className={`pause_clear_popUp ${tempClear ? "clear" : ""}`}>
+            🎉 1포인트를 획득했습니다!
+          </div>
+        </div>
+      </div>
+      <div className="popup_container">
+        <div className={`pause_warning_popUp ${pause ? "pause" : ""}`}>
+          🚨 집중이 중단되었습니다.
         </div>
       </div>
     </>

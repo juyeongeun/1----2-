@@ -1,7 +1,13 @@
 import "./TimerSettingModal.css";
 import { useState } from "react";
 
-const TimerSettingModal = ({ setModalOpen, setTime, name, studyName }) => {
+const TimerSettingModal = ({
+  setModalOpen,
+  setTime,
+  setInitTime,
+  name,
+  studyName,
+}) => {
   const [tempTimer, setTempTimer] = useState(30 * 60);
 
   const handlePasswordChange = (e) => {
@@ -13,6 +19,7 @@ const TimerSettingModal = ({ setModalOpen, setTime, name, studyName }) => {
   };
   const handleSubmit = () => {
     setTime(tempTimer);
+    setInitTime(tempTimer);
     setModalOpen(false);
   };
 
