@@ -64,12 +64,10 @@ export default function HabitEditModal({
           .filter((name) => name.trim() !== "")
           .map(async (habitName) => {
             const response = await createHabit(habitName);
-            // API 응답에서 habitId로 변환
             const newHabit = {
-              habitId: response.id, // API 응답의 id를 habitId로 변환
+              habitId: response.id,
               habitName: habitName,
             };
-            console.log("New Habit:", newHabit); // 변환된 새로운 습관 로그 출력
             return newHabit;
           })
       );

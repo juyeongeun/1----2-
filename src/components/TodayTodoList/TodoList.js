@@ -27,23 +27,18 @@ function TodoList() {
   } = useFetchCompleteHabit(studyId);
 
   useEffect(() => {
-    console.log("Raw Habits:", habits); // API 응답의 raw 데이터 확인
-
     const updatedHabits = habits.map((habit) => {
-      // 습관 객체의 habitId가 존재하는지 확인
       if (habit.habitId) {
-        return habit; // 이미 habitId가 존재하면 그대로 반환
+        return habit;
       }
-      // habitId가 없고, id가 존재하면 habitId로 변환
+
       return {
-        habitId: habit.id, // id를 habitId로 변환
+        habitId: habit.id,
         habitName: habit.habitName,
         endDate: habit.endDate,
-        // 필요한 다른 필드도 추가
       };
     });
 
-    console.log("Updated Habits:", updatedHabits); // 변환된 데이터 확인
     const uniqueHabits = Array.from(
       new Map(updatedHabits.map((habit) => [habit.habitId, habit])).values()
     );
@@ -52,16 +47,13 @@ function TodoList() {
 
   const refreshHabits = useCallback(() => {
     const updatedHabits = habits.map((habit) => {
-      // 습관 객체의 habitId가 존재하는지 확인
       if (habit.habitId) {
-        return habit; // 이미 habitId가 존재하면 그대로 반환
+        return habit;
       }
-      // habitId가 없고, id가 존재하면 habitId로 변환
       return {
-        habitId: habit.id, // id를 habitId로 변환
+        habitId: habit.id,
         habitName: habit.habitName,
         endDate: habit.endDate,
-        // 필요한 다른 필드도 추가
       };
     });
 
