@@ -58,7 +58,7 @@ function HabitStudyComponents() {
           </button>
           <button
             className="menu"
-            onClick={() => navigate("/")}
+            onClick={() => navigate(`/study/${studyId}`)}
             aria-label="홈"
           >
             홈
