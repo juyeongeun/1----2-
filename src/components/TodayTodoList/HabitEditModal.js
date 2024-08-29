@@ -1,4 +1,3 @@
-// HabitEditModal.js
 import React, { useState, useEffect } from "react";
 import "./HabitEditModal.css";
 import HabitList from "./HabitModalList.js";

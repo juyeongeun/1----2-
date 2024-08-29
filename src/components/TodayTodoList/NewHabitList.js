@@ -13,8 +13,6 @@ export default function NewHabitList({
     <div className="habit-list">
       {newHabitList.map((habit, index) => (
         <div key={`new-${index}`} className="habit-item">
-          {" "}
-          {/* key 속성 수정 */}
           <input
             type="text"
             className="habit-input"
@@ -28,7 +26,7 @@ export default function NewHabitList({
             alt="삭제 버튼"
             style={{ width: "48px", height: "48px", marginRight: "5px" }}
             className="new-delete-button"
-            onClick={() => handleDelete(habit.habitId)}
+            onClick={() => handleDelete(index)}
           />
         </div>
       ))}
