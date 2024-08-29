@@ -92,7 +92,8 @@ export default function HabitEditModal({
     }
   };
 
-  const handleDelete = async (habitId) => {
+  // 기존 습관 삭제 처리
+  const handleHabitDelete = async (habitId) => {
     try {
       await deleteHabit(habitId);
       setLocalHabits((prevHabits) =>
@@ -101,6 +102,13 @@ export default function HabitEditModal({
     } catch (error) {
       console.error("Failed to delete habit:", error);
     }
+  };
+
+  // 새로 추가된 습관 삭제 처리
+  const handleNewHabitDelete = (index) => {
+    setNewHabitList((prevNewHabits) =>
+      prevNewHabits.filter((_, i) => i !== index)
+    );
   };
 
   if (!isOpen) return null;
@@ -114,12 +122,13 @@ export default function HabitEditModal({
           <HabitList
             localHabits={localHabits}
             handleChange={handleChange}
-            handleDelete={handleDelete}
+            handleDelete={handleHabitDelete}
           />
           <NewHabitList
             newHabitList={newHabitList}
             handleNewHabitChange={handleNewHabitChange}
             handleAddInput={handleAddInput}
+            handleDelete={handleNewHabitDelete}
           />
           <ModalButtons onClose={onClose} handleSave={handleSave} />
         </div>

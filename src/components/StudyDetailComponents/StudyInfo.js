@@ -16,8 +16,6 @@ function StudyInfo({ studyName, name, password, deleteStudy, studyId }) {
   const [redirectUrl, setRedirectUrl] = useState("");
   const [modalButtonText, setModalButtonText] = useState("");
   const navigate = useNavigate();
-
-  // 커스텀 훅 사용
   const { emojis, loading, error, saveEmoji } = useFetchEmoji(studyId);
 
   const onEmojiClick = (emojiObject, event) => {
@@ -34,9 +32,13 @@ function StudyInfo({ studyName, name, password, deleteStudy, studyId }) {
     setShowShareOptions(!showShareOptions);
   };
 
-  const handleModifyClick = (url, text, studyId) => {
-    setModalButtonText(text);
-    setRedirectUrl(url);
+  const handleModifyClick = (url) => {
+    navigate(url);
+  };
+
+  const handleDeleteClick = () => {
+    setModalButtonText("삭제하기");
+    setRedirectUrl("/");
     setIsModalOpen(true);
   };
 
@@ -48,13 +50,14 @@ function StudyInfo({ studyName, name, password, deleteStudy, studyId }) {
     if (redirectUrl === "/") {
       try {
         await deleteStudy();
-        navigate("/", { state: { toast: "deleted" } }); // 상태를 전달하며 리다이렉트
+        navigate("/", { state: { toast: "deleted" } });
       } catch (err) {
         alert("스터디 삭제 중 오류가 발생했습니다.");
       }
     } else {
       navigate(redirectUrl);
     }
+    setIsModalOpen(false);
   };
 
   if (loading) return <p>Loading...</p>;
@@ -100,17 +103,12 @@ function StudyInfo({ studyName, name, password, deleteStudy, studyId }) {
             <span className="text color-G">| </span>
             <span
               className="text color-G"
-              onClick={() =>
-                handleModifyClick(`/editStudy/${studyId}`, "수정하러가기")
-              }
+              onClick={() => handleModifyClick(`/editStudy/${studyId}`)}
             >
               수정하기
             </span>
             <span className="text color-G">| </span>
-            <span
-              className="text color-B"
-              onClick={() => handleModifyClick("/", "삭제하기")}
-            >
+            <span className="text color-B" onClick={handleDeleteClick}>
               스터디 삭제하기
             </span>
           </div>
