@@ -1,3 +1,53 @@
+.todaysFocus_Mid {
+  width: 100%;
+  height: 60px;
+
+  box-sizing: border-box;
+  margin-top: 16px;
+  margin-bottom: 24px;
+  background-color: #ffffff;
+}
+
+.todaysFocus_Mid_point_Wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  width: 176px;
+  height: 60px;
+  gap: 8px;
+}
+
+.todaysFocus_Mid_point_text {
+  font-size: 1.125rem; /* 16px : 18px  = 1rem : 1.125rem*/
+  color: #818181;
+  font-weight: 400;
+  line-height: 21px;
+}
+.todaysFocus_Mid_point_container {
+  width: 116px;
+  height: 35px;
+  border-radius: 50px;
+  border: 1px solid #dddddd;
+  box-sizing: border-box;
+  padding-left: 24px;
+  padding-right: 12px;
+  padding-top: 8px;
+  padding-bottom: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("../../img/ic_point.svg");
+  background-repeat: no-repeat;
+  background-position: 12px center;
+}
+
+.todaysFocus_Mid_point_point {
+  font-size: 1rem; /* 16px : 18px  = 1rem : 1.125rem*/
+  color: #414141;
+  font-weight: 500;
+  line-height: 19px;
+}
+
 .popup_container {
   display: flex;
   width: 100%;

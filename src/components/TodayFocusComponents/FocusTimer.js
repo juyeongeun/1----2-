@@ -1,20 +1,11 @@
 import { useRef, useState } from "react";
-import polygon from "./assets/Polygon.png";
-import btn_pause from "./assets/btn_pause.png";
-import btn_restart from "./assets/btn_restart.png";
-import btn_stop from "./assets/stop.png";
+import polygon from "../../img/today_focus/Polygon.png";
+import btn_pause from "../../img/today_focus/btn_pause.png";
+import btn_restart from "../../img/today_focus/btn_restart.png";
+import btn_stop from "../../img/today_focus/stop.png";
 import "./FocusTimer.css";
-import { timeParser } from "../utility/timeParser.js";
-import { setPoint } from "../api/setPoint.js";
-
-const FocusTimer = ({
-  initTime,
-  time,
-  setTime,
-  studyId,
-  currentPoint,
-  setCurrentPoint,
-}) => {
+import useFocusTimer from "../../hooks/useFocusTimer.js";
+const FocusTimer = ({ initTime, time, setTime, studyId }) => {
   const [isRunning, setIsRunning] = useState(true);
   const [clear, setClear] = useState(false);
   const [tempClear, setTempClear] = useState(false);
@@ -23,12 +14,29 @@ const FocusTimer = ({
   const [pause, setPause] = useState(false);
   const [_10minutePoint, set_10minutePoint] = useState(600);
   const intervalRef = useRef();
-  console.log(_10minutePoint);
+  //---------------------------------------------
+  const {
+    currentPoint,
+    setCurrentPoint,
+    updatePoint,
+    timeParser,
+    loading,
+    error,
+  } = useFocusTimer(studyId);
+  if (error) {
+    return <div className="error">{error}</div>;
+  }
+  if (loading) {
+    return <div>Loading...{_10minutePoint}</div>;
+  }
+  //---------------------------------------------
   const startAndReset = async () => {
     if (isRunning) {
       intervalRef.current = setInterval(() => {
         setTime((prev) => {
-          if (prev <= 10) setSoon("soon");
+          if (prev <= 10) {
+            setSoon("soon");
+          }
           if (prev <= 0) {
             setClear(true);
             setSoon("");
@@ -36,13 +44,17 @@ const FocusTimer = ({
           return prev - 1;
         });
 
-        set_10minutePoint((prev) => {
+        set_10minutePoint(async (prev) => {
           if (prev === 0) {
-            setCurrentPoint((prev) => prev + 1);
+            setCurrentPoint((prev) => {
+              return prev + 1;
+            });
+            updatePoint(currentPoint, 1, studyId);
             set_10minutePoint(600 - 1);
             setTempClear(true);
-            setTimeout(() => setTempClear(false), 3000);
-            setPoint(currentPoint, studyId);
+            setTimeout(() => {
+              setTempClear(false);
+            }, 3000);
           }
           return prev - 1;
         });
@@ -54,11 +66,14 @@ const FocusTimer = ({
         setClear(false);
         setFocusClear(true);
         setTimeout(() => setFocusClear(false), 3000);
-        setCurrentPoint((prev) => prev + 3);
-        await setPoint(currentPoint, studyId);
+        setCurrentPoint((prev) => {
+          return prev + 3;
+        });
+        updatePoint(currentPoint, 3, studyId);
       }
       setTime(initTime);
       set_10minutePoint(600 - 1);
+      console.log();
       setSoon("");
       setPause(false);
       setIsRunning(true);
@@ -66,7 +81,9 @@ const FocusTimer = ({
   };
 
   const onlyReset = () => {
-    if (!isRunning) setTime(initTime);
+    if (!isRunning) {
+      setTime(initTime);
+    }
   };
 
   const pauseAndRestart = () => {
@@ -76,7 +93,9 @@ const FocusTimer = ({
     } else {
       intervalRef.current = setInterval(() => {
         setTime((prev) => {
-          if (prev <= 10) setSoon("soon");
+          if (prev <= 10) {
+            setSoon("soon");
+          }
           if (prev <= 0) {
             setClear(true);
             setSoon("");
@@ -86,11 +105,15 @@ const FocusTimer = ({
 
         set_10minutePoint((prev) => {
           if (prev === 0) {
-            setCurrentPoint((prev) => prev + 1);
+            setCurrentPoint((prev) => {
+              return prev + 1;
+            });
+            updatePoint(currentPoint, 1, studyId);
             set_10minutePoint(600 - 1);
             setTempClear(true);
-            setTimeout(() => setTempClear(false), 3000);
-            setPoint(currentPoint, studyId);
+            setTimeout(() => {
+              setTempClear(false);
+            }, 3000);
           }
           return prev - 1;
         });
@@ -101,12 +124,25 @@ const FocusTimer = ({
 
   return (
     <>
+      <div className="todaysFocus_Mid">
+        <div className="todaysFocus_Mid_point_Wrapper">
+          <span className="todaysFocus_Mid_point_text">
+            현재까지 획득한 포인트
+          </span>
+          <div className="todaysFocus_Mid_point_container">
+            <span className="todaysFocus_Mid_point_point">
+              {currentPoint}P 획득
+            </span>
+          </div>
+        </div>
+      </div>
       <div className="todaysFocus-bottom">
         <div className="todaysFocus-bottom-Container">
           <span className="todaysFocus-bottom-mainText">오늘의 집중</span>
           <span className={`todaysFocus-bottom-time ${soon}`}>
             {timeParser(time)}
           </span>
+
           <div className="todaysFocus-bottom-start-btnWrapper">
             {!clear ? (
               <>
@@ -115,7 +151,7 @@ const FocusTimer = ({
                     isRunning ? "stop" : "start"
                   }`}
                   src={btn_pause}
-                  alt="Pause"
+                  alt=""
                   onClick={pauseAndRestart}
                 />
                 <button
@@ -127,7 +163,7 @@ const FocusTimer = ({
                   <img
                     className="todaysFocus-bottom-start-play"
                     src={polygon}
-                    alt="Play"
+                    alt=""
                   />
                   <span className="todaysFocus-bottom-start-text">Start!!</span>
                 </button>
@@ -136,17 +172,17 @@ const FocusTimer = ({
                     isRunning ? "stop" : "start"
                   }`}
                   src={btn_restart}
-                  alt="Restart"
+                  alt=""
                   onClick={onlyReset}
                 />
               </>
             ) : (
               <img
                 src={btn_stop}
-                alt="Stop"
+                alt=""
                 className="todaysFocus-bottom-stop"
                 onClick={startAndReset}
-              />
+              ></img>
             )}
           </div>
         </div>
@@ -169,5 +205,4 @@ const FocusTimer = ({
     </>
   );
 };
-
 export default FocusTimer;
