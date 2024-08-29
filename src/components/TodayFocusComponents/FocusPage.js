@@ -27,6 +27,7 @@ const FocusPage = () => {
         setTime={setTime}
         studyId={studyId}
         point={point}
+        setModalOpen={setModalOpen}
       />
       {modalOpen ? (
         <TimerSettingModal

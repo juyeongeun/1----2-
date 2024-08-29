@@ -125,11 +125,40 @@
   border-radius: 20px;
   position: relative;
 }
+.mainTextAndInitTimerTime {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  height: 76px;
+  gap: 16px;
+}
 .todaysFocus-bottom-mainText {
   font-size: 1.5rem; /* 16px : 24px  = 1rem : 1.5rem*/
   color: #414141;
   font-weight: 800;
   line-height: 29px;
+}
+.InitTimerTimeBtn {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  cursor: pointer;
+  width: 83px;
+  height: 31px;
+  border: 1px solid black;
+  border-radius: 50px;
+  padding-right: 12px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  background-color: white;
+  font-size: 1rem;
+  font-weight: 500;
+  background-image: url("../../img/today_focus/ic_timer.png");
+  background-repeat: no-repeat;
+  background-size: 19px auto;
+  background-position: 6px center;
 }
 .todaysFocus-bottom-time {
   font-size: 9.375rem; /* 16px : 150px  =  1rem : 9.375rem*/
