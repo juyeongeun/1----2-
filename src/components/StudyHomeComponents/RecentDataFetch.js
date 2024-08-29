@@ -67,7 +67,6 @@ function ProductListItem({ item, setClick }) {
 }
 
 function StudyDataFetchId({ data, setClick }) {
-  console.log(data);
   return (
     <>
       <div className={styles.ListItems}>
