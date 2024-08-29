@@ -43,6 +43,9 @@ const TimerSettingModal = ({
           />
         </div>
         <button onClick={handleSubmit}>타이머 설정하기</button>
+        <span onClick={modalClose} className="close2">
+          나가기
+        </span>
       </div>
     </div>
   );

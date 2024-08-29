@@ -1,9 +1,45 @@
+@font-face {
+  font-family: "EF_jejudoldam";
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2210-EF@1.0/EF_jejudoldam.woff2")
+    format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
 .cancel-button {
-  background-color: white;
+  background-color: #dddddd;
   border: none;
+  font-family: "EF_jejudoldam", sans-serif;
+  color: white;
+  width: 288px;
+  height: 58px;
+  border-radius: 16px;
+  font-size: 18px;
+  font-weight: 400;
+  text-align: center;
 }
 
 .modified-complete-button {
-  background-color: white;
+  background-color: #99c08e;
   border: none;
+  font-family: "EF_jejudoldam", sans-serif;
+  color: white;
+  width: 288px;
+  height: 58px;
+  border-radius: 16px;
+  font-size: 18px;
+  font-weight: 400;
+  text-align: center;
+  margin-left: 24px;
+}
+
+@media (max-width: 720px) {
+  .cancel-button {
+    width: 140px;
+  }
+
+  .modified-complete-button {
+    width: 140px;
+    margin-left: 30px;
+  }
 }

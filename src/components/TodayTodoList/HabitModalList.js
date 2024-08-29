@@ -3,7 +3,7 @@ import HabitItem from "./HabitItem.js";
 
 export default function HabitList({ localHabits, handleChange, handleDelete }) {
   return (
-    <div className="habit-list">
+    <>
       {localHabits.map((habit) => (
         <HabitItem
           key={habit.habitId}
@@ -12,6 +12,6 @@ export default function HabitList({ localHabits, handleChange, handleDelete }) {
           handleDelete={handleDelete}
         />
       ))}
-    </div>
+    </>
   );
 }
