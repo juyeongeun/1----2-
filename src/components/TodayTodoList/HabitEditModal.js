@@ -1,3 +1,4 @@
+// HabitEditModal.js
 import React, { useState, useEffect } from "react";
 import "./HabitEditModal.css";
 import HabitList from "./HabitModalList.js";
@@ -8,7 +9,7 @@ export default function HabitEditModal({
   isOpen,
   onClose,
   habits,
-  updateHabit,
+  updateHabits,
   createHabit,
   deleteHabit,
   onUpdate,
@@ -19,7 +20,7 @@ export default function HabitEditModal({
   useEffect(() => {
     if (isOpen) {
       setLocalHabits(habits);
-      setNewHabitList([]); // 모달이 열릴 때 새로 추가된 습관 초기화
+      setNewHabitList([]);
     }
   }, [isOpen, habits]);
 
@@ -44,46 +45,56 @@ export default function HabitEditModal({
   const handleSave = async () => {
     try {
       // 기존 습관 업데이트
-      for (const habit of localHabits) {
-        const originalHabit = habits.find((h) => h.habitId === habit.habitId);
-        if (habit.habitName !== originalHabit.habitName) {
-          await updateHabit(habit.habitId, { habitName: habit.habitName });
-        }
+      const updates = localHabits
+        .filter((habit) => {
+          const originalHabit = habits.find((h) => h.habitId === habit.habitId);
+          return habit.habitName !== originalHabit.habitName;
+        })
+        .map((habit) => ({
+          habitId: habit.habitId,
+          data: { habitName: habit.habitName },
+        }));
+
+      if (updates.length > 0) {
+        await updateHabits(updates);
       }
 
-      // 새로 추가된 습관 저장
+      // 새 습관 추가
       const newHabitResponses = await Promise.all(
         newHabitList
           .filter((name) => name.trim() !== "")
           .map(async (habitName) => {
-            const habit = await createHabit(habitName);
-            return habit;
+            const response = await createHabit(habitName);
+            const newHabit = {
+              habitId: response.id,
+              habitName: habitName,
+            };
+            return newHabit;
           })
       );
 
-      // 새로 추가된 습관을 localHabits에 추가
+      // 모든 습관 상태 업데이트
       setLocalHabits((prevHabits) => [
-        ...prevHabits,
-        ...newHabitResponses.map((response) => ({
-          habitId: response.id,
-          habitName: response.habitName,
-        })),
+        ...Array.from(
+          new Map(
+            [...prevHabits, ...newHabitResponses].map((habit) => [
+              habit.habitId,
+              habit,
+            ])
+          ).values()
+        ),
       ]);
 
-      // 빈값 입력 필드 제거
-      setNewHabitList((prevNewHabitList) =>
-        prevNewHabitList.filter((name) => name.trim() !== "")
-      );
-
-      await onUpdate(); // 상태 업데이트 콜백 호출
-
-      onClose(); // 모달 닫기
+      setNewHabitList([]);
+      await onUpdate();
+      onClose();
     } catch (error) {
       console.error("Failed to update habits:", error);
     }
   };
 
-  const handleDelete = async (habitId) => {
+  // 기존 습관 삭제 처리
+  const handleHabitDelete = async (habitId) => {
     try {
       await deleteHabit(habitId);
       setLocalHabits((prevHabits) =>
@@ -92,6 +103,13 @@ export default function HabitEditModal({
     } catch (error) {
       console.error("Failed to delete habit:", error);
     }
+  };
+
+  // 새로 추가된 습관 삭제 처리
+  const handleNewHabitDelete = (index) => {
+    setNewHabitList((prevNewHabits) =>
+      prevNewHabits.filter((_, i) => i !== index)
+    );
   };
 
   if (!isOpen) return null;
@@ -105,12 +123,13 @@ export default function HabitEditModal({
           <HabitList
             localHabits={localHabits}
             handleChange={handleChange}
-            handleDelete={handleDelete}
+            handleDelete={handleHabitDelete}
           />
           <NewHabitList
             newHabitList={newHabitList}
             handleNewHabitChange={handleNewHabitChange}
             handleAddInput={handleAddInput}
+            handleDelete={handleNewHabitDelete}
           />
           <ModalButtons onClose={onClose} handleSave={handleSave} />
         </div>

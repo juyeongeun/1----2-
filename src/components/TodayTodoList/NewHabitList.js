@@ -13,6 +13,8 @@ export default function NewHabitList({
     <div className="habit-list">
       {newHabitList.map((habit, index) => (
         <div key={`new-${index}`} className="habit-item">
+          {" "}
+          {/* key 속성 수정 */}
           <input
             type="text"
             className="habit-input"
@@ -20,18 +22,14 @@ export default function NewHabitList({
             onChange={(e) => handleNewHabitChange(index, e.target.value)}
             placeholder="새 습관 추가"
           />
-          <button
-            className="delete-button"
+          {/* 이미지를 버튼 안에 넣습니다. */}
+          <img
+            src={DeleteButton}
+            alt="삭제 버튼"
+            style={{ width: "48px", height: "48px", marginRight: "5px" }}
+            className="new-delete-button"
             onClick={() => handleDelete(habit.habitId)}
-          >
-            {/* 이미지를 버튼 안에 넣습니다. */}
-            <img
-              src={DeleteButton}
-              alt="삭제 버튼"
-              style={{ width: "48px", height: "48px", marginRight: "5px" }}
-            />
-            삭제
-          </button>
+          />
         </div>
       ))}
       <div className="habit-item-test">

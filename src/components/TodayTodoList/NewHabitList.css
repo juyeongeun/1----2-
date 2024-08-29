@@ -1,7 +1,7 @@
 .habit-list {
-  justify-content: center; /* 수평 가운데 정렬 */
-  align-items: center; /* 수직 가운데 정렬 */
-  height: 100%; /* 부모 요소의 높이 설정 */
+  justify-content: center;
+  align-items: center;
+  height: 100%;
 }
 
 .habit-item-test {
@@ -17,7 +17,7 @@
   gap: 10px;
 }
 
-.delete-button {
+.new-delete-button {
   height: 48px;
   width: 48px;
 }
