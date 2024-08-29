@@ -18,7 +18,7 @@
 }
 
 .todaysFocus_Mid_point_text {
-  font-size: 1.125rem; /* 16px : 18px  = 1rem : 1.125rem*/
+  font-size: 1.125rem;
   color: #818181;
   font-weight: 400;
   line-height: 21px;
@@ -42,7 +42,7 @@
 }
 
 .todaysFocus_Mid_point_point {
-  font-size: 1rem; /* 16px : 18px  = 1rem : 1.125rem*/
+  font-size: 1rem;
   color: #414141;
   font-weight: 500;
   line-height: 19px;
@@ -76,7 +76,7 @@
   padding-bottom: 14px;
   background-color: #fde0e9;
   color: #f50e0e;
-  font-size: 1rem; /* 16px = 1rem */
+  font-size: 1rem;
 
   width: 223px;
   height: 47px;
@@ -96,7 +96,7 @@
   padding-bottom: 14px;
   background-color: #e1edde;
   color: #578246;
-  font-size: 1rem; /* 16px = 1rem */
+  font-size: 1rem;
 
   width: 223px;
   height: 47px;
@@ -135,7 +135,7 @@
   gap: 16px;
 }
 .todaysFocus-bottom-mainText {
-  font-size: 1.5rem; /* 16px : 24px  = 1rem : 1.5rem*/
+  font-size: 1.5rem;
   color: #414141;
   font-weight: 800;
   line-height: 29px;
@@ -161,7 +161,7 @@
   background-position: 6px center;
 }
 .todaysFocus-bottom-time {
-  font-size: 9.375rem; /* 16px : 150px  =  1rem : 9.375rem*/
+  font-size: 9.375rem;
   color: #414141;
   font-weight: 800;
   line-height: 179px;
@@ -216,7 +216,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 1.75rem; /* 16px : 28px  =  1rem : 1.75rem*/
+  font-size: 1.75rem;
   color: #ffffff;
   font-weight: 800;
   height: 100%;
@@ -276,7 +276,7 @@
     padding-bottom: 14px;
     background-color: #fde0e9;
     color: #f50e0e;
-    font-size: 1rem; /* 16px = 1rem */
+    font-size: 1rem;
     width: 223px;
     height: 47px;
     border-radius: 12px;
@@ -295,7 +295,7 @@
     padding-bottom: 14px;
     background-color: #e1edde;
     color: #578246;
-    font-size: 1rem; /* 16px = 1rem */
+    font-size: 1rem;
 
     width: 223px;
     height: 47px;
@@ -317,7 +317,7 @@
     position: relative;
   }
   .todaysFocus-bottom-time {
-    font-size: 5rem; /* 16px : 150px  =  1rem : 9.375rem*/
+    font-size: 5rem;
     color: #414141;
     font-weight: 800;
     line-height: 179px;

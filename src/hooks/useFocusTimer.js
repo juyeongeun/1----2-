@@ -13,7 +13,6 @@ const useFocusTimer = (studyId) => {
         try {
           const res = await axios.get(`${baseUrl}/studies/${studyId}`);
           const { point } = res.data;
-          console.log(res.data, point);
           return point;
         } catch (e) {
           return e.response;

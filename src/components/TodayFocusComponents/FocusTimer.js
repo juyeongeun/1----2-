@@ -14,7 +14,6 @@ const FocusTimer = ({ initTime, time, setTime, studyId, setModalOpen }) => {
   const [pause, setPause] = useState(false);
   const [_10minutePoint, set_10minutePoint] = useState(600);
   const intervalRef = useRef();
-  //---------------------------------------------
   const {
     currentPoint,
     setCurrentPoint,
@@ -29,8 +28,6 @@ const FocusTimer = ({ initTime, time, setTime, studyId, setModalOpen }) => {
   if (loading) {
     return <div>Loading...{_10minutePoint}</div>;
   }
-  //---------------------------------------------
-
   const initTimerTime = () => {
     clearInterval(intervalRef.current);
     setTime(initTime);
@@ -38,11 +35,8 @@ const FocusTimer = ({ initTime, time, setTime, studyId, setModalOpen }) => {
     setSoon("");
     setPause(false);
     setIsRunning(true);
-    //기본적인 타이머 초기화 함수들
     setModalOpen(true);
   };
-
-  //---------------------------------------------
   const startAndReset = async () => {
     if (isRunning) {
       intervalRef.current = setInterval(() => {
