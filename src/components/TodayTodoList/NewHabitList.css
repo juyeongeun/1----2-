@@ -1,20 +1,29 @@
 .habit-list {
-  justify-content: center; /* 수평 가운데 정렬 */
-  align-items: center; /* 수직 가운데 정렬 */
-  height: 100%; /* 부모 요소의 높이 설정 */
+  justify-content: center;
+  align-items: center;
+  height: 100%;
 }
 
 .habit-item-test {
-  margin: 0 auto;
   display: flex;
-  justify-content: center;
+  padding-left: 100px;
+  margin-bottom: 24px;
 }
 
-.habit-input {
+.new-habit-input {
   height: 54px;
   width: 400px;
   left: 100px;
   gap: 10px;
+}
+
+.new-habit-input::placeholder {
+  color: transparent;
+}
+
+.habit-input::before {
+  content: attr(placeholder);
+  text-decoration: underline;
 }
 
 .new-delete-button {
@@ -24,9 +33,22 @@
 
 .plus-button {
   background-color: white;
-  border: none;
-  width: 100px;
-  margin: 0 auto;
+  border: 2px solid #414141;
+  border-radius: 20px;
+  width: 400px;
+  height: 54px;
   display: flex;
   justify-content: center;
+  font-size: 35px;
+  margin-top: 10px;
+}
+
+@media (max-width: 720px) {
+  .habit-item-test {
+    padding-left: 0;
+  }
+
+  .plus-button {
+    width: 312px;
+  }
 }

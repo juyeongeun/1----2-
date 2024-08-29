@@ -37,8 +37,8 @@ function PasswordModal({
 
   return (
     <div className="modalOverlay">
-      <div className="modalContent">
-        <div className="modalHeader">
+      <div className="pw-modalContent">
+        <div className="pw-modalHeader">
           <span className="owner">
             {name}의 {studyName}
           </span>

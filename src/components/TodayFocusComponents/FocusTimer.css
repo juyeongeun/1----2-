@@ -55,7 +55,7 @@
   justify-content: center;
   align-items: center;
   position: absolute;
-  top: 95%;
+  top: 90%;
   bottom: 0;
   left: 0;
   right: 0;
@@ -301,6 +301,10 @@
     height: 47px;
     border-radius: 12px;
   }
+
+  .todaysFocus-bottom {
+    height: 342px;
+  }
   .todaysFocus-bottom-Container {
     display: flex;
     width: 100%;
@@ -308,9 +312,9 @@
     justify-content: space-between;
     align-items: center;
     box-sizing: border-box;
-    padding-left: 24px;
-    padding-right: 24px;
-    padding-top: 40px;
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: 24px;
     padding-bottom: 41px;
     border: 1px solid #dddddd;
     border-radius: 20px;
@@ -320,8 +324,7 @@
     font-size: 5rem;
     color: #414141;
     font-weight: 800;
-    line-height: 179px;
-    font-family: "KCC-Hanbit";
+    line-height: 95.47px;
   }
 
   .todaysFocus-bottom-start-btnContainer {
@@ -329,16 +332,26 @@
     justify-content: center;
     align-items: center;
     box-sizing: border-box;
-    padding-left: 78px;
-    padding-right: 105px;
-    padding-top: 12px;
+    padding-left: 20px;
+    padding-right: 28px;
+    padding-top: 11px;
     padding-bottom: 8px;
     gap: 16px;
     border: 0;
     border-radius: 50px;
     width: 140px;
-    height: 48px;
+    height: 45px;
   }
+
+  .todaysFocus-bottom-start-text {
+    font-size: 18px;
+  }
+
+  .todaysFocus-bottom-start-play {
+    width: 24px;
+    height: 24px;
+  }
+
   .todaysFocus-bottom-start-pause.stop {
     width: 48px;
     height: 48px;

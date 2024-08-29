@@ -1,11 +1,11 @@
-// import Container from "../components/Container.js";
+import Container from "../components/Layout/Container.js";
 import HabitStudyComponents from "../components/TodayTodoList/HabitStudyComponents.js";
 
 function HabitTrackerPage() {
   return (
-    <>
-      <HabitStudyComponents /> {/* HabitStudyComponents 컴포넌트를 추가 */}
-    </>
+    <Container>
+      <HabitStudyComponents />
+    </Container>
   );
 }
 

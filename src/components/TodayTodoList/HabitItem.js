@@ -1,5 +1,6 @@
 import React from "react";
 import "./HabitItem.css";
+import DeleteButton from "../../img/btn_determinate.png";
 
 export default function HabitItem({ habit, handleChange, handleDelete }) {
   return (
@@ -8,13 +9,14 @@ export default function HabitItem({ habit, handleChange, handleDelete }) {
         type="text"
         value={habit.habitName}
         onChange={(e) => handleChange(habit.habitId, e.target.value)}
+        className="habit-input"
       />
-      <button
+      <img
+        src={DeleteButton}
+        alt="삭제 버튼"
         className="delete-button"
         onClick={() => handleDelete(habit.habitId)}
-      >
-        삭제
-      </button>
+      />
     </div>
   );
 }
