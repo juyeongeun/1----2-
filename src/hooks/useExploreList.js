@@ -23,8 +23,11 @@ function useStudiesList({ orderBy, offset, limit, keyword }) {
             keyword,
           },
         });
+
         setLoading(true);
         setData(response.data.study || []);
+        console.log(response.data.study);
+
         setTotal(response.data.totalCount);
       } catch (err) {
         setError(err);
