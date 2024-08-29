@@ -213,6 +213,7 @@
   position: absolute;
   top: 185px;
   left: 40px;
+  pointer-events: none;
 }
 
 .emojiItem {
@@ -232,9 +233,6 @@
   pointer-events: none;
 }
 
-.emojis {
-  pointer-events: none;
-}
 
 .emojiCount {
   margin-left: 6px;
