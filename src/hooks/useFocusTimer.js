@@ -29,7 +29,7 @@ const useFocusTimer = (studyId) => {
       }
     };
     startFocus();
-  }, [studyId, currentPoint]);
+  }, [studyId]);
 
   const updatePoint = async (currentPoint, point, studyId) => {
     const setPoint = async (currentPoint, studyId) => {

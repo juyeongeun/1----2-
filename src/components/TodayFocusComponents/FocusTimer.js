@@ -5,7 +5,7 @@ import btn_restart from "../../img/today_focus/btn_restart.png";
 import btn_stop from "../../img/today_focus/stop.png";
 import "./FocusTimer.css";
 import useFocusTimer from "../../hooks/useFocusTimer.js";
-const FocusTimer = ({ initTime, time, setTime, studyId }) => {
+const FocusTimer = ({ initTime, time, setTime, studyId, setModalOpen }) => {
   const [isRunning, setIsRunning] = useState(true);
   const [clear, setClear] = useState(false);
   const [tempClear, setTempClear] = useState(false);
@@ -29,6 +29,19 @@ const FocusTimer = ({ initTime, time, setTime, studyId }) => {
   if (loading) {
     return <div>Loading...{_10minutePoint}</div>;
   }
+  //---------------------------------------------
+
+  const initTimerTime = () => {
+    clearInterval(intervalRef.current);
+    setTime(initTime);
+    set_10minutePoint(600 - 1);
+    setSoon("");
+    setPause(false);
+    setIsRunning(true);
+    //기본적인 타이머 초기화 함수들
+    setModalOpen(true);
+  };
+
   //---------------------------------------------
   const startAndReset = async () => {
     if (isRunning) {
@@ -73,7 +86,6 @@ const FocusTimer = ({ initTime, time, setTime, studyId }) => {
       }
       setTime(initTime);
       set_10minutePoint(600 - 1);
-      console.log();
       setSoon("");
       setPause(false);
       setIsRunning(true);
@@ -138,7 +150,13 @@ const FocusTimer = ({ initTime, time, setTime, studyId }) => {
       </div>
       <div className="todaysFocus-bottom">
         <div className="todaysFocus-bottom-Container">
-          <span className="todaysFocus-bottom-mainText">오늘의 집중</span>
+          <div className="mainTextAndInitTimerTime">
+            <span className="todaysFocus-bottom-mainText">오늘의 집중</span>
+            <button className="InitTimerTimeBtn" onClick={initTimerTime}>
+              <span>{timeParser(initTime)}</span>
+            </button>
+          </div>
+
           <span className={`todaysFocus-bottom-time ${soon}`}>
             {timeParser(time)}
           </span>
