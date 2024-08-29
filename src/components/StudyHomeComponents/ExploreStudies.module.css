@@ -1,4 +1,4 @@
-@import "../../css/reset.css";
+@import '../../css/reset.css';
 
 .background {
   width: 100%;
@@ -23,6 +23,7 @@
   justify-content: center;
   text-align: center;
   color: #578246;
+  cursor: pointer;
 }
 
 .nonButton {

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
-function useInputValid({ orderBy, offset, limit, keyword }) {
+function useStudiesList({ orderBy, offset, limit, keyword }) {
   const [data, setData] = useState([]);
   const [total, setTotal] = useState();
   const [loading, setLoading] = useState(true);
@@ -23,8 +23,10 @@ function useInputValid({ orderBy, offset, limit, keyword }) {
             keyword,
           },
         });
+
         setLoading(true);
         setData(response.data.study || []);
+
         setTotal(response.data.totalCount);
       } catch (err) {
         setError(err);
@@ -39,4 +41,4 @@ function useInputValid({ orderBy, offset, limit, keyword }) {
   return { data, total, loading, error, keyword };
 }
 
-export default useInputValid;
+export default useStudiesList;

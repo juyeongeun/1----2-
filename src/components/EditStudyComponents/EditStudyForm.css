@@ -71,7 +71,7 @@
 
 .textareaError,
 .inputError {
-  width: 91%;
+  width: 100%;
   padding: 15px 20px;
   border: 1px solid #c41013;
   border-radius: 15px;

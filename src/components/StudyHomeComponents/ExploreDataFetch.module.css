@@ -5,11 +5,11 @@
   width: 100%;
   grid-template-columns: repeat(3, 1fr);
   gap: 23px;
-  cursor: pointer;
 }
 
 .ListItem {
   position: relative;
+  cursor: pointer;
 }
 
 .ItemImg {
@@ -18,7 +18,7 @@
   border-radius: 10%;
 }
 
-.nameGrreen {
+.nameGreen {
   position: absolute;
   top: 0;
   color: #15c32f;
@@ -26,6 +26,7 @@
   font-weight: 700;
   margin-top: 30px;
   margin-left: 40px;
+  pointer-events: none;
 }
 
 .nameYellow {
@@ -36,6 +37,7 @@
   font-weight: 700;
   margin-top: 30px;
   margin-left: 40px;
+  pointer-events: none;
 }
 
 .nameBlue {
@@ -46,6 +48,7 @@
   font-weight: 700;
   margin-top: 30px;
   margin-left: 40px;
+  pointer-events: none;
 }
 
 .namePink {
@@ -56,19 +59,23 @@
   font-weight: 700;
   margin-top: 30px;
   margin-left: 40px;
+  pointer-events: none;
 }
 
 .nameWhite {
   position: absolute;
   top: 0;
-  color: #843232;
+  color: #ffffff;
+  text-shadow: -0.5px 0 #414141, 0 0.5px #414141, 0.5px 0 #414141,
+    0 -0.5px #414141;
   font-size: 18px;
   font-weight: 700;
   margin-top: 30px;
   margin-left: 40px;
+  pointer-events: none;
 }
 
-.studyNametext {
+.studyNameText {
   position: absolute;
   width: 130px;
   top: 0;
@@ -79,6 +86,7 @@
   margin-left: 5px;
   overflow: hidden;
   text-overflow: ellipsis;
+  pointer-events: none;
 }
 
 .studyNameBlack {
@@ -91,6 +99,7 @@
   margin-left: 5px;
   overflow: hidden;
   text-overflow: ellipsis;
+  pointer-events: none;
 }
 
 .icon {
@@ -98,6 +107,7 @@
   position: absolute;
   transform: translate(250px, 33px);
   z-index: 1;
+  pointer-events: none;
 }
 
 .pointWhite {
@@ -114,6 +124,7 @@
   padding-top: 4px;
   padding-bottom: 4px;
   border-radius: 30px;
+  pointer-events: none;
 }
 
 .pointBlack {
@@ -126,11 +137,13 @@
   margin-top: 30px;
   background-color: rgba(255, 255, 255, 0.7);
   border: 1px solid rgba(0, 0, 0, 0.1);
+
   padding-left: 27px;
   padding-right: 8px;
   padding-top: 4px;
   padding-bottom: 4px;
   border-radius: 30px;
+  pointer-events: none;
 }
 
 .dataWhite {
@@ -138,9 +151,12 @@
   top: 0;
   transform: translate(42px, 30px);
   color: #ffffff;
+  text-shadow: -0.5px 0 #414141, 0 0.5px #414141, 0.5px 0 #414141,
+    0 -0.5px #414141;
   font-size: 14px;
   font-weight: 400;
   margin-top: 30px;
+  pointer-events: none;
 }
 
 .dataBlack {
@@ -151,6 +167,7 @@
   font-size: 14px;
   font-weight: 400;
   margin-top: 30px;
+  pointer-events: none;
 }
 
 .contentWhite {
@@ -160,6 +177,7 @@
   top: 0;
   transform: translate(45px, 100px);
   color: #ffffff;
+  text-shadow: -1px 0 #414141, 0 0.8px #414141, 0.8px 0 #414141, 0 -1px #414141;
   font-size: 16px;
   font-weight: 400;
   margin-top: 10px;
@@ -167,6 +185,7 @@
   word-wrap: break-word;
   white-space: normal;
   line-height: 20px;
+  pointer-events: none;
 }
 
 .contentBlack {
@@ -183,6 +202,7 @@
   word-wrap: break-word;
   white-space: normal;
   line-height: 20px;
+  pointer-events: none;
 }
 
 .emojis {
@@ -193,6 +213,7 @@
   position: absolute;
   top: 185px;
   left: 40px;
+  pointer-events: none;
 }
 
 .emojiItem {
@@ -209,12 +230,16 @@
 .emoji {
   width: 15px;
   height: 15px;
+  pointer-events: none;
 }
+
+
 .emojiCount {
   margin-left: 6px;
   margin-top: 1px;
   font-size: 12px;
   font-weight: 400;
+  pointer-events: none;
 }
 
 .emojiItemAdd {
@@ -225,6 +250,7 @@
   border: none;
   font-size: 12px;
   font-weight: 400;
+  pointer-events: none;
 }
 
 @media (max-width: 1199px) {
@@ -246,7 +272,7 @@
     transform: translate(210px, 33px);
   }
 
-  .studyNametext,
+  .studyNameText,
   .studyNameBlack {
     font-size: 16px;
     font-weight: 700;
@@ -293,7 +319,7 @@
     font-size: 12px;
   }
 
-  .nameGrreen,
+  .nameGreen,
   .nameYellow,
   .nameBlue,
   .namePink,
@@ -304,7 +330,7 @@
     font-weight: 700;
   }
 
-  .studyNametext,
+  .studyNameText,
   .studyNameBlack {
     font-size: 16px;
     font-weight: 700;

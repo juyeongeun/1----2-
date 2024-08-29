@@ -5,7 +5,6 @@ import btn_restart from "../../img/today_focus/btn_restart.png";
 import btn_stop from "../../img/today_focus/stop.png";
 import "./FocusTimer.css";
 import useFocusTimer from "../../hooks/useFocusTimer.js";
-
 const FocusTimer = ({ initTime, time, setTime, studyId }) => {
   const [isRunning, setIsRunning] = useState(true);
   const [clear, setClear] = useState(false);
@@ -15,9 +14,7 @@ const FocusTimer = ({ initTime, time, setTime, studyId }) => {
   const [pause, setPause] = useState(false);
   const [_10minutePoint, set_10minutePoint] = useState(600);
   const intervalRef = useRef();
-
   //---------------------------------------------
-
   const {
     currentPoint,
     setCurrentPoint,
@@ -26,16 +23,13 @@ const FocusTimer = ({ initTime, time, setTime, studyId }) => {
     loading,
     error,
   } = useFocusTimer(studyId);
-
   if (error) {
     return <div className="error">{error}</div>;
   }
   if (loading) {
     return <div>Loading...{_10minutePoint}</div>;
   }
-
   //---------------------------------------------
-
   const startAndReset = async () => {
     if (isRunning) {
       intervalRef.current = setInterval(() => {
@@ -71,9 +65,7 @@ const FocusTimer = ({ initTime, time, setTime, studyId }) => {
       if (clear && time < 0) {
         setClear(false);
         setFocusClear(true);
-        setTimeout(() => {
-          setFocusClear(false);
-        }, 3000);
+        setTimeout(() => setFocusClear(false), 3000);
         setCurrentPoint((prev) => {
           return prev + 3;
         });
