@@ -37,7 +37,7 @@ function Dropdown({ onOrderChange, orderBy }) {
     SetClick(false);
   }, [orderBy]);
 
-  // 최신순 -> 최신순처럼 같은 걸 눌렀을 때 드롭다운이 안 막히는 걸 방지
+  // 최신순 -> 최신순처럼 같은 걸 눌렀을 때 드롭다운이 안 닫히는 걸 방지
   const handleEvent = (event) => {
     event.stopPropagation();
   };
