@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import useRecentList from '../../hooks/useRecentList.js';
 import RecentDataFetch from './RecentDataFetch.js';
 
-function RecentStudies({ click }) {
+function RecentStudies({ click, paramsReset }) {
   const [watched, setWatched] = useState([]);
 
   const { recent, deleteId } = useRecentList(watched);
@@ -55,7 +55,7 @@ function RecentStudies({ click }) {
     };
 
     updateWatchedList();
-  }, [click]);
+  }, [click, deleteId]);
 
   return (
     <>
