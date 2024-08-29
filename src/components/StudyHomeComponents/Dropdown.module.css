@@ -47,7 +47,6 @@
 }
 
 .lowestPointsText {
-  border-bottom: none;
   display: flex;
   justify-content: center;
   padding-top: 14.2px;
