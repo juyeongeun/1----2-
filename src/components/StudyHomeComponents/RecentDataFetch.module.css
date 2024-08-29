@@ -27,6 +27,7 @@
   margin-top: 30px;
   margin-left: 40px;
   z-index: 100;
+  pointer-events: none;
 }
 
 .nameYellow {
@@ -38,6 +39,7 @@
   margin-top: 30px;
   margin-left: 40px;
   z-index: 100;
+  pointer-events: none;
 }
 
 .nameBlue {
@@ -49,6 +51,7 @@
   margin-top: 30px;
   margin-left: 40px;
   z-index: 100;
+  pointer-events: none;
 }
 
 .namePink {
@@ -60,6 +63,7 @@
   margin-top: 30px;
   margin-left: 40px;
   z-index: 100;
+  pointer-events: none;
 }
 
 .nameWhite {
@@ -73,6 +77,7 @@
   margin-top: 30px;
   margin-left: 40px;
   z-index: 100;
+  pointer-events: none;
 }
 
 .studyNameText {
@@ -88,6 +93,7 @@
   z-index: 100;
   overflow: hidden;
   text-overflow: ellipsis;
+  pointer-events: none;
 }
 
 .studyNameBlack {
@@ -101,6 +107,7 @@
   z-index: 100;
   overflow: hidden;
   text-overflow: ellipsis;
+  pointer-events: none;
 }
 
 .icon {
@@ -108,6 +115,7 @@
   position: absolute;
   transform: translate(250px, 33px);
   z-index: 1;
+  pointer-events: none;
 }
 
 .pointWhite {
@@ -124,6 +132,7 @@
   padding-top: 4px;
   padding-bottom: 4px;
   border-radius: 30px;
+  pointer-events: none;
 }
 
 .pointBlack {
@@ -141,6 +150,7 @@
   padding-top: 4px;
   padding-bottom: 4px;
   border-radius: 30px;
+  pointer-events: none;
 }
 
 .dataWhite {
@@ -153,6 +163,7 @@
   font-size: 14px;
   font-weight: 400;
   margin-top: 30px;
+  pointer-events: none;
 }
 
 .dataBlack {
@@ -163,6 +174,7 @@
   font-size: 14px;
   font-weight: 400;
   margin-top: 30px;
+  pointer-events: none;
 }
 
 .contentWhite {
@@ -180,6 +192,7 @@
   word-wrap: break-word;
   white-space: normal;
   line-height: 20px;
+  pointer-events: none;
 }
 
 .contentBlack {
@@ -196,6 +209,7 @@
   word-wrap: break-word;
   white-space: normal;
   line-height: 20px;
+  pointer-events: none;
 }
 
 .emojis {
@@ -206,6 +220,7 @@
   position: absolute;
   top: 185px;
   left: 40px;
+  pointer-events: none;
 }
 
 .emojiItem {
@@ -222,12 +237,15 @@
 .emoji {
   width: 15px;
   height: 15px;
+  pointer-events: none;
 }
+
 .emojiCount {
   margin-left: 6px;
   margin-top: 1px;
   font-size: 12px;
   font-weight: 400;
+  pointer-events: none;
 }
 
 .emojiItemAdd {
@@ -238,6 +256,7 @@
   border: none;
   font-size: 12px;
   font-weight: 400;
+  pointer-events: none;
 }
 
 @media (max-width: 1199px) {

@@ -1,7 +1,6 @@
 import styles from './RecentDataFetch.module.css';
 import { useNavigate } from 'react-router-dom';
 import pointICon from '../../img/point_icon.png';
-import useFetchEmoji from '../../hooks/useFetchEmoji.js';
 import RecentBackground from './backgrounds/RecentBackground.js';
 
 function ProductListItem({ item, setClick }) {
@@ -15,9 +14,7 @@ function ProductListItem({ item, setClick }) {
   const { nameColor, studyNameColor, pointColor, contentColor, createdColor } =
     RecentBackground[item.background] || RecentBackground.default;
 
-  const { emojis } = useFetchEmoji(item.id);
-
-  const hiddenEmojiCount = emojis.length - 3;
+  const hiddenEmojiCount = item.reaction.length - 3;
 
   const handleClick = (id) => {
     if (typeof setClick === 'function') {
@@ -51,15 +48,15 @@ function ProductListItem({ item, setClick }) {
         <div>
           <p className={contentColor}>{item.content}</p>
         </div>
-        {emojis.length > 0 && (
+        {item.reaction.length > 0 && (
           <div className={styles.emojis}>
-            {emojis.slice(0, 3).map((item, id) => (
+            {item.reaction.slice(0, 3).map((item, id) => (
               <div key={id} className={styles.emojiItem}>
                 <div className={styles.emoji}>{item.emoji}</div>
                 <span className={styles.emojiCount}>{item.count}</span>
               </div>
             ))}
-            {emojis.length > 3 && (
+            {item.reaction.length > 3 && (
               <div className={styles.emojiItemAdd}>+ {hiddenEmojiCount}</div>
             )}
           </div>
@@ -70,6 +67,7 @@ function ProductListItem({ item, setClick }) {
 }
 
 function StudyDataFetchId({ data, setClick }) {
+  console.log(data);
   return (
     <>
       <div className={styles.ListItems}>
