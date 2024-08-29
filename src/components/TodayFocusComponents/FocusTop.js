@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import arrow from "./assets/arrow.png";
+import arrow from "../../img/today_focus/arrow.png";
 import "./FocusTop.css";
 
 const FocusTop = ({ name, studyName, studyId, error, loading }) => {
