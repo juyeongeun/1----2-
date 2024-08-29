@@ -15,7 +15,6 @@ function useStudiesListId(ids) {
           )
         );
         setRecent(responses.map((response) => response.data));
-
         setLoading(false);
       } catch (err) {
         setError(err);
