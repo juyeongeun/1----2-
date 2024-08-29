@@ -117,7 +117,7 @@ export default function HabitEditModal({
     <div className="modal-overlay">
       <div className="modal-content">
         <div className="modal-background">
-          <h2>습관 목록</h2>
+          <h2 className="modal-title">습관 목록</h2>
 
           <HabitList
             localHabits={localHabits}

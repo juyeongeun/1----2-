@@ -3,26 +3,38 @@
   justify-content: space-between;
   align-items: center;
   padding: 10px;
-  border-bottom: 1px solid #ccc;
+  width: 600px;
+  padding-right: 44px;
+  padding-left: 100px;
 }
 
-.habit-item:last-child {
-  border-bottom: none;
+.habit-input {
+  width: 400px;
+  height: 54px;
+  border-radius: 20px;
+  background-color: #eeeeee;
+  border: none;
+  font-size: 16px;
+  font-weight: 700;
+  text-align: center;
+  color: #818181;
+  text-decoration-line: underline;
 }
 
 .delete-button {
-  background-color: red;
-  color: white;
-  border: none;
-  padding: 5px 10px;
-  border-radius: 5px;
   cursor: pointer;
+  width: 48px;
+  height: 48px;
 }
 
-.delete-button:hover {
-  background-color: darkred;
-}
+@media (max-width: 720px) {
+  .habit-item {
+    width: 312px;
+    padding-left: 0;
+    padding-right: 0;
+  }
 
-.delete-button:hover {
-  background-color: darkred;
+  .habit-input {
+    width: 256px;
+  }
 }
