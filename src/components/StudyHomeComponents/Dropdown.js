@@ -59,7 +59,7 @@ function Dropdown({ onOrderChange, orderBy }) {
           </p>
           <p
             onClick={() => handleSortChange('lowestPoints')}
-            className={styles.text}
+            className={styles.lowestPointsText}
           >
             적은 포인트 순
           </p>
