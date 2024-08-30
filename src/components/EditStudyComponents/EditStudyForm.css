@@ -97,7 +97,7 @@
 }
 
 .backgroundOption.selected::after {
-  border: 10px solid #99c08e;
+  border: 8px solid #99c08e;
   content: '';
   position: absolute;
   top: 50%;
