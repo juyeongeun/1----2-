@@ -59,9 +59,17 @@
 
 <details>
   <summary>강범준</summary>
+  <h3>오늘의 습관 페이지</h3>
   <ul>
-    <li>오늘의 습관 페이지</li>
-    <li>(자신이 개발한 기능에 대한 사진이나 gif 파일 첨부)</li>
+    <li>오늘의 습관 Todo List 표시</li>
+    <li>Todo List 토글 기능</li>
+  </ul>
+
+  <h3>오늘의 습관 수정 모달 페이지</h3>
+  <ul>
+    <li>오늘의 습관 수정 목록 화면</li>
+    <li>플러스 (+)버튼 및 모달 창 디자인</li>
+    <li>습관 목록 입력 창 및 삭제 버튼 디자인</li>
   </ul>
 </details>
 
@@ -127,11 +135,12 @@
     <li>body 배경색</li>
   </ul>
 
-  **스터디 목록 조회**
-  <a href='https://ifh.cc/v-RvKCMg' target='_blank'><img src='https://ifh.cc/g/RvKCMg.jpg' border='0'></a>
+**스터디 목록 조회**
+<a href='https://ifh.cc/v-RvKCMg' target='_blank'><img src='https://ifh.cc/g/RvKCMg.jpg' border='0'></a>
 
-  **스터디 생성하기 폼**
-  <a href='https://ifh.cc/v-Wl6vk1' target='_blank'><img src='https://ifh.cc/g/Wl6vk1.jpg' border='0'></a>
+**스터디 생성하기 폼**
+<a href='https://ifh.cc/v-Wl6vk1' target='_blank'><img src='https://ifh.cc/g/Wl6vk1.jpg' border='0'></a>
+
 </details>
 
 <details>
@@ -226,18 +235,147 @@
     <li>netlify 사용하여 배포</li>
   </ul>
 
-  **스터디 상세 조회**
-  ![image](https://github.com/user-attachments/assets/eff21e9d-5e1b-4037-8cda-29a4e7ddcc29)
+**스터디 상세 조회**
+![image](https://github.com/user-attachments/assets/eff21e9d-5e1b-4037-8cda-29a4e7ddcc29)
 
-  **권한 확인 모달**
-  ![image](https://github.com/user-attachments/assets/3dec79f8-af35-4a80-b593-e73fa47fa286)
+**권한 확인 모달**
+![image](https://github.com/user-attachments/assets/3dec79f8-af35-4a80-b593-e73fa47fa286)
 
-  **수정하기 폼**
-  ![image](https://github.com/user-attachments/assets/6b7d32e6-0324-454e-b787-45d9bbad3358)
+# <<<<<<< HEAD
+
+**수정하기 폼**
+![image](https://github.com/user-attachments/assets/6b7d32e6-0324-454e-b787-45d9bbad3358)
+
 </details>
 
+> > > > > > > 9dc68a315bd6489c57ae602334e5a713b7fb4bf5
 
 ## 파일구조
+
+### 프론트엔드 파일 구조
+
+```
+node_modules
+public/
+├── _redirects
+├── favicon.png
+├── ic_share_logo.png
+├── index.css
+└── index.html
+
+src/
+├── components/
+│   ├── CreateStudyComponents/
+│   │   ├── CreateBackground.js
+│   │   ├── CreateBackground.module.css
+│   │   ├── CreateFooter.js
+│   │   ├── CreateFooter.module.css
+│   │   ├── CreateForm.js
+│   │   ├── CreateForm.module.css
+│   │   ├── CreateInput.js
+│   │   ├── CreateInput.module.css
+│   │   ├── CreatePassword.js
+│   │   └── CreatePassword.module.css
+│   ├── EditStudyComponents/
+│   │   ├── BackgroundSelector.js
+│   │   ├── EditStudyForm.css
+│   │   ├── EditStudyForm.js
+│   │   ├── LabeledInput.js
+│   │   ├── PasswordInput.js
+│   │   └── SubmitButton.js
+│   ├── Layout/
+│   │   ├── Container.js
+│   │   ├── Container.module.css
+│   │   ├── Footer.js
+│   │   ├── Layout.js
+│   │   ├── Nav.js
+│   │   └── Nav.module.css
+│   ├── StudyDetailComponents/
+│   │   ├── PasswordModal.css
+│   │   ├── PasswordModal.js
+│   │   ├── StudyHabits.css
+│   │   ├── StudyHabits.js
+│   │   ├── StudyInfo.css
+│   │   ├── StudyInfo.js
+│   │   ├── StudyName.css
+│   │   ├── StudyName.js
+│   │   ├── StudyPoint.css
+│   │   ├── StudyPoint.js
+│   │   └── StudyShare.js
+│   ├── StudyHomeComponents/
+│   │   ├── backgrounds/
+│   │   ├── Dropdown.js
+│   │   ├── Dropdown.module.css
+│   │   ├── ExploreDataFetch.js
+│   │   ├── ExploreDataFetch.module.css
+│   │   ├── ExploreStudies.js
+│   │   ├── ExploreStudies.module.css
+│   │   ├── ExploreStudiesHeader.js
+│   │   ├── ExploreStudiesHeader.module.css
+│   │   ├── RecentDataFetch.js
+│   │   ├── RecentDataFetch.module.css
+│   │   ├── RecentStudies.js
+│   │   ├── RecentStudies.module.css
+│   │   └── StudyHomeForm.js
+│   ├── TodayFocusComponents/
+│   │   ├── api/
+│   │   │   └── setPoint.js
+│   │   ├── components/
+│   │   │   ├── assets/
+│   │   │   ├── FocusMid.css
+│   │   │   ├── FocusMid.js
+│   │   │   ├── FocusTimer.css
+│   │   │   ├── FocusTimer.js
+│   │   │   ├── FocusTop.css
+│   │   │   ├── FocusTop.js
+│   │   │   ├── TimerSettingModal.css
+│   │   │   └── TimerSettingModal.js
+│   │   └── utility/
+│   │       ├── timeParser.js
+│   │       ├── FocusPage.css
+│   │       └── FocusPage.js
+│   └── TodayTodoList/
+│       ├── HabitEditModal.css
+│       ├── HabitEditModal.js
+│       ├── HabitItem.css
+│       ├── HabitItem.js
+│       ├── HabitModalList.css
+│       ├── HabitModalList.js
+│       ├── HabitStudyComponent.css
+│       ├── HabitStudyComponent.js
+│       ├── ModalButtons.css
+│       ├── ModalButtons.js
+│       ├── NewHabitList.css
+│       ├── NewHabitList.js
+│       ├── TodoList.css
+│       └── TodoList.js
+├── css/
+│   └── reset.css
+├── hooks/
+│   ├── useExploreList.js
+│   ├── useFetchCompleteHabit.js
+│   ├── useFetchEmoji.js
+│   ├── useFetchHabit.js
+│   ├── useFetchStudy.js
+│   ├── useInputValid.js
+│   └── useRecentList.js
+├── img/
+├── pages/
+│   ├── CreateStudyPage.js
+│   ├── EditStudyPage.js
+│   ├── FocusTimerPage.js
+│   ├── HabitTrackerPage.js
+│   ├── StudyDetailPage.js
+│   ├── StudyRoomPage.js
+│   ├── index.js
+│   └── Main.js
+├── index.js
+├── Main.js
+.gitignore
+package-lock.json
+package.json
+README.md
+```
 
 ## 구현 홈페이지
 
