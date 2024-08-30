@@ -72,13 +72,6 @@ function StudyInfo({ studyName, name, password, deleteStudy, studyId }) {
       ) {
         setEmojiPickerVisible(false);
       }
-      if (
-        showShareOptions &&
-        shareOptionsRef.current &&
-        !shareOptionsRef.current.contains(event.target)
-      ) {
-        setShowShareOptions(false);
-      }
     };
 
     document.addEventListener("mousedown", handleClickOutside);
@@ -157,7 +150,7 @@ function StudyInfo({ studyName, name, password, deleteStudy, studyId }) {
             <StudyShare
               id={studyId}
               name={name}
-              onShareClick={() => setShowShareOptions(false)}
+              onShareClick={handleShareClick}
             />
           )}
         </div>
