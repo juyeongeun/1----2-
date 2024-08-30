@@ -10,7 +10,6 @@ import { useParams } from "react-router-dom";
 function StudyDetailPage() {
   const { studyId } = useParams();
 
-  // Study 데이터 가져오기
   const {
     studyName,
     name,
@@ -22,21 +21,18 @@ function StudyDetailPage() {
     error: studyError,
   } = useFetchStudy(studyId);
 
-  // Habit 데이터 가져오기
   const {
     habits,
     loading: habitLoading,
     error: habitError,
   } = useFetchHabit(studyId);
 
-  // CompleteHabit 데이터 가져오기
   const {
     completeHabits,
     loading: completeLoading,
     error: completeError,
   } = useFetchCompleteHabit(studyId);
 
-  // 로딩 및 에러 상태 처리
   if (studyLoading || habitLoading || completeLoading) {
     return <div>Loading...</div>;
   }

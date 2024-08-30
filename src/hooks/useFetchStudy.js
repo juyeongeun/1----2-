@@ -3,13 +3,12 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 function useFetchStudy(studyId) {
-  // 상태를 객체로 묶어 관리
   const [state, setState] = useState({
     studyName: "",
     name: "",
     content: "",
-    background: "", // 기본값을 빈 문자열로 설정
-    point: 0, // 기본값을 0으로 설정
+    background: "",
+    point: 0,
     password: "",
     loading: false,
     error: null,
@@ -27,7 +26,7 @@ function useFetchStudy(studyId) {
           const data = response.data;
           setState((prevState) => ({
             ...prevState,
-            ...data, // 데이터 객체를 상태에 병합
+            ...data,
             loading: false,
           }));
         } catch (err) {
