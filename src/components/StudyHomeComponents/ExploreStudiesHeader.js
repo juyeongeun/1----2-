@@ -11,7 +11,9 @@ function ExploreStudiesHeader({ onOrderChange, setKeyword, orderBy }) {
   const handleSearch = () => {
     const value = inputRef.current.value;
     setKeyword(value);
-    inputRef.current.value = '';
+    setTimeout(() => {
+      inputRef.current.value = '';
+    }, 0);
   };
 
   const onKeyPress = (e) => {
