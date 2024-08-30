@@ -2,7 +2,7 @@
 
 📄 [팀 협업 문서](https://arrow-season-125.notion.site/ec0da2984aee44b29e332e18b85d12db?v=c951e5190e594c56aae608fd15b9420b&pvs=4)
 
-## 팀원 구성
+## 🍀 팀원 구성
 
 <table height="250px">
   <tbody>
@@ -31,13 +31,13 @@
   <tbody/>
 <table/>
 
-## 프로젝트 소개
+## 📜 프로젝트 소개
 
 - **제목**: 공부의 숲
 - **소개**: 개인 공부 관리 및 커뮤니티 서비스
   - 최근 몇 년간 올바른 습관의 정착에 대한 사람들의 관심이 높아지고 있고, 그중에서도 ‘조금씩 습관을 들이기’에 대한 이론이 각광받고 있습니다. 따라서 개인이 학습할 내용을 정리할 스터디를 만들고, 하루동안 수행할 공부를 관리하며 집중 타이머 기능을 제공해 잘 수행할 때마다 포인트를 제공하는 서비스 제작합니다.
 
-## 기술 스택
+## 🛠️ 기술 스택
 
 ### Frontend
 
@@ -55,7 +55,7 @@
 
 <img src="https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white"> <img src="https://img.shields.io/badge/discord-5865F2?style=for-the-badge&logo=discord&logoColor=white"> <img src="https://img.shields.io/badge/Zoom-0B5CFF?style=for-the-badge&logo=zoom&logoColor=white"> <img src="https://img.shields.io/badge/notion-000000?style=for-the-badge&logo=notion&logoColor=white"> <img src="https://img.shields.io/badge/netlify-00C7B7?style=for-the-badge&logo=netlify&logoColor=white"> <img src="https://img.shields.io/badge/render-000000?style=for-the-badge&logo=render&logoColor=white">
 
-## 팀원별 구현 기능 상세
+## 📲 팀원별 구현 기능 상세
 
 <details>
   <summary>강범준</summary>
@@ -252,7 +252,7 @@
 
 </details>
 
-## 파일구조
+## 🗂️ 파일구조
 
 ### 프론트엔드 파일 구조
 
@@ -379,10 +379,10 @@ package.json
 README.md
 ```
 
-## 구현 홈페이지
+## 🔗 구현 홈페이지
 
 [공부의 숲](https://main--gatherstudy.netlify.app/)
 
-## 프로젝트 회고록
+## 🔗 프로젝트 회고록
 
 (제작한 발표자료 링크 혹은 첨부파일 첨부)
