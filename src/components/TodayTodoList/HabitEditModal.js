@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import "./HabitEditModal.css";
 import HabitList from "./HabitModalList.js";
 import NewHabitList from "./NewHabitList.js";
@@ -15,35 +15,44 @@ export default function HabitEditModal({
 }) {
   const [localHabits, setLocalHabits] = useState(habits);
   const [newHabitList, setNewHabitList] = useState([]);
+  const [isSaving, setIsSaving] = useState(false);
 
-  // 모달이 열릴 때만 상태 초기화
   useEffect(() => {
     if (isOpen) {
       setLocalHabits(habits);
-      setNewHabitList([]);
     }
   }, [isOpen, habits]);
 
-  const handleChange = (id, newName) => {
+  const handleCancel = useCallback(() => {
+    setNewHabitList([]);
+    onClose();
+  }, [onClose]);
+
+  const handleChange = useCallback((id, newName) => {
     setLocalHabits((prevHabits) =>
       prevHabits.map((habit) =>
         habit.habitId === id ? { ...habit, habitName: newName } : habit
       )
     );
-  };
+  }, []);
 
-  const handleAddInput = () => {
+  const handleAddInput = useCallback(() => {
     setNewHabitList((prevNewHabits) => [...prevNewHabits, ""]);
-  };
+  }, []);
 
-  const handleNewHabitChange = (index, newName) => {
+  const handleNewHabitChange = useCallback((index, newName) => {
     setNewHabitList((prevNewHabits) =>
       prevNewHabits.map((habit, i) => (i === index ? newName : habit))
     );
-  };
+  }, []);
 
   const handleSave = async () => {
+    if (isSaving) return;
+
+    setIsSaving(true);
+
     try {
+      // Update local habits and new habits
       const updates = localHabits
         .filter((habit) => {
           const originalHabit = habits.find((h) => h.habitId === habit.habitId);
@@ -70,31 +79,41 @@ export default function HabitEditModal({
       }
 
       setLocalHabits((prevHabits) => [...prevHabits, ...newHabitResponses]);
-
       setNewHabitList([]);
+
       await onUpdate();
+
+      // Close the modal only after all operations are done
       onClose();
     } catch (error) {
       console.error("Failed to update habits:", error);
+    } finally {
+      setIsSaving(false);
     }
   };
 
-  const handleHabitDelete = async (habitId) => {
-    try {
-      await deleteHabit(habitId);
-      setLocalHabits((prevHabits) =>
-        prevHabits.filter((habit) => habit.habitId !== habitId)
-      );
-    } catch (error) {
-      console.error("Failed to delete habit:", error);
-    }
-  };
+  const handleHabitDelete = useCallback(
+    async (habitId) => {
+      try {
+        await deleteHabit(habitId);
 
-  const handleNewHabitDelete = (index) => {
+        setLocalHabits((prevHabits) =>
+          prevHabits.filter((habit) => habit.habitId !== habitId)
+        );
+
+        await onUpdate();
+      } catch (error) {
+        console.error("Failed to delete habit:", error);
+      }
+    },
+    [deleteHabit, onUpdate]
+  );
+
+  const handleNewHabitDelete = useCallback((index) => {
     setNewHabitList((prevNewHabits) =>
       prevNewHabits.filter((_, i) => i !== index)
     );
-  };
+  }, []);
 
   if (!isOpen) return null;
 
@@ -114,7 +133,11 @@ export default function HabitEditModal({
             handleAddInput={handleAddInput}
             handleDelete={handleNewHabitDelete}
           />
-          <ModalButtons onClose={onClose} handleSave={handleSave} />
+          <ModalButtons
+            onClose={handleCancel}
+            handleSave={handleSave}
+            isSaving={isSaving}
+          />
         </div>
       </div>
     </div>
