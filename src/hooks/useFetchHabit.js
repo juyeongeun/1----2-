@@ -15,7 +15,8 @@ function useFetchHabit(studyId) {
         isActive: item.isActive,
         endDate: item.endDate,
       }));
-      setHabits(data);
+      const sortedData = data.sort((a, b) => a.habitId - b.habitId);
+      setHabits(sortedData);
     } catch (err) {
       setError(err.message);
     }
@@ -42,12 +43,11 @@ function useFetchHabit(studyId) {
 
   const createHabit = async (habitName) => {
     try {
-      const response = await axios.post(`${baseUrl}/${studyId}`, { habitName });
-      setHabits((prevHabits) => [...prevHabits, response.data]);
-      return response.data;
+      await axios.post(`${baseUrl}/${studyId}`, { habitName });
     } catch (err) {
       setError(err.message);
     }
+    await fetchHabits();
   };
 
   const deleteHabit = async (habitId) => {

@@ -82,12 +82,9 @@
 }
 
 .backgroundOptions {
-  display: flex;
+  display: grid;
   gap: 16px;
-  margin-top: 10px;
-  flex-wrap: wrap;
-  align-content: center;
-  justify-content: center;
+  grid-template-columns: repeat(4, 1fr);
 }
 
 .backgroundOption {
@@ -157,7 +154,7 @@
 }
 
 .editButton:disabled {
-  background-color: #9d9d9d; /* 비활성화된 상태의 버튼 배경색 */
+  background-color: #9d9d9d;
   cursor: not-allowed;
 }
 
@@ -174,5 +171,13 @@
     width: auto;
     margin: 20px 16px 0 16px;
     padding: 16px;
+  }
+
+  .backgroundOptions {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 312px;
+    width: auto;
+    margin-left: auto;
+    margin-right: auto;
   }
 }

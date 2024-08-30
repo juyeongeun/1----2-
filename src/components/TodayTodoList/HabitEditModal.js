@@ -52,7 +52,7 @@ export default function HabitEditModal({
     setIsSaving(true);
 
     try {
-      // Update local habits and new habits
+      onClose();
       const updates = localHabits
         .filter((habit) => {
           const originalHabit = habits.find((h) => h.habitId === habit.habitId);
@@ -71,20 +71,19 @@ export default function HabitEditModal({
       for (const habitName of newHabitList.filter(
         (name) => name.trim() !== ""
       )) {
-        const response = await createHabit(habitName);
-        newHabitResponses.push({
-          habitId: response.id,
-          habitName: habitName,
-        });
+        try {
+          const response = await createHabit(habitName);
+          newHabitResponses.push({
+            habitId: response.id,
+            habitName: habitName,
+          });
+        } catch (err) {}
       }
 
       setLocalHabits((prevHabits) => [...prevHabits, ...newHabitResponses]);
       setNewHabitList([]);
 
       await onUpdate();
-
-      // Close the modal only after all operations are done
-      onClose();
     } catch (error) {
       console.error("Failed to update habits:", error);
     } finally {
@@ -122,17 +121,19 @@ export default function HabitEditModal({
       <div className="modal-content">
         <div className="modal-background">
           <h2 className="modal-title">습관 목록</h2>
-          <HabitList
-            localHabits={localHabits}
-            handleChange={handleChange}
-            handleDelete={handleHabitDelete}
-          />
-          <NewHabitList
-            newHabitList={newHabitList}
-            handleNewHabitChange={handleNewHabitChange}
-            handleAddInput={handleAddInput}
-            handleDelete={handleNewHabitDelete}
-          />
+          <div className="modal-scroll">
+            <HabitList
+              localHabits={localHabits}
+              handleChange={handleChange}
+              handleDelete={handleHabitDelete}
+            />
+            <NewHabitList
+              newHabitList={newHabitList}
+              handleNewHabitChange={handleNewHabitChange}
+              handleAddInput={handleAddInput}
+              handleDelete={handleNewHabitDelete}
+            />
+          </div>
           <ModalButtons
             onClose={handleCancel}
             handleSave={handleSave}

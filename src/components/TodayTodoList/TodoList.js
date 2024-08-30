@@ -26,7 +26,6 @@ function TodoList() {
     completeHabit,
   } = useFetchCompleteHabit(studyId);
 
-  // 최초 로드 시 habits를 localHabits에 설정
   useEffect(() => {
     if (habits.length > 0) {
       const updatedHabits = habits.map((habit) => ({
@@ -117,7 +116,7 @@ function TodoList() {
         updateHabits={updateHabits}
         createHabit={createHabit}
         deleteHabit={deleteHabit}
-        onUpdate={refreshHabits} // 모달이 닫힐 때만 상태를 업데이트
+        onUpdate={refreshHabits}
       />
     </>
   );

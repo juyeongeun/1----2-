@@ -28,7 +28,6 @@ function useFetchEmoji(studyId) {
 
   const saveEmoji = async (emoji) => {
     try {
-      // 백엔드에 이모지를 저장하고 결과를 받아옴
       const response = await axios.post(`${baseUrl}/${studyId}`, { emoji });
       const updatedEmoji = response.data;
 
