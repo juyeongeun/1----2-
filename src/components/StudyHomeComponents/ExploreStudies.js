@@ -71,6 +71,7 @@ function ExploreStudies({ setClick, paramsReset }) {
         orderBy={orderBy}
         onOrderChange={handleOrderbyChange}
         setKeyword={setKeyword}
+        paramsReset={paramsReset}
       />
       <div className={styles.studyList}>
         <ExploreDataFetch data={items} setClick={setClick} />
