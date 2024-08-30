@@ -1,20 +1,22 @@
 import styles from './Dropdown.module.css';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
 
 function Dropdown({ onOrderChange, orderBy }) {
-  const [click, SetClick] = useState(false);
+  const [showDropDown, setShowDropDown] = useState(false);
   const [text, setText] = useState('최신 순');
 
-  const Click = () => {
-    SetClick((prev) => !prev);
+  const dropDownRef = useRef(null);
+
+  const showDropDownClick = () => {
+    setShowDropDown((prev) => !prev);
   };
 
   const handleSortChange = (orderBy) => {
     onOrderChange(orderBy);
-    SetClick(false);
+    setShowDropDown(false);
   };
 
   useEffect(() => {
@@ -34,22 +36,42 @@ function Dropdown({ onOrderChange, orderBy }) {
       default:
         setText('최신 순');
     }
-    SetClick(false);
+    setShowDropDown(false);
   }, [orderBy]);
 
-  // 최신순 -> 최신순처럼 같은 걸 눌렀을 때 드롭다운이 안 닫히는 걸 방지
   const handleEvent = (event) => {
     event.stopPropagation();
   };
 
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        showDropDown &&
+        dropDownRef.current &&
+        !dropDownRef.current.contains(event.target)
+      ) {
+        setShowDropDown(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [showDropDown]);
+
   return (
     <>
-      <div className={styles.background} onClick={Click}>
+      <div className={styles.background} onClick={showDropDownClick}>
         <p className={styles.dropDown}>{text}</p>
         <FontAwesomeIcon className={styles.icon} icon={faCaretDown} />
       </div>
-      {click && (
-        <div className={styles.dropdownBackground} onClick={handleEvent}>
+      {showDropDown && (
+        <div
+          className={styles.dropdownBackground}
+          onClick={handleEvent}
+          ref={dropDownRef}
+        >
           <p onClick={() => handleSortChange('recent')} className={styles.text}>
             최근 순
           </p>
