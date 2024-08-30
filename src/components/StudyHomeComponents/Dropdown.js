@@ -1,10 +1,10 @@
-import styles from './DropDown.module.css';
+import styles from './Dropdown.module.css';
 import { useState, useEffect, useRef } from 'react';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
 
-function DropDown({ onOrderChange, orderBy }) {
+function Dropdown({ onOrderChange, orderBy }) {
   const [showDropDown, setShowDropDown] = useState(false);
   const [text, setText] = useState('최신 순');
 
@@ -96,4 +96,4 @@ function DropDown({ onOrderChange, orderBy }) {
   );
 }
 
-export default DropDown;
+export default Dropdown;

@@ -3,7 +3,7 @@ import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 
 import styles from './ExploreStudiesHeader.module.css';
 import { useEffect, useRef } from 'react';
-import DropDown from './DropDown.js';
+import Dropdown from './Dropdown.js';
 
 function ExploreStudiesHeader({
   onOrderChange,
@@ -43,7 +43,7 @@ function ExploreStudiesHeader({
           />
         </div>
         <div>
-          <DropDown
+          <Dropdown
             onOrderChange={onOrderChange}
             className={styles.dropDown}
             orderBy={orderBy}
