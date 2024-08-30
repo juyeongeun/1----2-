@@ -14,7 +14,7 @@ const TimerSettingModal = ({
     setTempTimer(e.target.value * 60);
   };
   const modalClose = () => {
-    setTime(30 * 60); // 아무것도 설정 안하면 30분으로 기본 설정
+    setTime(30 * 60);
     setModalOpen(false);
   };
   const handleSubmit = () => {
@@ -22,7 +22,6 @@ const TimerSettingModal = ({
     setInitTime(tempTimer);
     setModalOpen(false);
   };
-
   return (
     <div className="modalOverlay">
       <div className="modalContent">
@@ -44,6 +43,9 @@ const TimerSettingModal = ({
           />
         </div>
         <button onClick={handleSubmit}>타이머 설정하기</button>
+        <span onClick={modalClose} className="close2">
+          나가기
+        </span>
       </div>
     </div>
   );

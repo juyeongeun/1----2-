@@ -39,6 +39,11 @@
   margin-top: 8px;
 }
 
+.studyContent {
+  width: 500px;
+  white-space: pre-wrap;
+}
+
 @media (max-width: 1199px) {
   .intro {
     margin-top: 16px;
@@ -52,6 +57,6 @@
   }
 
   .studyContent {
-    white-space: pre-wrap;
+    width: 100%;
   }
 }

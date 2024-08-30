@@ -1,84 +1,59 @@
-/* 첫 번째 컨테이너: 페이지 전체 배경 및 헤더 포함 */
-.outer-container {
-  background-color: #f6f4ef;
-  padding: 20px;
-  width: 100vw;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  max-width: 100%;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
-}
-
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-}
-
-header .logo img {
-  height: 40px;
-  margin-left: 400px;
-}
-
-header .menu {
-  font-size: 18px;
-}
-
-/* 두 번째 컨테이너: 메인 타이틀 및 내용 */
-.middle-container {
-  width: 80%;
-  max-width: 1200px;
-  margin: 40px auto 0 auto;
-  height: auto;
-  background-color: #ffffff;
-  border-radius: 20px;
-  padding: 40px;
-}
-
 .both-sides {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 20px;
 }
 
-/* 메인 타이틀 스타일 */
 .main-title {
   font-size: 28px;
   font-weight: bold;
-  margin-bottom: 20px;
 }
 
-/* 현재 시간 스타일 */
 .current-time {
-  font-size: 16px;
-  color: #666666;
-  margin-bottom: 20px;
+  font-size: 18px;
+  font-weight: 400;
+  color: #818181;
+  margin-bottom: 8px;
 }
 
 .time-block {
   border: 1px solid rgba(0, 0, 0, 0.1);
   padding: 8px 12px;
   border-radius: 50px;
-  width: 156px;
+  width: 190px;
+  height: 35px;
   text-align: center;
   font-size: 16px;
   font-weight: 500;
   color: #414141;
 }
 
-/* 메뉴 스타일 */
-.menu {
-  border: none;
+.menu-focus {
+  border: 1px solid #dddddd;
   background-color: #ffffff;
-  margin-bottom: 20px;
+  border-radius: 15px;
+  width: 144px;
+  height: 48px;
   cursor: pointer;
   margin: 0 20px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #818181;
 }
 
-/* 세 번째 컨테이너: "오늘의 습관" 리스트 */
+.menu-home {
+  border: 1px solid #dddddd;
+  background-color: #ffffff;
+  border-radius: 15px;
+  width: 82px;
+  height: 48px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  color: #818181;
+}
+
 .inner-container {
   width: 100%;
   max-width: 1200px;
@@ -90,74 +65,22 @@ header .menu {
   border: 1px solid #dddddd;
 }
 
-.habit-header {
-  display: flex;
-  margin-bottom: 20px;
-  width: 100%;
-}
-
-.habit-header h2 {
-  flex-grow: 1;
-  text-align: center;
-  margin: 0;
-  justify-content: center;
-  align-items: center;
-}
-
-.habit-header button {
-  margin-left: auto;
-}
-
-/* 푸터 스타일 */
-footer {
-  margin-top: 30px;
-  font-size: 14px;
-  color: #888888;
-  text-align: center;
-  width: 100%;
-}
-
-/* 모바일 버전 스타일 */
-@media (max-width: 768px) {
-  .outer-container {
-    width: 90%;
-    padding: 10px;
+@media (max-width: 720px) {
+  .both-sides {
+    display: flex;
+    margin-bottom: 20px;
+    flex-direction: column;
+    align-items: flex-start;
   }
 
-  .middle-container {
-    width: 100%;
-    padding: 15px;
+  .menu-focus {
+    margin: 0;
+    margin-top: 17px;
+    margin-right: 8px;
   }
 
-  .habit-list li {
-    width: 100%;
-    padding: 15px;
-  }
-
-  .habit-header {
-    justify-content: center;
-    text-align: center;
-  }
-
-  .habit-header button {
-    margin-top: 10px;
-  }
-}
-
-/* 태블릿 버전 스타일 */
-@media (min-width: 769px) and (max-width: 1024px) {
-  .outer-container {
-    width: 80%;
-    padding: 20px;
-  }
-
-  .middle-container {
-    width: 100%;
-    padding: 20px;
-  }
-
-  .habit-list li {
-    width: 50%;
-    padding: 20px;
+  .inner-container {
+    margin-top: 24px;
+    padding: 16px;
   }
 }

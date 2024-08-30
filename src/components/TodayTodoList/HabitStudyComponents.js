@@ -3,13 +3,14 @@ import "./HabitStudyComponents.css";
 import TodoList from "./TodoList.js";
 import useFetchStudy from "../../hooks/useFetchStudy.js";
 import { useNavigate, useParams } from "react-router-dom";
-import TodayFocusButtonImage from "../../img/today-focus-btn.png";
-import HomeButtonImage from "../../img/home-btn.png";
+import PasswordModal from "../StudyDetailComponents/PasswordModal.js";
 
 function HabitStudyComponents() {
   const { studyId } = useParams();
-  const { studyName, name, loading, error } = useFetchStudy(studyId);
+  const { studyName, name, password, loading, error } = useFetchStudy(studyId);
   const [currentTime, setCurrentTime] = useState("");
+  const [isModalOpen, setIsModalOpen] = useState(true);
+  const [isPasswordCorrect, setIsPasswordCorrect] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -34,6 +35,20 @@ function HabitStudyComponents() {
 
     return () => clearInterval(timerId);
   }, []);
+  useEffect(() => {
+    if (isPasswordCorrect) {
+      setIsModalOpen(false);
+    }
+  }, [isPasswordCorrect]);
+
+  const handleModalSubmit = () => {
+    setIsPasswordCorrect(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    navigate(`/study/${studyId}`);
+  };
 
   if (error) {
     return <div className="error">{error}</div>;
@@ -43,7 +58,7 @@ function HabitStudyComponents() {
   }
 
   return (
-    <div className="middle-container">
+    <>
       <div className="both-sides">
         <div className="left-side">
           <div className="main-title">
@@ -51,42 +66,44 @@ function HabitStudyComponents() {
           </div>
         </div>
         <div className="right-side">
-          <button /*오늘의 집중 버튼*/
-            className="menu"
+          <button
+            className="menu-focus"
             onClick={() => navigate(`/focus/${studyId}`)}
             aria-label="오늘의 집중"
           >
-            <img
-              src={TodayFocusButtonImage}
-              alt="오늘의 집중"
-              style={{ width: "100%", height: "100%" }}
-            />
+            오늘의 집중 &nbsp; &gt;
           </button>
-          <button /*홈 버튼*/
-            className="menu"
+          <button
+            className="menu-home"
             onClick={() => navigate(`/study/${studyId}`)}
             aria-label="홈"
           >
-            <img
-              src={HomeButtonImage}
-              alt="홈"
-              style={{ width: "100%", height: "100%" }}
-            />
+            홈 &nbsp; &gt;
           </button>
         </div>
       </div>
 
       <div>
         <div className="current-time">현재 시간</div>
-        <div className="time-block">{currentTime}</div>
+        <div className="time-block">
+          <p>{currentTime}</p>
+        </div>
       </div>
 
       <div className="inner-container">
-        <TodoList /> {/* 할 일 목록 컴포넌트 */}
+        <TodoList />
       </div>
 
-      <footer></footer>
-    </div>
+      <PasswordModal
+        isOpen={isModalOpen}
+        onClose={handleCloseModal}
+        onSubmit={handleModalSubmit}
+        correctPassword={password}
+        studyName={studyName}
+        name={name}
+        buttonText={"오늘의 습관으로 가기"}
+      />
+    </>
   );
 }
 

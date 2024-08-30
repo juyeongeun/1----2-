@@ -10,37 +10,33 @@
   align-items: center;
 }
 
-.modal-content {
+.modal-background {
   background: white;
-  padding: 20px;
-  border-radius: 8px;
+  padding: 40px 24px;
+  border-radius: 20px;
   position: relative;
   width: 648px;
   display: flex;
   flex-direction: column;
-  justify-content: center; /* 수평 가운데 정렬 */
-  max-height: 80%;
-  overflow-y: auto; /* 모달 내용이 길어지면 스크롤이 생기도록 */
+  justify-content: center;
   margin: 0 auto;
+  border: 1px solid #dddddd;
 }
 
-.modal-background {
-  display: flex;
-  flex-direction: column;
-  justify-content: center; /* 수평 가운데 정렬 */
-
-  overflow-y: auto; /* 모달 내용이 길어지면 스크롤이 생기도록 */
-  margin: 0 auto;
+.modal-scroll {
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-height: 780px;
 }
 
-.modal-background > h2 {
-  display: flex;
-  flex-direction: column;
-  justify-content: center; /* 수평 가운데 정렬 */
-
-  overflow-y: auto; /* 모달 내용이 길어지면 스크롤이 생기도록 */
-  margin: 0 auto;
+.modal-title {
+  text-align: center;
+  font-size: 24px;
+  font-weight: 800;
+  color: #414141;
+  margin-bottom: 24px;
 }
+
 .modal-close {
   position: absolute;
   top: 10px;
@@ -57,18 +53,17 @@
   margin: 0;
 }
 
-/* 태블릿 버전 스타일 */
-@media (min-width: 769px) and (max-width: 1024px) {
-  .habit-list li {
-    width: 50%;
-    padding: 20px;
-  }
-}
-
-/* 모바일 버전 스타일 */
-@media (max-width: 768px) {
+@media (max-width: 720px) {
   .habit-list li {
     width: 100%;
     padding: 15px;
+  }
+
+  .modal-background {
+    padding: 16px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 }

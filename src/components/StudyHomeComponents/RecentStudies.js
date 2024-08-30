@@ -3,21 +3,44 @@ import { useState, useEffect } from 'react';
 import useRecentList from '../../hooks/useRecentList.js';
 import RecentDataFetch from './RecentDataFetch.js';
 
-function RecentStudies({ click }) {
+function RecentStudies({ click, paramsReset }) {
   const [watched, setWatched] = useState([]);
 
-  const { recent } = useRecentList(watched);
+  const { recent, deleteId } = useRecentList(watched);
 
   useEffect(() => {
-    const watchedList = JSON.parse(localStorage.getItem('watched')) || [];
-    setWatched(watchedList);
-  }, []);
-
-  useEffect(() => {
-    if (typeof click === 'number') {
+    const updateWatchedList = () => {
       let watchedList = JSON.parse(localStorage.getItem('watched')) || [];
 
-      if (!watchedList.includes(click)) {
+      watchedList = watchedList.filter((item) => typeof item === 'number');
+
+      if (watchedList.length === 0) {
+        localStorage.removeItem('watched');
+      } else {
+        localStorage.setItem('watched', JSON.stringify(watchedList));
+      }
+
+      setWatched(watchedList);
+    };
+
+    updateWatchedList();
+  }, [paramsReset]);
+
+  useEffect(() => {
+    const updateWatchedList = () => {
+      let watchedList = JSON.parse(localStorage.getItem('watched')) || [];
+
+      if (deleteId.length !== 0) {
+        const numericId = parseInt(deleteId, 10);
+        watchedList = watchedList.filter((id) => id !== numericId);
+
+        watchedList = watchedList.filter((item) => typeof item === 'number');
+
+        localStorage.setItem('watched', JSON.stringify(watchedList));
+        setWatched(watchedList);
+      }
+
+      if (typeof click === 'number' && !watchedList.includes(click)) {
         watchedList.unshift(click);
         watchedList = Array.from(new Set(watchedList));
 
@@ -28,8 +51,9 @@ function RecentStudies({ click }) {
         localStorage.setItem('watched', JSON.stringify(watchedList));
         setWatched(watchedList);
       }
-    }
-  }, [click]);
+    };
+    updateWatchedList();
+  }, [click, deleteId]);
 
   return (
     <>

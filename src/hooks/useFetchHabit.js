@@ -1,9 +1,8 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 import axios from "axios";
 
 function useFetchHabit(studyId) {
   const [habits, setHabits] = useState([]);
-  const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const baseUrl = "https://study-api-m36o.onrender.com/api/habits";
 
@@ -16,22 +15,27 @@ function useFetchHabit(studyId) {
         isActive: item.isActive,
         endDate: item.endDate,
       }));
-      setHabits(data);
+      const sortedData = data.sort((a, b) => a.habitId - b.habitId);
+      setHabits(sortedData);
     } catch (err) {
       setError(err.message);
-    } finally {
-      setLoading(false);
     }
   }, [studyId]);
 
   useEffect(() => {
-    fetchHabits();
-  }, [fetchHabits]);
+    if (studyId) {
+      fetchHabits();
+    }
+  }, [studyId, fetchHabits]);
 
-  const updateHabit = async (habitId, data) => {
+  const updateHabits = async (updates) => {
     try {
-      await axios.put(`${baseUrl}/${studyId}/${habitId}`, data);
-      fetchHabits(); // 업데이트 후 최신 데이터로 갱신
+      await Promise.all(
+        updates.map(({ habitId, data }) =>
+          axios.put(`${baseUrl}/${studyId}/${habitId}`, data)
+        )
+      );
+      fetchHabits();
     } catch (err) {
       setError(err.message);
     }
@@ -39,24 +43,25 @@ function useFetchHabit(studyId) {
 
   const createHabit = async (habitName) => {
     try {
-      const response = await axios.post(`${baseUrl}/${studyId}`, { habitName });
-      fetchHabits(); // 새로 생성 후 최신 데이터로 갱신
-      return response.data;
+      await axios.post(`${baseUrl}/${studyId}`, { habitName });
     } catch (err) {
       setError(err.message);
     }
+    await fetchHabits();
   };
 
   const deleteHabit = async (habitId) => {
     try {
       await axios.delete(`${baseUrl}/${studyId}/${habitId}`);
-      fetchHabits(); // 삭제 후 최신 데이터로 갱신
+      setHabits((prevHabits) =>
+        prevHabits.filter((habit) => habit.habitId !== habitId)
+      );
     } catch (err) {
       setError(err.message);
     }
   };
 
-  return { habits, loading, error, updateHabit, createHabit, deleteHabit };
+  return { habits, error, updateHabits, createHabit, deleteHabit };
 }
 
 export default useFetchHabit;

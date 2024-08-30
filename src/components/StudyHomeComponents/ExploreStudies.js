@@ -47,7 +47,6 @@ function ExploreStudies({ setClick, paramsReset }) {
     setTotalCOunt(total - offset - LIMIT);
   };
 
-  //초기화
   useEffect(() => {
     setOrderBy('recent');
     setOffset(0);
@@ -62,6 +61,7 @@ function ExploreStudies({ setClick, paramsReset }) {
   useEffect(() => {
     if (keyword) {
       setOffset(0);
+      setOrderBy('recent');
     }
   }, [keyword]);
 
@@ -71,6 +71,7 @@ function ExploreStudies({ setClick, paramsReset }) {
         orderBy={orderBy}
         onOrderChange={handleOrderbyChange}
         setKeyword={setKeyword}
+        paramsReset={paramsReset}
       />
       <div className={styles.studyList}>
         <ExploreDataFetch data={items} setClick={setClick} />

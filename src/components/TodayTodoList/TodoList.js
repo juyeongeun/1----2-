@@ -14,7 +14,7 @@ function TodoList() {
     habits,
     loading: habitsLoading,
     error: habitsError,
-    updateHabit,
+    updateHabits,
     createHabit,
     deleteHabit,
   } = useFetchHabit(studyId);
@@ -26,13 +26,30 @@ function TodoList() {
     completeHabit,
   } = useFetchCompleteHabit(studyId);
 
-  // Update localHabits whenever habits change
   useEffect(() => {
-    setLocalHabits([...habits]);
+    if (habits.length > 0) {
+      const updatedHabits = habits.map((habit) => ({
+        habitId: habit.habitId || habit.id,
+        habitName: habit.habitName,
+        endDate: habit.endDate,
+      }));
+      setLocalHabits(updatedHabits);
+    }
   }, [habits]);
 
   const refreshHabits = useCallback(() => {
-    setLocalHabits([...habits]);
+    const updatedHabits = habits.map((habit) => ({
+      habitId: habit.habitId || habit.id,
+      habitName: habit.habitName,
+      endDate: habit.endDate,
+    }));
+
+    setLocalHabits((prevHabits) => {
+      const habitMap = new Map(
+        [...prevHabits, ...updatedHabits].map((habit) => [habit.habitId, habit])
+      );
+      return Array.from(habitMap.values());
+    });
   }, [habits]);
 
   if (habitsLoading || completeLoading) {
@@ -43,13 +60,13 @@ function TodoList() {
     return <div className="error">{habitsError || completeError}</div>;
   }
 
-  const today = new Date().toISOString().split("T")[0];
-
   const isHabitCompletedToday = (habitId) => {
-    return completeHabits.some((completeHabit) => {
-      const completeDate = completeHabit.createdAt.split("T")[0];
-      return completeDate === today && completeHabit.habitId === habitId;
-    });
+    const today = new Date().toLocaleDateString("en-CA");
+    return completeHabits.some(
+      (completeHabit) =>
+        new Date(completeHabit.createdAt).toLocaleDateString("en-CA") ===
+          today && completeHabit.habitId === habitId
+    );
   };
 
   const toggleTodo = async (habitId) => {
@@ -67,11 +84,9 @@ function TodoList() {
     <>
       <div className="todo-list">
         <h2>오늘의 습관</h2>
-        <div>
-          <button className="edit-button" onClick={() => setIsModalOpen(true)}>
-            목록 수정
-          </button>
-        </div>
+        <button className="edit-button" onClick={() => setIsModalOpen(true)}>
+          목록 수정
+        </button>
       </div>
       {activeHabits.length === 0 ? (
         <div className="no-habits">
@@ -98,7 +113,7 @@ function TodoList() {
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
         habits={activeHabits}
-        updateHabit={updateHabit}
+        updateHabits={updateHabits}
         createHabit={createHabit}
         deleteHabit={deleteHabit}
         onUpdate={refreshHabits}

@@ -24,7 +24,6 @@
   border-radius: 30px;
   text-align: center;
   width: 648px;
-  height: 369px;
   display: flex;
   flex-direction: column;
 }
@@ -152,5 +151,9 @@
     left: 170px;
     cursor: pointer;
     margin-top: 14px;
+  }
+
+  .modalHeader {
+    margin-left: 0;
   }
 }

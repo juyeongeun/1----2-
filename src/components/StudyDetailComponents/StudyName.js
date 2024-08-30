@@ -1,38 +1,16 @@
 import "./StudyName.css";
-import { useNavigate, useParams } from "react-router-dom";
-import React, { useState } from "react";
-import useFetchStudy from "../../hooks/useFetchStudy.js";
-import PasswordModal from "./PasswordModal.js";
+import { useNavigate } from "react-router-dom";
+import React from "react";
 
-function StudyName() {
-  const { studyId } = useParams();
+function StudyName({ studyName, name, content, password, studyId }) {
   const nav = useNavigate();
-  // 첫 번째 인수로 이동 할 도메인 주소를 받고, 두 번째 인수로 리다이렉션 시 전송할 데이터를 첩부합니다.
-  const { studyName, name, content, password, loading, error } =
-    useFetchStudy(studyId);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [redirectUrl, setRedirectUrl] = useState("");
-  const [modalButtonText, setModalButtonText] = useState("");
-
-  if (error) {
-    return <div className="error">{error}</div>;
-  }
-  if (loading) {
-    return <div>Loading...</div>;
-  }
 
   const handleButtonClick = (url, buttonText) => {
-    setRedirectUrl(url);
-    setModalButtonText(buttonText);
-    setIsModalOpen(true);
-  };
-
-  const handleModalClose = () => {
-    setIsModalOpen(false);
-  };
-
-  const handleModalSubmit = () => {
-    nav(`${redirectUrl}/${studyId}`);
+    if (buttonText === "오늘의 습관으로 가기") {
+      nav(`${url}/${studyId}`);
+    } else if (buttonText === "오늘의 집중으로 가기") {
+      nav(`${url}/${studyId}`);
+    }
   };
 
   return (
@@ -58,17 +36,6 @@ function StudyName() {
       </div>
       <div className="intro">소개</div>
       <div className="studyContent">{content}</div>
-
-      {/* 비밀번호 모달 */}
-      <PasswordModal
-        isOpen={isModalOpen}
-        onClose={handleModalClose}
-        onSubmit={handleModalSubmit}
-        correctPassword={password}
-        studyName={studyName}
-        name={name}
-        buttonText={modalButtonText}
-      />
     </>
   );
 }

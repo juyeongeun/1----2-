@@ -45,6 +45,8 @@
   color: #414141;
   width: 246px;
   vertical-align: middle;
+  white-space: wrap;
+  word-break: normal;
 }
 
 .habitCheck {
@@ -67,8 +69,10 @@
   .habitCheck {
     padding: 14px 13.5px;
   }
+
   .habitName {
     padding: 11px 24px;
+    word-break: keep-all;
   }
 }
 
@@ -86,5 +90,6 @@
   .habitName {
     padding: 14px;
     font-size: 14px;
+    white-space: nowrap;
   }
 }

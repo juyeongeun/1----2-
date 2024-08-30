@@ -1,25 +1,9 @@
 import React from "react";
-import { useParams } from "react-router-dom";
-import useFetchHabit from "../../hooks/useFetchHabit.js";
-import useFetchCompleteHabit from "../../hooks/useFetchCompleteHabit.js";
 import "./StudyHabits.css";
 import ic_inactive from "../../img/check/ic_inactive.svg";
 import { activeIcons } from "../../img/ImgImport.js";
 
-function StudyHabits() {
-  const { studyId } = useParams();
-  const {
-    habits,
-    loading: habitLoading,
-    error: habitError,
-  } = useFetchHabit(studyId);
-  const {
-    completeHabits,
-    loading: completeLoading,
-    error: completeError,
-  } = useFetchCompleteHabit(studyId);
-
-  // 특정 요일에 습관이 완료되었는지 확인
+function StudyHabits({ habits, completeHabits, studyId }) {
   const isHabitCompleteOnDay = (habitId, dayIndex) => {
     return completeHabits.some((ch) => {
       const habitCompletionDate = new Date(ch.createdAt);
@@ -30,14 +14,6 @@ function StudyHabits() {
       );
     });
   };
-
-  if (habitLoading || completeLoading) {
-    return <div>Loading...</div>;
-  }
-
-  if (habitError || completeError) {
-    return <div>Error: {habitError || completeError}</div>;
-  }
 
   const activeHabits = habits.filter((h) => h.isActive);
   const daysOfWeek = ["월", "화", "수", "목", "금", "토", "일"];

@@ -1,4 +1,4 @@
-import React, { useReducer, useEffect } from "react";
+import React, { useReducer, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import "./EditStudyForm.css";
 import useFetchStudy from "../../hooks/useFetchStudy.js";
@@ -8,6 +8,8 @@ import BackgroundSelector from "./BackgroundSelector.js";
 import PasswordInput from "./PasswordInput.js";
 import SubmitButton from "./SubmitButton.js";
 import { backgrounds } from "../../img/ImgImport.js";
+import PasswordModal from "../StudyDetailComponents/PasswordModal.js";
+import { useNavigate } from "react-router-dom";
 
 const initialState = {
   nickname: "",
@@ -49,10 +51,22 @@ function reducer(state, action) {
 
 function EditStudyForm() {
   const { studyId } = useParams();
-  const { studyName, name, content, background, loading, error, updateStudy } =
-    useFetchStudy(studyId);
+  const {
+    studyName,
+    name,
+    content,
+    background,
+    password: storedPassword,
+    loading,
+    error,
+    updateStudy,
+  } = useFetchStudy(studyId);
 
   const [state, dispatch] = useReducer(reducer, initialState);
+  const [isModalOpen, setIsModalOpen] = useState(true);
+  const [isPasswordCorrect, setIsPasswordCorrect] = useState(false);
+  const navigate = useNavigate();
+
   const {
     nickname,
     studyNameState,
@@ -87,6 +101,13 @@ function EditStudyForm() {
     }
   }, [loading, error, name, studyName, content, background]);
 
+  useEffect(() => {
+    // 모달을 열기 위한 기본 설정
+    if (isPasswordCorrect) {
+      setIsModalOpen(false); // 비밀번호가 확인되면 모달 닫기
+    }
+  }, [isPasswordCorrect]);
+
   const handleBlur = (e) => {
     const { name } = e.target;
     dispatch({ type: "SET_ERROR_VISIBILITY", field: name });
@@ -116,6 +137,14 @@ function EditStudyForm() {
       confirmPassword.trim() !== "" &&
       Object.keys(errors).length === 0
     );
+  };
+  const handleModalSubmit = () => {
+    setIsPasswordCorrect(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    navigate(`/study/${studyId}`);
   };
 
   if (loading) return <p>Loading...</p>;
@@ -229,6 +258,15 @@ function EditStudyForm() {
         />
         <SubmitButton isFormValid={isFormValid} />
       </form>
+      <PasswordModal
+        isOpen={isModalOpen}
+        onClose={handleCloseModal}
+        onSubmit={handleModalSubmit}
+        correctPassword={storedPassword}
+        studyName={studyName}
+        name={name}
+        buttonText={"수정하러가기"}
+      />
     </div>
   );
 }

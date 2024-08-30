@@ -1,3 +1,53 @@
+.todaysFocus_Mid {
+  width: 100%;
+  height: 60px;
+
+  box-sizing: border-box;
+  margin-top: 16px;
+  margin-bottom: 24px;
+  background-color: #ffffff;
+}
+
+.todaysFocus_Mid_point_Wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  width: 176px;
+  height: 60px;
+  gap: 8px;
+}
+
+.todaysFocus_Mid_point_text {
+  font-size: 1.125rem;
+  color: #818181;
+  font-weight: 400;
+  line-height: 21px;
+}
+.todaysFocus_Mid_point_container {
+  width: 116px;
+  height: 35px;
+  border-radius: 50px;
+  border: 1px solid #dddddd;
+  box-sizing: border-box;
+  padding-left: 24px;
+  padding-right: 12px;
+  padding-top: 8px;
+  padding-bottom: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("../../img/ic_point.svg");
+  background-repeat: no-repeat;
+  background-position: 12px center;
+}
+
+.todaysFocus_Mid_point_point {
+  font-size: 1rem;
+  color: #414141;
+  font-weight: 500;
+  line-height: 19px;
+}
+
 .popup_container {
   display: flex;
   width: 100%;
@@ -5,7 +55,7 @@
   justify-content: center;
   align-items: center;
   position: absolute;
-  top: 95%;
+  top: 90%;
   bottom: 0;
   left: 0;
   right: 0;
@@ -26,7 +76,7 @@
   padding-bottom: 14px;
   background-color: #fde0e9;
   color: #f50e0e;
-  font-size: 1rem; /* 16px = 1rem */
+  font-size: 1rem;
 
   width: 223px;
   height: 47px;
@@ -46,7 +96,7 @@
   padding-bottom: 14px;
   background-color: #e1edde;
   color: #578246;
-  font-size: 1rem; /* 16px = 1rem */
+  font-size: 1rem;
 
   width: 223px;
   height: 47px;
@@ -75,20 +125,52 @@
   border-radius: 20px;
   position: relative;
 }
+.mainTextAndInitTimerTime {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  height: 76px;
+  gap: 16px;
+}
 .todaysFocus-bottom-mainText {
-  font-size: 1.5rem; /* 16px : 24px  = 1rem : 1.5rem*/
+  font-size: 1.5rem;
   color: #414141;
   font-weight: 800;
   line-height: 29px;
 }
+.InitTimerTimeBtn {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  cursor: pointer;
+  width: 83px;
+  height: 31px;
+  border: 1px solid black;
+  border-radius: 50px;
+  padding-right: 12px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  background-color: white;
+  font-size: 1rem;
+  font-weight: 500;
+  background-image: url("../../img/today_focus/ic_timer.png");
+  background-repeat: no-repeat;
+  background-size: 19px auto;
+  background-position: 6px center;
+}
 .todaysFocus-bottom-time {
-  font-size: 9.375rem; /* 16px : 150px  =  1rem : 9.375rem*/
+  font-size: 9.375rem;
   color: #414141;
   font-weight: 800;
   line-height: 179px;
 }
 .todaysFocus-bottom-time.soon {
   color: red;
+}
+.todaysFocus-bottom-time.clear {
+  color: #818181;
 }
 .todaysFocus-bottom-start-btnWrapper {
   display: flex;
@@ -137,7 +219,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 1.75rem; /* 16px : 28px  =  1rem : 1.75rem*/
+  font-size: 1.75rem;
   color: #ffffff;
   font-weight: 800;
   height: 100%;
@@ -197,7 +279,7 @@
     padding-bottom: 14px;
     background-color: #fde0e9;
     color: #f50e0e;
-    font-size: 1rem; /* 16px = 1rem */
+    font-size: 1rem;
     width: 223px;
     height: 47px;
     border-radius: 12px;
@@ -216,11 +298,15 @@
     padding-bottom: 14px;
     background-color: #e1edde;
     color: #578246;
-    font-size: 1rem; /* 16px = 1rem */
+    font-size: 1rem;
 
     width: 223px;
     height: 47px;
     border-radius: 12px;
+  }
+
+  .todaysFocus-bottom {
+    height: 342px;
   }
   .todaysFocus-bottom-Container {
     display: flex;
@@ -229,20 +315,19 @@
     justify-content: space-between;
     align-items: center;
     box-sizing: border-box;
-    padding-left: 24px;
-    padding-right: 24px;
-    padding-top: 40px;
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: 24px;
     padding-bottom: 41px;
     border: 1px solid #dddddd;
     border-radius: 20px;
     position: relative;
   }
   .todaysFocus-bottom-time {
-    font-size: 5rem; /* 16px : 150px  =  1rem : 9.375rem*/
+    font-size: 5rem;
     color: #414141;
     font-weight: 800;
-    line-height: 179px;
-    font-family: "KCC-Hanbit";
+    line-height: 95.47px;
   }
 
   .todaysFocus-bottom-start-btnContainer {
@@ -250,16 +335,26 @@
     justify-content: center;
     align-items: center;
     box-sizing: border-box;
-    padding-left: 78px;
-    padding-right: 105px;
-    padding-top: 12px;
+    padding-left: 20px;
+    padding-right: 28px;
+    padding-top: 11px;
     padding-bottom: 8px;
     gap: 16px;
     border: 0;
     border-radius: 50px;
     width: 140px;
-    height: 48px;
+    height: 45px;
   }
+
+  .todaysFocus-bottom-start-text {
+    font-size: 18px;
+  }
+
+  .todaysFocus-bottom-start-play {
+    width: 24px;
+    height: 24px;
+  }
+
   .todaysFocus-bottom-start-pause.stop {
     width: 48px;
     height: 48px;

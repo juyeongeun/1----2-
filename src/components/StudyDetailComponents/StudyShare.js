@@ -4,17 +4,19 @@ import { toast } from "react-toastify";
 import KakaoIcon from "../../img/kakaotalk_sharing.png";
 
 function StudyShare({ id, name, onShareClick }) {
-  const shareUrl = `https://main--gatherstudy.netlify.app/study/${id}`;
+  const shareUrl = `https://gatherstudy.netlify.app/study/${id}`;
   const shareText = "모여봐요 공부의 숲";
-  const { Kakao } = window;
   const kakaokey = process.env.REACT_APP_KAKAO_KEY;
 
   useEffect(() => {
-    if (Kakao) {
-      Kakao.cleanup();
-      Kakao.init(kakaokey);
+    if (window.Kakao) {
+      if (!window.Kakao.isInitialized()) {
+        window.Kakao.init(kakaokey);
+      }
+    } else {
+      console.error("Kakao SDK is not loaded.");
     }
-  }, [Kakao, kakaokey]);
+  }, [kakaokey]);
 
   const handleCopyLink = () => {
     navigator.clipboard.writeText(shareUrl);
@@ -36,29 +38,33 @@ function StudyShare({ id, name, onShareClick }) {
   };
 
   const handleKakaoShare = () => {
-    Kakao.Share.sendDefault({
-      objectType: "feed",
-      content: {
-        title: shareText,
-        description: `${name}의 스터디를 구경해보세요!`, // name을 사용
-        imageUrl: "https://main--gatherstudy.netlify.app/ic_share_logo.png",
-        link: {
-          webUrl: shareUrl,
-          mobileWebUrl: shareUrl,
-        },
-        imageWidth: 800,
-        imageHeight: 400,
-      },
-      buttons: [
-        {
-          title: "스터디 구경하기",
+    if (window.Kakao) {
+      window.Kakao.Share.sendDefault({
+        objectType: "feed",
+        content: {
+          title: shareText,
+          description: `${name}의 스터디를 구경해보세요!`,
+          imageUrl: "https://main--gatherstudy.netlify.app/ic_share_logo.png",
           link: {
             webUrl: shareUrl,
             mobileWebUrl: shareUrl,
           },
+          imageWidth: 800,
+          imageHeight: 400,
         },
-      ],
-    });
+        buttons: [
+          {
+            title: "스터디 구경하기",
+            link: {
+              webUrl: shareUrl,
+              mobileWebUrl: shareUrl,
+            },
+          },
+        ],
+      });
+    } else {
+      console.error("Kakao SDK is not loaded.");
+    }
     onShareClick();
   };
 

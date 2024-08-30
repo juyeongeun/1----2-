@@ -1,9 +1,9 @@
-@import "../../css/reset.css";
+@import '../../css/reset.css';
 
 @font-face {
-  font-family: "EF_jejudoldam";
-  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2210-EF@1.0/EF_jejudoldam.woff2")
-    format("woff2");
+  font-family: 'EF_jejudoldam';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2210-EF@1.0/EF_jejudoldam.woff2')
+    format('woff2');
   font-weight: normal;
   font-style: normal;
 }
@@ -82,12 +82,9 @@
 }
 
 .backgroundOptions {
-  display: flex;
+  display: grid;
   gap: 16px;
-  margin-top: 10px;
-  flex-wrap: wrap;
-  align-content: center;
-  justify-content: center;
+  grid-template-columns: repeat(4, 1fr);
 }
 
 .backgroundOption {
@@ -100,14 +97,29 @@
 }
 
 .backgroundOption.selected::after {
-  content: "";
+  border: 8px solid #99c08e;
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  transform: translate(-50%, -50%);
+  background-repeat: no-repeat;
+  background-size: contain;
+  pointer-events: none;
+  border-radius: 16%;
+}
+
+.backgroundOption.selectedIcon::after {
+  content: '';
   position: absolute;
   top: 50%;
   left: 50%;
   width: 32px;
   height: 32px;
   transform: translate(-50%, -50%);
-  background-image: url("../../img/background/background_icon.png");
+  background-image: url('../../img/background/background_icon.png');
   background-repeat: no-repeat;
   background-size: contain;
   pointer-events: none;
@@ -123,7 +135,7 @@
   cursor: pointer;
   width: 24px;
   height: 24px;
-  top: 12px;
+  top: 10px;
 }
 
 .editButton {
@@ -142,7 +154,7 @@
 }
 
 .editButton:disabled {
-  background-color: #9d9d9d; /* 비활성화된 상태의 버튼 배경색 */
+  background-color: #9d9d9d;
   cursor: not-allowed;
 }
 
@@ -159,5 +171,13 @@
     width: auto;
     margin: 20px 16px 0 16px;
     padding: 16px;
+  }
+
+  .backgroundOptions {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 312px;
+    width: auto;
+    margin-left: auto;
+    margin-right: auto;
   }
 }

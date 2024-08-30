@@ -2,10 +2,9 @@ import styles from './ExploreDataFetch.module.css';
 import { useNavigate } from 'react-router-dom';
 import pointICon from '../../img/point_icon.png';
 
-import useFetchEmoji from '../../hooks/useFetchEmoji.js';
 import ExploreBackground from './backgrounds/ExploreBackground.js';
 
-function ProductListItem({ item, setClick }) {
+function ExploreStudyList({ item, setClick }) {
   const navigate = useNavigate();
   const today = new Date();
   const targetId = new Date(item.createdAt);
@@ -16,9 +15,7 @@ function ProductListItem({ item, setClick }) {
   const { nameColor, studyNameColor, pointColor, contentColor, createdColor } =
     ExploreBackground[item.background] || ExploreBackground.default;
 
-  const { emojis } = useFetchEmoji(item.id);
-
-  const hiddenEmojiCount = emojis.length - 3;
+  const hiddenEmojiCount = item.reaction.length - 3;
 
   const handleClick = (id) => {
     if (typeof setClick === 'function') {
@@ -52,15 +49,15 @@ function ProductListItem({ item, setClick }) {
         <p className={createdColor}>{diffDays}일째 진행 중</p>
 
         <p className={contentColor}>{item.content}</p>
-        {emojis.length > 0 && (
+        {item.reaction.length > 0 && (
           <div className={styles.emojis}>
-            {emojis.slice(0, 3).map((item, id) => (
+            {item.reaction.slice(0, 3).map((item, id) => (
               <div key={id} className={styles.emojiItem}>
                 <div className={styles.emoji}>{item.emoji}</div>
                 <span className={styles.emojiCount}>{item.count}</span>
               </div>
             ))}
-            {emojis.length > 3 && (
+            {item.reaction.length > 3 && (
               <div className={styles.emojiItemAdd}>+ {hiddenEmojiCount}</div>
             )}
           </div>
@@ -71,11 +68,15 @@ function ProductListItem({ item, setClick }) {
 }
 
 function StudyDataFetch({ data, setClick }) {
+  const uniqueStudies = data.filter(
+    (study, index, self) => index === self.findIndex((t) => t.id === study.id)
+  );
+
   return (
     <>
       <div className={styles.ListItems}>
-        {data.map((item) => (
-          <ProductListItem key={item.id} item={item} setClick={setClick} />
+        {uniqueStudies.map((item) => (
+          <ExploreStudyList key={item.id} item={item} setClick={setClick} />
         ))}
       </div>
     </>

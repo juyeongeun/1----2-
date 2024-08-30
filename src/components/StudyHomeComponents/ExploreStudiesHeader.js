@@ -2,16 +2,20 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 
 import styles from './ExploreStudiesHeader.module.css';
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import Dropdown from './Dropdown.js';
 
-function ExploreStudiesHeader({ onOrderChange, setKeyword, orderBy }) {
+function ExploreStudiesHeader({
+  onOrderChange,
+  setKeyword,
+  orderBy,
+  paramsReset,
+}) {
   const inputRef = useRef(null);
 
   const handleSearch = () => {
     const value = inputRef.current.value;
     setKeyword(value);
-    inputRef.current.value = '';
   };
 
   const onKeyPress = (e) => {
@@ -19,6 +23,10 @@ function ExploreStudiesHeader({ onOrderChange, setKeyword, orderBy }) {
       handleSearch();
     }
   };
+
+  useEffect(() => {
+    inputRef.current.value = '';
+  }, [orderBy, paramsReset]);
 
   return (
     <>
