@@ -151,7 +151,11 @@ const FocusTimer = ({ initTime, time, setTime, studyId, setModalOpen }) => {
             </button>
           </div>
 
-          <span className={`todaysFocus-bottom-time ${soon}`}>
+          <span
+            className={`todaysFocus-bottom-time ${soon} ${
+              clear ? "clear" : ""
+            }`}
+          >
             {timeParser(time)}
           </span>
 
