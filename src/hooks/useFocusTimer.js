@@ -42,8 +42,7 @@ const useFocusTimer = (studyId) => {
       }
     };
     const totalPoint = currentPoint + parseInt(point);
-    const res = await setPoint(totalPoint, studyId);
-    console.log(res);
+    await setPoint(totalPoint, studyId);
   };
 
   const timeParser = (time) => {
