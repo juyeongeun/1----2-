@@ -19,10 +19,21 @@
   cursor: pointer;
 }
 
+.selectedIconBackground {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  border: 10px solid #99c08e;
+  border-radius: 10%;
+}
+
 .iconImage {
   position: absolute;
-  top: 60px;
-  left: 62px;
+  top: 25%;
+  left: 25%;
+  transform: translate(50%, 50%);
   display: flex;
   justify-content: center;
   text-align: center;
