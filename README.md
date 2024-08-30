@@ -59,9 +59,17 @@
 
 <details>
   <summary>강범준</summary>
+  <h3>오늘의 습관 페이지</h3>
   <ul>
-    <li>오늘의 습관 페이지</li>
-    <li>(자신이 개발한 기능에 대한 사진이나 gif 파일 첨부)</li>
+    <li>오늘의 습관 Todo List 표시</li>
+    <li>Todo List 토글 기능</li>
+  </ul>
+
+  <h3>오늘의 습관 수정 모달 페이지</h3>
+  <ul>
+    <li>오늘의 습관 수정 목록 화면</li>
+    <li>플러스 (+)버튼 및 모달 창 디자인</li>
+    <li>습관 목록 입력 창 및 삭제 버튼 디자인</li>
   </ul>
 </details>
 
