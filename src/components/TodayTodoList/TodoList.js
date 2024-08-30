@@ -55,7 +55,7 @@ function TodoList() {
   const toggleTodo = async (habitId) => {
     try {
       await completeHabit(habitId);
-      refreshHabits(); // 토글 후 습관 상태 새로고침
+      refreshHabits();
     } catch (err) {
       console.error("Failed to complete habit:", err);
     }
@@ -101,7 +101,7 @@ function TodoList() {
         updateHabit={updateHabit}
         createHabit={createHabit}
         deleteHabit={deleteHabit}
-        onUpdate={refreshHabits} // 상태 업데이트 콜백 전달
+        onUpdate={refreshHabits}
       />
     </>
   );

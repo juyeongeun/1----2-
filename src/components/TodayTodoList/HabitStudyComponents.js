@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import "./HabitStudyComponents.css"; // CSS 파일을 import합니다.
-import TodoList from "./TodoList.js"; // TodoList 컴포넌트를 import합니다.
+import "./HabitStudyComponents.css";
+import TodoList from "./TodoList.js";
 import useFetchStudy from "../../hooks/useFetchStudy.js";
 import { useNavigate, useParams } from "react-router-dom";
 import TodayFocusButtonImage from "../../img/today-focus-btn.png";
@@ -10,7 +10,7 @@ function HabitStudyComponents() {
   const { studyId } = useParams();
   const { studyName, name, loading, error } = useFetchStudy(studyId);
   const [currentTime, setCurrentTime] = useState("");
-  const navigate = useNavigate(); // useNavigate 훅을 사용합니다.
+  const navigate = useNavigate();
 
   useEffect(() => {
     const formatTime = () => {

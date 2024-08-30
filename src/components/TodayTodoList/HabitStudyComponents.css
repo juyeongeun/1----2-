@@ -11,7 +11,6 @@
   border-radius: 10px;
 }
 
-/* 헤더 스타일 */
 header {
   display: flex;
   justify-content: space-between;
@@ -98,15 +97,15 @@ header .menu {
 }
 
 .habit-header h2 {
-  flex-grow: 1; /* h2 요소가 남은 공간을 차지하도록 설정 */
-  text-align: center; /* 텍스트를 가운데 정렬 */
-  margin: 0; /* 기본 마진 제거 */
+  flex-grow: 1;
+  text-align: center;
+  margin: 0;
   justify-content: center;
   align-items: center;
 }
 
 .habit-header button {
-  margin-left: auto; /* 버튼을 오른쪽으로 밀어내도록 설정 */
+  margin-left: auto;
 }
 
 /* 푸터 스타일 */
@@ -136,12 +135,12 @@ footer {
   }
 
   .habit-header {
-    justify-content: center; /* 제목과 버튼이 수직 정렬 */
+    justify-content: center;
     text-align: center;
   }
 
   .habit-header button {
-    margin-top: 10px; /* 버튼이 아래로 내려가도록 마진 추가 */
+    margin-top: 10px;
   }
 }
 

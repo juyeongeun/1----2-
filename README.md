@@ -59,8 +59,14 @@
 
 ### 강범준
 
-- 오늘의 습관 페이지
-  (자신이 개발한 기능에 대한 사진이나 gif 파일 첨부)
+- **habit**
+
+  - 오늘의 습관 Todo List 표시
+  - Todo List 토글 기능
+    ![alt text](<스크린샷 2024-08-30 오후 1.28.16-1.jpg>)
+
+- **habit modal** - 오늘의 습관 수정 모달 화면 - 플러스 (+)버튼 및 모달 창 디자인 - 습관 목록 입력 창 및 삭제 버튼 디자인
+  ![alt text](<스크린샷 2024-08-30 오후 1.28.27.jpg>)
 
 ### 김대건
 
@@ -177,9 +183,132 @@
 
 ![image](https://github.com/user-attachments/assets/6b7d32e6-0324-454e-b787-45d9bbad3358)
 
-
-
 ## 파일구조
+
+### 프론트엔드 파일 구조
+
+```
+node_modules
+public/
+├── _redirects
+├── favicon.png
+├── ic_share_logo.png
+├── index.css
+└── index.html
+
+src/
+├── components/
+│   ├── CreateStudyComponents/
+│   │   ├── CreateBackground.js
+│   │   ├── CreateBackground.module.css
+│   │   ├── CreateFooter.js
+│   │   ├── CreateFooter.module.css
+│   │   ├── CreateForm.js
+│   │   ├── CreateForm.module.css
+│   │   ├── CreateInput.js
+│   │   ├── CreateInput.module.css
+│   │   ├── CreatePassword.js
+│   │   └── CreatePassword.module.css
+│   ├── EditStudyComponents/
+│   │   ├── BackgroundSelector.js
+│   │   ├── EditStudyForm.css
+│   │   ├── EditStudyForm.js
+│   │   ├── LabeledInput.js
+│   │   ├── PasswordInput.js
+│   │   └── SubmitButton.js
+│   ├── Layout/
+│   │   ├── Container.js
+│   │   ├── Container.module.css
+│   │   ├── Footer.js
+│   │   ├── Layout.js
+│   │   ├── Nav.js
+│   │   └── Nav.module.css
+│   ├── StudyDetailComponents/
+│   │   ├── PasswordModal.css
+│   │   ├── PasswordModal.js
+│   │   ├── StudyHabits.css
+│   │   ├── StudyHabits.js
+│   │   ├── StudyInfo.css
+│   │   ├── StudyInfo.js
+│   │   ├── StudyName.css
+│   │   ├── StudyName.js
+│   │   ├── StudyPoint.css
+│   │   ├── StudyPoint.js
+│   │   └── StudyShare.js
+│   ├── StudyHomeComponents/
+│   │   ├── backgrounds/
+│   │   ├── Dropdown.js
+│   │   ├── Dropdown.module.css
+│   │   ├── ExploreDataFetch.js
+│   │   ├── ExploreDataFetch.module.css
+│   │   ├── ExploreStudies.js
+│   │   ├── ExploreStudies.module.css
+│   │   ├── ExploreStudiesHeader.js
+│   │   ├── ExploreStudiesHeader.module.css
+│   │   ├── RecentDataFetch.js
+│   │   ├── RecentDataFetch.module.css
+│   │   ├── RecentStudies.js
+│   │   ├── RecentStudies.module.css
+│   │   └── StudyHomeForm.js
+│   ├── TodayFocusComponents/
+│   │   ├── api/
+│   │   │   └── setPoint.js
+│   │   ├── components/
+│   │   │   ├── assets/
+│   │   │   ├── FocusMid.css
+│   │   │   ├── FocusMid.js
+│   │   │   ├── FocusTimer.css
+│   │   │   ├── FocusTimer.js
+│   │   │   ├── FocusTop.css
+│   │   │   ├── FocusTop.js
+│   │   │   ├── TimerSettingModal.css
+│   │   │   └── TimerSettingModal.js
+│   │   └── utility/
+│   │       ├── timeParser.js
+│   │       ├── FocusPage.css
+│   │       └── FocusPage.js
+│   └── TodayTodoList/
+│       ├── HabitEditModal.css
+│       ├── HabitEditModal.js
+│       ├── HabitItem.css
+│       ├── HabitItem.js
+│       ├── HabitModalList.css
+│       ├── HabitModalList.js
+│       ├── HabitStudyComponent.css
+│       ├── HabitStudyComponent.js
+│       ├── ModalButtons.css
+│       ├── ModalButtons.js
+│       ├── NewHabitList.css
+│       ├── NewHabitList.js
+│       ├── TodoList.css
+│       └── TodoList.js
+├── css/
+│   └── reset.css
+├── hooks/
+│   ├── useExploreList.js
+│   ├── useFetchCompleteHabit.js
+│   ├── useFetchEmoji.js
+│   ├── useFetchHabit.js
+│   ├── useFetchStudy.js
+│   ├── useInputValid.js
+│   └── useRecentList.js
+├── img/
+├── pages/
+│   ├── CreateStudyPage.js
+│   ├── EditStudyPage.js
+│   ├── FocusTimerPage.js
+│   ├── HabitTrackerPage.js
+│   ├── StudyDetailPage.js
+│   ├── StudyRoomPage.js
+│   ├── index.js
+│   └── Main.js
+├── index.js
+├── Main.js
+.gitignore
+package-lock.json
+package.json
+README.md
+```
 
 ## 구현 홈페이지
 
