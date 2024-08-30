@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import pointICon from '../../img/point_icon.png';
 import RecentBackground from './backgrounds/RecentBackground.js';
 
-function ProductListItem({ item, setClick }) {
+function RecentStudyList({ item }) {
   const navigate = useNavigate();
   const today = new Date();
   const targetId = new Date(item.createdAt);
@@ -17,9 +17,6 @@ function ProductListItem({ item, setClick }) {
   const hiddenEmojiCount = item.reaction.length - 3;
 
   const handleClick = (id) => {
-    if (typeof setClick === 'function') {
-      setClick(id);
-    }
     setTimeout(() => {
       navigate(`/study/${id}`);
     }, 0);
@@ -66,17 +63,16 @@ function ProductListItem({ item, setClick }) {
   );
 }
 
-function StudyDataFetchId({ data, setClick }) {
-  console.log(data);
+function RecentDataFetch({ data }) {
   return (
     <>
       <div className={styles.ListItems}>
         {data.map((item) => (
-          <ProductListItem key={item.id} item={item} setClick={setClick} />
+          <RecentStudyList key={item.id} item={item} />
         ))}
       </div>
     </>
   );
 }
 
-export default StudyDataFetchId;
+export default RecentDataFetch;

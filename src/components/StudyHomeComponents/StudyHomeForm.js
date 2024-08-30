@@ -7,7 +7,7 @@ function StudyHomeForm({ paramsReset }) {
   const [click, setClick] = useState('');
   return (
     <>
-      <RecentStudies click={click} />
+      <RecentStudies click={click} paramsReset={paramsReset} />
       <ExploreStudies setClick={setClick} paramsReset={paramsReset} />
     </>
   );
