@@ -23,6 +23,12 @@
   border: 1px solid #dddddd;
 }
 
+.modal-scroll {
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-height: 780px;
+}
+
 .modal-title {
   text-align: center;
   font-size: 24px;
