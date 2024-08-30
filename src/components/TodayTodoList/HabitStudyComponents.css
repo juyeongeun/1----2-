@@ -65,7 +65,6 @@
   border: 1px solid #dddddd;
 }
 
-/* 모바일 버전 스타일 */
 @media (max-width: 720px) {
   .both-sides {
     display: flex;

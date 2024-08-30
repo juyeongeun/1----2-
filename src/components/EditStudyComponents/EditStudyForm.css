@@ -142,7 +142,7 @@
 }
 
 .editButton:disabled {
-  background-color: #9d9d9d; /* 비활성화된 상태의 버튼 배경색 */
+  background-color: #9d9d9d;
   cursor: not-allowed;
 }
 

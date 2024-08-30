@@ -4,7 +4,6 @@ import ic_inactive from "../../img/check/ic_inactive.svg";
 import { activeIcons } from "../../img/ImgImport.js";
 
 function StudyHabits({ habits, completeHabits, studyId }) {
-  // 특정 요일에 습관이 완료되었는지 확인
   const isHabitCompleteOnDay = (habitId, dayIndex) => {
     return completeHabits.some((ch) => {
       const habitCompletionDate = new Date(ch.createdAt);

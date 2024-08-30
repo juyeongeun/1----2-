@@ -53,7 +53,6 @@ export default function HabitEditModal({
 
     try {
       onClose();
-      // 모달 닫기 전 데이터 저장
       const updates = localHabits
         .filter((habit) => {
           const originalHabit = habits.find((h) => h.habitId === habit.habitId);
@@ -64,7 +63,6 @@ export default function HabitEditModal({
           data: { habitName: habit.habitName },
         }));
 
-      // 데이터 저장
       if (updates.length > 0) {
         await updateHabits(updates);
       }
@@ -82,11 +80,9 @@ export default function HabitEditModal({
         } catch (err) {}
       }
 
-      // 로컬 상태 업데이트
       setLocalHabits((prevHabits) => [...prevHabits, ...newHabitResponses]);
       setNewHabitList([]);
 
-      // 데이터베이스 업데이트 후 UI 새로고침
       await onUpdate();
     } catch (error) {
       console.error("Failed to update habits:", error);

@@ -91,7 +91,7 @@ function HabitStudyComponents() {
       </div>
 
       <div className="inner-container">
-        <TodoList /> {/* 할 일 목록 컴포넌트 */}
+        <TodoList />
       </div>
 
       <PasswordModal
