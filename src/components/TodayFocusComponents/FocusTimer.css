@@ -169,6 +169,9 @@
 .todaysFocus-bottom-time.soon {
   color: red;
 }
+.todaysFocus-bottom-time.clear {
+  color: #818181;
+}
 .todaysFocus-bottom-start-btnWrapper {
   display: flex;
   justify-content: center;
