@@ -30,8 +30,9 @@
 }
 .iconImage {
   position: absolute;
-  top: 50px;
-  left: 50px;
+  top: 25%;
+  left: 25%;
+  transform: translate(50%, 50%);
   display: flex;
   justify-content: center;
   text-align: center;
