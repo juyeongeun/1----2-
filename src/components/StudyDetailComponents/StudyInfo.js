@@ -1,5 +1,5 @@
 import EmojiPicker from "emoji-picker-react";
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import useFetchEmoji from "../../hooks/useFetchEmoji.js";
 import StudyShare from "./StudyShare.js";
 import { ToastContainer } from "react-toastify";
@@ -17,6 +17,9 @@ function StudyInfo({ studyName, name, password, deleteStudy, studyId }) {
   const [modalButtonText, setModalButtonText] = useState("");
   const navigate = useNavigate();
   const { emojis, loading, error, saveEmoji } = useFetchEmoji(studyId);
+
+  const emojiPickerRef = useRef(null);
+  const shareOptionsRef = useRef(null);
 
   const onEmojiClick = (emojiObject, event) => {
     const selectedEmoji = emojiObject.emoji;
@@ -60,6 +63,30 @@ function StudyInfo({ studyName, name, password, deleteStudy, studyId }) {
     setIsModalOpen(false);
   };
 
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        isEmojiPickerVisible &&
+        emojiPickerRef.current &&
+        !emojiPickerRef.current.contains(event.target)
+      ) {
+        setEmojiPickerVisible(false);
+      }
+      if (
+        showShareOptions &&
+        shareOptionsRef.current &&
+        !shareOptionsRef.current.contains(event.target)
+      ) {
+        setShowShareOptions(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isEmojiPickerVisible, showShareOptions]);
+
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error}</p>;
 
@@ -92,11 +119,11 @@ function StudyInfo({ studyName, name, password, deleteStudy, studyId }) {
             </button>
           </div>
           {isEmojiPickerVisible && (
-            <div className="emoji-picker-react">
+            <div className="emoji-picker-react" ref={emojiPickerRef}>
               <EmojiPicker onEmojiClick={onEmojiClick} />
             </div>
           )}
-          <div className="share">
+          <div className="share" ref={shareOptionsRef}>
             <span className="text color-G" onClick={handleShareClick}>
               공유하기
             </span>

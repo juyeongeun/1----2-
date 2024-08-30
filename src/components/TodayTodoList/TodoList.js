@@ -26,41 +26,31 @@ function TodoList() {
     completeHabit,
   } = useFetchCompleteHabit(studyId);
 
+  // 최초 로드 시 habits를 localHabits에 설정
   useEffect(() => {
-    const updatedHabits = habits.map((habit) => {
-      if (habit.habitId) {
-        return habit;
-      }
-
-      return {
-        habitId: habit.id,
+    if (habits.length > 0) {
+      const updatedHabits = habits.map((habit) => ({
+        habitId: habit.habitId || habit.id,
         habitName: habit.habitName,
         endDate: habit.endDate,
-      };
-    });
-
-    const uniqueHabits = Array.from(
-      new Map(updatedHabits.map((habit) => [habit.habitId, habit])).values()
-    );
-    setLocalHabits(uniqueHabits);
+      }));
+      setLocalHabits(updatedHabits);
+    }
   }, [habits]);
 
   const refreshHabits = useCallback(() => {
-    const updatedHabits = habits.map((habit) => {
-      if (habit.habitId) {
-        return habit;
-      }
-      return {
-        habitId: habit.id,
-        habitName: habit.habitName,
-        endDate: habit.endDate,
-      };
-    });
+    const updatedHabits = habits.map((habit) => ({
+      habitId: habit.habitId || habit.id,
+      habitName: habit.habitName,
+      endDate: habit.endDate,
+    }));
 
-    const uniqueHabits = Array.from(
-      new Map(updatedHabits.map((habit) => [habit.habitId, habit])).values()
-    );
-    setLocalHabits(uniqueHabits);
+    setLocalHabits((prevHabits) => {
+      const habitMap = new Map(
+        [...prevHabits, ...updatedHabits].map((habit) => [habit.habitId, habit])
+      );
+      return Array.from(habitMap.values());
+    });
   }, [habits]);
 
   if (habitsLoading || completeLoading) {
@@ -127,7 +117,7 @@ function TodoList() {
         updateHabits={updateHabits}
         createHabit={createHabit}
         deleteHabit={deleteHabit}
-        onUpdate={refreshHabits}
+        onUpdate={refreshHabits} // 모달이 닫힐 때만 상태를 업데이트
       />
     </>
   );
