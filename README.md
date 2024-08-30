@@ -64,6 +64,9 @@
     <li>오늘의 습관 Todo List 표시</li>
     <li>Todo List 토글 기능</li>
   </ul>
+  
+![image](https://github.com/user-attachments/assets/22a185a6-2847-443d-aac3-2bd3ad72473a)
+
 
   <h3>오늘의 습관 수정 모달 페이지</h3>
   <ul>
@@ -71,6 +74,9 @@
     <li>플러스 (+)버튼 및 모달 창 디자인</li>
     <li>습관 목록 입력 창 및 삭제 버튼 디자인</li>
   </ul>
+  
+  ![image](https://github.com/user-attachments/assets/342af89e-014b-4eba-a2e7-f218311b4281)
+
 </details>
 
 <details>
@@ -240,8 +246,6 @@
 
 **권한 확인 모달**
 ![image](https://github.com/user-attachments/assets/3dec79f8-af35-4a80-b593-e73fa47fa286)
-
-# <<<<<<< HEAD
 
 **수정하기 폼**
 ![image](https://github.com/user-attachments/assets/6b7d32e6-0324-454e-b787-45d9bbad3358)
