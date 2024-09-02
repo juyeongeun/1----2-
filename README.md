@@ -255,12 +255,15 @@
   </ul>
 
 **스터디 상세 조회**
+
 ![image](https://github.com/user-attachments/assets/eff21e9d-5e1b-4037-8cda-29a4e7ddcc29)
 
 **권한 확인 모달**
+
 ![image](https://github.com/user-attachments/assets/3dec79f8-af35-4a80-b593-e73fa47fa286)
 
 **수정하기 폼**
+
 ![image](https://github.com/user-attachments/assets/6b7d32e6-0324-454e-b787-45d9bbad3358)
 
 </details>
