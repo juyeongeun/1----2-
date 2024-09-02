@@ -102,9 +102,8 @@ function EditStudyForm() {
   }, [loading, error, name, studyName, content, background]);
 
   useEffect(() => {
-    // 모달을 열기 위한 기본 설정
     if (isPasswordCorrect) {
-      setIsModalOpen(false); // 비밀번호가 확인되면 모달 닫기
+      setIsModalOpen(false);
     }
   }, [isPasswordCorrect]);
 
