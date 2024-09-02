@@ -1,6 +1,8 @@
 # 2팀
 
-📄 [팀 협업 문서](https://arrow-season-125.notion.site/ec0da2984aee44b29e332e18b85d12db?v=c951e5190e594c56aae608fd15b9420b&pvs=4)
+[📄 팀 협업 문서](https://arrow-season-125.notion.site/ec0da2984aee44b29e332e18b85d12db?v=c951e5190e594c56aae608fd15b9420b&pvs=4)
+
+[📄 BE 레포지토리](https://github.com/juyeongeun/1-study-2-BE)
 
 ## 🍀 팀원 구성
 
